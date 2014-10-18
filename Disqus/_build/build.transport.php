@@ -238,14 +238,17 @@ $vehicle->resolve('file',array(
 
 
 // Add Resolvers
-$BUILD_RESOLVERS= array('tables');
+$BUILD_RESOLVERS= array('tables', 'setup', 'update');
 foreach ($BUILD_RESOLVERS as $resolver) 
 {
-	if ($vehicle->resolve('php', array('source' => $sources['resolvers'] . 'resolve.'.$resolver.'.php'))) {
-		$modx->log(modX::LOG_LEVEL_INFO,'Added Resolver "'.$resolver.'" to category.');
+	if ( file_exists($sources['resolvers'] . 'resolve.'.$resolver.'.php') )
+	{
+		if ($vehicle->resolve('php', array('source' => $sources['resolvers'] . 'resolve.'.$resolver.'.php'))) {
+			$modx->log(modX::LOG_LEVEL_INFO,'Added Resolver "'.$resolver.'" to category.');
 
-	} else {
-		$modx->log(modX::LOG_LEVEL_INFO,'Could not add resolver "'.$resolver.'" to category.');
+		} else {
+			$modx->log(modX::LOG_LEVEL_INFO,'Could not add resolver "'.$resolver.'" to category.');
+		}
 	}
 }
 $builder->putVehicle($vehicle);
@@ -292,7 +295,7 @@ $tend= $mtime;
 $totalTime= ($tend - $tstart);
 $totalTime= sprintf("%2.4f s", $totalTime);
 
-$modx->log(modX::LOG_LEVEL_INFO,"\n<br />Package Built.<br />\nExecution time: {$totalTime}\n");
+$modx->log(modX::LOG_LEVEL_INFO,"\nPackage Built.\nExecution time: {$totalTime}\n");
 
 session_write_close();
 exit();
