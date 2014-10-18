@@ -1,4 +1,4 @@
-[[*disqus:is=`true`:then=`
+[[*disqus:is=`1`:then=`
 		<div id="disqus">
 			<h2 id="add-your-comment">[[%addcomment? &namespace=`ludwigdisqus` &language=`[[++cultureKey]]`]]</h2>
 			<div id="disqus_thread">[[!ludwigdisqus_seofriendly:strip]]</div>
