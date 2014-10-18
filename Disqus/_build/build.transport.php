@@ -31,15 +31,12 @@ $mtime = $mtime[1] + $mtime[0];
 $tstart = $mtime;
 set_time_limit(0);
 
-/* define package */
-define('PKG_NAME','LudwigDisqus');
-define('PKG_NAME_LOWER','ludwigdisqus');
-define('PKG_VERSION','1.0.0');
-define('PKG_RELEASE','pl');
+/* load modx and configs */
+require_once dirname(__FILE__) . '/build.config.php';
 
 /* define sources */
-$root = realpath(dirname(dirname(__FILE__)).'/../../../') .'/';
-$build = $root . 'core/components/' . PKG_NAME_LOWER . '/_build/';
+$root = MODX_ADDON_PATH . PKG_NAME_LOWER .'/';
+$build = MODX_ADDON_PATH .'_build/';
 $sources = array(
 	'root' => $root,
 	'build' => $build,
@@ -48,27 +45,25 @@ $sources = array(
 	'resolvers' => $build . 'resolvers/',
 	'properties' => $build . 'data/properties/',
 	'permissions' => $build . 'data/permissions/',
-	'chunks' => $root . 'core/components/' . PKG_NAME_LOWER . '/elements/chunks/',
-	'snippets' => $root . 'core/components/' . PKG_NAME_LOWER . '/elements/snippets/',
-	'plugins' => $root . 'core/components/' . PKG_NAME_LOWER . '/elements/plugins/',
-	'lexicon' => $root . 'core/components/' . PKG_NAME_LOWER . '/lexicon/',
-	'docs' => $root . 'core/components/' . PKG_NAME_LOWER . '/docs/',
-	'pages' => $root . 'core/components/' . PKG_NAME_LOWER . '/elements/pages/',
-	'templates' => $root . 'core/components/' . PKG_NAME_LOWER . '/templates/',
-	'source_assets' => $root . 'assets/components/' . PKG_NAME_LOWER,
-	'source_core' => $root . 'core/components/' . PKG_NAME_LOWER,
+	'chunks' => $root .'elements/chunks/',
+	'snippets' => $root .'elements/snippets/',
+	'plugins' => $root .'elements/plugins/',
+	'lexicon' => $root .'lexicon/',
+	'docs' => $root .'docs/',
+	'pages' => $root .'elements/pages/',
+	'templates' => $root .'elements/templates/',
+	'source_assets' => $root .'elements/assets/',
+	'source_core' => $root . 'elements/core/',
 );
 unset($root);
 unset($build);
 
 /* override with your own defines here (see build.config.sample.php) */
-require_once $sources['build'] . '/build.config.php';
 require_once MODX_CORE_PATH . 'model/modx/modx.class.php';
 require_once $sources['build'] . '/includes/functions.php';
 
 $modx= new modX();
 $modx->initialize('mgr');
-echo '<pre>'; /* used for nice formatting of log messages */
 $modx->setLogLevel(modX::LOG_LEVEL_INFO);
 $modx->setLogTarget('ECHO');
 
@@ -293,4 +288,4 @@ $totalTime= sprintf("%2.4f s", $totalTime);
 
 $modx->log(modX::LOG_LEVEL_INFO,"\n<br />Package Built.<br />\nExecution time: {$totalTime}\n");
 
-exit ();
+exit();

@@ -23,7 +23,7 @@ $snippets[$i]->fromArray(array(
     'id' => $i,
     'name' => $pak .'_import',
     'description' => 'Import Items from Disqus for SEO',
-    'snippet' => getSnippetContent($sources['source_core'].'/elements/snippets/'. $pak .'_import.snippet.php'),
+    'snippet' => getSnippetContent($sources['snippets'] . $pak .'_import.snippet.php'),
 ),'',true,true);
 
 // Show SEO-Friendly Items
@@ -33,7 +33,7 @@ $snippets[$i]->fromArray(array(
     'id' => $i,
     'name' => $pak .'_seofriendly',
     'description' => 'Optimize Disqus Comments for Search Engines',
-    'snippet' => getSnippetContent($sources['source_core'].'/elements/snippets/'. $pak .'_seofriendly.snippet.php'),
+    'snippet' => getSnippetContent($sources['snippets'] . $pak .'_seofriendly.snippet.php'),
 ),'',true,true);
 
 unset($properties);

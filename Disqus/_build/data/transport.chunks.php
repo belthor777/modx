@@ -13,7 +13,7 @@ $chunks[$i]->fromArray(array(
     'id' => 0,
     'name' => 'disqus',
     'description' => 'Disqus comments on your website',
-    'snippet' => file_get_contents($sources['source_core'].'/elements/chunks/disqus.chunk.tpl'),
+    'snippet' => file_get_contents($sources['chunks'].'disqus.chunk.tpl'),
     'properties' => '',
 ),'',true,true);
 
@@ -24,7 +24,7 @@ $chunks[$i]->fromArray(array(
     'id' => $i,
     'name' => $pkg .'_seofriendly',
     'description' => 'Show some Search Engine Optimized Disqus information/comments',
-    'snippet' => file_get_contents($sources['source_core'].'/elements/chunks/'. $pkg .'_seofriendly.chunk.tpl'),
+    'snippet' => file_get_contents($sources['chunks'] . $pkg .'_seofriendly.chunk.tpl'),
     'properties' => '',
 ),'',true,true);
 
