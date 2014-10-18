@@ -12,17 +12,17 @@ $tvs[$i]->fromArray(array(
     'caption'           => 'Disqus',
     'description'       => 'Disqus helps you build a community of active readers and commenters.',
     'type'              => 'listbox',
-    'elements'          => 'No==false||Yes==true',
-    'default_text'      => 'false',
+    'elements'          => 'No==0||Yes==1',
+    'default_text'      => '0',
     'input_properties'   => array(
-        'allowBlank'    => false,
-        'typeAhead'     => false,
-        'typeAheadDelay'=> 250,
-        'forceSelection'=> 250,
-        'listEmptyText' => '',
+		'allowBlank'    => false,
+	        'typeAhead'     => false,
+	        'typeAheadDelay'=> 250,
+	        'forceSelection'=> 250,
+	        'listEmptyText' => '',
     ),
     'output_properties' => array(),
     'rank'              => 20
-), '', true, true, false); $i++;
+));
 
 return $tvs;

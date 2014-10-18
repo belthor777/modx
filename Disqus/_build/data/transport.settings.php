@@ -71,7 +71,7 @@ $settings['ludwigdisqus.force_db_rebuild']->fromArray(array(
 $settings['ludwigdisqus.use_cronjob']= $modx->newObject('modSystemSetting');
 $settings['ludwigdisqus.use_cronjob']->fromArray(array(
      'key' => 'ludwigdisqus.use_cronjob',
-     'value' => '0',
+     'value' => '1',
      'xtype' => 'combo-boolean',
      'namespace' => 'ludwigdisqus',
      'area' => 'seofriendly',
