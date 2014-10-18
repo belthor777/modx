@@ -1,4 +1,6 @@
-Ludwig::Disqus 1.0.0 (October 12, 2014)
+LudwigDisqus 1.0.0 (October 12, 2014)
 ====================================
 - Initial project
 - Initial changelog started
+
+Visit https://ludwig.im/en/projects/disqus-ludwigdisqus-for-modx for more information
