@@ -39,12 +39,13 @@ define('PKG_NAME_LOWER',strtolower(PKG_NAME));
 require_once dirname(__FILE__) . '/build.config.php';
 
 /* define sources */
-$root = realpath(dirname(dirname(__FILE__)).'/../../../') .'/';
 $sources = array(
-    'model' => $root.'core/components/'.PKG_NAME_LOWER.'/model/',
-    'schema_file' => $root.'core/components/'.PKG_NAME_LOWER.'/schema/'.PKG_NAME_LOWER.'.mysql.schema.xml',
+    'model' => MODX_ADDON_PATH . PKG_NAME_LOWER.'/model/',
+    'schema_file' => MODX_ADDON_PATH . PKG_NAME_LOWER.'/schema/'.PKG_NAME_LOWER.'.mysql.schema.xml',
 );
 
+
+print_r($sources);
 /* load modx and configs */
 include_once MODX_CORE_PATH . 'model/modx/modx.class.php';
 $modx= new modX();
