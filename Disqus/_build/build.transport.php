@@ -115,10 +115,10 @@ if(file_exists($sources['data'] . 'transport.templatevars.php'))
 {
 	$tvs = include $sources['data'] . 'transport.templatevars.php';
 	if (is_array($tvs)) {
-	        $category->addMany($tvs, 'Template Variables');
+	        $category->addMany($tvs);
 	} else {
 	        $tvs = array();
-	        $modx->log(modX::LOG_LEVEL_ERROR, 'No tvs defined.');
+	        $modx->log(modX::LOG_LEVEL_ERROR, 'Adding template variables failed.');
 	}
 	$modx->log(modX::LOG_LEVEL_INFO, 'Packaged in ' . count($tvs) . ' template variables.');
 	flush();
