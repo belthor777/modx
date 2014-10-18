@@ -236,12 +236,18 @@ $vehicle->resolve('file',array(
     'target' => "return MODX_CORE_PATH . 'components/';",
 ));
 
-/* init db tables */
-$modx->log(modX::LOG_LEVEL_DEBUG, 'Adding in PHP Resolvers...');
-$vehicle->resolve('php', array(
-    'source' => $sources['resolvers'] . 'resolve.tables.php',
-));
 
+// Add Resolvers
+$BUILD_RESOLVERS= array('tables');
+foreach ($BUILD_RESOLVERS as $resolver) 
+{
+	if ($vehicle->resolve('php', array('source' => $sources['resolvers'] . 'resolve.'.$resolver.'.php'))) {
+		$modx->log(modX::LOG_LEVEL_INFO,'Added Resolver "'.$resolver.'" to category.');
+
+	} else {
+		$modx->log(modX::LOG_LEVEL_INFO,'Could not add resolver "'.$resolver.'" to category.');
+	}
+}
 $builder->putVehicle($vehicle);
 unset($vehicle);
 
@@ -288,4 +294,5 @@ $totalTime= sprintf("%2.4f s", $totalTime);
 
 $modx->log(modX::LOG_LEVEL_INFO,"\n<br />Package Built.<br />\nExecution time: {$totalTime}\n");
 
+session_write_close();
 exit();
