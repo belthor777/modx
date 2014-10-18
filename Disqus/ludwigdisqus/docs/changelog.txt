@@ -1,0 +1,4 @@
+Ludwig::Disqus 1.0.0 (October 12, 2014)
+====================================
+- Initial project
+- Initial changelog started
