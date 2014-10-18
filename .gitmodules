@@ -1,0 +1,3 @@
+[submodule "Disqus/ludwigdisqus/model/disqus-php"]
+	path = Disqus/ludwigdisqus/model/disqus-php
+	url = git://github.com/disqus/disqus-php.git
