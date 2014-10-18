@@ -48,6 +48,12 @@ $activated = array(	'plugin' => $modx->getOption( $pak .'.activated'),
 			'seofriendly' => $modx->getOption( $pak .'.seofriendly') );
 $force_db_rebuild = $modx->getOption( $pak .'.force_db_rebuild');
 
+// Max fetch limit is 100
+if( $disqus_fetch_limit > 100 )
+{
+	$disqus_fetch_limit= 100;
+}
+
 // Check if package is installed and activated
 $ldpath = MODX_CORE_PATH.'components/'. $pak .'/model/';
 if(!$modx->addPackage($pak, $ldpath, 'disqus_') || !$activated['plugin'] ) 
