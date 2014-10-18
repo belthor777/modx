@@ -25,6 +25,10 @@
  * @package ludwigdisqus
  * @subpackage build
  */
+/* define package name */
+define('PKG_NAME', 'LudwigDisqus');
+define('PKG_NAME_LOWER', strtolower(PKG_NAME));
+
 define('MODX_ADDON_PATH', realpath(dirname(dirname(__FILE__).'/../../')) .'/');
 
 define('MODX_BASE_PATH', '/var/www/modx/');
