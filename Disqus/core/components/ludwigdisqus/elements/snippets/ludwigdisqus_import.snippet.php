@@ -56,7 +56,7 @@ if( $disqus_fetch_limit > 100 )
 
 // Check if package is installed and activated
 $ldpath = MODX_CORE_PATH.'components/'. $pak .'/model/';
-if(!$modx->addPackage($pak, $ldpath, 'disqus_') || !$activated['plugin'] ) 
+if(!$modx->addPackage($pak, $ldpath, 'disqus_') || !$activated['plugin'] )
 {
 	return 'There was a problem adding the LudwigDisqus package!  Check the logs for more info!';
 
@@ -67,8 +67,8 @@ if(!$modx->addPackage($pak, $ldpath, 'disqus_') || !$activated['plugin'] )
 	$disqus = new DisqusAPI( $api_key, 'json', '3.0' );
 
 	// Set Disqus fetch parameter
-	$params = array('forum' => $shortname, 
-			'order' => $disqus_fetch_order, 
+	$params = array('forum' => $shortname,
+			'order' => $disqus_fetch_order,
 			'limit' => $disqus_fetch_limit );
 
 	// Trunicate table
@@ -77,16 +77,16 @@ if(!$modx->addPackage($pak, $ldpath, 'disqus_') || !$activated['plugin'] )
 	  	$sessionTable = $modx->getTableName('disqus_comment');
   	  	if ($modx->query("TRUNCATE {$sessionTable}") == false) {
 			return $modx->error->failure("Could not truncate disqus_comment table");
-	  	}	
+	  	}
 		//$modx->removeCollection('Comment');
 
 	// Get latest comment date
 	} else {
 		$res = $modx->query("SELECT MAX(created) as max FROM disqus_comment");
-		if (is_object($res)) 
+		if (is_object($res))
 		{
 			$row = $res->fetch(PDO::FETCH_ASSOC);
-			if (!empty($row['max'])) 
+			if (!empty($row['max']))
 			{
 				$params['since'] = $row['max']+1;
 			}
@@ -103,16 +103,16 @@ if(!$modx->addPackage($pak, $ldpath, 'disqus_') || !$activated['plugin'] )
 		$cursor = $posts->cursor;
 		$params['cursor'] = $cursor->next;
 
-		foreach ($posts as $post) 
+		foreach ($posts as $post)
 		{
 			$fields = array(
 				'id' => intval( $post->id ),
 				'author_name' => $post->author->name,
 				'comment' => $post->raw_message,
 				'thread_id' => intval( $post->thread ),
-				'parent_id' => $post->parent_id,
-				'like' => intval( $post->like ),
-				'dislike' => intval( $post->dislike ),	
+				'parent_id' => ( is_null( $post->parent ) ? NULL : intval($post->parent) ),
+				'like' => intval( $post->likes ),
+				'dislike' => intval( $post->dislikes ),
 				'isSpam' => boolval( $post->isSpam ),
 				'isDeleted' => boolval( $post->isDeleted ),
 				'created' => intval( strtotime($post->createdAt."+0000") ) // Disqus uses GMT

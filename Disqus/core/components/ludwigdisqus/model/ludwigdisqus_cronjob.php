@@ -37,6 +37,7 @@
  */
 $outsideModx = false;
 $pkg = "ludwigdisqus";
+$output= '';
 
 /* Check for CLI mode */
 if (PHP_SAPI != 'cli')
@@ -47,7 +48,7 @@ if (PHP_SAPI != 'cli')
 /* Instantiate MODX if necessary */
 if (!isset($modx)) {
     $outsideModx = true;
- 
+
     /* Set path to MODX core directory */
     if (!defined('MODX_CORE_PATH')) {
         /* be sure this has a trailing slash */
@@ -55,7 +56,7 @@ if (!isset($modx)) {
     }
     /* get the MODX class file */
     require_once MODX_CORE_PATH . 'model/modx/modx.class.php';
- 
+
     /* instantiate the $modx object */
     $modx = new modX();
     if ((!$modx) || (!$modx instanceof modX)) {
@@ -63,10 +64,10 @@ if (!isset($modx)) {
     }
     /* initialize MODX and set current context */
     $modx->initialize('web');
- 
+
     /* load the error handler */
     $modx->getService('error', 'error.modError', '', '');
- 
+
     /* Set up logging */
     $modx->setLogLevel(xPDO::LOG_LEVEL_INFO);
 
@@ -76,8 +77,14 @@ if (!isset($modx)) {
     // Is CronJob allowed?
     if ( $modx->getOption( $pkg .'.use_cronjob') && $modx->getOption( $pkg .'.activated') && $modx->getOption( $pkg .'.seofriendly') )
     {
-	    // Run Import Snippet
-	    exit( $modx->runSnippet( $pkg .'_import',array()) );
+                // Clear Cache
+                $cm = $modx->getCacheManager();
+                $cm->refresh();
+
+                // Run Import Snippet - Cached Version
+                $output = $modx->runSnippet( $pkg .'_import',array());
+
+                exit($output);
     }
     exit(0);
 
