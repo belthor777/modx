@@ -73,74 +73,37 @@ $builder->createPackage(PKG_NAME_LOWER,PKG_VERSION,PKG_RELEASE);
 $builder->registerNamespace(PKG_NAME_LOWER,false,true,'{core_path}components/'.PKG_NAME_LOWER.'/');
 $modx->log(modX::LOG_LEVEL_INFO,'Created Transport Package and Namespace.');
 
-/* create category */
+// Create category
 $category= $modx->newObject('modCategory');
 $category->set('id',1);
 $category->set('category',PKG_NAME);
-$modx->log(modX::LOG_LEVEL_INFO, 'Packaged in category.');
+$modx->log(modX::LOG_LEVEL_INFO, 'Packaged in "'. PKG_NAME .'" category.');
 flush();
 
-/* add snippets */
-if(file_exists($sources['data'] . 'transport.snippets.php'))
+// Add Elements to Category
+$BUILD_CATEGORY= array('Snippets', 'Chunks', 'TemplateVars', 'Plugins');
+foreach ($BUILD_CATEGORY as $mycat)
 {
-	$snippets = include $sources['data'] . 'transport.snippets.php';
-	if (is_array($snippets)) {
-		$category->addMany($snippets, 'Snippets');
-	} else {
-		$snippets = array();
-		$modx->log(modX::LOG_LEVEL_ERROR, 'No snippets defined.');
+	if(file_exists($sources['data'] . 'transport.'. strtolower($mycat) .'.php'))
+	{
+	        $cat_element = include $sources['data'] . 'transport.'. strtolower($mycat) .'.php';
+	        if (is_array($cat_element))
+		{
+	                $category->addMany($cat_element, $mycat);
+
+	        } else {
+	                $cat_element = array();
+	                $modx->log(modX::LOG_LEVEL_ERROR, 'No '. $mycat .' defined.');
+
+	        }
+	        $modx->log(modX::LOG_LEVEL_INFO, 'Packaged in ' . count($cat_element) . ' '. $mycat );
+	        flush();
+	        unset($cat_element);
 	}
-	$modx->log(modX::LOG_LEVEL_INFO, 'Packaged in ' . count($snippets) . ' snippets.');
-	flush();
-	unset($snippets);
 }
 
-/* add chunks */
-if(file_exists($sources['data'] . 'transport.chunks.php'))
-{
-	$chunks = include $sources['data'] . 'transport.chunks.php';
-	if (is_array($chunks)) {
-		$category->addMany($chunks, 'Chunks');
-	} else {
-		$chunks = array();
-		$modx->log(modX::LOG_LEVEL_ERROR, 'No chunks defined.');
-	}
-	$modx->log(modX::LOG_LEVEL_INFO, 'Packaged in ' . count($chunks) . ' chunks.');
-	flush();
-	unset($chunks);
-}
 
-/* add template variables */
-if(file_exists($sources['data'] . 'transport.templatevars.php'))
-{
-	$tvs = include $sources['data'] . 'transport.templatevars.php';
-	if (is_array($tvs)) {
-	        $category->addMany($tvs);
-	} else {
-	        $tvs = array();
-	        $modx->log(modX::LOG_LEVEL_ERROR, 'Adding template variables failed.');
-	}
-	$modx->log(modX::LOG_LEVEL_INFO, 'Packaged in ' . count($tvs) . ' template variables.');
-	flush();
-	unset($tvs);
-}
-
-/* add plugins */
-if(file_exists($sources['data'] . 'transport.plugins.php'))
-{
-	$plugins = include $sources['data'] . 'transport.plugins.php';
-	if (is_array($plugins)) {
-		$category->addMany($plugins, 'Plugins');
-	} else {
-		$plugins = array();
-		$modx->log(modX::LOG_LEVEL_ERROR, 'No plugins defined.');
-	}
-	$modx->log(modX::LOG_LEVEL_INFO, 'Packaged in ' . count($plugins) . ' plugins.');
-	flush();
-	unset($plugins);
-}
-
-/* create category vehicle */
+// create category vehicle
 $attr = array(
     xPDOTransport::UNIQUE_KEY => 'category',
     xPDOTransport::PRESERVE_KEYS => false,
