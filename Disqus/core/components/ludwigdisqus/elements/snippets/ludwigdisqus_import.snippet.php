@@ -74,11 +74,7 @@ if(!$modx->addPackage($pak, $ldpath, 'disqus_') || !$activated['plugin'] )
 	// Trunicate table
 	if ( $force_db_rebuild )
 	{
-	  	$sessionTable = $modx->getTableName('disqus_comment');
-  	  	if ($modx->query("TRUNCATE {$sessionTable}") == false) {
-			return $modx->error->failure("Could not truncate disqus_comment table");
-	  	}
-		//$modx->removeCollection('Comment');
+		$modx->removeCollection('Comment', array());
 
 	// Get latest comment date
 	} else {
@@ -130,11 +126,7 @@ if(!$modx->addPackage($pak, $ldpath, 'disqus_') || !$activated['plugin'] )
 	// Trunicate table
 	if ( $force_db_rebuild )
 	{
-	  	$sessionTable = $modx->getTableName('disqus_thread');
-  	  	if ($modx->query("TRUNCATE {$sessionTable}") == false) {
-			return $modx->error->failure("Could not truncate disqus_thread table");
-	  	}
-		//$modx->removeCollection('Thread');
+		$modx->removeCollection('Thread', array());
 
 	// Get latest comment date
 	} else {
