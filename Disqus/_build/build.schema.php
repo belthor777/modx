@@ -36,8 +36,8 @@ require_once dirname(__FILE__) . '/build.config.php';
 
 /* define sources */
 $sources = array(
-    'model' => MODX_ADDON_PATH . PKG_NAME_LOWER.'/model/',
-    'schema_file' => MODX_ADDON_PATH . PKG_NAME_LOWER.'/schema/'.PKG_NAME_LOWER.'.mysql.schema.xml',
+    'model' => MODX_ADDON_PATH .'core/components/'.PKG_NAME_LOWER.'/model/',
+    'schema_file' => MODX_ADDON_PATH .'core/components/'.PKG_NAME_LOWER.'/schema/'.PKG_NAME_LOWER.'.mysql.schema.xml',
 );
 
 /* remove old generated schema model */

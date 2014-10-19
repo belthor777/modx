@@ -35,25 +35,23 @@ set_time_limit(0);
 require_once dirname(__FILE__) . '/build.config.php';
 
 /* define sources */
-$root = MODX_ADDON_PATH . PKG_NAME_LOWER .'/';
+$root = MODX_ADDON_PATH;
 $build = MODX_ADDON_PATH .'_build/';
 $sources = array(
 	'root' => $root,
 	'build' => $build,
 	'data' => $build . 'data/',
-	'events' => $build . 'data/events/',
 	'resolvers' => $build . 'resolvers/',
-	'properties' => $build . 'data/properties/',
-	'permissions' => $build . 'data/permissions/',
-	'chunks' => $root .'elements/chunks/',
-	'snippets' => $root .'elements/snippets/',
-	'plugins' => $root .'elements/plugins/',
-	'lexicon' => $root .'lexicon/',
-	'docs' => $root .'docs/',
-	'pages' => $root .'elements/pages/',
-	'templates' => $root .'elements/templates/',
-	'source_assets' => $root .'elements/assets/',
-	'source_core' => $root . 'elements/core/',
+	'chunks' => $root .'core/components/'.PKG_NAME_LOWER.'/elements/chunks/',
+	'snippets' => $root .'core/components/'.PKG_NAME_LOWER.'/elements/snippets/',
+	'plugins' => $root .'core/components/'.PKG_NAME_LOWER.'/elements/plugins/',
+	'lexicon' => $root .'core/components/'.PKG_NAME_LOWER.'/lexicon/',
+	'docs' => $root .'core/components/'.PKG_NAME_LOWER.'/docs/',
+	'pages' => $root .'core/components/'.PKG_NAME_LOWER.'/elements/pages/',
+	'templates' => $root .'core/components/'.PKG_NAME_LOWER.'/elements/templates/',
+	'source_assets' => $root .'assets/components/'.PKG_NAME_LOWER,
+	'source_core' => $root .'core/components/'.PKG_NAME_LOWER,
+	'model' => $root .'core/components/'.PKG_NAME_LOWER.'/model/',
 );
 unset($root);
 unset($build);
@@ -104,52 +102,13 @@ foreach ($BUILD_CATEGORY as $mycat)
 
 
 // create category vehicle
+/* create category vehicle */
 $attr = array(
     xPDOTransport::UNIQUE_KEY => 'category',
     xPDOTransport::PRESERVE_KEYS => false,
     xPDOTransport::UPDATE_OBJECT => true,
     xPDOTransport::RELATED_OBJECTS => true,
     xPDOTransport::RELATED_OBJECT_ATTRIBUTES => array (
-        'Children' => array(
-            xPDOTransport::PRESERVE_KEYS => false,
-            xPDOTransport::UPDATE_OBJECT => true,
-            xPDOTransport::UNIQUE_KEY => 'category',
-            xPDOTransport::RELATED_OBJECTS => true,
-            xPDOTransport::RELATED_OBJECT_ATTRIBUTES => array (
-                'Snippets' => array(
-                    xPDOTransport::PRESERVE_KEYS => false,
-                    xPDOTransport::UPDATE_OBJECT => true,
-                    xPDOTransport::UNIQUE_KEY => 'name',
-                ),
-                'Chunks' => array(
-                    xPDOTransport::PRESERVE_KEYS => false,
-                    xPDOTransport::UPDATE_OBJECT => true,
-                    xPDOTransport::UNIQUE_KEY => 'name',
-                ),
-					'Plugins' => array(
-				            xPDOTransport::PRESERVE_KEYS => false,
-			        	      xPDOTransport::UPDATE_OBJECT => true,
-				            xPDOTransport::UNIQUE_KEY => 'name',
-				            xPDOTransport::RELATED_OBJECT_ATTRIBUTES => array (
-					            'PluginEvents' => array(
-				        		        xPDOTransport::PRESERVE_KEYS => true,
-					        	        xPDOTransport::UPDATE_OBJECT => false,
-						              xPDOTransport::UNIQUE_KEY => array('pluginid','event'),
-			        		      ),
-							   ),
-		   	  ),
-		        'Templates' => array(
-		            xPDOTransport::PRESERVE_KEYS => false,
-	        	    xPDOTransport::UPDATE_OBJECT => true,
-		            xPDOTransport::UNIQUE_KEY => 'templatename',
-		        ),
-		        'TemplateVars' => array(
-		            xPDOTransport::PRESERVE_KEYS => false,
-		            xPDOTransport::UPDATE_OBJECT => true,
-		            xPDOTransport::UNIQUE_KEY => 'name',
-		        ),
-       	 ),
-        ),
         'Snippets' => array(
             xPDOTransport::PRESERVE_KEYS => false,
             xPDOTransport::UPDATE_OBJECT => true,
@@ -164,13 +123,11 @@ $attr = array(
             xPDOTransport::PRESERVE_KEYS => false,
             xPDOTransport::UPDATE_OBJECT => true,
             xPDOTransport::UNIQUE_KEY => 'name',
-            xPDOTransport::RELATED_OBJECT_ATTRIBUTES => array (
-                'PluginEvents' => array(
-                xPDOTransport::PRESERVE_KEYS => true,
-                xPDOTransport::UPDATE_OBJECT => false,
-                xPDOTransport::UNIQUE_KEY => array('pluginid','event'),
-                ),
-            ),
+        ),
+        'PluginEvents' => array(
+            xPDOTransport::PRESERVE_KEYS => true,
+            xPDOTransport::UPDATE_OBJECT => false,
+            xPDOTransport::UNIQUE_KEY => array('pluginid','event'),
         ),
         'Templates' => array(
             xPDOTransport::PRESERVE_KEYS => false,

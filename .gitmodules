@@ -1,3 +1,6 @@
 [submodule "Disqus/ludwigdisqus/elements/core/disqus-php"]
 	path = Disqus/ludwigdisqus/elements/core/disqus-php
 	url = git://github.com/disqus/disqus-php.git
+[submodule "Disqus/core/components/ludwigdisqus/model/disqus-php"]
+	path = Disqus/core/components/ludwigdisqus/model/disqus-php
+	url = git://github.com/disqus/disqus-php.git
