@@ -147,6 +147,19 @@ $attr = array(
 $vehicle = $builder->createVehicle($category,$attr);
 unset($category, $attr);
 
+// Add external libraries
+$modx->log(modX::LOG_LEVEL_INFO,'Adding file resolvers to category...');
+/*
+$vehicle->resolve('file',array(
+    'source' => $sources['source_assets'],
+    'target' => "return MODX_ASSETS_PATH . 'components/';",
+));
+*/
+$vehicle->resolve('file',array(
+    'source' => $sources['source_core'],
+    'target' => "return MODX_CORE_PATH . 'components/';",
+));
+
 // Add Resolvers
 foreach ( array('tables', 'setup', 'update') as $resolver )
 {
@@ -163,17 +176,7 @@ foreach ( array('tables', 'setup', 'update') as $resolver )
 	unset($r_file);
 }
 
-// Add external libraries
-$modx->log(modX::LOG_LEVEL_INFO,'Adding file resolvers to category...');
-$vehicle->resolve('file',array(
-    'source' => $sources['source_assets'],
-    'target' => "return MODX_ASSETS_PATH . 'components/';",
-));
-$vehicle->resolve('file',array(
-    'source' => $sources['source_core'],
-    'target' => "return MODX_CORE_PATH . 'components/';",
-));
-
+// Build Vehicle for all resolvers
 $builder->putVehicle($vehicle);
 unset($vehicle);
 
