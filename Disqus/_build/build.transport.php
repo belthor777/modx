@@ -79,12 +79,12 @@ $modx->log(modX::LOG_LEVEL_INFO, 'Packaged in "'. PKG_NAME .'" category.');
 flush();
 
 // Add Elements to Category
-$BUILD_CATEGORY= array('Snippets', 'Chunks', 'TemplateVars', 'Plugins');
-foreach ($BUILD_CATEGORY as $mycat)
+foreach ( array('Snippets', 'Chunks', 'TemplateVars', 'Plugins') as $mycat)
 {
-	if(file_exists($sources['data'] . 'transport.'. strtolower($mycat) .'.php'))
+	$c_file = $sources['data'] . 'transport.'. strtolower($mycat) .'.php';
+	if(file_exists($c_file))
 	{
-	        $cat_element = include $sources['data'] . 'transport.'. strtolower($mycat) .'.php';
+	        $cat_element = include $c_file;
 	        if (is_array($cat_element))
 		{
 	                $category->addMany($cat_element, $mycat);
@@ -98,6 +98,7 @@ foreach ($BUILD_CATEGORY as $mycat)
 	        flush();
 	        unset($cat_element);
 	}
+	unset($c_file);
 }
 
 
@@ -146,6 +147,23 @@ $attr = array(
 $vehicle = $builder->createVehicle($category,$attr);
 unset($category, $attr);
 
+// Add Resolvers
+foreach ( array('tables', 'setup', 'update') as $resolver )
+{
+	$r_file = $sources['resolvers'] . 'resolve.'. strtolower($resolver) .'.php';
+	if ( file_exists($r_file) )
+	{
+		if ($vehicle->resolve('php', array('source' => $r_file))) {
+			$modx->log(modX::LOG_LEVEL_INFO,'Added Resolver "'.$resolver.'" to category.');
+
+		} else {
+			$modx->log(modX::LOG_LEVEL_INFO,'Could not add resolver "'.$resolver.'" to category.');
+		}
+	}
+	unset($r_file);
+}
+
+// Add external libraries
 $modx->log(modX::LOG_LEVEL_INFO,'Adding file resolvers to category...');
 $vehicle->resolve('file',array(
     'source' => $sources['source_assets'],
@@ -156,21 +174,6 @@ $vehicle->resolve('file',array(
     'target' => "return MODX_CORE_PATH . 'components/';",
 ));
 
-
-// Add Resolvers
-$BUILD_RESOLVERS= array('tables', 'setup', 'update');
-foreach ($BUILD_RESOLVERS as $resolver) 
-{
-	if ( file_exists($sources['resolvers'] . 'resolve.'.$resolver.'.php') )
-	{
-		if ($vehicle->resolve('php', array('source' => $sources['resolvers'] . 'resolve.'.$resolver.'.php'))) {
-			$modx->log(modX::LOG_LEVEL_INFO,'Added Resolver "'.$resolver.'" to category.');
-
-		} else {
-			$modx->log(modX::LOG_LEVEL_INFO,'Could not add resolver "'.$resolver.'" to category.');
-		}
-	}
-}
 $builder->putVehicle($vehicle);
 unset($vehicle);
 
