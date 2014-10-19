@@ -99,7 +99,7 @@ if(!$modx->addPackage($pak, $ldpath, 'disqus_') || !$activated['plugin'] )
 		$cursor = $posts->cursor;
 		$params['cursor'] = $cursor->next;
 
-		foreach ($posts as $post)
+		foreach ($posts->response as $post)
 		{
 			$fields = array(
 				'id' => intval( $post->id ),
@@ -131,10 +131,10 @@ if(!$modx->addPackage($pak, $ldpath, 'disqus_') || !$activated['plugin'] )
 	// Get latest comment date
 	} else {
 		$res = $modx->query("SELECT MAX(created) as max FROM disqus_thread");
-		if (is_object($res)) 
+		if (is_object($res))
 		{
 			$row = $res->fetch(PDO::FETCH_ASSOC);
-			if (!empty($row['max'])) 
+			if (!empty($row['max']))
 			{
 				$params['since'] = $row['max']+1;
 			}
@@ -151,7 +151,7 @@ if(!$modx->addPackage($pak, $ldpath, 'disqus_') || !$activated['plugin'] )
 		$cursor = $threads->cursor;
 		$params['cursor'] = $cursor->next;
 
-		foreach ($threads as $thread) 
+		foreach ($threads->response as $thread)
 		{
 
 			$fields = array(
