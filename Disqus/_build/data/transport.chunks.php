@@ -17,6 +17,18 @@ $chunks[$i]->fromArray(array(
     'properties' => '',
 ),'',true,true);
 
+// Disqus LazyLoad Chunk
+$i++;
+$chunks[$i]= $modx->newObject('modChunk');
+$chunks[$i]->fromArray(array(
+    'id' => 0,
+    'name' => 'disqus_lazyload',
+    'description' => 'Disqus comments on your website: Load Disqus comments when visitor scrolls down.',
+    'snippet' => file_get_contents($sources['chunks'].'disqus_lazyload.chunk.tpl'),
+    'properties' => '',
+),'',true,true);
+
+
 // Disqus comments
 $i++;
 $chunks[$i]= $modx->newObject('modChunk');
