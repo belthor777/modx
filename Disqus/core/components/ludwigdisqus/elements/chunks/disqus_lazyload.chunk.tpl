@@ -20,20 +20,16 @@
 						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 					})();					
 				}
-				function isScrolledIntoView(elem)
+				function isScrolledIntoView(elem, myoffset)
 				{
+					myoffset = ( typeof myoffset !== 'undefined' ) ? myoffset : 0;
 					var docViewTop = $(window).scrollTop();
 					var docViewBottom = docViewTop + $(window).height();
-					var elemTop = $(elem).offset().top;
-					var elemBottom = elemTop + $(elem).height();
-					return ((elemBottom >= docViewTop) && (elemTop <= docViewBottom) && (elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+					var elemTop = $(elem).offset().top - myoffset;
+					var elemBottom = elemTop + myoffset + $(elem).height();
+					return ((elemBottom >= docViewTop) && (elemTop <= docViewBottom));
 				}
-				$(window).scroll(function() {    
-					if(isScrolledIntoView($('#disqus')) && (disqus_loaded == false))
-					{
-						load_ludwigdisqus();
-					}
-				});
+				$(window).scroll(function(){if(isScrolledIntoView('#disqus', 1500) && (disqus_loaded == false)){load_ludwigdisqus();}});
 			</script>
 		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 		<a href="https://ludwig.im" class="dsq-brlink">Comments powered by <span class="logo-disqus">LudwigDisqus for ModX</span></a>
