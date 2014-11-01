@@ -3,9 +3,10 @@ LudwigDisqus 1.0.0 (October 12, 2014)
 - Initial project
 - Initial changelog started
 
-LudwigDisqus 1.1.0 (October 30, 2014)
+LudwigDisqus 1.1.0 (November 01, 2014)
 ====================================
 - Added LazyLoad Chunk
+- Added Snippet commentcount: use [[!ludwigdisqus_commentcount]]
 
 
 Visit https://ludwig.im/en/projects/disqus-ludwigdisqus-for-modx for more information
