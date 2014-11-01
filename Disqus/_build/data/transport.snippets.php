@@ -36,6 +36,16 @@ $snippets[$i]->fromArray(array(
     'snippet' => getSnippetContent($sources['snippets'] . $pak .'_seofriendly.snippet.php'),
 ),'',true,true);
 
+// Disqus comment count
+$i++;
+$snippets[$i]= $modx->newObject('modSnippet');
+$snippets[$i]->fromArray(array(
+    'id' => $i,
+    'name' => $pak .'_commentcount',
+    'description' => 'Get comment count from the actual Modx page',
+    'snippet' => getSnippetContent($sources['snippets'] . $pak .'_commentcount.snippet.php'),
+),'',true,true);
+
 unset($properties);
 
 return $snippets;

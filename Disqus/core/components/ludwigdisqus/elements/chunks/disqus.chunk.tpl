@@ -1,8 +1,9 @@
 [[*disqus:is=`1`:then=`
 		<div id="disqus">
 			<h2 id="add-your-comment">[[%addcomment? &namespace=`ludwigdisqus` &language=`[[++cultureKey]]`]]</h2>
+			<meta itemprop="interactionCount" content="UserComments:[[!ludwigdisqus_commentcount]]"/>
 			<div id="disqus_thread">[[!ludwigdisqus_seofriendly:strip]]</div>
-			<script type="text/javascript">
+			<script async type="text/javascript">
 			  var disqus_shortname = '[[++ludwigdisqus.shortname]]';
 			  var disqus_config = function () { 
 						this.language = "[[++cultureKey]]";
