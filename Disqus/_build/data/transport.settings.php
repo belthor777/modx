@@ -77,4 +77,22 @@ $settings['ludwigdisqus.use_cronjob']->fromArray(array(
      'area' => 'seofriendly',
 ),'',true,true);
 
+$settings['ludwigdisqus.manager']= $modx->newObject('modSystemSetting');
+$settings['ludwigdisqus.manager']->fromArray(array(
+     'key' => 'ludwigdisqus.manager',
+     'value' => '0',
+     'xtype' => 'combo-boolean',
+     'namespace' => 'ludwigdisqus',
+     'area' => 'management',
+),'',true,true);
+
+$settings['ludwigdisqus.access_token']= $modx->newObject('modSystemSetting');
+$settings['ludwigdisqus.access_token']->fromArray(array(
+     'key' => 'ludwigdisqus.access_token',
+     'value' => 'Enter your Disqus Access Token to manage Disqus',
+     'xtype' => 'textfield',
+     'namespace' => 'ludwigdisqus',
+     'area' => 'management',
+),'',true,true);
+
 return $settings;

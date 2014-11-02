@@ -10,6 +10,7 @@
 			  };
 			  var disqus_identifier = '[[*id]]';
 			  var disqus_title = '[[*pagetitle]]';
+			  var disqus_url = '[[++site_url]][[~[[*id]]]]';
 			  (function() {
 				  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 				  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
