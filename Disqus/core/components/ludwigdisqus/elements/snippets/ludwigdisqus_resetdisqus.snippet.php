@@ -42,7 +42,6 @@
 $pak = 'ludwigdisqus';
 $api_key = $modx->getOption( $pak .'.api_key');
 $access_token = $modx->getOption( $pak .'.access_token'); // Authentication: Need Read, Write and Manage Forum Access
-$api_key = $modx->getOption( $pak .'.access_token');
 $activated = array(	'plugin' => $modx->getOption( $pak .'.activated'),
 							'seofriendly' => $modx->getOption( $pak .'.seofriendly'),
 							'manager' => $modx->getOption( $pak .'.manager'));
