@@ -54,7 +54,7 @@ $val= array(	'txt' => $modx->getOption('txt', $props, 'test'),
 );
 
 // Load needed lib API phpqrcode
-require_once( $modx->config["base_path"] .'components/'. $pak .'/model/phpqrcode/lib/full/qrlib.php');
+require_once( $modx->config["core_path"] .'components/'. $pak .'/model/phpqrcode/lib/full/qrlib.php');
 
 // Initial lib
 $qr = new QRcode();
