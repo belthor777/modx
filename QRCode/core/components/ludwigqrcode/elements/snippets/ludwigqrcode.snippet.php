@@ -38,51 +38,50 @@ Use: [[!ludwigqrcode? &txt=`Test` &id=`1234` &with=`150`]]
 // Variables
 $pak = 'ludwigqrcode';
 $props =& $scriptProperties;
+$output = '';
 
 // Initial Default Parameter
-$val= array();
-$val['txt'] = $modx->getOption('txt', $props, 'test');
-$val['id'] = $modx->getOption('id', $props,  'noid');
-$val['width'] = $modx->getOption('width', $props, false); // In pixel - false=auto
-$val['fore_color'] = $modx->getOption('fcolor', $props, '0x000000');
-$val['back_color'] = $modx->getOption('bcolor', $props, 'transparent');
-$val['size'] = $modx->getOption('size', $props, false);	
-$val['margin'] = $modx->getOption('margin', $props, 4);	
-$val['compress'] = $modx->getOption('compress', $props, false);		
-$val['saveToFile'] = $modx->getOption('saveToFile', $props, false);	// Full path or boolean false
-$val['imgtype'] = 'svg';
+$val= array(	'txt' => $modx->getOption('txt', $props, 'test'),
+					'id' => $modx->getOption('id', $props,  'noid'),
+					'width' => $modx->getOption('width', $props, false), // In pixel - false=auto
+					'fore_color' => $modx->getOption('fcolor', $props, '0x000000'),
+					'back_color' => $modx->getOption('bcolor', $props, 'transparent'),
+					'size' => $modx->getOption('size', $props, false),
+					'margin' => $modx->getOption('margin', $props, 4),
+					'compress' => $modx->getOption('compress', $props, false),
+					'saveToFile' => $modx->getOption('saveToFile', $props, false), // Full path or boolean false
+					'imgtype' => 'svg'
+);
 
+// Load needed lib API phpqrcode
+require_once( $modx->config["base_path"] .'components/'. $pak .'/model/phpqrcode/lib/full/qrlib.php');
 
-// Generate SVG image
-if ( $val['imgtype'] === 'svg' )
+// Initial lib
+$qr = new QRcode();
+if (is_a($qr, 'QRcode'))
 {
-	// Load needed lib API phpqrcode
-	require_once( $modx->config["base_path"] .'components/'. $pak .'/model/phpqrcode/lib/full/qrlib.php');
-
-	// Initial lib
-	$qr = new QRcode(); 
-
-	// Generate SVG
-	$svgCode =  $qr->svg( $val['txt'], 
-					$val['id'], 
-					$val['saveToFile'], 
-					QR_ECLEVEL_L, 
-					$val['width'],
-					$val['size'],
-					$val['margin'],
-					$val['compress'],
-					$val['back_color'],
-					$val['fore_color']	
-	);
-		
+	// Generate SVG image
+	if ( $val['imgtype'] === 'svg' )
+	{
+		// Generate SVG
+		$output =  $qr->svg( $val['txt'], 
+						$val['id'], 
+						$val['saveToFile'], 
+						QR_ECLEVEL_L, 
+						$val['width'],
+						$val['size'],
+						$val['margin'],
+						$val['compress'],
+						$val['back_color'],
+						$val['fore_color'] );
+	}
+	
 	if ( !$val['saveToFile'] )
 	{
-		return( base64_encode($svgCode) );
-
-	} else {
-
-		return( $val['saveToFile'] );
-
-	}	
-
+		return( base64_encode($output) );
+	}
+	
+	return( $val['saveToFile'] );
 }
+
+return( $output );
