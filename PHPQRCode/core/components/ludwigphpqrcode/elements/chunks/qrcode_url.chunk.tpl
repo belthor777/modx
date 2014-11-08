@@ -1,1 +1,0 @@
-<img src="data:image/svg+xml;base64,[[!ludwigphpqrcode? &txt=`[[~[[*id]]]]` &id=`[[*id]]` &with=`150` &fcolor=`0xFFFFFF`]]" width="50" height="50" title="[[%img_title? &namespace=`ludwigphpqrcode` &language=`[[++cultureKey]]`]]" alt="[[%img_alt? &namespace=`ludwigphpqrcode` &language=`[[++cultureKey]]`]]" />
