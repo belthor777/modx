@@ -37,7 +37,6 @@ Use: [[!ludwigqrcode? &txt=`Test` &id=`1234` &with=`150`]]
 
 // Variables
 $pak = 'ludwigqrcode';
-$activated = $modx->getOption( $pak .'.activated');
 $props =& $scriptProperties;
 
 // Initial Default Parameter
@@ -55,10 +54,10 @@ $val['imgtype'] = 'svg';
 
 
 // Generate SVG image
-if ( $val['imgtype'] === 'svg' && $activated )
+if ( $val['imgtype'] === 'svg' )
 {
 	// Load needed lib API phpqrcode
-	require_once( $modx->config["base_path"] .'components/'. $pak .'/model/phpqrcode/lib/full/qrlib.php');			
+	require_once( $modx->config["base_path"] .'components/'. $pak .'/model/phpqrcode/lib/full/qrlib.php');
 
 	// Initial lib
 	$qr = new QRcode(); 
