@@ -1,0 +1,7 @@
+LudwigQRcode 1.0.0 (October 31, 2014)
+====================================
+- Initial project
+- Initial changelog started
+
+
+Visit https://ludwig.im/en/projects/ludwigqrcode-phpqrcode-for-modx for more information
