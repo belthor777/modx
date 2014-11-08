@@ -60,10 +60,12 @@ require_once( $modx->config["base_path"] .'components/'. $pak .'/model/phpqrcode
 $qr = new QRcode();
 if (is_a($qr, 'QRcode'))
 {
+
 	// Generate SVG image
 	if ( $val['imgtype'] === 'svg' )
 	{
 		// Generate SVG
+		$val['saveToFile']= false;
 		$output =  $qr->svg( $val['txt'], 
 						$val['id'], 
 						$val['saveToFile'], 
@@ -75,13 +77,21 @@ if (is_a($qr, 'QRcode'))
 						$val['back_color'],
 						$val['fore_color'] );
 	}
-	
-	if ( !$val['saveToFile'] )
+
+	// Was it successfully?
+	if($output != '')
 	{
-		return( base64_encode($output) );
+
+		// Generate QRCode on the fly
+		if ( !$val['saveToFile'] )
+		{
+			return( base64_encode($output) );
+		}
+
+		// Receive a link where the image is cached
+		return( $val['saveToFile'] );
+
 	}
-	
-	return( $val['saveToFile'] );
 }
 
 return( $output );
