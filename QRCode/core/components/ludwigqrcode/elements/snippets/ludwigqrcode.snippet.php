@@ -39,19 +39,62 @@ Use: [[!ludwigqrcode? &txt=`Test` &id=`1234` &with=`150`]]
 $pak = 'ludwigqrcode';
 $props =& $scriptProperties;
 $output = '';
+$tmp = array();
 
 // Initial Default Parameter
-$val= array(	'txt' => $modx->getOption('txt', $props, 'test'),
-					'id' => $modx->getOption('id', $props,  'noid'),
-					'width' => $modx->getOption('width', $props, false), // In pixel - false=auto
-					'fore_color' => $modx->getOption('fcolor', $props, '0x000000'),
-					'back_color' => $modx->getOption('bcolor', $props, 'transparent'),
-					'size' => $modx->getOption('size', $props, false),
-					'margin' => $modx->getOption('margin', $props, 4),
-					'compress' => $modx->getOption('compress', $props, false),
-					'saveToFile' => $modx->getOption('saveToFile', $props, false), // Full path or boolean false
-					'imgtype' => 'svg'
+$val= array(	'txt' => $modx->getOption('txt', $props, ''),	// Message
+				'num' => $modx->getOption('type', $props, ''),	// Number like phone number
+				'type' => $modx->getOption('type', $props, 'notype'),
+				'width' => $modx->getOption('width', $props, false), // In pixel - false=auto
+				'fore_color' => $modx->getOption('fcolor', $props, '0x000000'),
+				'back_color' => $modx->getOption('bcolor', $props, 'transparent'),
+				'size' => $modx->getOption('size', $props, false),
+				'margin' => $modx->getOption('margin', $props, 4),
+				'compress' => $modx->getOption('compress', $props, false),
+				'saveToFile' => $modx->getOption('saveToFile', $props, false), // Full path or boolean false
+				'imgtype' => 'svg',
+				'id' => $modx->resource->get('id')
 );
+
+// Get type of QR Code
+switch ($val['type']) 
+{
+    case 'sms':
+        $val['txt'] = 'sms:'. $val['txt']; 
+        break;
+
+	case 'smsto':
+        $val['txt'] = 'smsto:'. $val['num'] .':'. $val['txt']; 
+        break;
+
+    case 'phone':
+        $val['txt'] = 'tel:'. $val['num']; 
+        break;
+
+	case 'skype':
+		$val['txt'] = 'skype:'.urlencode($val['num']).'?call'; 
+		break;
+
+	case 'email':
+		$tmp = explode("|", $val['txt']);
+		if (count($tmp) == 3)
+		{
+			$val['txt'] = 'mailto:'. $tmp[0] .'?subject='.urlencode($tmp[1]).'&body='.urlencode($tmp[2]); 
+		} else {
+			$val['txt'] = 'Please use "max@mustermann.com|Subject|Message" to send an email';
+		}
+		$tmp = array();
+		break;
+
+	case 'vcard_simple':
+		$val['txt'] = 'BEGIN:VCARD' ."\n". 'FN:'. $val['txt']  ."\n". 'TEL;WORK;VOICE:'. $val['num'] ."\n". 'END:VCARD';
+		break;
+
+	case 'geo':
+    case 'notype':
+	default:
+        break;
+}
 
 // Load needed lib API phpqrcode
 require_once( $modx->config["core_path"] .'components/'. $pak .'/model/phpqrcode/lib/full/qrlib.php');
