@@ -59,6 +59,10 @@ $val= array(	'txt' => $modx->getOption('txt', $props, ''),	// Message
 // Get type of QR Code
 switch ($val['type']) 
 {
+    case 'url':
+        $val['txt'] = $modx->makeUrl($val['id'],'','','full'); 
+        break;
+
     case 'sms':
         $val['txt'] = 'sms:'. $val['txt']; 
         break;
