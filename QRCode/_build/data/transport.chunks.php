@@ -7,6 +7,8 @@ $pkg = "ludwigqrcode";
 $chunks = array();
 
 // LudwigQRcode URL Chunk
+include_once( $sources['chunks'].'qrcode.chunk.propertysets.tpl' );
+
 $i = 0;
 $chunks[$i]= $modx->newObject('modChunk');
 $chunks[$i]->fromArray(array(
@@ -14,7 +16,7 @@ $chunks[$i]->fromArray(array(
     'name' => 'qrcode',
     'description' => 'Generate QR-Codes',
     'snippet' => file_get_contents($sources['chunks'].'qrcode.chunk.tpl'),
-    'properties' => '', // file_get_contents($sources['chunks'].'qrcode.chunk.propertysets.tpl'),
+    'properties' => getChunkPropertySet_qrcode(),
 ),'',true,true);
 
 return $chunks;
