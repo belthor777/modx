@@ -32,7 +32,7 @@
  */
 
 /*
-Use: [[!ludwigqrcode? &txt=`Test` &with=`150`]]
+Use: [[!ludwigqrcode? &txt=`Test` &id=`1234` &with=`150`]]
 */
 
 // Variables

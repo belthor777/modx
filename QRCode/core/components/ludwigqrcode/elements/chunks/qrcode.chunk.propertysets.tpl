@@ -2,6 +2,8 @@
 
 function getChunkPropertySet_qrcode()
 {
+	global $modx;
+	
 	// Define the Properties in JSON (exported from Modx)
 	$data= array();
 	$data['sms'] = '[{"name":"type","desc":"Set a type","xtype":"textfield","options":[],"value":"sms","lexicon":"","overridden":2,"desc_trans":"Set a type","area":"LudwigQRcode","area_trans":"LudwigQRcode","menu":null},{"name":"width","desc":"Width of SVG","xtype":"numberfield","options":[],"value":"100","lexicon":"","overridden":2,"desc_trans":"Width of SVG","area":"LudwigQRcode","area_trans":"LudwigQRcode","menu":null}]';
@@ -14,13 +16,12 @@ function getChunkPropertySet_qrcode()
 	$data['email'] = '[{"name":"type","desc":"QR-Code type","xtype":"textfield","options":[],"value":"email","lexicon":"","overridden":2,"desc_trans":"QR-Code type","area":"LudwigQRcode","area_trans":"LudwigQRcode","menu":null},{"name":"width","desc":"Width of QR-Code","xtype":"numberfield","options":[],"value":"100","lexicon":"","overridden":2,"desc_trans":"Width of QR-Code","area":"LudwigQRcode","area_trans":"LudwigQRcode","menu":null}]';
 	$data['bookmark'] = '[{"name":"type","desc":"Type of SVG","xtype":"textfield","options":[],"value":"bookmark","lexicon":"","overridden":2,"desc_trans":"Type of SVG","area":"LudwigQRcode","area_trans":"LudwigQRcode","menu":null},{"name":"width","desc":"Width of SVG","xtype":"numberfield","options":[],"value":"100","lexicon":"","overridden":2,"desc_trans":"Width of SVG","area":"LudwigQRcode","area_trans":"LudwigQRcode","menu":null}]';
 	
-	// Generate Properties Set
-	$prop= array();
-	foreach($data as $d) 
-	{
-		$prop[] = $modx->fromJSON($d);
-	}
-	unset($data); // break the reference
+	
+	$tvt = array();
+	
+	$i=0;
+	$tvt[$i] = $modx->newObject('modElementPropertySet');
+	$tvt[$i]->fromJSON($data['sms']);
 
-	return( $prop );
+	return( $tvt );
 }
