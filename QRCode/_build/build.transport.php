@@ -79,7 +79,7 @@ $modx->log(modX::LOG_LEVEL_INFO, 'Packaged in "'. PKG_NAME .'" category.');
 flush();
 
 // Add Elements to Category
-foreach ( array('Snippets', 'Chunks', 'TemplateVars', 'Plugins') as $mycat)
+foreach ( array('Snippets', 'Chunks', 'TemplateVars', 'Plugins', 'PropertySets') as $mycat)
 {
 	$c_file = $sources['data'] . 'transport.'. strtolower($mycat) .'.php';
 	if(file_exists($c_file))

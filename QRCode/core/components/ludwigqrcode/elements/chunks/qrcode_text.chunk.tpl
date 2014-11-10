@@ -1,1 +1,0 @@
-<img src="data:image/svg+xml;base64,[[!ludwigqrcode? &txt=`[[+text]]` &id=`[[*id]]` &width=`[[+width]]`]]" width="[[+width]]" height="[[+width]]" title="[[+text]]" alt="QRCode [[+text]]" />

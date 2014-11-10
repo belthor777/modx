@@ -1,1 +1,0 @@
-<img src="data:image/svg+xml;base64,[[!ludwigqrcode? &txt=`[[+link]]` &id=`[[*id]]` &width=`[[+width]]` &fcolor=`[[+color]]`" width="[[+width]]" height="[[+width]]" title="[[%img_title? &namespace=`ludwigqrcode` &language=`[[++cultureKey]]`]]" alt="[[%img_alt? &namespace=`ludwigqrcode` &language=`[[++cultureKey]]`]]" />

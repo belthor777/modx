@@ -32,7 +32,7 @@
  */
 
 /*
-Use: [[!ludwigqrcode? &txt=`Test` &id=`1234` &with=`150`]]
+Use: [[!ludwigqrcode? &txt=`Test` &with=`150`]]
 */
 
 // Variables
@@ -43,7 +43,7 @@ $tmp = array();
 
 // Initial Default Parameter
 $val= array(	'txt' => $modx->getOption('txt', $props, ''),	// Message
-				'num' => $modx->getOption('type', $props, ''),	// Number like phone number
+				'num' => $modx->getOption('num', $props, ''),	// Number (e.g. phone number)
 				'type' => $modx->getOption('type', $props, 'notype'),
 				'width' => $modx->getOption('width', $props, false), // In pixel - false=auto
 				'fore_color' => $modx->getOption('fcolor', $props, '0x000000'),
@@ -59,33 +59,65 @@ $val= array(	'txt' => $modx->getOption('txt', $props, ''),	// Message
 // Get type of QR Code
 switch ($val['type']) 
 {
-    case 'url':
-        $val['txt'] = $modx->makeUrl($val['id'],'','','full'); 
+    case 'link':
+        $val['txt'] = "MEBKM:TITLE:". $modx->resource->get('pagetitle') .";URL:". $modx->makeUrl($val['id'],'','','full') .";";
         break;
 
-    case 'sms':
-        $val['txt'] = 'sms:'. $val['txt']; 
+	case 'bookmark':
+        $val['txt'] = "MEBKM:TITLE:". $val['txt'] .";URL:". $modx->makeUrl($val['id'],'','','full') .";";
         break;
 
-	case 'smsto':
+	case 'sms':
         $val['txt'] = 'smsto:'. $val['num'] .':'. $val['txt']; 
         break;
 
     case 'phone':
-        $val['txt'] = 'tel:'. $val['num']; 
+        $val['txt'] = 'tel:'. $val['num'];
         break;
 
 	case 'skype':
 		$val['txt'] = 'skype:'.urlencode($val['num']).'?call'; 
 		break;
 
+	case 'wifi':
+		$tmp = explode("|", $val['txt']);
+		if (count($tmp) == 4) 
+		{
+			$val['txt'] = 'WIFI:S:'. $tmp[0] .';T:'. $tmp[1] .';P:'. $tmp[2] .';H:'. (bool)$tmp[3] .';'; 
+
+		} else if (count($tmp) == 3) {
+			$val['txt'] = 'WIFI:S:'. $tmp[0] .';T:'. $tmp[1] .';P:'. $tmp[2] .';'; 
+
+		} else if (count($tmp) == 2) {
+			$val['txt'] = 'WIFI:S:'. $tmp[0] .';T:nopass;';
+
+		} else {
+			$val['txt'] = 'Please define "SSID|WEP/WPA/nopass|PASSWORD|HIDDEN Network?" to use Wifi';
+		}
+		$tmp = array();		
+		break;
+
 	case 'email':
 		$tmp = explode("|", $val['txt']);
 		if (count($tmp) == 3)
 		{
+			$tmp[0] = ( filter_var($tmp[0], FILTER_VALIDATE_EMAIL) ? $tmp[0] : 'max@mustermann.example' );	// Filter Email
+
 			$val['txt'] = 'mailto:'. $tmp[0] .'?subject='.urlencode($tmp[1]).'&body='.urlencode($tmp[2]); 
 		} else {
-			$val['txt'] = 'Please use "max@mustermann.com|Subject|Message" to send an email';
+			$val['txt'] = 'Please define "max@mustermann.com|Subject|Message" to send an email';
+		}
+		$tmp = array();
+		break;
+
+	case 'mecard':
+		$tmp = explode("|", $val['txt']);
+		if (count($tmp) == 4)
+		{
+			$tmp[3] = ( filter_var($tmp[3], FILTER_VALIDATE_EMAIL) ? $tmp[3] : 'max@mustermann.example' );	// Filter Email
+			$val['txt'] = "MECARD:N:". $tmp[0] .";ADR:". $tmp[1] .";TEL:". $tmp[2] .";EMAIL:". $tmp[3] .";";
+		} else {
+			$val['txt'] = 'Please define "Name|Address|Phone|Email" to use MeCards';
 		}
 		$tmp = array();
 		break;
@@ -95,7 +127,25 @@ switch ($val['type'])
 		break;
 
 	case 'geo':
+		$tmp = explode("|", $val['txt']);
+		if (count($tmp) == 3)
+		{
+			$val['txt'] = 'geo:'. floatval($tmp[0]) .','. floatval($tmp[1]) .','. intval($tmp[2]); 
+		} else {
+			$val['txt'] = 'Please define "deg N latitude|deg W longitude|elevation" to use geo location';
+		}
+		$tmp = array();
+		break;
+
+	case 'playstore':
+		$msg = 'Google play store uri, eg. org.example.app';
+	  	$val['txt'] = "market://details?id=". $val['txt'];
+        break;
+
+
     case 'notype':
+
+	// Default is text
 	default:
         break;
 }
