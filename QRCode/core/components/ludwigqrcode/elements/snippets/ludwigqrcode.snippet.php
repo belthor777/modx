@@ -49,10 +49,10 @@ $val= array('chunk' => $modx->getOption('chunk', $props, 'qrcode'),	// Set Chunk
 				'type' => $modx->getOption('type', $props, 'notype'),
 				'width' => $modx->getOption('width', $props, 100), // In pixel - false=auto
 				'fore_color' => $modx->getOption('fcolor', $props, '0x000000'),
-				'back_color' => $modx->getOption('bcolor', $props, 'transparent'),
-				'size' => $modx->getOption('size', $props, false),
+				'back_color' => 'transparent',
+				'size' => false,
 				'margin' => $modx->getOption('margin', $props, 4),
-				'compress' => $modx->getOption('compress', $props, false),
+				'compress' => false,
 				'saveToFile' => $modx->getOption('saveToFile', $props, false), // Full path or boolean false
 				'imgtype' => 'svg',
 				'id' => $modx->resource->get('id')
