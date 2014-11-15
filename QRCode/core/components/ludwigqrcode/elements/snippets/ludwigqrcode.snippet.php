@@ -32,7 +32,7 @@
  */
 
 /*
-Use: [[!ludwigqrcode? &txt=`Test` &id=`1234` &with=`150`]]
+Use: [[!ludwigqrcode? &txt=`Test` &with=`150`]]
 */
 
 // Variables
@@ -40,6 +40,10 @@ $pak = 'ludwigqrcode';
 $props =& $scriptProperties;
 $output = '';
 $tmp = array();
+
+$chunk = $modx->getObject('modChunk', array('name' => 'qrcode'));
+var_dump( $chunk->getProperties() );
+exit();
 
 // Initial Default Parameter
 $val= array(	'txt' => $modx->getOption('txt', $props, ''),	// Message
