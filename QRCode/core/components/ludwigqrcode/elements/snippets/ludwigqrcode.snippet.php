@@ -45,7 +45,7 @@ $tmp = array();
 $val= array(	'txt' => $modx->getOption('txt', $props, ''),	// Message
 				'num' => $modx->getOption('num', $props, ''),	// Number (e.g. phone number)
 				'type' => $modx->getOption('type', $props, 'notype'),
-				'width' => $modx->getOption('width', $props, false), // In pixel - false=auto
+				'width' => $modx->getOption('width', $props, 100), // In pixel - false=auto
 				'fore_color' => $modx->getOption('fcolor', $props, '0x000000'),
 				'back_color' => $modx->getOption('bcolor', $props, 'transparent'),
 				'size' => $modx->getOption('size', $props, false),
@@ -122,7 +122,7 @@ switch ($val['type'])
 		$tmp = array();
 		break;
 
-	case 'vcard_simple':
+	case 'vcard':
 		$val['txt'] = 'BEGIN:VCARD' ."\n". 'FN:'. $val['txt']  ."\n". 'TEL;WORK;VOICE:'. $val['num'] ."\n". 'END:VCARD';
 		break;
 
