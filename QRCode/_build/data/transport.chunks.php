@@ -6,9 +6,7 @@
 $pkg = "ludwigqrcode";
 $chunks = array();
 
-// LudwigQRcode URL Chunk
-include_once( $sources['chunks'].'qrcode.chunk.propertysets.tpl' );
-
+// LudwigQRcode Chunk
 $i = 0;
 $chunks[$i]= $modx->newObject('modChunk');
 $chunks[$i]->fromArray(array(
