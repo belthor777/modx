@@ -14,7 +14,7 @@ $chunks[$i]->fromArray(array(
     'name' => 'qrcode',
     'description' => 'Generate QR-Codes',
     'snippet' => file_get_contents($sources['chunks'].'qrcode.chunk.tpl'),
-    'properties' => $modx->fromJSON('[{"name":"width","desc":"","xtype":"numberfield","options":[],"value":"100","lexicon":"","overridden":false,"desc_trans":"","area":"","area_trans":"","menu":null}]'),
+    'properties' => $modx->fromJSON('[{"name":"width","desc":"","xtype":"numberfield","options":[],"value":"100","lexicon":"","overridden":false,"desc_trans":"","area":"","area_trans":"","menu":null},{"name":"txt","desc":"","xtype":"textfield","options":[],"value":"QR Code","lexicon":"","overridden":false,"desc_trans":"","area":"","area_trans":"","menu":null}]'),
 ),'',true,true);
 
 return $chunks;
