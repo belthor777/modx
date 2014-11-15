@@ -128,12 +128,24 @@ switch ($val['type'])
 
 	case 'geo':
 		$tmp = explode("|", $val['txt']);
-		if (count($tmp) == 3)
+
+		// Select GoogleMaps
+		if ( ($val['num'] == 'GoogleMaps') && (count($tmp) >= 2) ) 
 		{
+			$val['txt'] = 'http://maps.google.com/?q='. floatval($tmp[0]) .','. floatval($tmp[1]); 
+
+		// Select OpenStreet
+		} else if ( ($val['num'] == 'OpenStreet') && (count($tmp) == 3) ) {
+			$val['txt'] = 'http://www.openstreetmap.org/?lat='. floatval($tmp[0]) .'&lon='. floatval($tmp[1]) .'&zoom='. intval($tmp[2]);
+
+		// Standard GEO Link
+		} else if (count($tmp) == 3) {
 			$val['txt'] = 'geo:'. floatval($tmp[0]) .','. floatval($tmp[1]) .','. intval($tmp[2]); 
+
 		} else {
 			$val['txt'] = 'Please define "deg N latitude|deg W longitude|elevation" to use geo location';
 		}
+
 		$tmp = array();
 		break;
 
