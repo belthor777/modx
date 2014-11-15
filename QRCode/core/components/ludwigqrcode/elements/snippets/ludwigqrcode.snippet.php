@@ -45,9 +45,12 @@ $tmp = array();
 // 1: That we want: array(2) { ["width"]=> string(3) "100" ["txt"]=> string(7) "QR Code" }
 // 2: That we get: array(2) { [0]=> string(3) "100" [1]=> string(7) "QR Code" } 
 var_dump( $modx->getOption('width', $props, false) );
-var_dump( $modx->getOption('txt', $props, false) );
+if (array_key_exists('width', $props)) {
+    var_dump( $props );
+}
+exit();
 
-if ( !$modx->getOption('width', $props, false) && !$modx->getOption('txt', $props, false) )
+if ( !$modx->getOption('width', $props, false) )
 {
 	$chunk = $modx->getObject('modChunk', array('name' => 'qrcode'));
 	$chunk->set('properties', $modx->fromJSON('[{"name":"width","desc":"","xtype":"numberfield","options":[],"value":"100","lexicon":"","overridden":false,"desc_trans":"","area":"","area_trans":"","menu":null},{"name":"txt","desc":"","xtype":"textfield","options":[],"value":"QR Code","lexicon":"","overridden":false,"desc_trans":"","area":"","area_trans":"","menu":null}]'));
