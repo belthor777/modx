@@ -41,26 +41,14 @@ $props =& $scriptProperties;
 $output = '';
 $tmp = array();
 
-// After successfull installation there could be a problem with the properties:
+// After an successfully installation there could be a problem with the properties:
 // 1: That we want: array(2) { ["width"]=> string(3) "100" ["txt"]=> string(7) "QR Code" }
 // 2: That we get: array(2) { [0]=> string(3) "100" [1]=> string(7) "QR Code" } 
-var_dump( $modx->getOption('width', $props, false) );
-if (array_key_exists('width', $props)) {
-    var_dump( $props );
-}
-exit();
-
-if ( !$modx->getOption('width', $props, false) )
-{
+if ( array_key_exists('width', $props) && ($props['width'] == "[[+width]]") ) {
 	$chunk = $modx->getObject('modChunk', array('name' => 'qrcode'));
 	$chunk->set('properties', $modx->fromJSON('[{"name":"width","desc":"","xtype":"numberfield","options":[],"value":"100","lexicon":"","overridden":false,"desc_trans":"","area":"","area_trans":"","menu":null},{"name":"txt","desc":"","xtype":"textfield","options":[],"value":"QR Code","lexicon":"","overridden":false,"desc_trans":"","area":"","area_trans":"","menu":null}]'));
 	$chunk->save();
 	unset($chunk);
-	
-	$chunk = $modx->getObject('modChunk', array('name' => 'qrcode'));
-	var_dump( $chunk->getProperties() );
-	unset($chunk);
-	exit();
 }
 
 // Initial Default Parameter
