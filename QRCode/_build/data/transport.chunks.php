@@ -16,7 +16,7 @@ $chunks[$i]->fromArray(array(
     'name' => 'qrcode',
     'description' => 'Generate QR-Codes',
     'snippet' => file_get_contents($sources['chunks'].'qrcode.chunk.tpl'),
-    'properties' => getChunkPropertySet_qrcode(),
+    'properties' => "",
 ),'',true,true);
 
 return $chunks;

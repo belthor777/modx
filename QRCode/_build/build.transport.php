@@ -42,6 +42,7 @@ $sources = array(
 	'build' => $build,
 	'data' => $build . 'data/',
 	'resolvers' => $build . 'resolvers/',
+	'propertysets' => $root .'core/components/'.PKG_NAME_LOWER.'/elements/propertysets/',
 	'chunks' => $root .'core/components/'.PKG_NAME_LOWER.'/elements/chunks/',
 	'snippets' => $root .'core/components/'.PKG_NAME_LOWER.'/elements/snippets/',
 	'plugins' => $root .'core/components/'.PKG_NAME_LOWER.'/elements/plugins/',
@@ -79,7 +80,7 @@ $modx->log(modX::LOG_LEVEL_INFO, 'Packaged in "'. PKG_NAME .'" category.');
 flush();
 
 // Add Elements to Category
-foreach ( array('Snippets', 'Chunks', 'TemplateVars', 'Plugins', 'PropertySets') as $mycat)
+foreach ( array('PropertySets', 'Snippets', 'Chunks', 'TemplateVars', 'Plugins') as $mycat)
 {
 	$c_file = $sources['data'] . 'transport.'. strtolower($mycat) .'.php';
 	if(file_exists($c_file))
@@ -110,6 +111,11 @@ $attr = array(
     xPDOTransport::UPDATE_OBJECT => true,
     xPDOTransport::RELATED_OBJECTS => true,
     xPDOTransport::RELATED_OBJECT_ATTRIBUTES => array (
+        'PropertySets' => array(
+            xPDOTransport::PRESERVE_KEYS => false,
+            xPDOTransport::UPDATE_OBJECT => true,
+            xPDOTransport::UNIQUE_KEY => 'name',
+        ),
         'Snippets' => array(
             xPDOTransport::PRESERVE_KEYS => false,
             xPDOTransport::UPDATE_OBJECT => true,
