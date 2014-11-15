@@ -44,6 +44,9 @@ $tmp = array();
 // After successfull installation there could be a problem with the properties:
 // 1: That we want: array(2) { ["width"]=> string(3) "100" ["txt"]=> string(7) "QR Code" }
 // 2: That we get: array(2) { [0]=> string(3) "100" [1]=> string(7) "QR Code" } 
+var_dump( $modx->getOption('width', $props, false) );
+var_dump( $modx->getOption('txt', $props, false) );
+
 if ( !$modx->getOption('width', $props, false) && !$modx->getOption('txt', $props, false) )
 {
 	$chunk = $modx->getObject('modChunk', array('name' => 'qrcode'));
