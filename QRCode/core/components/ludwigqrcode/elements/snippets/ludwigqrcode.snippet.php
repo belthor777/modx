@@ -47,12 +47,15 @@ $tmp = array();
 if ( !$modx->getOption('width', $props, false) && !$modx->getOption('txt', $props, false) )
 {
 	$chunk = $modx->getObject('modChunk', array('name' => 'qrcode'));
+	$chunk->set('properties', $modx->fromJSON('[{"name":"width","desc":"","xtype":"numberfield","options":[],"value":"100","lexicon":"","overridden":false,"desc_trans":"","area":"","area_trans":"","menu":null},{"name":"txt","desc":"","xtype":"textfield","options":[],"value":"QR Code","lexicon":"","overridden":false,"desc_trans":"","area":"","area_trans":"","menu":null}]'));
 	$chunk->save();
 	unset($chunk);
+	
+	$chunk = $modx->getObject('modChunk', array('name' => 'qrcode'));
+	var_dump( $chunk->getProperties() );
+	unset($chunk);
+	exit();)
 }
-
-$chunk = $modx->getObject('modChunk', array('name' => 'qrcode'));
-var_dump( $chunk->getProperties() );
 
 // Initial Default Parameter
 $val= array(	'txt' => $modx->getOption('txt', $props, ''),	// Message
