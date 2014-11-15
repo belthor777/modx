@@ -54,7 +54,7 @@ if ( !$modx->getOption('width', $props, false) && !$modx->getOption('txt', $prop
 	$chunk = $modx->getObject('modChunk', array('name' => 'qrcode'));
 	var_dump( $chunk->getProperties() );
 	unset($chunk);
-	exit();)
+	exit();
 }
 
 // Initial Default Parameter
