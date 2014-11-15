@@ -1,1 +1,1 @@
-<img src="[[+link]]" width="[[+width]]" height="[[+width]]" title="[[+txt]]" alt="[[+txt]]" />
+<img src="[[+src]]" width="[[+width]]" height="[[+height]]" title="[[+title]]" alt="[[+alt]]" />

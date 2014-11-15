@@ -189,28 +189,18 @@ if (is_a($qr, 'QRcode'))
 						$val['fore_color'] );
 	}
 
-	// Was it successfully?
-	if($output != '')
-	{
-
-		// Generate QRCode on the fly
-		if ( !$val['saveToFile'] )
-		{
-			$link= 'data:image/svg+xml;base64,'. base64_encode($output);
-		}
-
-		// Receive a link where the image is cached
-		$link= $val['saveToFile'];
-
-	}
-}
-
 $chunk = $modx->getObject( 'modChunk',array( 'name' => $val['chunk'] ) );
 if (!$chunk) return 'No line item chunk!';
 
 return $chunk->process(array(
-	'txt' => $modx->getOption('txt', $props, ''),
+	'title' => $modx->getOption('txt', $props, ''),
+	'alt' => $modx->getOption('txt', $props, ''),
 	'width' => $val['width'],
 	'height' => $val['width'],
-	'link' => $link,
+	'src' => !$val['saveToFile'] ? 'data:image/svg+xml;base64,'. base64_encode($output) : $val['saveToFile'],
 ));
+
+// Could not initialize class
+} else {
+	return '';
+}
