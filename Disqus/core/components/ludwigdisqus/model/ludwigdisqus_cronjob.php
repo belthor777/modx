@@ -82,9 +82,8 @@ if (!isset($modx)) {
                 //$cm->refresh();
 
                 // Run Import Snippet - Cached Version
-                $output = $modx->runSnippet( $pkg .'_import',array());
-
-                exit($output);
+                $modx->runSnippet( $pkg .'_import',array());
+                exit(1);
     }
     exit(0);
 
