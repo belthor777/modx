@@ -78,8 +78,8 @@ if (!isset($modx)) {
     if ( $modx->getOption( $pkg .'.use_cronjob') && $modx->getOption( $pkg .'.activated') && $modx->getOption( $pkg .'.seofriendly') )
     {
                 // Clear Cache
-                $cm = $modx->getCacheManager();
-                $cm->refresh();
+                //$cm = $modx->getCacheManager();
+                //$cm->refresh();
 
                 // Run Import Snippet - Cached Version
                 $output = $modx->runSnippet( $pkg .'_import',array());
