@@ -496,37 +496,54 @@
         @return String containing SVG tag
         */
         
-        public static function svg($text, $elemId = false, $outFile = false, $level = QR_ECLEVEL_L, $width = false, $size = false, $margin = 4, $compress = false, $back_color = 'transparent', $fore_color = 0x000000) 
+        public static function svg($text, $elemId = false, $outFile = false, $level = QR_ECLEVEL_L, $width = false, $size = false, $margin = 4, $compress = false, $back_color = 'transparent', $fore_color = 0x000000, $position_color = false) 
         {
             $enc = QRencode::factory($level, 1, 0);
             $tab_src = $enc->encode($text, false);
             $area = new QRsvgOutput($tab_src);
 
-			// convert a hexadecimal color code into decimal RGB
+			// Background Color - Convert a hexadecimal color code into decimal RGB
 			if ($back_color != 'transparent')
 			{			 
 				preg_match('/^0x?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i', $back_color, $rgb_color);
 				if (count($rgb_color) == 4)
-					$area->back_color = 'rgb('. intval ( $rgb_color[1], 16 ) .','. 
-												intval ( $rgb_color[2], 16 ) .','. 
-												intval ( $rgb_color[3], 16 ) .')';
+					$area->back_color = 'rgb('.	intval ( $rgb_color[1], 16 ) .','. 
+															intval ( $rgb_color[2], 16 ) .','. 
+															intval ( $rgb_color[3], 16 ) .')';
+				unset($rgb_color);
 			} else {
-			  $area->back_color = $back_color;
+				$area->back_color = $back_color;
 			}
 
-            // convert a hexadecimal color code into decimal RGB
+			// Foreground Color - convert a hexadecimal color code into decimal RGB
 			preg_match('/^0x?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i', $fore_color, $rgb_color);
 			if (count($rgb_color) == 4)
-				$area->fore_color = 'rgb('. intval ( $rgb_color[1], 16 ) .','. 
-											intval ( $rgb_color[2], 16 ) .','. 
-											intval ( $rgb_color[3], 16 ) .')';
+				$area->fore_color = 'rgb('.	intval ( $rgb_color[1], 16 ) .','. 
+														intval ( $rgb_color[2], 16 ) .','. 
+														intval ( $rgb_color[3], 16 ) .')';
+			unset($rgb_color);
 
-            $area->detectGroups();
-            $area->detectAreas();
-            
-            if ($elemId === false) {
-                $elemId = 'qrcode-'.md5(mt_rand(1000,1000000).'.'.mt_rand(1000,1000000).'.'.mt_rand(1000,1000000).'.'.mt_rand(1000,1000000));
-                
+			// Position Color - convert a hexadecimal color code into decimal RGB
+			if ( $position_color != false )
+			{
+				preg_match('/^0x?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i', $position_color, $rgb_color);
+				if (count($rgb_color) == 4)
+					$area->position_color = 'rgb('.	intval ( $rgb_color[1], 16 ) .','. 
+																intval ( $rgb_color[2], 16 ) .','. 
+																intval ( $rgb_color[3], 16 ) .')';
+				unset($rgb_color);
+
+			} else {
+					$area->position_color = $area->back_color;
+			}
+
+			$area->detectGroups();
+			$area->detectAreas();
+
+		if ($elemId === false) 
+		{
+			$elemId = 'qrcode-'.md5(mt_rand(1000,1000000).'.'.mt_rand(1000,1000000).'.'.mt_rand(1000,1000000).'.'.mt_rand(1000,1000000));
+
                 if ($width == false) {
                     if (($size !== false) && ($size > 0))  {
                         $width = ($area->getWidth()+(2*$margin)) * $size;
@@ -535,7 +552,7 @@
                     }
                 }
             }
-            
+
             $svg = '<svg xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
             version="1.1"

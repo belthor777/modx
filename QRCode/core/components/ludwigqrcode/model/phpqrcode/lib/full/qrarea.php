@@ -67,16 +67,17 @@
     //##########################################################################
     
     class QRarea {
-    
+
         public    $width = 0;
         private   $tab = array();
         private   $tab_edges = array();
         private   $groups = array();
         private   $curr_group = 0;
         public    $paths = array();
-        public	$back_color = 0xFFFFFF;
-        public	$fore_color = 0x000000;    
-    
+        public    $back_color = 0xFFFFFF;
+        public    $fore_color = 0x000000;
+        public    $position_color = 0x000000;
+
         //----------------------------------------------------------------------
         public function __construct($source_tab) 
         {
