@@ -169,3 +169,4 @@ if(!$modx->addPackage($pak, $ldpath, 'disqus_') || !$activated['plugin'] )
 	unset($params);
 
 }
+return(TRUE);
