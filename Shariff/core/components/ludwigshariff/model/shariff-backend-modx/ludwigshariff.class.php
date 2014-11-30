@@ -51,7 +51,7 @@ class LudwigShariff
 		$serviceNames= array();
 
 		// Get Service Interface
-		require_once( dirname(__FILE__) .'/ServiceInterface.php' );
+		require_once( dirname(__FILE__) .'/serviceinterface.class.php' );
 
                 // Get Service Interface
                 require_once( dirname(__FILE__) .'/requests.class.php' );

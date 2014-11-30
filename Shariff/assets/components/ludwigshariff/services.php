@@ -42,35 +42,64 @@ $modx = new modX();
 $modx->initialize('web');
 $modx->getService('error','error.modError', '', '');
 
-// Parameter
-$url= isset($_GET['url']) ? htmlspecialchars(urldecode($_GET['url'])) : '';
+// System Settings
+$cache_expires= $modx->getOption( PKG_NAME_LOWER .'.cache_expires', null, 3600, true);
+$whitelist_domain= $modx->getOption( PKG_NAME_LOWER .'.external_domains', null, '', true);
+$whitelist_services= explode( ',', $modx->getOption( PKG_NAME_LOWER .'.services', null, '', true) );
 
-// Using Modx Cache for 1h per URL
-$cache= array(	"opt" => array( xPDO::OPT_CACHE_KEY => PKG_NAME, xPDO::OPT_CACHE_EXPIRES => 3600 ),
-		"name" => PKG_NAME_LOWER .'_'. substr(md5($url), 0, 8) );
-$output= $modx->cacheManager->get($cache["name"], $cache["opt"]);
-
-// Load classes
-if (empty($output) || is_null($output) )
+// Is the Extra activated?
+if ($modx->getOption( PKG_NAME_LOWER .'.activated', null, false, true ))
 {
-	$path = $modx->getOption( PKG_NAME_LOWER .'.core_path', null, $modx->getOption('core_path').'components/'. PKG_NAME_LOWER .'/') . 'model/shariff-backend-modx/';
-	$modx->getService(PKG_NAME_LOWER, PKG_NAME, $path);
-	if ( is_object( $modx->ludwigshariff ) && ( $url !== '' ) )
+	// Parameter
+	$url= isset($_GET['url']) ? htmlspecialchars(urldecode($_GET['url'])) : '';
+
+	// Analyze and filter external URLs
+	function parse_myurl($url, $param= -1)
 	{
-		// Load Service Class
-		$counts= array();
-		foreach ($modx->ludwigshariff->instances as $service) 
+		if ( (strpos($url,"://") === false) && ( substr($url,0,1)!="/") )
 		{
-			$result= $service->getRequest( $url );
-			$counts[ $service->getName() ] = $service->extractCount( $result );
+			$url = "https://".$url;
 		}
-
-		$output= html_entity_decode( json_encode( array_map('htmlentities', $counts) ) );
-
-		// Cache results
-		$modx->cacheManager->set($cache["name"], $output, $cache["opt"][xPDO::OPT_CACHE_EXPIRES], $cache["opt"]);
+		return( parse_url( strtolower($url), $param) );
 	}
-}
+	$url_whitelist = explode( ',', preg_replace('~^www[^.]*\.~', '', parse_myurl( $whitelist_domain, PHP_URL_HOST )) );
+	$url_whitelist[] = parse_myurl( MODX_HTTP_HOST, PHP_URL_HOST ); // Add own Domain
+	if ( !in_array( preg_replace('~^www[^.]*\.~', '', parse_myurl( $url, PHP_URL_HOST )), $url_whitelist) )
+	{
+		return(false);
+	}
 
-echo $output;
+	// Using Modx Cache for 1h per URL
+	$cache= array(	"opt" => array( xPDO::OPT_CACHE_KEY => PKG_NAME, xPDO::OPT_CACHE_EXPIRES => $cache_expires ),
+						"name" => PKG_NAME_LOWER .'_'. substr(md5($url), 0, 8) );
+	$output= $modx->cacheManager->get($cache["name"], $cache["opt"]);
+
+	// Load classes
+	if (empty($output) || is_null($output) )
+	{
+		$path = $modx->getOption( PKG_NAME_LOWER .'.core_path', null, $modx->getOption('core_path').'components/'. PKG_NAME_LOWER .'/') . 'model/shariff-backend-modx/';
+		$modx->getService(PKG_NAME_LOWER, PKG_NAME, $path);
+		if ( is_object( $modx->ludwigshariff ) && ( $url !== '' ) )
+		{
+			// Load Service Class
+			$counts= array();
+			foreach ($modx->ludwigshariff->instances as $service) 
+			{
+				// Use only allowed services
+				if (in_array( $service->getName(), $whitelist_services ) )
+				{
+					$result= $service->getRequest( $url );
+					$counts[ $service->getName() ] = $service->extractCount( $result );
+				}
+			}
+
+			$output= html_entity_decode( json_encode( array_map('htmlentities', $counts) ) );
+
+			// Cache results
+			$modx->cacheManager->set($cache["name"], $output, $cache_expires, $cache["opt"]);
+		}
+	}
+
+	echo $output;
+}
 return true;
