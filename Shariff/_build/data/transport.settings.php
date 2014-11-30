@@ -25,7 +25,7 @@ $settings[$name]->fromArray(array(
      'area' => 'general',
 ),'',true,true);
 
-$name= PKG_NAME_LOWER .'.external_urls';
+$name= PKG_NAME_LOWER .'.external_domains';
 $settings[$name]= $modx->newObject('modSystemSetting');
 $settings[$name]->fromArray(array(
      'key' => $name,
