@@ -1,7 +1,7 @@
 <?php
 /**
  * Default English language strings
- * @package ludwigdisqus
+ * @package ludwigshariff
  * @subpackage lexicon
  */
 $_lang['addcomment'] = 'Add Your Comment';

@@ -1,28 +1,28 @@
 <?php
 /**
- * LudwigDisqus
+ * LudwigShariff
  *
  * Copyright 2014 by Thomas Ludwig <thomas@ludwig.im>
  *
- * LudwigDisqus is free software; you can redistribute it and/or modify it under the
+ * LudwigShariff is free software; you can redistribute it and/or modify it under the
  * terms of the GNU General Public License as published by the Free Software
  * Foundation; either version 2 of the License, or (at your option) any later
  * version.
  *
- * LudwigDisqus is distributed in the hope that it will be useful, but WITHOUT ANY
+ * LudwigShariff is distributed in the hope that it will be useful, but WITHOUT ANY
  * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
  * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License along with
- * LudwigDisqus; if not, write to the Free Software Foundation, Inc., 59 Temple
+ * LudwigShariff; if not, write to the Free Software Foundation, Inc., 59 Temple
  * Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * @package ludwigdisqus
+ * @package ludwigshariff
  */
 /**
- * LudwigDisqus build script
+ * LudwigShariff build script
  *
- * @package ludwigdisqus
+ * @package ludwigshariff
  * @subpackage build
  */
 $mtime = microtime();
@@ -68,7 +68,7 @@ $modx->setLogTarget('ECHO');
 $modx->loadClass('transport.modPackageBuilder','',false, true);
 $builder = new modPackageBuilder($modx);
 $builder->createPackage(PKG_NAME_LOWER,PKG_VERSION,PKG_RELEASE);
-$builder->registerNamespace(PKG_NAME_LOWER,false,true,'{core_path}components/'.PKG_NAME_LOWER.'/');
+$builder->registerNamespace(PKG_NAME_LOWER, false, true, '{core_path}components/'.PKG_NAME_LOWER.'/', '{assets_path}components/'.PKG_NAME_LOWER.'/');
 $modx->log(modX::LOG_LEVEL_INFO,'Created Transport Package and Namespace.');
 
 // Create category

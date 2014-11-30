@@ -4,7 +4,7 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
     case xPDOTransport::ACTION_INSTALL:
         break;
     case xPDOTransport::ACTION_UPGRADE:
- 		 $setting = $modx->getObject('modSystemSetting',array('key' => 'ludwigdisqus.version'));
+ 		 $setting = $modx->getObject('modSystemSetting',array('key' => 'ludwigshariff.version'));
 		if ($setting != null) { 
 				$setting->set('value','1.0.0');
 				$setting->save();

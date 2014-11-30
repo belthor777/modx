@@ -1,98 +1,58 @@
 <?php
 /**
- * @package ludwigdisqus
+ * @package ludwigshariff
  * @subpackage build
  */
 $settings = array();
 
-$settings['ludwigdisqus.activated']= $modx->newObject('modSystemSetting');
-$settings['ludwigdisqus.activated']->fromArray(array(
-     'key' => 'ludwigdisqus.activated',
-     'value' => '1',
+$name= PKG_NAME_LOWER .'.activated';
+$settings[$name]= $modx->newObject('modSystemSetting');
+$settings[$name]->fromArray(array(
+     'key' => $name,
+     'value' => 1,
      'xtype' => 'combo-boolean',
-     'namespace' => 'ludwigdisqus',
+     'namespace' => PKG_NAME_LOWER,
      'area' => 'general',
 ),'',true,true);
 
-$settings['ludwigdisqus.seofriendly']= $modx->newObject('modSystemSetting');
-$settings['ludwigdisqus.seofriendly']->fromArray(array(
-     'key' => 'ludwigdisqus.seofriendly',
-     'value' => '0',
-     'xtype' => 'combo-boolean',
-     'namespace' => 'ludwigdisqus',
-     'area' => 'seofriendly',
+$name= PKG_NAME_LOWER .'.services';
+$settings[$name]= $modx->newObject('modSystemSetting');
+$settings[$name]->fromArray(array(
+     'key' => $name,
+     'value' => 'facebook,googleplus,twitter',
+     'xtype' => 'textfield',
+     'namespace' => PKG_NAME_LOWER,
+     'area' => 'general',
 ),'',true,true);
 
-$settings['ludwigdisqus.version']= $modx->newObject('modSystemSetting');
-$settings['ludwigdisqus.version']->fromArray(array(
-     'key' => 'ludwigdisqus.version',
+$name= PKG_NAME_LOWER .'.external_urls';
+$settings[$name]= $modx->newObject('modSystemSetting');
+$settings[$name]->fromArray(array(
+     'key' => $name,
+     'value' => '',
+     'xtype' => 'textfield',
+     'namespace' => PKG_NAME_LOWER,
+     'area' => 'general',
+),'',true,true);
+
+$name= PKG_NAME_LOWER .'.cache_expires';
+$settings[$name]= $modx->newObject('modSystemSetting');
+$settings[$name]->fromArray(array(
+     'key' => $name,
+     'value' => 3600,
+     'xtype' => 'numberfield',
+     'namespace' => PKG_NAME_LOWER,
+     'area' => 'general',
+),'',true,true);
+
+$name= PKG_NAME_LOWER .'.version';
+$settings[$name]= $modx->newObject('modSystemSetting');
+$settings[$name]->fromArray(array(
+     'key' => $name,
      'value' => PKG_VERSION,
      'xtype' => 'textfield',
-     'namespace' => 'ludwigdisqus',
+     'namespace' => PKG_NAME_LOWER,
      'area' => 'general',
-),'',true,true);
-
-$settings['ludwigdisqus.shortname']= $modx->newObject('modSystemSetting');
-$settings['ludwigdisqus.shortname']->fromArray(array(
-     'key' => 'ludwigdisqus.shortname',
-     'value' => 'myshortname',
-     'xtype' => 'textfield',
-     'namespace' => 'ludwigdisqus',
-     'area' => 'general',
-),'',true,true);
-
-$settings['ludwigdisqus.api_key']= $modx->newObject('modSystemSetting');
-$settings['ludwigdisqus.api_key']->fromArray(array(
-     'key' => 'ludwigdisqus.api_key',
-     'value' => 'Enter your Disqus API Key',
-     'xtype' => 'textfield',
-     'namespace' => 'ludwigdisqus',
-     'area' => 'seofriendly',
-),'',true,true);
-
-$settings['ludwigdisqus.fetch_limit']= $modx->newObject('modSystemSetting');
-$settings['ludwigdisqus.fetch_limit']->fromArray(array(
-     'key' => 'ludwigdisqus.fetch_limit',
-     'value' => 100,
-     'xtype' => 'numberfield',
-     'namespace' => 'ludwigdisqus',
-     'area' => 'seofriendly',
-),'',true,true);
-
-$settings['ludwigdisqus.force_db_rebuild']= $modx->newObject('modSystemSetting');
-$settings['ludwigdisqus.force_db_rebuild']->fromArray(array(
-     'key' => 'ludwigdisqus.force_db_rebuild',
-     'value' => '0',
-     'xtype' => 'combo-boolean',
-     'namespace' => 'ludwigdisqus',
-     'area' => 'seofriendly',
-),'',true,true);
-
-$settings['ludwigdisqus.use_cronjob']= $modx->newObject('modSystemSetting');
-$settings['ludwigdisqus.use_cronjob']->fromArray(array(
-     'key' => 'ludwigdisqus.use_cronjob',
-     'value' => '1',
-     'xtype' => 'combo-boolean',
-     'namespace' => 'ludwigdisqus',
-     'area' => 'seofriendly',
-),'',true,true);
-
-$settings['ludwigdisqus.manager']= $modx->newObject('modSystemSetting');
-$settings['ludwigdisqus.manager']->fromArray(array(
-     'key' => 'ludwigdisqus.manager',
-     'value' => '0',
-     'xtype' => 'combo-boolean',
-     'namespace' => 'ludwigdisqus',
-     'area' => 'management',
-),'',true,true);
-
-$settings['ludwigdisqus.access_token']= $modx->newObject('modSystemSetting');
-$settings['ludwigdisqus.access_token']->fromArray(array(
-     'key' => 'ludwigdisqus.access_token',
-     'value' => 'Enter your Disqus Access Token to manage Disqus',
-     'xtype' => 'textfield',
-     'namespace' => 'ludwigdisqus',
-     'area' => 'management',
 ),'',true,true);
 
 return $settings;

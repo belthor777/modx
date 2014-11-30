@@ -33,33 +33,44 @@
 define('PKG_NAME', 'LudwigShariff');
 define('PKG_NAME_LOWER', strtolower(PKG_NAME));
 
-// Boot up MODX
-require_once dirname(dirname(__FILE__)) . '/config.core.php';
+// Include Modx Classes
+require_once dirname(dirname(dirname(dirname(__FILE__)))).'/config.core.php';
 require_once MODX_CORE_PATH . 'model/modx/modx.class.php';
 
+// Initialize Modx
 $modx = new modX();
 $modx->initialize('web');
 $modx->getService('error','error.modError', '', '');
 
-// Boot up any service classes or packages (models) you will need
-$path = $modx->getOption( PKG_NAME_LOWER .'.core_path', null, $modx->getOption('core_path').'components/'. PKG_NAME_LOWER .'/') . 'model/'. PKG_NAME_LOWER .'/';
-$modx->getService(PKG_NAME_LOWER, PKG_NAME, $path);
+// Parameter
+$url= isset($_GET['url']) ? htmlspecialchars(urldecode($_GET['url'])) : '';
 
-// Load the modRestService class and pass it some basic configuration
-$rest = $modx->getService('rest', 'rest.modRestService', '', array(
-    'basePath' => dirname(__FILE__) . '/Controllers/',
-    'controllerClassSeparator' => '',
-    'controllerClassPrefix' => PKG_NAME_LOWER,
-    'xmlRootNode' => 'response',
-));
+// Using Modx Cache for 1h per URL
+$cache= array(	"opt" => array( xPDO::OPT_CACHE_KEY => PKG_NAME, xPDO::OPT_CACHE_EXPIRES => 3600 ),
+		"name" => PKG_NAME_LOWER .'_'. substr(md5($url), 0, 8) );
+$output= $modx->cacheManager->get($cache["name"], $cache["opt"]);
 
-// Prepare the request
-$rest->prepare();
+// Load classes
+if (empty($output) || is_null($output) )
+{
+	$path = $modx->getOption( PKG_NAME_LOWER .'.core_path', null, $modx->getOption('core_path').'components/'. PKG_NAME_LOWER .'/') . 'model/shariff-backend-modx/';
+	$modx->getService(PKG_NAME_LOWER, PKG_NAME, $path);
+	if ( is_object( $modx->ludwigshariff ) && ( $url !== '' ) )
+	{
+		// Load Service Class
+		$counts= array();
+		foreach ($modx->ludwigshariff->instances as $service) 
+		{
+			$result= $service->getRequest( $url );
+			$counts[ $service->getName() ] = $service->extractCount( $result );
+		}
 
-// Make sure the user has the proper permissions, send the user a 401 error if not
-if (!$rest->checkPermissions()) {
-    $rest->sendUnauthorized(true);
+		$output= html_entity_decode( json_encode( array_map('htmlentities', $counts) ) );
+
+		// Cache results
+		$modx->cacheManager->set($cache["name"], $output, $cache["opt"][xPDO::OPT_CACHE_EXPIRES], $cache["opt"]);
+	}
 }
 
-// Run the request
-$rest->process();
+echo $output;
+return true;
