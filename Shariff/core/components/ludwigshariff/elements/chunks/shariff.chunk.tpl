@@ -45,9 +45,8 @@ if ($modx->getOption( $pkg .'.activated', null, false, true ))
   $extUrl= $modx->getOption('extUrl', $scriptProperties, false); // External URL: Has to be defined in the whitelist
   $lang= $modx->getOption('lang', $scriptProperties, $modx->getOption('cultureKey'));	// Language
 
-  // Design
+  // Jquery exists?
   $needJquery= $modx->getOption('needJquery', $scriptProperties, 1);	// Does we need jquery or is it already installed?
-  $needFa= $modx->getOption('needFa', $scriptProperties, 1);	// Does we need Awesome Fonts or is it already installed?
 
   // Check if infobutton is needed
   if ( ($infoUrl !== '') && (strpos($srv, "info") === false) )
@@ -74,14 +73,13 @@ if ($modx->getOption( $pkg .'.activated', null, false, true ))
   // Add Shariff CSS files
   if ($addcss)
   {
-		$css_file= ($needFa) ? 'css/shariff.min.css' : 'css/shariff_small.min.css';
-		$modx->regClientCSS( $assets_path . $css_file );
+		$modx->regClientCSS( $assets_path . 'css/shariff.min.css' );
   }
 
   // Add Shariff JS files
   if ($addjs)
   {
-		$js_file= ($needJquery) ? 'js/shariff.min.js' : 'js/shariff_small.min.js';
+		$js_file= ($needJquery) ? 'js/shariff.complete.js' : 'js/shariff.min.js';
 		$modx->regClientScript( $assets_path . $js_file );
   }
 
