@@ -25,6 +25,16 @@ $snippets[$i]->fromArray(array(
     'snippet' => getSnippetContent($sources['snippets'] . 'shariff.snippet.php'),
 ),'',true,true);
 
+// Import Items
+$i++;
+$snippets[$i]= $modx->newObject('modSnippet');
+$snippets[$i]->fromArray(array(
+    'id' => $i,
+    'name' => 'shariffinfo',
+    'description' => 'Show Social Media Shares',
+    'snippet' => getSnippetContent($sources['snippets'] . 'shariffinfo.snippet.php'),
+),'',true,true);
+
 return $snippets;
 
 ?>
