@@ -77,7 +77,7 @@ if ($modx->getOption( PKG_NAME_LOWER .'.activated', null, false, true ))
         // Load classes
         if (empty($output) || is_null($output) )
         {
-                $path = $modx->getOption( PKG_NAME_LOWER .'.core_path', null, $modx->getOption('core_path').'components/'. PKG_NAME_LOWER .'/') . $
+                $path = $modx->getOption( PKG_NAME_LOWER .'.core_path', null, $modx->getOption('core_path').'components/'. PKG_NAME_LOWER .'/');
                 $modx->getService(PKG_NAME_LOWER, PKG_NAME, $path);
                 if ( is_object( $modx->ludwigshariff ) && ( $url !== '' ) )
                 {
