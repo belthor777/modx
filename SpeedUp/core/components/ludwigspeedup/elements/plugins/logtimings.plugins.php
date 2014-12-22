@@ -56,14 +56,13 @@ if ($e->name == 'OnWebPageComplete')
 		$queries_time= number_format(round($modx->queryTime, 7), 7);
 
 		$data = array(
-			'id' => $id,
+			'docid' => $id,
 			'memory_peak' => floatval( memory_get_peak_usage(true) / 1048576 ),
 			//'from_modx_cache' => $modx->sourceCache, //_cacheFlag
 			'from_plugin_cache' => boolval( $activated['plugin-cache'] ),
-			'total_queries' => intval( isset ($modx->executedQueries) ? $modx->executedQueries : 0 ),
-			'total_queries_time' => floatval( $queries_time ),
-			'total_parse_time' => floatval( $parse_time ),
-			'total' => floatval( $parse_time + $queries_time )
+			'queries' => intval( isset ($modx->executedQueries) ? $modx->executedQueries : 0 ),
+			'queries_time' => floatval( $queries_time ),
+			'parse_time' => floatval( $parse_time )
 		);
 
 		$speedup_add = $modx->newObject('LogTimings', $data);
