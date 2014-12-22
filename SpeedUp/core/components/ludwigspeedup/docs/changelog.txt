@@ -1,0 +1,6 @@
+LudwigSpeedUp 1.0.0 (December 23, 2014)
+====================================
+- Initial project
+- Initial changelog started
+
+
