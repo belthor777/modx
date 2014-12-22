@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model package="ludwigspeedup" baseClass="xPDOObject" platform="mysql" defaultEngine="InnoDB" tablePrefix="ludwigspeedup_" phpdoc-package="ludwigspeedup" phpdoc-subpackage="model" version="1.1">
 	<object class="LogTimings" table="logtimings" extends="xPDOObject">
-		<field key="id" dbtype="bigint" phptype="integer" null="false" />
+		<field key="id" dbtype="bigint" phptype="integer" null="false" index="pk"  generated="native" />
+		<field key="docid" dbtype="bigint" phptype="integer" null="false" />
 		<field key="from_modx_cache" dbtype="tinyint" precision="1" phptype="boolean" attributes="unsigned" null="false" default="0" />
 		<field key="from_plugin_cache" dbtype="tinyint" precision="1" phptype="boolean" attributes="unsigned" null="false" default="0" />
 		<field key="memory_peak" dbtype="decimal" phptype="float" null="false" />
@@ -12,6 +13,5 @@
 		<index alias="PRIMARY" name="PRIMARY" primary="true" unique="true">
 			<column key="id" collation="A" null="false" />
 		</index>
-<!--		<composite alias="Comment" class="comment" local="id" foreign="thread_id" cardinality="one" owner="local" /> -->
 	</object>
 </model>
