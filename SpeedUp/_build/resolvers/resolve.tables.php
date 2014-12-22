@@ -21,7 +21,7 @@ if ($object->xpdo)
 			$modx->addPackage( PKG_NAME_LOWER, $modelPath, PKG_TABLE_PREFIX);
 
 			$manager = $modx->getManager();
-			$manager->createObjectContainer('logtimings');
+			$manager->createObjectContainer('LogTimings');
 
 			break;
 
@@ -34,7 +34,7 @@ if ($object->xpdo)
 			if ( $modx->addPackage( PKG_NAME_LOWER, $modelPath, PKG_TABLE_PREFIX) )
 			{
 				$manager = $modx->getManager();
-				$manager->removeObjectContainer('logtimings');
+				$manager->removeObjectContainer('LogTimings');
 			}
 			break;
 
