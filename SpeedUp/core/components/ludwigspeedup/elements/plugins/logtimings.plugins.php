@@ -41,6 +41,7 @@ if ($e->name == 'OnWebPageComplete')
 	$queries_time= number_format(round($modx->queryTime, 7), 7);
 
 	$data = array(
+		'id' => $id,
 		'memory_peak' => array( floatval( memory_get_peak_usage(true) / 1048576 ) ),
 		//'from_modx_cache' => array( $modx->sourceCache ), //_cacheFlag
 		'from_plugin_cache' => array( boolval( true ) ),
@@ -49,6 +50,9 @@ if ($e->name == 'OnWebPageComplete')
 		'total_parse_time' => array( floatval( $parse_time ) ),
 		'total' => array( floatval( $parse_time + $queries_time ) )
 	);
+	
+	$speedup_add = $modx->newObject('LogTimings', $data);
+	$speedup_add->save();
 /*
 	// Decompress Timings
 	$tv_content= gzuncompress( base64_decode ( $modx->resource->getTVValue('logtimings') ) );
