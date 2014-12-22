@@ -57,7 +57,7 @@ if ($e->name == 'OnWebPageComplete')
 
 		$data = array(
 			'docid' => $id,
-			'memory_peak' => floatval( memory_get_peak_usage(true) / 1048576 ),
+			'memory' => memory_get_peak_usage(true) / 1048576,
 			//'from_modx_cache' => $modx->sourceCache, //_cacheFlag
 			'from_plugin_cache' => boolval( $activated['plugin-cache'] ),
 			'queries' => intval( isset ($modx->executedQueries) ? $modx->executedQueries : 0 ),
