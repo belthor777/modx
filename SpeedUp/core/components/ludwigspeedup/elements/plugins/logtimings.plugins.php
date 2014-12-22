@@ -42,45 +42,17 @@ if ($e->name == 'OnWebPageComplete')
 
 	$data = array(
 		'id' => $id,
-		'memory_peak' => array( floatval( memory_get_peak_usage(true) / 1048576 ) ),
-		//'from_modx_cache' => array( $modx->sourceCache ), //_cacheFlag
-		'from_plugin_cache' => array( boolval( true ) ),
-		'total_queries' => array( intval( isset ($modx->executedQueries) ? $modx->executedQueries : 0 ) ),
-		'total_queries_time' => array( floatval( $queries_time ) ),
-		'total_parse_time' => array( floatval( $parse_time ) ),
-		'total' => array( floatval( $parse_time + $queries_time ) )
+		'memory_peak' => floatval( memory_get_peak_usage(true) / 1048576 ),
+		//'from_modx_cache' => $modx->sourceCache, //_cacheFlag
+		'from_plugin_cache' => boolval( true ),
+		'total_queries' => intval( isset ($modx->executedQueries) ? $modx->executedQueries : 0 ),
+		'total_queries_time' => floatval( $queries_time ),
+		'total_parse_time' => floatval( $parse_time ),
+		'total' => floatval( $parse_time + $queries_time )
 	);
-	
+
 	$speedup_add = $modx->newObject('LogTimings', $data);
 	$speedup_add->save();
-/*
-	// Decompress Timings
-	$tv_content= gzuncompress( base64_decode ( $modx->resource->getTVValue('logtimings') ) );
-	if ( ($tv_content != '') )
-	{
-		// Decode Json to Array
-		$tv_ary= json_decode($tv_content, true);
-
-		// Combine Arrays
-		$new_ary= array();
-		foreach( $data as $key => &$val )
-		{
-			$new_ary[$key]= array_merge( $tv_ary[$key], $val);
-		}
-		$new_value= json_encode( $new_ary );
-
-	// Using it first time
-	} else {
-		$new_value= json_encode( $data );
-
-	}
-
-	// Save new stats $new_value
-	if (!$modx->resource->setTVValue('logtimings', base64_encode( gzcompress( $new_value, 9 ) ) ))
-	{
-    	$modx->log(xPDO::LOG_LEVEL_ERROR, 'There was a problem saving your TV...');
-	}
-*/
 }
 
 return('');
