@@ -5,10 +5,10 @@
 		<field key="docid" dbtype="bigint" phptype="integer" null="false" />
 		<field key="from_modx_cache" dbtype="tinyint" precision="1" phptype="boolean" attributes="unsigned" null="false" default="0" />
 		<field key="from_plugin_cache" dbtype="tinyint" precision="1" phptype="boolean" attributes="unsigned" null="false" default="0" />
-		<field key="memory_peak" dbtype="decimal" precision="7,2" phptype="float" null="true" />
-		<field key="queries" dbtype="int" phptype="integer" null="true" />
-		<field key="queries_time" dbtype="decimal" precision="7,7" phptype="float" null="true" />
-		<field key="parse_time" dbtype="decimal" precision="7,7" phptype="float" null="true" />
+		<field key="memory_peak" dbtype="numeric" precision="7,2" phptype="float" null="true" />
+		<field key="queries" dbtype="int" precision="11" phptype="integer" null="true" />
+		<field key="queries_time" dbtype="numeric" precision="10,7" phptype="float" null="true" />
+		<field key="parse_time" dbtype="numeric" precision="10,7" phptype="float" null="true" />
 		<field key="date" dbtype="timestamp" phptype="timestamp" null="false" default="CURRENT_TIMESTAMP" />
 		<index alias="PRIMARY" name="PRIMARY" primary="true" unique="true">
 			<column key="id" collation="A" null="false" />
