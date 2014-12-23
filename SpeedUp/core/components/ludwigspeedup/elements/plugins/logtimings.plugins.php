@@ -75,6 +75,26 @@ function systemLoadInPercent($interval = 1)
 	return round(($rs[$interval >= 1 && 3 <= $interval ? $interval : 1] * 100) / getSystemCores(),2);
 }
 
+// Get MODX timings
+function getTimings()
+{
+	global $modx;
+
+	$mtime= microtime();
+	$mtime= explode(" ", $mtime);
+	$mtime= $mtime[1] + $mtime[0];
+
+	// Define Output Array
+	$timings= array(	'queries' => ( isset( $modx->executedQueries ) ? $modx->executedQueries : 0 ),
+							'queryTime' => $modx->queryTime,
+							'totalTime' => ($mtime - $modx->startTime),
+							'phpTime' => 0,
+							'cached' => boolval( $modx->resourceGenerated ? false : true ),
+							'php_memory' => (memory_get_peak_usage(true) / 1048576) ); // [Mb]
+	$timings['phpTime']= $timings['totalTime'] - $timings['queryTime'];
+
+	return( $timings );
+}
 
 $e = &$modx->Event;
 if ($e->name == 'OnWebPageComplete')
@@ -93,21 +113,19 @@ if ($e->name == 'OnWebPageComplete')
 	// Is LogTiming enabled?
 	} elseif ($activated['logtiming']) {
 
-		$queries= isset ($modx->executedQueries) ? $modx->executedQueries : 0;
-		$parse_time= number_format(round(microtime(true) - $modx->startTime, 7), 7);
-		$queries_time= number_format(round($modx->queryTime, 7), 7);
+		$timings= getTimings();
 		$id= $modx->resource->get('id');
 
 		$data = array(
 			'docid' => $id,
-			'memory' => memory_get_peak_usage(true) / 1048576, // [Mb]
-			'from_modx_cache' => boolval( $modx->resourceGenerated ? false : true ),
+			'memory_modx' => $timings['php_memory'],
+			'from_modx_cache' => $timings['cached'],
 			'from_plugin_cache' => boolval( defined('LUDWIGSPEEDUP_CACHE_STAT') ? LUDWIGSPEEDUP_CACHE_STAT : false ),
-			'queries' => intval($queries),
-			'queries_time' => floatval( $queries_time ), // [s]
-			'parse_time' => floatval( $parse_time ),	// [s]
-			'system_load' => systemLoadInPercent() // System Load [%]
-		);
+			'queries' => $timings['queries'],
+			'queries_time' => $timings['queryTime'], // [s]
+			'parse_time' => $timings['phpTime'],	// [s]
+			'total_time' => $timings['totalTime'],
+			'system_load' => systemLoadInPercent() ); // System Load [%]
 
 		$speedup_add = $modx->newObject('LogTimings', $data);
 		$speedup_add->save();
