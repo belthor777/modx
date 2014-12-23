@@ -33,13 +33,55 @@
 $PKG_NAME= 'LudwigSpeedUP';
 $PKG_NAME_LOWER= strtolower($PKG_NAME);
 
+/**
+ * Get amount of System Cores
+ * @see http://icesquare.com/wordpress/phphow-to-get-the-number-of-cpu-cores-in-fedora-ubuntu-and-freebsd/
+ */
+function getSystemCores()
+{
+	$cmd = "uname";
+	switch( strtolower(trim(shell_exec($cmd))) )
+	{
+		case('linux'):
+			$cmd = "cat /proc/cpuinfo | grep processor | wc -l";
+			break;
+		case('freebsd'):
+			$cmd = "sysctl -a | grep 'hw.ncpu' | cut -d ':' -f2";
+			break;
+		default:
+			unset($cmd);
+	}
+
+	if ($cmd != '')
+	{
+		$cpuCoreNo = intval(trim(shell_exec($cmd)));
+	}
+	return empty($cpuCoreNo) ? 1 : $cpuCoreNo;
+}
+
+/**
+ * Calculates the processor load in %
+ * @see sys_getloadavg
+ * @author Ivan Gospodinow
+ * @site ivangospodinow.com
+ * @date 07.02.2013
+ * @param int $coreCount
+ * @param int $interval
+ * @return float
+ */
+function systemLoadInPercent($interval = 1)
+{
+	$rs = sys_getloadavg();
+	return round(($rs[$interval >= 1 && 3 <= $interval ? $interval : 1] * 100) / getSystemCores(),2);
+}
+
+
 $e = &$modx->Event;
 if ($e->name == 'OnWebPageComplete')
 {
 	// Check if the Extra as well as LogTiming is enabled
 	$activated = array(	'extra' => $modx->getOption( $PKG_NAME_LOWER .'.activated'),
-								'logtiming' => $modx->getOption( $PKG_NAME_LOWER .'.logtiming_enabled'),
-								'plugin-cache' => $modx->getOption( $PKG_NAME_LOWER .'.plugin-cache_enabled')
+								'logtiming' => $modx->getOption( $PKG_NAME_LOWER .'.logtiming_enabled')
 					);
 
 	// Check if package is installed and activated
@@ -51,18 +93,20 @@ if ($e->name == 'OnWebPageComplete')
 	// Is LogTiming enabled?
 	} elseif ($activated['logtiming']) {
 
-		$id= $modx->resource->get('id');
+		$queries= isset ($modx->executedQueries) ? $modx->executedQueries : 0;
 		$parse_time= number_format(round(microtime(true) - $modx->startTime, 7), 7);
 		$queries_time= number_format(round($modx->queryTime, 7), 7);
+		$id= $modx->resource->get('id');
 
 		$data = array(
 			'docid' => $id,
-			'memory' => memory_get_peak_usage(true) / 1048576,
-			//'from_modx_cache' => $modx->sourceCache, //_cacheFlag
-			'from_plugin_cache' => boolval( $activated['plugin-cache'] ),
-			'queries' => intval( isset ($modx->executedQueries) ? $modx->executedQueries : 0 ),
-			'queries_time' => floatval( $queries_time ),
-			'parse_time' => floatval( $parse_time )
+			'memory' => memory_get_peak_usage(true) / 1048576, // [Mb]
+			'from_modx_cache' => boolval( $modx->resourceGenerated ? false : true ),
+			'from_plugin_cache' => boolval( defined('LUDWIGSPEEDUP_CACHE_STAT') ? LUDWIGSPEEDUP_CACHE_STAT : false ),
+			'queries' => intval($queries),
+			'queries_time' => floatval( $queries_time ), // [s]
+			'parse_time' => floatval( $parse_time ),	// [s]
+			'system_load' => systemLoadInPercent() // System Load [%]
 		);
 
 		$speedup_add = $modx->newObject('LogTimings', $data);
