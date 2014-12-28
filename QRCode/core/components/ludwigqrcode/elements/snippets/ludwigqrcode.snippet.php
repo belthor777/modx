@@ -48,6 +48,7 @@ $val= array('chunk' => $modx->getOption('chunk', $props, 'qrcode'),	// Set Chunk
 				'num' => $modx->getOption('num', $props, ''),	// Number (e.g. phone number)
 				'type' => $modx->getOption('type', $props, 'notype'),
 				'width' => $modx->getOption('width', $props, 100), // In pixel - false=auto
+				'itemprop' => $modx->getOption('itemprop', $props, 'logo'),
 				'fore_color' => $modx->getOption('fcolor', $props, '0x000000'),
 				'back_color' => 'transparent',
 				'size' => false,
@@ -79,6 +80,10 @@ switch ($val['type'])
 
 	case 'skype':
 		$val['txt'] = 'skype:'.urlencode($val['num']).'?call'; 
+		break;
+
+	case 'whatsapp':
+		$val['txt'] = 'whatsapp://send?text='. $val['txt'];
 		break;
 
 	case 'wifi':
@@ -175,12 +180,14 @@ if (is_a($qr, 'QRcode'))
 	// Generate SVG image
 	if ( $val['imgtype'] === 'svg' )
 	{
+		$eclevel= ($val['width'] > 70) ? QR_ECLEVEL_H : QR_ECLEVEL_L;
+
 		// Generate SVG
 		$val['saveToFile']= false;
 		$output =  $qr->svg( $val['txt'], 
 						$val['id'], 
 						$val['saveToFile'], 
-						QR_ECLEVEL_L, 
+						$eclevel, 
 						$val['width'],
 						$val['size'],
 						$val['margin'],
@@ -189,18 +196,19 @@ if (is_a($qr, 'QRcode'))
 						$val['fore_color'] );
 	}
 
-$chunk = $modx->getObject( 'modChunk',array( 'name' => $val['chunk'] ) );
-if (!$chunk) return 'No line item chunk!';
-
-return $chunk->process(array(
-	'title' => $modx->getOption('txt', $props, ''),
-	'alt' => $modx->getOption('txt', $props, ''),
-	'width' => $val['width'],
-	'height' => $val['width'],
-	'src' => !$val['saveToFile'] ? 'data:image/svg+xml;base64,'. base64_encode($output) : $val['saveToFile'],
-));
+	$chunk = $modx->getObject( 'modChunk',array( 'name' => $val['chunk'] ) );
+	if (!$chunk) return('No line item chunk!');
+	
+	return( $chunk->process(array(
+		'title' => $modx->getOption('txt', $props, ''),
+		'alt' => $modx->getOption('txt', $props, ''),
+		'width' => $val['width'],
+		'height' => $val['width'],
+		'src' => !$val['saveToFile'] ? 'data:image/svg+xml;base64,'. base64_encode($output) : $val['saveToFile'],
+		'itemprop' => $val['itemprop']
+	)));
 
 // Could not initialize class
 } else {
-	return '';
+	return('');
 }
