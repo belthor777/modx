@@ -45,6 +45,7 @@ $tmp = array();
 // Initial Default Parameter
 $val= array('chunk' => $modx->getOption('chunk', $props, 'qrcode'),	// Set Chunk name
 				'txt' => $modx->getOption('txt', $props, ''),	// Message
+				'alt' => $modx->getOption('alt', $props, 'QR-Code generated with LudwigQRCode'),	// HTML alt Tag for the Image
 				'num' => $modx->getOption('num', $props, ''),	// Number (e.g. phone number)
 				'type' => $modx->getOption('type', $props, 'notype'),
 				'width' => $modx->getOption('width', $props, 100), // In pixel - false=auto
@@ -201,7 +202,7 @@ if (is_a($qr, 'QRcode'))
 	
 	return( $chunk->process(array(
 		'title' => $modx->getOption('txt', $props, ''),
-		'alt' => $modx->getOption('txt', $props, ''),
+		'alt' => $val['alt'],
 		'width' => $val['width'],
 		'height' => $val['width'],
 		'src' => !$val['saveToFile'] ? 'data:image/svg+xml;base64,'. base64_encode($output) : $val['saveToFile'],
