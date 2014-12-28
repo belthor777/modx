@@ -205,7 +205,7 @@ if (is_a($qr, 'QRcode'))
 		'alt' => $val['alt'],
 		'width' => $val['width'],
 		'height' => $val['width'],
-		'src' => !$val['saveToFile'] ? 'data:image/svg+xml;base64,'. base64_encode($output) : $val['saveToFile'],
+		'src' => !$val['saveToFile'] ? 'data:image/svg+xml;charset=utf-8;base64,'. base64_encode($output) : $val['saveToFile'],
 		'itemprop' => $val['itemprop']
 	)));
 
