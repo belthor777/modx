@@ -157,6 +157,10 @@ class LudwigMarkdown
 	// Highlight Syntax with Geshi
 	public function generate_geshi( $output )
 	{
+
+		// Add Geshi CSS file
+		$this->geshi_css( 'geshi' );
+
 		# Geshiloader
 		$search= array(	"#<pre class=\"(.*)\"><code>(.*)<\/code></pre>#Uis",	// Pandoc
 				"#<pre><code>(.*)<\/code><\/pre>#Uis",			// Pandoc and PHP-Markdown
