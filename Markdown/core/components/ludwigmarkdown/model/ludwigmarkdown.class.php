@@ -32,10 +32,16 @@
 class LudwigMarkdown
 {
 	public $modx;
+	public $chunk_usesyntax;
+	public $chunk_nosyntax;
 
 	public function __construct( modX &$modx )
 	{
 		$this->modx =& $modx;
+
+		// Syntax Highlighter Chunks
+		$this->chunk_usesyntax= 'syntax_highlighter';
+		$this->chunk_nosyntax= 'no_syntax_highlighter';
 	}
 
 
@@ -117,7 +123,7 @@ class LudwigMarkdown
 	// Add the right CSS to MODX
 	public function geshi_css( $css_name )
 	{
-		$this->modx->regClientCSS( '/assets/components/ludwigmarkdown/css/'. $css_name .'.css' );
+		$this->modx->regClientCSS( MODX_ASSETS_PATH . 'components/ludwigmarkdown/css/'. $css_name .'.css' );
 	}
 
 	// GeSHI Syntax highlighter
@@ -142,15 +148,12 @@ class LudwigMarkdown
 			// Add CSS file
 			$this->geshi_css( $l );
 
-			// Return Code
-			return(	'<div class="code" itemscope itemtype="http://schema.org/Code">'. 
-				'<div itemprop="sampleType">'. $geshi->parse_code() .'</div>'.
-				'<div class="hideme" itemprop="programmingLanguage">'. $l .'</div>'.
-				'</div>' );
-
+			// Return Chunk with Syntax Highlighter
+			return( $this->modx->getChunk($this->chunk_usesyntax, array( 'code' => $geshi->parse_code(), 'language' => $l ) ) );
 		}
 
-		return( '<pre class="nocode"><code>'. $src .'</code></pre>' );
+		// Return Chunk without Syntax Highlighter
+		return( $this->modx->getChunk($this->chunk_nosyntax, array( 'code' => $src ) ) );
 	}
 
 
