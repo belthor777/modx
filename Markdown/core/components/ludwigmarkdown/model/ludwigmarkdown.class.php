@@ -194,7 +194,7 @@ class LudwigMarkdown
 
 
 	// Generate Table of Contents
-	function generate_toc( $content, $url, $page_title, $max_level )
+	public function generate_toc( $content, $url, $page_title, $max_level )
 	{
 		preg_match_all( '/<h([1-6])([^<]+)>(.*)<\/h[1-6]>/i', $content, $matches, PREG_SET_ORDER );
 		$anchors = array();
