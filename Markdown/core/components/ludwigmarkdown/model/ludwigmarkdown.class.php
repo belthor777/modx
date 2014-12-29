@@ -162,7 +162,7 @@ class LudwigMarkdown
 	{
 
 		// Add Geshi CSS file
-		$this->geshi_css( 'geshi' );
+		$geschi_found= false;
 
 		# Geshiloader
 		$search= array(	"#<pre class=\"(.*)\"><code>(.*)<\/code></pre>#Uis",	// Pandoc
@@ -172,6 +172,14 @@ class LudwigMarkdown
 		{
 			if( preg_match($item, $output) )
 			{
+				// If Geshi block found, add Geshi CSS file
+				if (!$geschi_found)
+				{
+					$this->geshi_css( 'geshi' );
+				}
+				$geschi_found= true;
+				
+				// Iterate over all blocks
 				$output= preg_replace_callback( $item, 'self::geshiloader', $output );
 			}
 		}

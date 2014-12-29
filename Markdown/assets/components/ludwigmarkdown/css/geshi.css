@@ -2,4 +2,5 @@
  * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
  * (http://qbnz.com/highlighter/ and http://geshi.org/)
  */
+.code { font-family: "Courier New", monospace; white-space: pre; }
 .code ol {padding-bottom: 0px; margin-bottom:0px;}
