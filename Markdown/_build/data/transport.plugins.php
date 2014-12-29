@@ -33,7 +33,7 @@ $plugins[$i]->fromArray(array(
 // Add Events for Plugin
 $events[0]= $modx->newObject('modPluginEvent');
 $events[0]->fromArray(array(
-	'event' => 'OnWebPagePrerender',
+	'event' => 'OnLoadWebDocument',
 	'priority' => 0,
 	'propertyset' => 0
 ),'',true,true);

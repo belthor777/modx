@@ -114,6 +114,11 @@ class LudwigMarkdown
 		return( $output );
 	}
 
+	// Add the right CSS to MODX
+	public function geshi_css( $css_name )
+	{
+		$this->modx->regClientCSS( '/assets/components/ludwigmarkdown/css/'. $css_name .'.css' );
+	}
 
 	// GeSHI Syntax highlighter
 	// Highlight Syntax for every code block
@@ -125,7 +130,7 @@ class LudwigMarkdown
 		if ($l != '')
 		{
 			require_once( dirname(__FILE__) .'/geshi/geshi.php' );
-			$geshi = new GeSHi( html_entity_decode($src, ENT_QUOTES), $l);
+			$geshi = new GeSHi( html_entity_decode(trim($src), ENT_QUOTES), $l);
 
 			// Options
 			$geshi->enable_keyword_links(false);
@@ -133,6 +138,9 @@ class LudwigMarkdown
 			$geshi->enable_line_numbers(GESHI_FANCY_LINE_NUMBERS);
 			$geshi->set_header_type(GESHI_HEADER_NONE);
 			$geshi->set_tab_width(4);
+
+			// Add CSS file
+			$this->geshi_css( $l );
 
 			// Return Code
 			return(	'<div class="code" itemscope itemtype="http://schema.org/Code">'. 

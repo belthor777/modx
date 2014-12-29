@@ -32,48 +32,82 @@
  **/
 $PKG_NAME= 'LudwigMarkdown';
 $PKG_NAME_LOWER= strtolower($PKG_NAME);
-$PKG_EVENT= "OnWebPagePrerender";
+
 
 $e = &$modx->Event;
-if ($e->name == $PKG_EVENT)
+switch ($e->name)
 {
-	// Check if the Extra is enabled
-	$activated = array(	'extra' => $modx->getOption( $PKG_NAME_LOWER .'.activated'),
-								'syntaxhighlight' => $modx->getOption( $PKG_NAME_LOWER .'.syntaxhighlight_enabled'),
-								'use_pandoc' => $modx->getOption( $PKG_NAME_LOWER .'.use_pandoc'),
-					);
+	// This event fires before any tags are parsed, we are going to use this to
+	// convert the markdown content
+	case 'OnLoadWebDocument':
 
-	// Check if package is installed and activated
-	$ldpath = MODX_CORE_PATH.'components/'. $PKG_NAME_LOWER .'/model/';
-	if(!$modx->loadClass($PKG_NAME, $ldpath, true, true) || !$activated['extra'] )
-	{
-		return('There was a problem adding the '. $PKG_NAME .' package!  Check the logs for more info!' );
+		// Check if the Extra is enabled
+		$activated = array(	'extra' => $modx->getOption(	$PKG_NAME_LOWER .'.activated'),
+									'syntaxhighlight' => $modx->getOption( $PKG_NAME_LOWER .'.syntaxhighlight_enabled'),
+									'use_pandoc' => $modx->getOption( $PKG_NAME_LOWER .'.use_pandoc') );
 
-	} else {
-
-		// Get Content
-		$output= $modx->resource->_output;
-
-		// Select Parser
-		$lm = new LudwigMarkdown($modx);
-		if ($activated['use_pandoc'])
+		// Check if package is installed and activated
+		$ldpath = MODX_CORE_PATH.'components/'. $PKG_NAME_LOWER .'/model/';
+		if(!$modx->loadClass($PKG_NAME, $ldpath, true, true) || !$activated['extra'] )
 		{
-			$output= $lm->generate_pandoc( $output );
+			return('There was a problem adding the '. $PKG_NAME .' package!  Check the logs for more info!' );
 
-		// Use PHP-Markdown
 		} else {
 
-			$output= $lm->generate_phpmarkdown( $output );
+			// Get Content
+			$output= $modx->resource->get('content');
+
+			// Select Parser
+			$lm = new LudwigMarkdown($modx);
+			if ($activated['use_pandoc'])
+			{
+				$output= $lm->generate_pandoc( $output );
+
+			// Use PHP-Markdown
+			} else {
+
+				$output= $lm->generate_phpmarkdown( $output );
+			}
+
+			// Use Syntax Highlighter Geshi?
+			if ($activated['syntaxhighlight'])
+			{
+				$output= $lm->generate_geshi( $output );
+			}
+
+			// Write Content to MODX Resource; NOT TO DATABASE!
+			$modx->resource->set('content', $output);
+
 		}
 
-		// Use Syntax Highlighter Geshi?
-		if ($activated['syntaxhighlight'])
-		{
-			$output= $lm->generate_geshi( $output );
-		}
+		break;
 
-		$modx->resource->_output= $output;
-	}
+
+	// This fires after all tags have been parsed (actually, right before the
+	// page is delivered to the browser). We're going to use this event to remove all
+	// that pre-formatting to make our MODX sample code copy-friendly.
+	case 'OnWebPagePrerender':
+/*
+		$html= &$modx->resource->_output;
+		$output= $modx->resource->get('content');
+
+		// Do something
+
+		$modx->resource->set('content', $output);
+*/
+		break;
+
+
+	// This event fires right before the cache is written to.
+	// We'll use this event to set the resource content back to the original
+	// content that before all the parsing was done.
+	case 'OnBeforeSaveWebPageCache':
+/*
+		$modx->resource->set('content', $GLOBALS['code_content']);
+*/
+		break;
+
+
+	default:
+		break;
 }
-
-return('');
