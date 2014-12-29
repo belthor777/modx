@@ -123,7 +123,7 @@ class LudwigMarkdown
 	// Add the right CSS to MODX
 	public function geshi_css( $css_name )
 	{
-		$this->modx->regClientCSS( MODX_ASSETS_PATH . 'components/ludwigmarkdown/css/'. $css_name .'.css' );
+		$this->modx->regClientCSS( '/assets/components/ludwigmarkdown/css/'. $css_name .'.css' );
 	}
 
 	// GeSHI Syntax highlighter
