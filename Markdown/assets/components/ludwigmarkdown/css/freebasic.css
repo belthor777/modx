@@ -1,0 +1,17 @@
+.code .freebasic .de1, .code .freebasic .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .freebasic  {font-family:monospace; font-size: 12px;}
+.code .freebasic .imp {font-weight: bold; color: red;}
+.code .freebasic li, .code .freebasic .li1 {font-weight: normal; vertical-align:top;}
+.code .freebasic .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .freebasic .li2 {background: #f2f2f2;}
+.code .freebasic .kw1 {color: #b1b100;}
+.code .freebasic .co1 {color: #808080;}
+.code .freebasic .co2 {color: #339933;}
+.code .freebasic .es0 {color: #000099;}
+.code .freebasic .br0 {color: #66cc66;}
+.code .freebasic .sy0 {color: #66cc66;}
+.code .freebasic .st0 {color: #ff0000;}
+.code .freebasic .nu0 {color: #cc66cc;}
+.code .freebasic .me0 {color: #66cc66;}
+.code .freebasic .ln-xtra, .code .freebasic li.ln-xtra, .code .freebasic div.ln-xtra {background-color: #ffc;}
+.code .freebasic span.xtra { display:block; }

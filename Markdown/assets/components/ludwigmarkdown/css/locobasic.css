@@ -1,0 +1,18 @@
+.code .locobasic .de1, .code .locobasic .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .locobasic  {font-family:monospace; font-size: 12px;}
+.code .locobasic .imp {font-weight: bold; color: red;}
+.code .locobasic li, .code .locobasic .li1 {font-weight: normal; vertical-align:top;}
+.code .locobasic .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .locobasic .li2 {background: #f2f2f2;}
+.code .locobasic .kw1 {color: #0000ff; font-weight: bold;}
+.code .locobasic .kw2 {color: #008888; font-weight: bold;}
+.code .locobasic .co1 {color: #808080;}
+.code .locobasic .co2 {color: #808080;}
+.code .locobasic .es0 {color: #000099;}
+.code .locobasic .br0 {color: #ff0000;}
+.code .locobasic .sy0 {color: #66cc66;}
+.code .locobasic .st0 {color: #ff0000;}
+.code .locobasic .nu0 {color: #0044ff;}
+.code .locobasic .me0 {color: #66cc66;}
+.code .locobasic .ln-xtra, .code .locobasic li.ln-xtra, .code .locobasic div.ln-xtra {background-color: #ffc;}
+.code .locobasic span.xtra { display:block; }

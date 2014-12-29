@@ -1,0 +1,21 @@
+.code .visualprolog .de1, .code .visualprolog .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .visualprolog  {font-family:monospace; font-size: 12px;}
+.code .visualprolog .imp {font-weight: bold; color: red;}
+.code .visualprolog li, .code .visualprolog .li1 {font-weight: normal; vertical-align:top;}
+.code .visualprolog .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .visualprolog .li2 {background: #f2f2f2;}
+.code .visualprolog .kw1 {color: #808000;}
+.code .visualprolog .kw2 {color: #333399;}
+.code .visualprolog .kw3 {color: #800080;}
+.code .visualprolog .co1 {color: #AA77BD}
+.code .visualprolog .coMULTI {color: #AA77BD}
+.code .visualprolog .es0 {color: #008080;}
+.code .visualprolog .br0 {color: #000000;}
+.code .visualprolog .sy0 {color: #000000;}
+.code .visualprolog .st0 {color: #00B7B7;}
+.code .visualprolog .nu0 {color: #0000FF;}
+.code .visualprolog .re0 {color: #008000;}
+.code .visualprolog .re1 {color: #808000;}
+.code .visualprolog .re2 {color: #333399;}
+.code .visualprolog .ln-xtra, .code .visualprolog li.ln-xtra, .code .visualprolog div.ln-xtra {background-color: #ffc;}
+.code .visualprolog span.xtra { display:block; }

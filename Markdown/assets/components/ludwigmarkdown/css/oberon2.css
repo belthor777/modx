@@ -1,0 +1,21 @@
+.code .oberon2 .de1, .code .oberon2 .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .oberon2  {font-family:monospace; font-size: 12px;}
+.code .oberon2 .imp {font-weight: bold; color: red;}
+.code .oberon2 li, .code .oberon2 .li1 {font-weight: normal; vertical-align:top;}
+.code .oberon2 .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .oberon2 .li2 {background: #f2f2f2;}
+.code .oberon2 .kw1 {color: #000000; font-weight: bold;}
+.code .oberon2 .kw2 {color: #000000; font-weight: bold;}
+.code .oberon2 .kw3 {color: #000066;}
+.code .oberon2 .kw4 {color: #000066; font-weight: bold;}
+.code .oberon2 .coMULTI {color: #666666; font-style: italic;}
+.code .oberon2 .es0 {color: #000099; font-weight: bold;}
+.code .oberon2 .es_h {color: #000099; font-weight: bold;}
+.code .oberon2 .br0 {color: #009900;}
+.code .oberon2 .sy0 {color: #339933;}
+.code .oberon2 .st0 {color: #ff0000;}
+.code .oberon2 .st_h {color: #ff0000;}
+.code .oberon2 .nu0 {color: #cc66cc;}
+.code .oberon2 .me1 {color: #0066ee;}
+.code .oberon2 .ln-xtra, .code .oberon2 li.ln-xtra, .code .oberon2 div.ln-xtra {background-color: #ffc;}
+.code .oberon2 span.xtra { display:block; }

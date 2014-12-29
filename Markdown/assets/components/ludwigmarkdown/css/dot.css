@@ -1,0 +1,20 @@
+.code .dot .de1, .code .dot .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .dot  {font-family:monospace; font-size: 12px;}
+.code .dot .imp {font-weight: bold; color: red;}
+.code .dot li, .code .dot .li1 {font-weight: normal; vertical-align:top;}
+.code .dot .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .dot .li2 {background: #f2f2f2;}
+.code .dot .kw1 {color: #000066;}
+.code .dot .kw2 {color: #000000; font-weight: bold;}
+.code .dot .kw3 {color: #993333;}
+.code .dot .kw4 {color: #b1b100;}
+.code .dot .co1 {color: #808080; font-style: italic;}
+.code .dot .co2 {color: #339933;}
+.code .dot .coMULTI {color: #808080; font-style: italic;}
+.code .dot .es0 {color: #af624d; font-weight: bold;}
+.code .dot .br0 {color: #66cc66;}
+.code .dot .sy0 {color: #66cc66;}
+.code .dot .st0 {color: #ff0000;}
+.code .dot .nu0 {color: #cc66cc;}
+.code .dot .ln-xtra, .code .dot li.ln-xtra, .code .dot div.ln-xtra {background-color: #ffc;}
+.code .dot span.xtra { display:block; }

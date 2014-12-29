@@ -1,0 +1,22 @@
+.code .fortran .de1, .code .fortran .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .fortran  {font-family:monospace; font-size: 12px;}
+.code .fortran .imp {font-weight: bold; color: red;}
+.code .fortran li, .code .fortran .li1 {font-weight: normal; vertical-align:top;}
+.code .fortran .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .fortran .li2 {background: #f2f2f2;}
+.code .fortran .kw1 {color: #b1b100;}
+.code .fortran .kw2 {color: #000000; font-weight: bold;}
+.code .fortran .kw3 {color: #000066;}
+.code .fortran .kw4 {color: #993333;}
+.code .fortran .co1 {color: #666666; font-style: italic;}
+.code .fortran .co2 {color: #339933;}
+.code .fortran .coMULTI {color: #808080; font-style: italic;}
+.code .fortran .es0 {color: #000099; font-weight: bold;}
+.code .fortran .br0 {color: #009900;}
+.code .fortran .sy0 {color: #339933;}
+.code .fortran .st0 {color: #ff0000;}
+.code .fortran .nu0 {color: #cc66cc;}
+.code .fortran .me1 {color: #202020;}
+.code .fortran .me2 {color: #202020;}
+.code .fortran .ln-xtra, .code .fortran li.ln-xtra, .code .fortran div.ln-xtra {background-color: #ffc;}
+.code .fortran span.xtra { display:block; }

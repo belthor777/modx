@@ -1,0 +1,23 @@
+.code .mirc .de1, .code .mirc .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .mirc  {font-family:monospace; font-size: 12px;}
+.code .mirc .imp {font-weight: bold; color: red;}
+.code .mirc li, .code .mirc .li1 {font-weight: normal; vertical-align:top;}
+.code .mirc .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .mirc .li2 {background: #f2f2f2;}
+.code .mirc .kw1 {color: #994444;}
+.code .mirc .kw2 {color: #000000; font-weight: bold;}
+.code .mirc .kw3 {color: #990000; font-weight: bold;}
+.code .mirc .co1 {color: #808080; font-style: italic;}
+.code .mirc .br0 {color: #FF0000;}
+.code .mirc .sy0 {color: #FF0000;}
+.code .mirc .me0 {color: #008000;}
+.code .mirc .re0 {color: #000099;}
+.code .mirc .re1 {color: #990000;}
+.code .mirc .re2 {color: #000099;}
+.code .mirc .re3 {color: #888800;}
+.code .mirc .re4 {color: #888800;}
+.code .mirc .re5 {color: #000099;}
+.code .mirc .re6 {color: #990000; font-weight: bold;}
+.code .mirc .re7 {color: #990000; font-weight: bold;}
+.code .mirc .ln-xtra, .code .mirc li.ln-xtra, .code .mirc div.ln-xtra {background-color: #ffc;}
+.code .mirc span.xtra { display:block; }

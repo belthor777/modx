@@ -1,0 +1,35 @@
+.code .typoscript .de1, .code .typoscript .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .typoscript  {font-family:monospace; font-size: 12px;}
+.code .typoscript .imp {font-weight: bold; color: red;}
+.code .typoscript li, .code .typoscript .li1 {font-weight: normal; vertical-align:top;}
+.code .typoscript .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .typoscript .li2 {background: #f2f2f2;}
+.code .typoscript .kw1 {color: #ed7d14;}
+.code .typoscript .kw2 {font-weight: bold;}
+.code .typoscript .kw3 {color: #990000; font-weight: bold;}
+.code .typoscript .kw4 {color: #990000; font-weight: bold;}
+.code .typoscript .kw5 {color: #990000; font-weight: bold;}
+.code .typoscript .kw6 {color: #990000; font-weight: bold;}
+.code .typoscript .kw7 {color: #990000; font-weight: bold;}
+.code .typoscript .kw8 {font-weight: bold;}
+.code .typoscript .kw9 {color: #990000; font-weight: bold;}
+.code .typoscript .co1 {color: #aaa; font-style: italic;}
+.code .typoscript .co2 {color: #aaa; font-style: italic;}
+.code .typoscript .coMULTI {color: #aaa; font-style: italic;}
+.code .typoscript .br0 {color: #009900;}
+.code .typoscript .sy0 {color: #339933; font-weight: bold;}
+.code .typoscript .sy1 {color: #009900; font-weight: bold;}
+.code .typoscript .st0 {color: #ac14aa;}
+.code .typoscript .nu0 {color: #cc0000;}
+.code .typoscript .me1 {color: #0000e0; font-weight: bold;}
+.code .typoscript .me2 {color: #0000e0; font-weight: bold;}
+.code .typoscript .re0 {color: #009900;}
+.code .typoscript .re1 {color: #009900; font-weight: bold;}
+.code .typoscript .re2 {color: #3366CC;}
+.code .typoscript .re3 {color: #000066; font-weight: bold;}
+.code .typoscript .re4 {color: #ed7d14;}
+.code .typoscript .re5 {color: #000066; font-weight: bold;}
+.code .typoscript .re6 {color: #009900;}
+.code .typoscript .re7 {color: #3366CC;}
+.code .typoscript .ln-xtra, .code .typoscript li.ln-xtra, .code .typoscript div.ln-xtra {background-color: #ffc;}
+.code .typoscript span.xtra { display:block; }

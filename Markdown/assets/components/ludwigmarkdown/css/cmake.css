@@ -1,0 +1,19 @@
+.code .cmake .de1, .code .cmake .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .cmake  {font-family:monospace; font-size: 12px;}
+.code .cmake .imp {font-weight: bold; color: red;}
+.code .cmake li, .code .cmake .li1 {font-weight: normal; vertical-align:top;}
+.code .cmake .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .cmake .li2 {background: #f2f2f2;}
+.code .cmake .kw1 {color: #1f3f81; font-style: bold;}
+.code .cmake .kw2 {color: #1f3f81;}
+.code .cmake .kw3 {color: #077807; font-style: italic;}
+.code .cmake .co1 {color: #666666; font-style: italic;}
+.code .cmake .es0 {color: #000099; font-weight: bold;}
+.code .cmake .es1 {color: #b08000;}
+.code .cmake .es2 {color: #0000cd;}
+.code .cmake .sy0 {color: #197d8b;}
+.code .cmake .st0 {color: #912f11;}
+.code .cmake .re0 {color: #b08000;}
+.code .cmake .re1 {color: #0000cd;}
+.code .cmake .ln-xtra, .code .cmake li.ln-xtra, .code .cmake div.ln-xtra {background-color: #ffc;}
+.code .cmake span.xtra { display:block; }

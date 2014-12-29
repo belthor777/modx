@@ -1,0 +1,20 @@
+.code .bibtex .de1, .code .bibtex .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .bibtex  {font-family:monospace; font-size: 12px;}
+.code .bibtex .imp {font-weight: bold; color: red;}
+.code .bibtex li, .code .bibtex .li1 {font-weight: normal; vertical-align:top;}
+.code .bibtex .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .bibtex .li2 {background: #f2f2f2;}
+.code .bibtex .kw1 {color: #C02020;}
+.code .bibtex .kw2 {color: #C02020;}
+.code .bibtex .kw3 {color: #C08020;}
+.code .bibtex .kw4 {color: #C08020;}
+.code .bibtex .co1 {color: #2C922C; font-style: italic;}
+.code .bibtex .es0 {color: #000000; font-weight: bold;}
+.code .bibtex .br0 {color: #E02020;}
+.code .bibtex .sy0 {color: #E02020;}
+.code .bibtex .st0 {color: #2020C0;}
+.code .bibtex .re1 {color: #2020C0;}
+.code .bibtex .re2 {color: #C08020;}
+.code .bibtex .re3 {color: #800000;}
+.code .bibtex .ln-xtra, .code .bibtex li.ln-xtra, .code .bibtex div.ln-xtra {background-color: #ffc;}
+.code .bibtex span.xtra { display:block; }

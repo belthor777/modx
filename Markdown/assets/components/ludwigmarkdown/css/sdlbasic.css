@@ -1,0 +1,19 @@
+.code .sdlbasic .de1, .code .sdlbasic .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .sdlbasic  {font-family:monospace; font-size: 12px;}
+.code .sdlbasic .imp {font-weight: bold; color: red;}
+.code .sdlbasic li, .code .sdlbasic .li1 {font-weight: normal; vertical-align:top;}
+.code .sdlbasic .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .sdlbasic .li2 {background: #f2f2f2;}
+.code .sdlbasic .kw1 {color: #b1b100;}
+.code .sdlbasic .co1 {color: #808080;}
+.code .sdlbasic .co2 {color: #808080;}
+.code .sdlbasic .co3 {color: #808080;}
+.code .sdlbasic .co4 {color: #808080;}
+.code .sdlbasic .es0 {color: #000099;}
+.code .sdlbasic .br0 {color: #66cc66;}
+.code .sdlbasic .sy0 {color: #66cc66;}
+.code .sdlbasic .st0 {color: #ff0000;}
+.code .sdlbasic .nu0 {color: #cc66cc;}
+.code .sdlbasic .me0 {color: #66cc66;}
+.code .sdlbasic .ln-xtra, .code .sdlbasic li.ln-xtra, .code .sdlbasic div.ln-xtra {background-color: #ffc;}
+.code .sdlbasic span.xtra { display:block; }

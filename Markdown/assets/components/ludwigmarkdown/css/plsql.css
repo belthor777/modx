@@ -1,0 +1,22 @@
+.code .plsql .de1, .code .plsql .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .plsql  {font-family:monospace; font-size: 12px;}
+.code .plsql .imp {font-weight: bold; color: red;}
+.code .plsql li, .code .plsql .li1 {font-weight: normal; vertical-align:top;}
+.code .plsql .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .plsql .li2 {background: #f2f2f2;}
+.code .plsql .kw1 {color: #00F;}
+.code .plsql .kw2 {color: #000;}
+.code .plsql .kw3 {color: #00F;}
+.code .plsql .kw4 {color: #F00;}
+.code .plsql .kw5 {color: #800;}
+.code .plsql .co1 {color: #080; font-style: italic;}
+.code .plsql .coMULTI {color: #080; font-style: italic;}
+.code .plsql .es0 {color: #000; font-weight: bold;}
+.code .plsql .br0 {color: #00F;}
+.code .plsql .sy0 {color: #00F;}
+.code .plsql .st0 {color: #F00;}
+.code .plsql .nu0 {color: #800;}
+.code .plsql .me0 {color: #0F0;}
+.code .plsql .sc0 {color: #0F0;}
+.code .plsql .ln-xtra, .code .plsql li.ln-xtra, .code .plsql div.ln-xtra {background-color: #ffc;}
+.code .plsql span.xtra { display:block; }

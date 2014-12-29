@@ -1,0 +1,17 @@
+.code .blitzbasic .de1, .code .blitzbasic .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .blitzbasic  {font-family:monospace; font-size: 12px;}
+.code .blitzbasic .imp {font-weight: bold; color: red;}
+.code .blitzbasic li, .code .blitzbasic .li1 {font-weight: normal; vertical-align:top;}
+.code .blitzbasic .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .blitzbasic .li2 {background: #f2f2f2;}
+.code .blitzbasic .kw1 {color: #000066; font-weight: bold;}
+.code .blitzbasic .kw2 {color: #0000ff;}
+.code .blitzbasic .co1 {color: #D9D100; font-style: italic;}
+.code .blitzbasic .es0 {color: #000099; font-weight: bold;}
+.code .blitzbasic .br0 {color: #000066;}
+.code .blitzbasic .sy0 {color: #000066;}
+.code .blitzbasic .st0 {color: #009900;}
+.code .blitzbasic .nu0 {color: #CC0000;}
+.code .blitzbasic .me1 {color: #006600;}
+.code .blitzbasic .ln-xtra, .code .blitzbasic li.ln-xtra, .code .blitzbasic div.ln-xtra {background-color: #ffc;}
+.code .blitzbasic span.xtra { display:block; }

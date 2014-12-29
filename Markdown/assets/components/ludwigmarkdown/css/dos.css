@@ -1,0 +1,22 @@
+.code .dos .de1, .code .dos .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .dos  {font-family:monospace; font-size: 12px;}
+.code .dos .imp {font-weight: bold; color: red;}
+.code .dos li, .code .dos .li1 {font-weight: normal; vertical-align:top;}
+.code .dos .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .dos .li2 {background: #f2f2f2;}
+.code .dos .kw1 {color: #00b100; font-weight: bold;}
+.code .dos .kw2 {color: #000000; font-weight: bold;}
+.code .dos .kw3 {color: #b1b100; font-weight: bold;}
+.code .dos .kw4 {color: #0000ff; font-weight: bold;}
+.code .dos .co1 {color: #808080; font-style: italic;}
+.code .dos .es0 {color: #ff0000; font-weight: bold;}
+.code .dos .br0 {color: #66cc66;}
+.code .dos .sy0 {color: #33cc33;}
+.code .dos .sy1 {color: #33cc33;}
+.code .dos .st0 {color: #ff0000;}
+.code .dos .nu0 {color: #cc66cc;}
+.code .dos .re0 {color: #b100b1; font-weight: bold;}
+.code .dos .re1 {color: #448844;}
+.code .dos .re2 {color: #448888;}
+.code .dos .ln-xtra, .code .dos li.ln-xtra, .code .dos div.ln-xtra {background-color: #ffc;}
+.code .dos span.xtra { display:block; }

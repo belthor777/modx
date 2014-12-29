@@ -1,0 +1,20 @@
+.code .javascript .de1, .code .javascript .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .javascript  {font-family:monospace; font-size: 12px;}
+.code .javascript .imp {font-weight: bold; color: red;}
+.code .javascript li, .code .javascript .li1 {font-weight: normal; vertical-align:top;}
+.code .javascript .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .javascript .li2 {background: #f2f2f2;}
+.code .javascript .kw1 {color: #000066; font-weight: bold;}
+.code .javascript .kw2 {color: #003366; font-weight: bold;}
+.code .javascript .kw3 {color: #000066;}
+.code .javascript .co1 {color: #006600; font-style: italic;}
+.code .javascript .co2 {color: #009966; font-style: italic;}
+.code .javascript .coMULTI {color: #006600; font-style: italic;}
+.code .javascript .es0 {color: #000099; font-weight: bold;}
+.code .javascript .br0 {color: #009900;}
+.code .javascript .sy0 {color: #339933;}
+.code .javascript .st0 {color: #3366CC;}
+.code .javascript .nu0 {color: #CC0000;}
+.code .javascript .me1 {color: #660066;}
+.code .javascript .ln-xtra, .code .javascript li.ln-xtra, .code .javascript div.ln-xtra {background-color: #ffc;}
+.code .javascript span.xtra { display:block; }

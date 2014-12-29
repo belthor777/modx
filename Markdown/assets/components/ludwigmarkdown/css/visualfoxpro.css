@@ -1,0 +1,21 @@
+.code .visualfoxpro .de1, .code .visualfoxpro .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .visualfoxpro  {font-family:monospace; font-size: 12px;}
+.code .visualfoxpro .imp {font-weight: bold; color: red;}
+.code .visualfoxpro li, .code .visualfoxpro .li1 {font-weight: normal; vertical-align:top;}
+.code .visualfoxpro .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .visualfoxpro .li2 {background: #f2f2f2;}
+.code .visualfoxpro .kw1 {color: blue;}
+.code .visualfoxpro .kw2 {color: blue;}
+.code .visualfoxpro .kw3 {color: blue;}
+.code .visualfoxpro .kw4 {color: blue;}
+.code .visualfoxpro .co1 {color: green; font-style: italic;}
+.code .visualfoxpro .co2 {color: green; font-style: italic;}
+.code .visualfoxpro .coMULTI {color: #808080; font-style: italic;}
+.code .visualfoxpro .es0 {color: #000099; font-weight: bold;}
+.code .visualfoxpro .br0 {color: blue;}
+.code .visualfoxpro .sy0 {color: blue;}
+.code .visualfoxpro .st0 {color: #ff0000;}
+.code .visualfoxpro .nu0 {color: #cc66cc;}
+.code .visualfoxpro .me1 {color: #006600;}
+.code .visualfoxpro .ln-xtra, .code .visualfoxpro li.ln-xtra, .code .visualfoxpro div.ln-xtra {background-color: #ffc;}
+.code .visualfoxpro span.xtra { display:block; }

@@ -1,0 +1,21 @@
+.code .mxml .de1, .code .mxml .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .mxml  {font-family:monospace; font-size: 12px;}
+.code .mxml .imp {font-weight: bold; color: red;}
+.code .mxml li, .code .mxml .li1 {font-weight: normal; vertical-align:top;}
+.code .mxml .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .mxml .li2 {background: #f2f2f2;}
+.code .mxml .coMULTI {color: #808080; font-style: italic;}
+.code .mxml .es0 {color: #000099; font-weight: bold;}
+.code .mxml .br0 {color: #66cc66;}
+.code .mxml .sy0 {color: #66cc66;}
+.code .mxml .st0 {color: #ff0000;}
+.code .mxml .nu0 {color: #cc66cc;}
+.code .mxml .sc0 {color: #00bbdd;}
+.code .mxml .sc1 {color: #ddbb00;}
+.code .mxml .sc2 {color: #339933;}
+.code .mxml .sc3 {color: #000000;}
+.code .mxml .re0 {font-weight: bold; color: black;}
+.code .mxml .re1 {color: #7400FF;}
+.code .mxml .re2 {color: #7400FF;}
+.code .mxml .ln-xtra, .code .mxml li.ln-xtra, .code .mxml div.ln-xtra {background-color: #ffc;}
+.code .mxml span.xtra { display:block; }

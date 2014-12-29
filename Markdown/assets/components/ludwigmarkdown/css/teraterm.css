@@ -1,0 +1,18 @@
+.code .teraterm .de1, .code .teraterm .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .teraterm  {font-family:monospace; font-size: 12px;}
+.code .teraterm .imp {font-weight: bold; color: red;}
+.code .teraterm li, .code .teraterm .li1 {font-weight: normal; vertical-align:top;}
+.code .teraterm .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .teraterm .li2 {background: #f2f2f2;}
+.code .teraterm .kw1 {color: #000080; font-weight: bold!important;}
+.code .teraterm .kw2 {color: #808000; font-weight: bold;}
+.code .teraterm .kw3 {color: #ff0000; font-weight: bold;}
+.code .teraterm .kw4 {color: #ff00ff; font-weight: bold;}
+.code .teraterm .co1 {color: #008000; font-style: italic;}
+.code .teraterm .br0 {color: #ff00ff; font-weight: bold;}
+.code .teraterm .sy0 {color: #ff00ff; font-weight: bold;}
+.code .teraterm .st0 {color: #800080;}
+.code .teraterm .nu0 {color: #008080;}
+.code .teraterm .re0 {color: #0000ff; font-weight: bold;}
+.code .teraterm .ln-xtra, .code .teraterm li.ln-xtra, .code .teraterm div.ln-xtra {background-color: #ffc;}
+.code .teraterm span.xtra { display:block; }

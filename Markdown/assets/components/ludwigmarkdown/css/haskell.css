@@ -1,0 +1,22 @@
+.code .haskell .de1, .code .haskell .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .haskell  {font-family:monospace; font-size: 12px;}
+.code .haskell .imp {font-weight: bold; color: red;}
+.code .haskell li, .code .haskell .li1 {font-weight: normal; vertical-align:top;}
+.code .haskell .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .haskell .li2 {background: #f2f2f2;}
+.code .haskell .kw1 {color: #06c; font-weight: bold;}
+.code .haskell .kw2 {color: #06c; font-weight: bold;}
+.code .haskell .kw3 {font-weight: bold;}
+.code .haskell .kw4 {color: #cccc00; font-weight: bold;}
+.code .haskell .kw5 {color: maroon;}
+.code .haskell .co1 {color: #5d478b; font-style: italic;}
+.code .haskell .co2 {color: #339933; font-weight: bold;}
+.code .haskell .coMULTI {color: #5d478b; font-style: italic;}
+.code .haskell .es0 {background-color: #3cb371; font-weight: bold;}
+.code .haskell .br0 {color: green;}
+.code .haskell .sy0 {color: #339933; font-weight: bold;}
+.code .haskell .st0 {background-color: #3cb371;}
+.code .haskell .nu0 {color: red;}
+.code .haskell .me1 {color: #060;}
+.code .haskell .ln-xtra, .code .haskell li.ln-xtra, .code .haskell div.ln-xtra {background-color: #ffc;}
+.code .haskell span.xtra { display:block; }

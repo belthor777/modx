@@ -1,0 +1,21 @@
+.code .lscript .de1, .code .lscript .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .lscript  {font-family:monospace; font-size: 12px;}
+.code .lscript .imp {font-weight: bold; color: red;}
+.code .lscript li, .code .lscript .li1 {font-weight: normal; vertical-align:top;}
+.code .lscript .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .lscript .li2 {background: #f2f2f2;}
+.code .lscript .kw1 {color: #000000; font-weight: bold;}
+.code .lscript .kw2 {color: #FF6820; font-weight: bold;}
+.code .lscript .kw3 {color: #007F7F; font-weight: bold;}
+.code .lscript .kw4 {color: #800080; font-weight: bold;}
+.code .lscript .kw5 {color: #51BD95; font-weight: bold;}
+.code .lscript .kw6 {color: #416F85; font-weight: bold;}
+.code .lscript .kw7 {color: #C92929; font-weight: bold;}
+.code .lscript .co1 {color: #7F7F7F;}
+.code .lscript .coMULTI {color: #7F7F7F;}
+.code .lscript .br0 {color: #0040A0;}
+.code .lscript .sy0 {color: #0040A0;}
+.code .lscript .st0 {color: #00C800;}
+.code .lscript .nu0 {color: #6953AC;}
+.code .lscript .ln-xtra, .code .lscript li.ln-xtra, .code .lscript div.ln-xtra {background-color: #ffc;}
+.code .lscript span.xtra { display:block; }

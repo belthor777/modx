@@ -1,0 +1,22 @@
+.code .pixelbender .de1, .code .pixelbender .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .pixelbender  {font-family:monospace; font-size: 12px;}
+.code .pixelbender .imp {font-weight: bold; color: red;}
+.code .pixelbender li, .code .pixelbender .li1 {font-weight: normal; vertical-align:top;}
+.code .pixelbender .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .pixelbender .li2 {background: #f2f2f2;}
+.code .pixelbender .kw1 {color: #0033ff;}
+.code .pixelbender .kw2 {color: #0033ff; font-weight: bold;}
+.code .pixelbender .kw3 {color: #0033ff;}
+.code .pixelbender .kw4 {color: #9900cc; font-weight: bold;}
+.code .pixelbender .kw5 {color: #333333;}
+.code .pixelbender .kw6 {color: #666666;}
+.code .pixelbender .kw7 {color: #990000;}
+.code .pixelbender .co1 {color: #009900;}
+.code .pixelbender .coMULTI {color: #3f5fbf;}
+.code .pixelbender .br0 {color: #000000;}
+.code .pixelbender .sy0 {color: #000000; font-weight: bold;}
+.code .pixelbender .st0 {color: #990000;}
+.code .pixelbender .nu0 {color: #000000; font-weight:bold;}
+.code .pixelbender .me0 {color: #000000;}
+.code .pixelbender .ln-xtra, .code .pixelbender li.ln-xtra, .code .pixelbender div.ln-xtra {background-color: #ffc;}
+.code .pixelbender span.xtra { display:block; }

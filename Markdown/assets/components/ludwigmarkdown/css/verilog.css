@@ -1,0 +1,22 @@
+.code .verilog .de1, .code .verilog .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .verilog  {font-family:monospace; font-size: 12px;}
+.code .verilog .imp {font-weight: bold; color: red;}
+.code .verilog li, .code .verilog .li1 {font-weight: normal; vertical-align:top;}
+.code .verilog .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .verilog .li2 {background: #f2f2f2;}
+.code .verilog .kw1 {color: #A52A2A; font-weight: bold;}
+.code .verilog .kw2 {color: #9932CC;}
+.code .verilog .kw3 {color: #008800;}
+.code .verilog .co1 {color: #00008B; font-style: italic;}
+.code .verilog .coMULTI {color: #00008B; font-style: italic;}
+.code .verilog .es0 {color: #9F79EE}
+.code .verilog .br0 {color: #9F79EE;}
+.code .verilog .sy0 {color: #5D478B;}
+.code .verilog .st0 {color: #FF00FF;}
+.code .verilog .nu0 {color: #ff0055;}
+.code .verilog .me1 {color: #202020;}
+.code .verilog .me2 {color: #202020;}
+.code .verilog .re0 {color: #ff0055;}
+.code .verilog .re1 {color: #ff0055;}
+.code .verilog .ln-xtra, .code .verilog li.ln-xtra, .code .verilog div.ln-xtra {background-color: #ffc;}
+.code .verilog span.xtra { display:block; }

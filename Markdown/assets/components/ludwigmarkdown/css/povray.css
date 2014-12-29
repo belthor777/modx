@@ -1,0 +1,24 @@
+.code .povray .de1, .code .povray .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .povray  {font-family:monospace; font-size: 12px;}
+.code .povray .imp {font-weight: bold; color: red;}
+.code .povray li, .code .povray .li1 {font-weight: normal; vertical-align:top;}
+.code .povray .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .povray .li2 {background: #f2f2f2;}
+.code .povray .kw1 {color: #a63123;}
+.code .povray .kw2 {color: #2312bc;}
+.code .povray .kw3 {color: #cc1122; font-weight: bold;}
+.code .povray .kw4 {color: #116688; font-weight: bold;}
+.code .povray .co1 {color: #808080; font-style: italic;}
+.code .povray .coMULTI {color: #808080; font-style: italic;}
+.code .povray .es0 {color: #000099; font-weight: bold;}
+.code .povray .br0 {color: #66cc66;}
+.code .povray .sy0 {color: #66cc66;}
+.code .povray .st0 {color: #ff0000;}
+.code .povray .nu0 {color: #cc66aa;}
+.code .povray .me1 {color: #006600;}
+.code .povray .me2 {color: #006600;}
+.code .povray .re0 {color: #6666cc; font-weight: bold;}
+.code .povray .re1 {color: #66cc66; font-weight: bold;}
+.code .povray .re2 {color: #66cc66; font-weight: bold;}
+.code .povray .ln-xtra, .code .povray li.ln-xtra, .code .povray div.ln-xtra {background-color: #ffc;}
+.code .povray span.xtra { display:block; }

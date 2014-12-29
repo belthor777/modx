@@ -1,0 +1,15 @@
+.code .ocaml-brief .de1, .code .ocaml-brief .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .ocaml-brief  {font-family:monospace; font-size: 12px;}
+.code .ocaml-brief .imp {font-weight: bold; color: red;}
+.code .ocaml-brief li, .code .ocaml-brief .li1 {font-weight: normal; vertical-align:top;}
+.code .ocaml-brief .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .ocaml-brief .li2 {background: #f2f2f2;}
+.code .ocaml-brief .kw1 {color: #06c; font-weight: bold;}
+.code .ocaml-brief .coMULTI {color: #5d478b; font-style: italic;}
+.code .ocaml-brief .br0 {color: #6c6;}
+.code .ocaml-brief .sy0 {color: #a52a2a;}
+.code .ocaml-brief .st0 {color: #3cb371;}
+.code .ocaml-brief .nu0 {color: #c6c;}
+.code .ocaml-brief .me1 {color: #060;}
+.code .ocaml-brief .ln-xtra, .code .ocaml-brief li.ln-xtra, .code .ocaml-brief div.ln-xtra {background-color: #ffc;}
+.code .ocaml-brief span.xtra { display:block; }

@@ -1,0 +1,20 @@
+.code .idl .de1, .code .idl .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .idl  {font-family:monospace; font-size: 12px;}
+.code .idl .imp {font-weight: bold; color: red;}
+.code .idl li, .code .idl .li1 {font-weight: normal; vertical-align:top;}
+.code .idl .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .idl .li2 {background: #f2f2f2;}
+.code .idl .kw1 {color: #990078; font-weight: bold}
+.code .idl .kw2 {color: #36dd1c;}
+.code .idl .kw3 {color: #990078; font-weight: bold}
+.code .idl .kw4 {color: #0000ec;}
+.code .idl .co1 {color: #3f7f5f;}
+.code .idl .co2 {color: #808080;}
+.code .idl .coMULTI {color: #4080ff; font-style: italic;}
+.code .idl .es0 {color: #666666; font-weight: bold;}
+.code .idl .br0 {color: #808080;}
+.code .idl .sy0 {color: #66cc66;}
+.code .idl .st0 {color: #ff0000;}
+.code .idl .nu0 {color: #0000dd;}
+.code .idl .ln-xtra, .code .idl li.ln-xtra, .code .idl div.ln-xtra {background-color: #ffc;}
+.code .idl span.xtra { display:block; }

@@ -1,0 +1,12 @@
+.code .vb .de1, .code .vb .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .vb  {font-family:monospace; font-size: 12px;}
+.code .vb .imp {font-weight: bold; color: red;}
+.code .vb li, .code .vb .li1 {font-weight: normal; vertical-align:top;}
+.code .vb .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .vb .li2 {background: #f2f2f2;}
+.code .vb .kw1 {color: #000080;}
+.code .vb .co1 {color: #008000;}
+.code .vb .es0 {color: #800000; font-weight: bold;}
+.code .vb .st0 {color: #800000;}
+.code .vb .ln-xtra, .code .vb li.ln-xtra, .code .vb div.ln-xtra {background-color: #ffc;}
+.code .vb span.xtra { display:block; }

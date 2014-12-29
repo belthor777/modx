@@ -1,0 +1,21 @@
+.code .cobol .de1, .code .cobol .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .cobol  {font-family:monospace; font-size: 12px;}
+.code .cobol .imp {font-weight: bold; color: red;}
+.code .cobol li, .code .cobol .li1 {font-weight: normal; vertical-align:top;}
+.code .cobol .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .cobol .li2 {background: #f2f2f2;}
+.code .cobol .kw1 {color: #000080; font-weight: bold;}
+.code .cobol .kw2 {color: #000000; font-weight: bold;}
+.code .cobol .kw3 {color: #008000; font-weight: bold;}
+.code .cobol .kw4 {color: #000080;}
+.code .cobol .kw5 {color: #008000;}
+.code .cobol .co1 {color: #a0a0a0; font-style: italic;}
+.code .cobol .coMULTI {color: #a0a0a0; font-style: italic;}
+.code .cobol .es0 {color: #000099; font-weight: bold;}
+.code .cobol .br0 {color: #339933;}
+.code .cobol .sy0 {color: #000066;}
+.code .cobol .st0 {color: #ff0000;}
+.code .cobol .nu0 {color: #993399;}
+.code .cobol .me1 {color: #202020;}
+.code .cobol .ln-xtra, .code .cobol li.ln-xtra, .code .cobol div.ln-xtra {background-color: #ffc;}
+.code .cobol span.xtra { display:block; }

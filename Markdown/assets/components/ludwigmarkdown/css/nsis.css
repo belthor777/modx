@@ -1,0 +1,38 @@
+.code .nsis .de1, .code .nsis .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .nsis  {font-family:monospace; font-size: 12px;}
+.code .nsis .imp {font-weight: bold; color: red;}
+.code .nsis li, .code .nsis .li1 {font-weight: normal; vertical-align:top;}
+.code .nsis .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .nsis .li2 {background: #f2f2f2;}
+.code .nsis .kw1 {color: #000066; font-weight:bold;}
+.code .nsis .kw2 {color: #000066;}
+.code .nsis .kw3 {color: #003366;}
+.code .nsis .kw4 {color: #000099;}
+.code .nsis .kw5 {color: #ff6600;}
+.code .nsis .kw6 {color: #ff6600;}
+.code .nsis .kw7 {color: #006600;}
+.code .nsis .kw8 {color: #006600;}
+.code .nsis .kw9 {color: #006600;}
+.code .nsis .kw10 {color: #006600;}
+.code .nsis .kw11 {color: #006600;}
+.code .nsis .kw12 {color: #006600;}
+.code .nsis .kw13 {color: #006600;}
+.code .nsis .kw14 {color: #006600;}
+.code .nsis .kw15 {color: #006600;}
+.code .nsis .kw16 {color: #006600;}
+.code .nsis .co1 {color: #666666; font-style: italic;}
+.code .nsis .co2 {color: #666666; font-style: italic;}
+.code .nsis .coMULTI {color: #666666; font-style: italic;}
+.code .nsis .es0 {color: #660066; font-weight: bold;}
+.code .nsis .st0 {color: #660066;}
+.code .nsis .re0 {color: #660000;}
+.code .nsis .re1 {color: #660000;}
+.code .nsis .re2 {color: #660000;}
+.code .nsis .re3 {color: #660000;}
+.code .nsis .re4 {color: #660000;}
+.code .nsis .re5 {color: #660000;}
+.code .nsis .re6 {color: #660000;}
+.code .nsis .re7 {color: #000099;}
+.code .nsis .re8 {color: #003399;}
+.code .nsis .ln-xtra, .code .nsis li.ln-xtra, .code .nsis div.ln-xtra {background-color: #ffc;}
+.code .nsis span.xtra { display:block; }

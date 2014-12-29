@@ -1,0 +1,17 @@
+.code .thinbasic .de1, .code .thinbasic .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .thinbasic  {font-family:monospace; font-size: 12px;}
+.code .thinbasic .imp {font-weight: bold; color: red;}
+.code .thinbasic li, .code .thinbasic .li1 {font-weight: normal; vertical-align:top;}
+.code .thinbasic .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .thinbasic .li2 {background: #f2f2f2;}
+.code .thinbasic .kw1 {color: #0000FF; font-weight: bold;}
+.code .thinbasic .kw2 {color: #993333; font-style: italic; font-weight: bold;}
+.code .thinbasic .co1 {color: #008000;}
+.code .thinbasic .es0 {color: #000099;}
+.code .thinbasic .br0 {color: #333333;}
+.code .thinbasic .sy0 {color: #333333;}
+.code .thinbasic .st0 {color: #800080;}
+.code .thinbasic .nu0 {color: #CC0000;}
+.code .thinbasic .me1 {color: #66cc66;}
+.code .thinbasic .ln-xtra, .code .thinbasic li.ln-xtra, .code .thinbasic div.ln-xtra {background-color: #ffc;}
+.code .thinbasic span.xtra { display:block; }

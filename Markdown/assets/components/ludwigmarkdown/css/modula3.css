@@ -1,0 +1,21 @@
+.code .modula3 .de1, .code .modula3 .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .modula3  {font-family:monospace; font-size: 12px;}
+.code .modula3 .imp {font-weight: bold; color: red;}
+.code .modula3 li, .code .modula3 .li1 {font-weight: normal; vertical-align:top;}
+.code .modula3 .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .modula3 .li2 {background: #f2f2f2;}
+.code .modula3 .kw1 {color: #000000; font-weight: bold;}
+.code .modula3 .kw2 {color: #000000; font-weight: bold;}
+.code .modula3 .kw3 {color: #000066;}
+.code .modula3 .kw4 {color: #000066; font-weight: bold;}
+.code .modula3 .coMULTI {color: #666666; font-style: italic;}
+.code .modula3 .es0 {color: #000099; font-weight: bold;}
+.code .modula3 .es_h {color: #000099; font-weight: bold;}
+.code .modula3 .br0 {color: #009900;}
+.code .modula3 .sy0 {color: #339933;}
+.code .modula3 .st0 {color: #ff0000;}
+.code .modula3 .st_h {color: #ff0000;}
+.code .modula3 .nu0 {color: #cc66cc;}
+.code .modula3 .me1 {color: #0066ee;}
+.code .modula3 .ln-xtra, .code .modula3 li.ln-xtra, .code .modula3 div.ln-xtra {background-color: #ffc;}
+.code .modula3 span.xtra { display:block; }

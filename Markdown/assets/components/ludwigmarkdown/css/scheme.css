@@ -1,0 +1,17 @@
+.code .scheme .de1, .code .scheme .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .scheme  {font-family:monospace; font-size: 12px;}
+.code .scheme .imp {font-weight: bold; color: red;}
+.code .scheme li, .code .scheme .li1 {font-weight: normal; vertical-align:top;}
+.code .scheme .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .scheme .li2 {background: #f2f2f2;}
+.code .scheme .kw1 {color: #b1b100;}
+.code .scheme .co1 {color: #808080; font-style: italic;}
+.code .scheme .coMULTI {color: #808080; font-style: italic;}
+.code .scheme .es0 {color: #000099; font-weight: bold;}
+.code .scheme .br0 {color: #66cc66;}
+.code .scheme .sy0 {color: #66cc66;}
+.code .scheme .st0 {color: #ff0000;}
+.code .scheme .nu0 {color: #cc66cc;}
+.code .scheme .me0 {color: #202020;}
+.code .scheme .ln-xtra, .code .scheme li.ln-xtra, .code .scheme div.ln-xtra {background-color: #ffc;}
+.code .scheme span.xtra { display:block; }

@@ -1,0 +1,19 @@
+.code .vhdl .de1, .code .vhdl .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .vhdl  {font-family:monospace; font-size: 12px;}
+.code .vhdl .imp {font-weight: bold; color: red;}
+.code .vhdl li, .code .vhdl .li1 {font-weight: normal; vertical-align:top;}
+.code .vhdl .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .vhdl .li2 {background: #f2f2f2;}
+.code .vhdl .kw1 {color: #000080; font-weight: bold;}
+.code .vhdl .kw2 {color: #0000ff;}
+.code .vhdl .co1 {color: #008000; font-style: italic;}
+.code .vhdl .coMULTI {color: #008000; font-style: italic;}
+.code .vhdl .es0 {color: #000099; font-weight: bold;}
+.code .vhdl .br0 {color: #000066;}
+.code .vhdl .sy0 {color: #000066;}
+.code .vhdl .st0 {color: #7f007f;}
+.code .vhdl .nu0 {color: #ff0000;}
+.code .vhdl .re0 {color: #ff0000;}
+.code .vhdl .re1 {color: #ff0000;}
+.code .vhdl .ln-xtra, .code .vhdl li.ln-xtra, .code .vhdl div.ln-xtra {background-color: #ffc;}
+.code .vhdl span.xtra { display:block; }

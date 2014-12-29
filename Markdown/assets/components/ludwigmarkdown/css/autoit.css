@@ -1,0 +1,22 @@
+.code .autoit .de1, .code .autoit .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .autoit  {font-family:monospace; font-size: 12px;}
+.code .autoit .imp {font-weight: bold; color: red;}
+.code .autoit li, .code .autoit .li1 {font-weight: normal; vertical-align:top;}
+.code .autoit .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .autoit .li2 {background: #f2f2f2;}
+.code .autoit .kw1 {color: #0000FF; font-weight: bold;}
+.code .autoit .kw2 {color: #800000; font-weight: bold;}
+.code .autoit .kw3 {color: #000080; font-style: italic; font-weight: bold;}
+.code .autoit .kw4 {color: #0080FF; font-style: italic; font-weight: bold;}
+.code .autoit .kw5 {color: #F000FF; font-style: italic;}
+.code .autoit .kw6 {color: #A00FF0; font-style: italic;}
+.code .autoit .co0 {font-style: italic; color: #009933;}
+.code .autoit .coMULTI {font-style: italic; color: #669900;}
+.code .autoit .br0 {color: #FF0000; font-weight: bold;}
+.code .autoit .sy0 {color: #FF0000; font-weight: bold;}
+.code .autoit .st0 {font-weight: bold; color: #008080;}
+.code .autoit .nu0 {color: #AC00A9; font-style: italic; font-weight: bold;}
+.code .autoit .me1 {color: #0000FF; font-style: italic; font-weight: bold;}
+.code .autoit .re0 {font-weight: bold; color: #AA0000;}
+.code .autoit .ln-xtra, .code .autoit li.ln-xtra, .code .autoit div.ln-xtra {background-color: #ffc;}
+.code .autoit span.xtra { display:block; }

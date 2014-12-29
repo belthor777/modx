@@ -1,0 +1,21 @@
+.code .xml .de1, .code .xml .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .xml  {font-family:monospace; font-size: 12px;}
+.code .xml .imp {font-weight: bold; color: red;}
+.code .xml li, .code .xml .li1 {font-weight: normal; vertical-align:top;}
+.code .xml .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .xml .li2 {background: #f2f2f2;}
+.code .xml .es0 {color: #000099; font-weight: bold;}
+.code .xml .br0 {color: #66cc66;}
+.code .xml .sy0 {color: #66cc66;}
+.code .xml .st0 {color: #ff0000;}
+.code .xml .nu0 {color: #cc66cc;}
+.code .xml .sc-1 {color: #808080; font-style: italic;}
+.code .xml .sc0 {color: #00bbdd;}
+.code .xml .sc1 {color: #ddbb00;}
+.code .xml .sc2 {color: #339933;}
+.code .xml .sc3 {color: #009900;}
+.code .xml .re0 {color: #000066;}
+.code .xml .re1 {color: #000000; font-weight: bold;}
+.code .xml .re2 {color: #000000; font-weight: bold;}
+.code .xml .ln-xtra, .code .xml li.ln-xtra, .code .xml div.ln-xtra {background-color: #ffc;}
+.code .xml span.xtra { display:block; }

@@ -1,0 +1,17 @@
+.code .qbasic .de1, .code .qbasic .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .qbasic  {font-family:monospace; font-size: 12px;}
+.code .qbasic .imp {font-weight: bold; color: red;}
+.code .qbasic li, .code .qbasic .li1 {font-weight: normal; vertical-align:top;}
+.code .qbasic .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .qbasic .li2 {background: #f2f2f2;}
+.code .qbasic .kw1 {color: #a1a100;}
+.code .qbasic .kw3 {color: #000066;}
+.code .qbasic .co1 {color: #808080;}
+.code .qbasic .co2 {color: #808080;}
+.code .qbasic .es0 {color: #000099;}
+.code .qbasic .br0 {color: #66cc66;}
+.code .qbasic .sy0 {color: #66cc66;}
+.code .qbasic .st0 {color: #ff0000;}
+.code .qbasic .nu0 {color: #cc66cc;}
+.code .qbasic .ln-xtra, .code .qbasic li.ln-xtra, .code .qbasic div.ln-xtra {background-color: #ffc;}
+.code .qbasic span.xtra { display:block; }

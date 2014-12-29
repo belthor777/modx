@@ -1,0 +1,21 @@
+.code .rebol .de1, .code .rebol .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .rebol  {font-family:monospace; font-size: 12px;}
+.code .rebol .imp {font-weight: bold; color: red;}
+.code .rebol li, .code .rebol .li1 {font-weight: normal; vertical-align:top;}
+.code .rebol .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .rebol .li2 {background: #f2f2f2;}
+.code .rebol .kw1 {color: #b1b100;}
+.code .rebol .kw2 {color: #000000; font-weight: bold;}
+.code .rebol .kw3 {color: #000066;}
+.code .rebol .co1 {color: #808080; font-style: italic;}
+.code .rebol .coMULTI {color: #808080; font-style: italic;}
+.code .rebol .es0 {color: #000099; font-weight: bold;}
+.code .rebol .br0 {color: #66cc66;}
+.code .rebol .sy0 {color: #66cc66;}
+.code .rebol .st0 {color: #ff0000;}
+.code .rebol .nu0 {color: #cc66cc;}
+.code .rebol .me1 {color: #006600;}
+.code .rebol .me2 {color: #006600;}
+.code .rebol .re0 {color: #0000ff;}
+.code .rebol .ln-xtra, .code .rebol li.ln-xtra, .code .rebol div.ln-xtra {background-color: #ffc;}
+.code .rebol span.xtra { display:block; }

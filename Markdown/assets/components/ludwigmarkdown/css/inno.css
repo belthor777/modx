@@ -1,0 +1,19 @@
+.code .inno .de1, .code .inno .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .inno  {font-family:monospace; font-size: 12px;}
+.code .inno .imp {font-weight: bold; color: red;}
+.code .inno li, .code .inno .li1 {font-weight: normal; vertical-align:top;}
+.code .inno .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .inno .li2 {background: #f2f2f2;}
+.code .inno .kw1 {color: #000000; font-weight: bold;}
+.code .inno .kw2 {color: #000000;font-style: italic;}
+.code .inno .kw3 {color: #0000FF;}
+.code .inno .kw4 {color: #CC0000;}
+.code .inno .co1 {color: #33FF00; font-style: italic;}
+.code .inno .coMULTI {color: #33FF00; font-style: italic;}
+.code .inno .br0 {color: #66cc66;}
+.code .inno .sy0 {color: #000000; font-weight: bold;}
+.code .inno .st0 {color: #ff0000;}
+.code .inno .nu0 {color: #cc66cc;}
+.code .inno .me1 {color: #006600;}
+.code .inno .ln-xtra, .code .inno li.ln-xtra, .code .inno div.ln-xtra {background-color: #ffc;}
+.code .inno span.xtra { display:block; }

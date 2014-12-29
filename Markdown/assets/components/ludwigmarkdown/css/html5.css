@@ -1,0 +1,20 @@
+.code .html5 .de1, .code .html5 .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top; line-height: 150%;}
+.code .html5 {font-family:monospace; font-size: 12px;}
+.code .html5 .imp {font-weight: bold; color: red;}
+.code .html5 li, .code .html5 .li1 {font-weight: normal; vertical-align:top;}
+.code .html5 .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .html5 .li2 {font-weight: bold; vertical-align:top;background: #f2f2f2;}
+.code .html5 .kw2 {color: #000000; font-weight: bold;}
+.code .html5 .kw3 {color: #000066;}
+.code .html5 .es0 {color: #000099; font-weight: bold;}
+.code .html5 .br0 {color: #66cc66;}
+.code .html5 .sy0 {color: #66cc66;}
+.code .html5 .st0 {color: #ff0000;}
+.code .html5 .nu0 {color: #cc66cc;}
+.code .html5 .sc-2 {color: #404040;}
+.code .html5 .sc-1 {color: #808080; font-style: italic;}
+.code .html5 .sc0 {color: #00bbdd;}
+.code .html5 .sc1 {color: #ddbb00;}
+.code .html5 .sc2 {color: #009900;}
+.code .html5 .ln-xtra, .code .html5 li.ln-xtra, .code .html5 div.ln-xtra {background-color: #ffc;}
+.code .html5 span.xtra { display:block; }

@@ -1,0 +1,17 @@
+.code .lotusscript .de1, .code .lotusscript .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .lotusscript  {font-family:monospace; font-size: 12px;}
+.code .lotusscript .imp {font-weight: bold; color: red;}
+.code .lotusscript li, .code .lotusscript .li1 {font-weight: normal; vertical-align:top;}
+.code .lotusscript .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .lotusscript .li2 {background: #f2f2f2;}
+.code .lotusscript .kw1 {color: #0000FF;}
+.code .lotusscript .kw2 {color: #0000EE;}
+.code .lotusscript .co1 {color: #008000;}
+.code .lotusscript .es0 {color: #000099;}
+.code .lotusscript .br0 {color: #000000;}
+.code .lotusscript .sy0 {color: #006600;}
+.code .lotusscript .st0 {color: #000000;}
+.code .lotusscript .nu0 {color: #FF00FF;}
+.code .lotusscript .me1 {color: #0000AA;}
+.code .lotusscript .ln-xtra, .code .lotusscript li.ln-xtra, .code .lotusscript div.ln-xtra {background-color: #ffc;}
+.code .lotusscript span.xtra { display:block; }

@@ -1,0 +1,36 @@
+.code .erlang .de1, .code .erlang .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .erlang  {font-family:monospace; font-size: 12px;}
+.code .erlang .imp {font-weight: bold; color: red;}
+.code .erlang li, .code .erlang .li1 {font-weight: normal; vertical-align:top;}
+.code .erlang .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .erlang .li2 {background: #f2f2f2;}
+.code .erlang .kw1 {color: #186895;}
+.code .erlang .kw2 {color: #014ea4;}
+.code .erlang .kw3 {color: #fa6fff;}
+.code .erlang .kw4 {color: #fa6fff;}
+.code .erlang .kw5 {color: #ff4e18;}
+.code .erlang .kw6 {color: #9d4f37;}
+.code .erlang .co1 {color: #666666; font-style: italic;}
+.code .erlang .coMULTI {color: #666666; font-style: italic;}
+.code .erlang .es0 {color: #000099; font-weight: bold;}
+.code .erlang .es_h {color: #000099; font-weight: bold;}
+.code .erlang .br0 {color: #109ab8;}
+.code .erlang .sy0 {color: #004866;}
+.code .erlang .sy1 {color: #6bb810;}
+.code .erlang .sy2 {color: #ee3800;}
+.code .erlang .sy3 {color: #014ea4;}
+.code .erlang .st0 {color: #ff7800;}
+.code .erlang .nu0 {color: #ff9600;}
+.code .erlang .me1 {color: #006600;}
+.code .erlang .me2 {color: #006600;}
+.code .erlang .re0 {color: #6941fd;}
+.code .erlang .re1 {color: #d400ed;}
+.code .erlang .re2 {color: #5400b3;}
+.code .erlang .re3 {color: #ff3c00;}
+.code .erlang .re4 {color: #6941fd;}
+.code .erlang .re5 {color: #45b3e6;}
+.code .erlang .re6 {color: #ff9600;}
+.code .erlang .re7 {color: #d400ed;}
+.code .erlang .re8 {color: #ff9600;}
+.code .erlang .ln-xtra, .code .erlang li.ln-xtra, .code .erlang div.ln-xtra {background-color: #ffc;}
+.code .erlang span.xtra { display:block; }

@@ -1,0 +1,19 @@
+.code .diff .de1, .code .diff .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .diff  {font-family:monospace; font-size: 12px;}
+.code .diff .imp {font-weight: bold; color: red;}
+.code .diff li, .code .diff .li1 {font-weight: normal; vertical-align:top;}
+.code .diff .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .diff .li2 {background: #f2f2f2;}
+.code .diff .kw1 {color: #aaaaaa; font-style: italic;}
+.code .diff .re0 {color: #440088;}
+.code .diff .re1 {color: #991111;}
+.code .diff .re2 {color: #00b000;}
+.code .diff .re3 {color: #888822;}
+.code .diff .re4 {color: #888822;}
+.code .diff .re5 {color: #0011dd;}
+.code .diff .re6 {color: #440088;}
+.code .diff .re7 {color: #991111;}
+.code .diff .re8 {color: #00b000;}
+.code .diff .re9 {color: #888822;}
+.code .diff .ln-xtra, .code .diff li.ln-xtra, .code .diff div.ln-xtra {background-color: #ffc;}
+.code .diff span.xtra { display:block; }

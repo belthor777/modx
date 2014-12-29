@@ -1,0 +1,25 @@
+.code .rails .de1, .code .rails .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .rails  {font-family:monospace; font-size: 12px;}
+.code .rails .imp {font-weight: bold; color: red;}
+.code .rails li, .code .rails .li1 {font-weight: normal; vertical-align:top;}
+.code .rails .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .rails .li2 {background: #f2f2f2;}
+.code .rails .kw1 {color:#9966CC; font-weight:bold;}
+.code .rails .kw2 {color:#0000FF; font-weight:bold;}
+.code .rails .kw3 {color:#CC0066; font-weight:bold;}
+.code .rails .kw4 {color:#CC00FF; font-weight:bold;}
+.code .rails .kw5 {color:#5A0A0A; font-weight:bold;}
+.code .rails .co1 {color:#008000; font-style:italic;}
+.code .rails .coMULTI {color:#000080; font-style:italic;}
+.code .rails .es0 {color:#000099;}
+.code .rails .br0 {color:#006600; font-weight:bold;}
+.code .rails .sy0 {color:#006600; font-weight:bold;}
+.code .rails .st0 {color:#996600;}
+.code .rails .nu0 {color:#006666;}
+.code .rails .me1 {color:#9900CC;}
+.code .rails .re0 {color:#ff6633; font-weight:bold;}
+.code .rails .re1 {color:#0066ff; font-weight:bold;}
+.code .rails .re2 {color:#6666ff; font-weight:bold;}
+.code .rails .re3 {color:#ff3333; font-weight:bold;}
+.code .rails .ln-xtra, .code .rails li.ln-xtra, .code .rails div.ln-xtra {background-color: #ffc;}
+.code .rails span.xtra { display:block; }

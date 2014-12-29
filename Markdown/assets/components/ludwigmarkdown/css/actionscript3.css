@@ -1,0 +1,24 @@
+.code .actionscript3 .de1, .code .actionscript3 .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .actionscript3  {font-family:monospace; font-size: 12px;}
+.code .actionscript3 .imp {font-weight: bold; color: red;}
+.code .actionscript3 li, .code .actionscript3 .li1 {font-weight: normal; vertical-align:top;}
+.code .actionscript3 .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .actionscript3 .li2 {background: #f2f2f2;}
+.code .actionscript3 .kw1 {color: #0033ff; font-weight: bold;}
+.code .actionscript3 .kw2 {color: #6699cc; font-weight: bold;}
+.code .actionscript3 .kw3 {color: #339966; font-weight: bold;}
+.code .actionscript3 .kw4 {color: #9900cc; font-weight: bold;}
+.code .actionscript3 .kw5 {color: #004993;}
+.code .actionscript3 .kw6 {color: #004993;}
+.code .actionscript3 .kw7 {color: #004993;}
+.code .actionscript3 .kw8 {color: #004993;}
+.code .actionscript3 .co1 {color: #009900; font-style: italic;}
+.code .actionscript3 .co2 {color: #009966; font-style: italic;}
+.code .actionscript3 .coMULTI {color: #3f5fbf;}
+.code .actionscript3 .br0 {color: #000000;}
+.code .actionscript3 .sy0 {color: #000066; font-weight: bold;}
+.code .actionscript3 .st0 {color: #990000;}
+.code .actionscript3 .nu0 {color: #000000; font-weight:bold;}
+.code .actionscript3 .me0 {color: #000000;}
+.code .actionscript3 .ln-xtra, .code .actionscript3 li.ln-xtra, .code .actionscript3 div.ln-xtra {background-color: #ffc;}
+.code .actionscript3 span.xtra { display:block; }

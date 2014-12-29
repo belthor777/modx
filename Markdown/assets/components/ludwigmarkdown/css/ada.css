@@ -1,0 +1,19 @@
+.code .ada .de1, .code .ada .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .ada  {font-family:monospace; font-size: 12px;}
+.code .ada .imp {font-weight: bold; color: red;}
+.code .ada li, .code .ada .li1 {font-weight: normal; vertical-align:top;}
+.code .ada .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .ada .li2 {background: #f2f2f2;}
+.code .ada .kw1 {color: #00007f;}
+.code .ada .kw2 {color: #0000ff;}
+.code .ada .kw3 {color: #46aa03; font-weight:bold;}
+.code .ada .co1 {color: #adadad; font-style: italic;}
+.code .ada .coMULTI {color: #808080; font-style: italic;}
+.code .ada .es0 {color: #000099; font-weight: bold;}
+.code .ada .br0 {color: #66cc66;}
+.code .ada .sy0 {color: #66cc66;}
+.code .ada .st0 {color: #7f007f;}
+.code .ada .nu0 {color: #ff0000;}
+.code .ada .me1 {color: #202020;}
+.code .ada .ln-xtra, .code .ada li.ln-xtra, .code .ada div.ln-xtra {background-color: #ffc;}
+.code .ada span.xtra { display:block; }

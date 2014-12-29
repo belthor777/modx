@@ -1,0 +1,19 @@
+.code .html4strict .de1, .code .html4strict .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .html4strict  {font-family:monospace; font-size: 12px;}
+.code .html4strict .imp {font-weight: bold; color: red;}
+.code .html4strict li, .code .html4strict .li1 {font-weight: normal; vertical-align:top;}
+.code .html4strict .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .html4strict .li2 {background: #f2f2f2;}
+.code .html4strict .kw2 {color: #000000; font-weight: bold;}
+.code .html4strict .kw3 {color: #000066;}
+.code .html4strict .es0 {color: #000099; font-weight: bold;}
+.code .html4strict .br0 {color: #66cc66;}
+.code .html4strict .sy0 {color: #66cc66;}
+.code .html4strict .st0 {color: #ff0000;}
+.code .html4strict .nu0 {color: #cc66cc;}
+.code .html4strict .sc-1 {color: #808080; font-style: italic;}
+.code .html4strict .sc0 {color: #00bbdd;}
+.code .html4strict .sc1 {color: #ddbb00;}
+.code .html4strict .sc2 {color: #009900;}
+.code .html4strict .ln-xtra, .code .html4strict li.ln-xtra, .code .html4strict div.ln-xtra {background-color: #ffc;}
+.code .html4strict span.xtra { display:block; }

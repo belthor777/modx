@@ -1,0 +1,26 @@
+.code .smarty .de1, .code .smarty .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .smarty  {font-family:monospace; font-size: 12px;}
+.code .smarty .imp {font-weight: bold; color: red;}
+.code .smarty li, .code .smarty .li1 {font-weight: normal; vertical-align:top;}
+.code .smarty .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .smarty .li2 {background: #f2f2f2;}
+.code .smarty .kw1 {color: #0600FF;}
+.code .smarty .kw2 {color: #008000;}
+.code .smarty .kw3 {color: #0600FF;}
+.code .smarty .kw4 {color: #804040;}
+.code .smarty .kw5 {color: #008000;}
+.code .smarty .kw6 {color: #6A0A0A;}
+.code .smarty .kw7 {color: #D36900;}
+.code .smarty .kw8 {color: #0600FF;}
+.code .smarty .coMULTI {color: #008080; font-style: italic;}
+.code .smarty .es0 {color: #000099; font-weight: bold;}
+.code .smarty .br0 {color: #D36900;}
+.code .smarty .sy0 {color: #D36900;}
+.code .smarty .st0 {color: #ff0000;}
+.code .smarty .nu0 {color: #cc66cc;}
+.code .smarty .me1 {color: #006600;}
+.code .smarty .sc1 {color: #808080; font-style: italic;}
+.code .smarty .sc2 {color: #009000;}
+.code .smarty .re0 {color: #00aaff;}
+.code .smarty .ln-xtra, .code .smarty li.ln-xtra, .code .smarty div.ln-xtra {background-color: #ffc;}
+.code .smarty span.xtra { display:block; }

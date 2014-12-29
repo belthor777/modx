@@ -1,0 +1,15 @@
+.code .robots .de1, .code .robots .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .robots  {font-family:monospace; font-size: 12px;}
+.code .robots .imp {font-weight: bold; color: red;}
+.code .robots li, .code .robots .li1 {font-weight: normal; vertical-align:top;}
+.code .robots .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .robots .li2 {background: #f2f2f2;}
+.code .robots .kw1 {color: #b1b100;}
+.code .robots .co1 {color: #808080; font-style: italic;}
+.code .robots .es0 {color: #000099; font-weight: bold;}
+.code .robots .br0 {color: #66cc66;}
+.code .robots .sy0 {color: #66cc66;}
+.code .robots .st0 {color: #ff0000;}
+.code .robots .nu0 {color: #cc66cc;}
+.code .robots .ln-xtra, .code .robots li.ln-xtra, .code .robots div.ln-xtra {background-color: #ffc;}
+.code .robots span.xtra { display:block; }

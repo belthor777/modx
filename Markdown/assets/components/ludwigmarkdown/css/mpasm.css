@@ -1,0 +1,21 @@
+.code .mpasm .de1, .code .mpasm .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .mpasm  {font-family:monospace; font-size: 12px;}
+.code .mpasm .imp {font-weight: bold; color: red;}
+.code .mpasm li, .code .mpasm .li1 {font-weight: normal; vertical-align:top;}
+.code .mpasm .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .mpasm .li2 {background: #f2f2f2;}
+.code .mpasm .kw1 {color: #00007f;}
+.code .mpasm .kw2 {color: #0000ff;}
+.code .mpasm .kw3 {color: #007f00;}
+.code .mpasm .kw4 {color: #46aa03; font-weight:bold;}
+.code .mpasm .kw5 {color: #7f0000;}
+.code .mpasm .co1 {color: #adadad; font-style: italic;}
+.code .mpasm .es0 {color: #000099; font-weight: bold;}
+.code .mpasm .br0 {color: #66cc66;}
+.code .mpasm .sy0 {color: #66cc66;}
+.code .mpasm .st0 {color: #7f007f;}
+.code .mpasm .nu0 {color: #ff0000;}
+.code .mpasm .re0 {color: #ff0000;}
+.code .mpasm .re1 {color: #ff0000;}
+.code .mpasm .ln-xtra, .code .mpasm li.ln-xtra, .code .mpasm div.ln-xtra {background-color: #ffc;}
+.code .mpasm span.xtra { display:block; }

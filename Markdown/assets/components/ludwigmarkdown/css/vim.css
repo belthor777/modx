@@ -1,0 +1,17 @@
+.code .vim .de1, .code .vim .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .vim  {font-family:monospace; font-size: 12px;}
+.code .vim .imp {font-weight: bold; color: red;}
+.code .vim li, .code .vim .li1 {font-weight: normal; vertical-align:top;}
+.code .vim .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .vim .li2 {background: #f2f2f2;}
+.code .vim .kw1 {color: #804040;}
+.code .vim .kw2 {color: #668080;}
+.code .vim .kw3 {color: #25BB4D;}
+.code .vim .co1 {color: #adadad; font-style: italic;}
+.code .vim .br0 {color: #000000;}
+.code .vim .sy0 {color: #000000;}
+.code .vim .st0 {color: #C5A22D;}
+.code .vim .nu0 {color: #000000; font-weight:bold;}
+.code .vim .me0 {color: #000000;}
+.code .vim .ln-xtra, .code .vim li.ln-xtra, .code .vim div.ln-xtra {background-color: #ffc;}
+.code .vim span.xtra { display:block; }

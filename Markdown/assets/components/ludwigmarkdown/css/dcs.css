@@ -1,0 +1,17 @@
+.code .dcs .de1, .code .dcs .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .dcs  {font-family:monospace; font-size: 12px;}
+.code .dcs .imp {font-weight: bold; color: red;}
+.code .dcs li, .code .dcs .li1 {font-weight: normal; vertical-align:top;}
+.code .dcs .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .dcs .li2 {background: #f2f2f2;}
+.code .dcs .kw1 {color: red;}
+.code .dcs .kw2 {color: blue;}
+.code .dcs .kw3 {color: black;}
+.code .dcs .co1 {color: black; background-color: silver;}
+.code .dcs .co2 {color: maroon; background-color: pink;}
+.code .dcs .br0 {color: black;}
+.code .dcs .sy0 {color: black;}
+.code .dcs .st0 {color: green;}
+.code .dcs .nu0 {color: green;}
+.code .dcs .ln-xtra, .code .dcs li.ln-xtra, .code .dcs div.ln-xtra {background-color: #ffc;}
+.code .dcs span.xtra { display:block; }

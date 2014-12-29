@@ -1,0 +1,30 @@
+.code .klonecpp .de1, .code .klonecpp .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .klonecpp  {font-family:monospace; font-size: 12px;}
+.code .klonecpp .imp {font-weight: bold; color: red;}
+.code .klonecpp li, .code .klonecpp .li1 {font-weight: normal; vertical-align:top;}
+.code .klonecpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .klonecpp .li2 {background: #f2f2f2;}
+.code .klonecpp .kw1 {color: #b1b100; font-weight: bold;}
+.code .klonecpp .kw2 {color: #000000; font-weight: bold;}
+.code .klonecpp .kw3 {color: #6600FF;}
+.code .klonecpp .kw4 {color: #6600FF;}
+.code .klonecpp .kw5 {color: #0099FF; font-weight: bold;}
+.code .klonecpp .kw6 {color: #990099; font-weight: bold;}
+.code .klonecpp .kw7 {color: #000066;}
+.code .klonecpp .co1 {color: #808080; font-style: italic;}
+.code .klonecpp .co2 {color: #339933;}
+.code .klonecpp .coMULTI {color: #808080; font-style: italic;}
+.code .klonecpp .es0 {color: #000099; font-weight: bold;}
+.code .klonecpp .br0 {color: #000000;}
+.code .klonecpp .sy0 {color: #000000;}
+.code .klonecpp .sy1 {color: #000000; font-weight: bold;}
+.code .klonecpp .st0 {color: #ff0000;}
+.code .klonecpp .nu0 {color: #cc66cc;}
+.code .klonecpp .me1 {color: #006600;}
+.code .klonecpp .me2 {color: #006600;}
+.code .klonecpp .sc0 {background-color:#ffccff; font-weight: bold; color:#000000;}
+.code .klonecpp .sc3 {color: #00bbdd; font-weight: bold;}
+.code .klonecpp .sc4 {color: #ddbb00;}
+.code .klonecpp .sc5 {color: #009900;}
+.code .klonecpp .ln-xtra, .code .klonecpp li.ln-xtra, .code .klonecpp div.ln-xtra {background-color: #ffc;}
+.code .klonecpp span.xtra { display:block; }

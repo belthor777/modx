@@ -1,0 +1,17 @@
+.code .lotusformulas .de1, .code .lotusformulas .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .lotusformulas  {font-family:monospace; font-size: 12px;}
+.code .lotusformulas .imp {font-weight: bold; color: red;}
+.code .lotusformulas li, .code .lotusformulas .li1 {font-weight: normal; vertical-align:top;}
+.code .lotusformulas .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .lotusformulas .li2 {background: #f2f2f2;}
+.code .lotusformulas .kw1 {color: #800000;}
+.code .lotusformulas .kw2 {color: #0000FF;}
+.code .lotusformulas .co1 {color: #008000;}
+.code .lotusformulas .es0 {color: #000099;}
+.code .lotusformulas .br0 {color: #000000;}
+.code .lotusformulas .sy0 {color: #66cc66;}
+.code .lotusformulas .st0 {color: #FF00FF;}
+.code .lotusformulas .nu0 {color: #FF00FF;}
+.code .lotusformulas .me1 {color: #0000AA;}
+.code .lotusformulas .ln-xtra, .code .lotusformulas li.ln-xtra, .code .lotusformulas div.ln-xtra {background-color: #ffc;}
+.code .lotusformulas span.xtra { display:block; }

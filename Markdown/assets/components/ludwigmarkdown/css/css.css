@@ -1,0 +1,22 @@
+.code .css .de1, .code .css .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .css  {font-family:monospace; font-size: 12px;}
+.code .css .imp {font-weight: bold; color: red;}
+.code .css li, .code .css .li1 {font-weight: normal; vertical-align:top;}
+.code .css .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .css .li2 {background: #f2f2f2;}
+.code .css .kw1 {color: #000000; font-weight: bold;}
+.code .css .kw2 {color: #993333;}
+.code .css .co1 {color: #a1a100;}
+.code .css .co2 {color: #ff0000; font-style: italic;}
+.code .css .coMULTI {color: #808080; font-style: italic;}
+.code .css .es0 {color: #000099; font-weight: bold;}
+.code .css .br0 {color: #00AA00;}
+.code .css .sy0 {color: #00AA00;}
+.code .css .st0 {color: #ff0000;}
+.code .css .nu0 {color: #cc66cc;}
+.code .css .re0 {color: #cc00cc;}
+.code .css .re1 {color: #6666ff;}
+.code .css .re2 {color: #3333ff;}
+.code .css .re3 {color: #933;}
+.code .css .ln-xtra, .code .css li.ln-xtra, .code .css div.ln-xtra {background-color: #ffc;}
+.code .css span.xtra { display:block; }

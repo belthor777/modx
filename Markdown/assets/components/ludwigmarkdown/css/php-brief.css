@@ -1,0 +1,29 @@
+.code .php-brief .de1, .code .php-brief .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .php-brief  {font-family:monospace; font-size: 12px;}
+.code .php-brief .imp {font-weight: bold; color: red;}
+.code .php-brief li, .code .php-brief .li1 {font-weight: normal; vertical-align:top;}
+.code .php-brief .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .php-brief .li2 {background: #f2f2f2;}
+.code .php-brief .kw1 {color: #b1b100;}
+.code .php-brief .kw2 {color: #000000; font-weight: bold;}
+.code .php-brief .kw3 {color: #990000;}
+.code .php-brief .co1 {color: #666666; font-style: italic;}
+.code .php-brief .co2 {color: #666666; font-style: italic;}
+.code .php-brief .co3 {color: #0000cc; font-style: italic;}
+.code .php-brief .coMULTI {color: #666666; font-style: italic;}
+.code .php-brief .es0 {color: #000099; font-weight: bold;}
+.code .php-brief .es_h {color: #000099; font-weight: bold;}
+.code .php-brief .br0 {color: #009900;}
+.code .php-brief .sy0 {color: #339933;}
+.code .php-brief .sy1 {color: #000000; font-weight: bold;}
+.code .php-brief .st0 {color: #0000ff;}
+.code .php-brief .st_h {color: #0000ff;}
+.code .php-brief .nu0 {color: #cc66cc;}
+.code .php-brief .nu8 {color: #208080;}
+.code .php-brief .nu12 {color: #208080;}
+.code .php-brief .nu19 {color:#800080;}
+.code .php-brief .me1 {color: #004000;}
+.code .php-brief .me2 {color: #004000;}
+.code .php-brief .re0 {color: #0000ff;}
+.code .php-brief .ln-xtra, .code .php-brief li.ln-xtra, .code .php-brief div.ln-xtra {background-color: #ffc;}
+.code .php-brief span.xtra { display:block; }

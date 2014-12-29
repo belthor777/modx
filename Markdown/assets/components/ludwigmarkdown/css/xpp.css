@@ -1,0 +1,21 @@
+.code .xpp .de1, .code .xpp .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .xpp  {font-family:monospace; font-size: 12px;}
+.code .xpp .imp {font-weight: bold; color: red;}
+.code .xpp li, .code .xpp .li1 {font-weight: normal; vertical-align:top;}
+.code .xpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .xpp .li2 {background: #f2f2f2;}
+.code .xpp .kw1 {color: #0000ff;}
+.code .xpp .kw2 {color: #0000ff;}
+.code .xpp .kw3 {color: #0000ff;}
+.code .xpp .kw4 {color: #0000ff;}
+.code .xpp .co1 {color: #007f00;}
+.code .xpp .coMULTI {color: #007f00; font-style: italic;}
+.code .xpp .es0 {color: #000000;}
+.code .xpp .br0 {color: #000000;}
+.code .xpp .sy0 {color: #00007f;}
+.code .xpp .st0 {color: #ff0000;}
+.code .xpp .nu0 {color: #000000;}
+.code .xpp .me1 {color: #000000;}
+.code .xpp .me2 {color: #000000;}
+.code .xpp .ln-xtra, .code .xpp li.ln-xtra, .code .xpp div.ln-xtra {background-color: #ffc;}
+.code .xpp span.xtra { display:block; }

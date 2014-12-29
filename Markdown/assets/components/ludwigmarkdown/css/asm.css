@@ -1,0 +1,20 @@
+.code .asm .de1, .code .asm .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .asm  {font-family:monospace; font-size: 12px;}
+.code .asm .imp {font-weight: bold; color: red;}
+.code .asm li, .code .asm .li1 {font-weight: normal; vertical-align:top;}
+.code .asm .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .asm .li2 {background: #f2f2f2;}
+.code .asm .kw1 {color: #00007f; font-weight: bold;}
+.code .asm .kw2 {color: #0000ff; font-weight: bold;}
+.code .asm .kw3 {color: #00007f;}
+.code .asm .kw4 {color: #000000; font-weight: bold;}
+.code .asm .kw5 {color: #000000; font-weight: bold;}
+.code .asm .co1 {color: #666666; font-style: italic;}
+.code .asm .co2 {color: #adadad; font-style: italic;}
+.code .asm .es0 {color: #000099; font-weight: bold;}
+.code .asm .br0 {color: #009900; font-weight: bold;}
+.code .asm .sy0 {color: #339933;}
+.code .asm .st0 {color: #7f007f;}
+.code .asm .nu0 {color: #0000ff;}
+.code .asm .ln-xtra, .code .asm li.ln-xtra, .code .asm div.ln-xtra {background-color: #ffc;}
+.code .asm span.xtra { display:block; }

@@ -1,0 +1,26 @@
+.code .whois .de1, .code .whois .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .whois  {font-family:monospace; font-size: 12px;}
+.code .whois .imp {font-weight: bold; color: red;}
+.code .whois li, .code .whois .li1 {font-weight: normal; vertical-align:top;}
+.code .whois .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .whois .li2 {background: #f2f2f2;}
+.code .whois .kw1 {color: #0000FF; font-weight: bold;}
+.code .whois .kw2 {color: #000080; font-weight: bold;}
+.code .whois .kw3 {color: #990000; font-weight: bold;}
+.code .whois .co1 {color: #666666; font-style: italic;}
+.code .whois .co2 {color: #666666; font-style: italic;}
+.code .whois .co3 {color: #404080;}
+.code .whois .co4 {color: #408040;}
+.code .whois .co5 {color: #408040;}
+.code .whois .co6 {color: #408040;}
+.code .whois .co7 {color: #804040;}
+.code .whois .co8 {color: #804040;}
+.code .whois .coMULTI {color: #666666; font-style: italic;}
+.code .whois .es0 {color: #000099; font-weight: bold;}
+.code .whois .es_h {color: #000099; font-weight: bold;}
+.code .whois .br0 {color: #009900;}
+.code .whois .sy0 {color: #0000FF;}
+.code .whois .nu0 {color: #000080;}
+.code .whois .re0 {color: #000088;}
+.code .whois .ln-xtra, .code .whois li.ln-xtra, .code .whois div.ln-xtra {background-color: #ffc;}
+.code .whois span.xtra { display:block; }

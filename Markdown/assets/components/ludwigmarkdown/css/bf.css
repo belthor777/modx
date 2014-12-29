@@ -1,0 +1,16 @@
+.code .bf .de1, .code .bf .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .bf  {font-family:monospace; font-size: 12px;}
+.code .bf .imp {font-weight: bold; color: red;}
+.code .bf li, .code .bf .li1 {font-weight: normal; vertical-align:top;}
+.code .bf .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .bf .li2 {background: #f2f2f2;}
+.code .bf .co1 {color: #666666; font-style: italic;}
+.code .bf .br0 {color: #66cc66;}
+.code .bf .sy0 {color: #006600;}
+.code .bf .sy1 {color: #660000;}
+.code .bf .sy2 {color: #000066;}
+.code .bf .sy3 {color: #660066;}
+.code .bf .sy4 {color: #666600;}
+.code .bf .st0 {color: #ff0000;}
+.code .bf .ln-xtra, .code .bf li.ln-xtra, .code .bf div.ln-xtra {background-color: #ffc;}
+.code .bf span.xtra { display:block; }

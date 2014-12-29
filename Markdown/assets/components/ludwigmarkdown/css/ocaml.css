@@ -1,0 +1,19 @@
+.code .ocaml .de1, .code .ocaml .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .ocaml  {font-family:monospace; font-size: 12px;}
+.code .ocaml .imp {font-weight: bold; color: red;}
+.code .ocaml li, .code .ocaml .li1 {font-weight: normal; vertical-align:top;}
+.code .ocaml .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .ocaml .li2 {background: #f2f2f2;}
+.code .ocaml .kw1 {color: #06c; font-weight: bold;}
+.code .ocaml .kw2 {color: #06c; font-weight: bold;}
+.code .ocaml .kw3 {color: #06c; font-weight: bold;}
+.code .ocaml .kw4 {color: #06c; font-weight: bold;}
+.code .ocaml .kw5 {color: #06c; font-weight: bold;}
+.code .ocaml .coMULTI {color: #5d478b; font-style: italic;}
+.code .ocaml .br0 {color: #6c6;}
+.code .ocaml .sy0 {color: #a52a2a;}
+.code .ocaml .st0 {color: #3cb371;}
+.code .ocaml .nu0 {color: #c6c;}
+.code .ocaml .me1 {color: #060;}
+.code .ocaml .ln-xtra, .code .ocaml li.ln-xtra, .code .ocaml div.ln-xtra {background-color: #ffc;}
+.code .ocaml span.xtra { display:block; }

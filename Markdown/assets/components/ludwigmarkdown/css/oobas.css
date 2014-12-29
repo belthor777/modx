@@ -1,0 +1,17 @@
+.code .oobas .de1, .code .oobas .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .oobas  {font-family:monospace; font-size: 12px;}
+.code .oobas .imp {font-weight: bold; color: red;}
+.code .oobas li, .code .oobas .li1 {font-weight: normal; vertical-align:top;}
+.code .oobas .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .oobas .li2 {background: #f2f2f2;}
+.code .oobas .kw1 {color: #b1b100;}
+.code .oobas .co1 {color: #808080;}
+.code .oobas .co2 {color: #808080;}
+.code .oobas .es0 {color: #000099;}
+.code .oobas .br0 {color: #66cc66;}
+.code .oobas .sy0 {color: #66cc66;}
+.code .oobas .st0 {color: #ff0000;}
+.code .oobas .nu0 {color: #cc66cc;}
+.code .oobas .me1 {color: #006600;}
+.code .oobas .ln-xtra, .code .oobas li.ln-xtra, .code .oobas div.ln-xtra {background-color: #ffc;}
+.code .oobas span.xtra { display:block; }

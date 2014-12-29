@@ -1,0 +1,19 @@
+.code .scala .de1, .code .scala .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .scala  {font-family:monospace; font-size: 12px;}
+.code .scala .imp {font-weight: bold; color: red;}
+.code .scala li, .code .scala .li1 {font-weight: normal; vertical-align:top;}
+.code .scala .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .scala .li2 {background: #f2f2f2;}
+.code .scala .kw1 {color: #0000ff; font-weight: bold;}
+.code .scala .kw2 {color: #9999cc; font-weight: bold;}
+.code .scala .co1 {color: #008000; font-style: italic;}
+.code .scala .coMULTI {color: #00ff00; font-style: italic;}
+.code .scala .es0 {color: #0000ff; font-weight: bold;}
+.code .scala .br0 {color: #F78811;}
+.code .scala .sy0 {color: #000080;}
+.code .scala .st0 {color: #6666FF;}
+.code .scala .nu0 {color: #F78811;}
+.code .scala .me1 {color: #000000;}
+.code .scala .me2 {color: #000000;}
+.code .scala .ln-xtra, .code .scala li.ln-xtra, .code .scala div.ln-xtra {background-color: #ffc;}
+.code .scala span.xtra { display:block; }

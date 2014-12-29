@@ -1,0 +1,16 @@
+.code .caddcl .de1, .code .caddcl .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .caddcl  {font-family:monospace; font-size: 12px;}
+.code .caddcl .imp {font-weight: bold; color: red;}
+.code .caddcl li, .code .caddcl .li1 {font-weight: normal; vertical-align:top;}
+.code .caddcl .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .caddcl .li2 {background: #f2f2f2;}
+.code .caddcl .kw1 {color: #b1b100;}
+.code .caddcl .co1 {color: #808080; font-style: italic;}
+.code .caddcl .coMULTI {color: #808080; font-style: italic;}
+.code .caddcl .es0 {color: #000099; font-weight: bold;}
+.code .caddcl .br0 {color: #66cc66;}
+.code .caddcl .sy0 {color: #66cc66;}
+.code .caddcl .st0 {color: #ff0000;}
+.code .caddcl .nu0 {color: #cc66cc;}
+.code .caddcl .ln-xtra, .code .caddcl li.ln-xtra, .code .caddcl div.ln-xtra {background-color: #ffc;}
+.code .caddcl span.xtra { display:block; }

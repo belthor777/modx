@@ -1,0 +1,19 @@
+.code .div .de1, .code .div .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .div  {font-family:monospace; font-size: 12px;}
+.code .div .imp {font-weight: bold; color: red;}
+.code .div li, .code .div .li1 {font-weight: normal; vertical-align:top;}
+.code .div .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .div .li2 {background: #f2f2f2;}
+.code .div .kw1 {color: #0040b1;}
+.code .div .kw2 {color: #000000;}
+.code .div .kw3 {color: #000066; font-weight: bold;}
+.code .div .kw4 {color: #993333;}
+.code .div .co1 {color: #808080; font-style: italic;}
+.code .div .coMULTI {color: #808080; font-style: italic;}
+.code .div .br0 {color: #44aa44;}
+.code .div .sy0 {color: #44aa44;}
+.code .div .st0 {color: #ff0000;}
+.code .div .nu0 {color: #cc66cc;}
+.code .div .me0 {color: #202020;}
+.code .div .ln-xtra, .code .div li.ln-xtra, .code .div div.ln-xtra {background-color: #ffc;}
+.code .div span.xtra { display:block; }

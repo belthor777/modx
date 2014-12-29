@@ -1,0 +1,37 @@
+.code .php .de1, .code .php .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .php  {font-family:monospace; font-size: 12px;}
+.code .php .imp {font-weight: bold; color: red;}
+.code .php li, .code .php .li1 {font-weight: normal; vertical-align:top;}
+.code .php .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .php .li2 {background: #f2f2f2;}
+.code .php .kw1 {color: #b1b100;}
+.code .php .kw2 {color: #000000; font-weight: bold;}
+.code .php .kw3 {color: #990000;}
+.code .php .kw4 {color: #009900; font-weight: bold;}
+.code .php .co1 {color: #666666; font-style: italic;}
+.code .php .co2 {color: #666666; font-style: italic;}
+.code .php .co3 {color: #0000cc; font-style: italic;}
+.code .php .co4 {color: #009933; font-style: italic;}
+.code .php .coMULTI {color: #666666; font-style: italic;}
+.code .php .es0 {color: #000099; font-weight: bold;}
+.code .php .es1 {color: #000099; font-weight: bold;}
+.code .php .es2 {color: #660099; font-weight: bold;}
+.code .php .es3 {color: #660099; font-weight: bold;}
+.code .php .es4 {color: #006699; font-weight: bold;}
+.code .php .es5 {color: #006699; font-weight: bold; font-style: italic;}
+.code .php .es6 {color: #009933; font-weight: bold;}
+.code .php .es_h {color: #000099; font-weight: bold;}
+.code .php .br0 {color: #009900;}
+.code .php .sy0 {color: #339933;}
+.code .php .sy1 {color: #000000; font-weight: bold;}
+.code .php .st0 {color: #0000ff;}
+.code .php .st_h {color: #0000ff;}
+.code .php .nu0 {color: #cc66cc;}
+.code .php .nu8 {color: #208080;}
+.code .php .nu12 {color: #208080;}
+.code .php .nu19 {color:#800080;}
+.code .php .me1 {color: #004000;}
+.code .php .me2 {color: #004000;}
+.code .php .re0 {color: #000088;}
+.code .php .ln-xtra, .code .php li.ln-xtra, .code .php div.ln-xtra {background-color: #ffc;}
+.code .php span.xtra { display:block; }

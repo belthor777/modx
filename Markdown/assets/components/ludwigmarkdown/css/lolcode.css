@@ -1,0 +1,17 @@
+.code .lolcode .de1, .code .lolcode .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .lolcode  {font-family:monospace; font-size: 12px;}
+.code .lolcode .imp {font-weight: bold; color: red;}
+.code .lolcode li, .code .lolcode .li1 {font-weight: normal; vertical-align:top;}
+.code .lolcode .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .lolcode .li2 {background: #f2f2f2;}
+.code .lolcode .kw1 {color: #008000;}
+.code .lolcode .kw2 {color: #000080;}
+.code .lolcode .kw3 {color: #000080;}
+.code .lolcode .kw4 {color: #800000;}
+.code .lolcode .co1 {color: #666666; font-style: italic;}
+.code .lolcode .co2 {color: #666666; font-style: italic;}
+.code .lolcode .br0 {color: #66cc66;}
+.code .lolcode .sy0 {color: #66cc66;}
+.code .lolcode .st0 {color: #ff0000;}
+.code .lolcode .ln-xtra, .code .lolcode li.ln-xtra, .code .lolcode div.ln-xtra {background-color: #ffc;}
+.code .lolcode span.xtra { display:block; }

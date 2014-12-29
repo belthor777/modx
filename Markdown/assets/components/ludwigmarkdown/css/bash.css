@@ -1,0 +1,31 @@
+.code .bash .de1, .code .bash .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .bash  {font-family:monospace; font-size: 12px;}
+.code .bash .imp {font-weight: bold; color: red;}
+.code .bash li, .code .bash .li1 {font-weight: normal; vertical-align:top;}
+.code .bash .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .bash .li2 {background: #f2f2f2;}
+.code .bash .kw1 {color: #000000; font-weight: bold;}
+.code .bash .kw2 {color: #c20cb9; font-weight: bold;}
+.code .bash .kw3 {color: #7a0874; font-weight: bold;}
+.code .bash .co0 {color: #666666; font-style: italic;}
+.code .bash .co1 {color: #800000;}
+.code .bash .co2 {color: #cc0000; font-style: italic;}
+.code .bash .co3 {color: #000000; font-weight: bold;}
+.code .bash .es1 {color: #000099; font-weight: bold;}
+.code .bash .es2 {color: #007800;}
+.code .bash .es3 {color: #007800;}
+.code .bash .es4 {color: #007800;}
+.code .bash .es5 {color: #780078;}
+.code .bash .es_h {color: #000099; font-weight: bold;}
+.code .bash .br0 {color: #7a0874; font-weight: bold;}
+.code .bash .sy0 {color: #000000; font-weight: bold;}
+.code .bash .st0 {color: #ff0000;}
+.code .bash .st_h {color: #ff0000;}
+.code .bash .nu0 {color: #000000;}
+.code .bash .re0 {color: #007800;}
+.code .bash .re1 {color: #007800;}
+.code .bash .re2 {color: #007800;}
+.code .bash .re4 {color: #007800;}
+.code .bash .re5 {color: #660033;}
+.code .bash .ln-xtra, .code .bash li.ln-xtra, .code .bash div.ln-xtra {background-color: #ffc;}
+.code .bash span.xtra { display:block; }

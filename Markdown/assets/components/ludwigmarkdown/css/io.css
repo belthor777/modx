@@ -1,0 +1,21 @@
+.code .io .de1, .code .io .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .io  {font-family:monospace; font-size: 12px;}
+.code .io .imp {font-weight: bold; color: red;}
+.code .io li, .code .io .li1 {font-weight: normal; vertical-align:top;}
+.code .io .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .io .li2 {background: #f2f2f2;}
+.code .io .kw1 {color: #b1b100;}
+.code .io .kw2 {color: #000000; font-weight: bold;}
+.code .io .kw3 {color: #000066;}
+.code .io .co1 {color: #808080; font-style: italic;}
+.code .io .co2 {color: #808080; font-style: italic;}
+.code .io .coMULTI {color: #808080; font-style: italic;}
+.code .io .es0 {color: #000099; font-weight: bold;}
+.code .io .br0 {color: #66cc66;}
+.code .io .sy0 {color: #66cc66;}
+.code .io .st0 {color: #ff0000;}
+.code .io .nu0 {color: #cc66cc;}
+.code .io .me1 {color: #006600;}
+.code .io .me2 {color: #006600;}
+.code .io .ln-xtra, .code .io li.ln-xtra, .code .io div.ln-xtra {background-color: #ffc;}
+.code .io span.xtra { display:block; }

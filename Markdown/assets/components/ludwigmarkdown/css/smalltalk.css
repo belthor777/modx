@@ -1,0 +1,20 @@
+.code .smalltalk .de1, .code .smalltalk .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .smalltalk  {font-family:monospace; font-size: 12px;}
+.code .smalltalk .imp {font-weight: bold; color: red;}
+.code .smalltalk li, .code .smalltalk .li1 {font-weight: normal; vertical-align:top;}
+.code .smalltalk .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .smalltalk .li2 {background: #f2f2f2;}
+.code .smalltalk .kw1 {color: #7f007f;}
+.code .smalltalk .coMULTI {color: #007f00; font-style: italic;}
+.code .smalltalk .sy0 {color: #000066; font-weight:bold;}
+.code .smalltalk .st0 {color: #7f0000;}
+.code .smalltalk .nu0 {color: #7f0000;}
+.code .smalltalk .re0 {color: #0000ff;}
+.code .smalltalk .re1 {color: #7f0000;}
+.code .smalltalk .re2 {color: #7f0000;}
+.code .smalltalk .re3 {color: #00007f;}
+.code .smalltalk .re4 {color: #7f007f;}
+.code .smalltalk .re5 {color: #00007f;}
+.code .smalltalk .re6 {color: #00007f;}
+.code .smalltalk .ln-xtra, .code .smalltalk li.ln-xtra, .code .smalltalk div.ln-xtra {background-color: #ffc;}
+.code .smalltalk span.xtra { display:block; }

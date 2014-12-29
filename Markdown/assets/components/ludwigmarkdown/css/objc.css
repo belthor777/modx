@@ -1,0 +1,26 @@
+.code .objc .de1, .code .objc .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .objc  {font-family:monospace; font-size: 12px;}
+.code .objc .imp {font-weight: bold; color: red;}
+.code .objc li, .code .objc .li1 {font-weight: normal; vertical-align:top;}
+.code .objc .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .objc .li2 {background: #f2f2f2;}
+.code .objc .kw1 {color: #a61390;}
+.code .objc .kw2 {color: #a61390;}
+.code .objc .kw3 {color: #a61390;}
+.code .objc .kw4 {color: #a61390;}
+.code .objc .kw5 {color: #400080;}
+.code .objc .kw6 {color: #2a6f76;}
+.code .objc .kw7 {color: #400080;}
+.code .objc .kw8 {color: #2a6f76;}
+.code .objc .kw9 {color: #400080;}
+.code .objc .co1 {color: #6e371a;}
+.code .objc .co2 {color: #11740a; font-style: italic;}
+.code .objc .co3 {color: #bf1d1a;}
+.code .objc .coMULTI {color: #11740a; font-style: italic;}
+.code .objc .es0 {color: #2400d9;}
+.code .objc .br0 {color: #002200;}
+.code .objc .sy0 {color: #002200;}
+.code .objc .st0 {color: #bf1d1a;}
+.code .objc .nu0 {color: #2400d9;}
+.code .objc .ln-xtra, .code .objc li.ln-xtra, .code .objc div.ln-xtra {background-color: #ffc;}
+.code .objc span.xtra { display:block; }

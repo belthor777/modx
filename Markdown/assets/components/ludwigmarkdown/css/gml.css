@@ -1,0 +1,20 @@
+.code .gml .de1, .code .gml .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .gml  {font-family:monospace; font-size: 12px;}
+.code .gml .imp {font-weight: bold; color: red;}
+.code .gml li, .code .gml .li1 {font-weight: normal; vertical-align:top;}
+.code .gml .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .gml .li2 {background: #f2f2f2;}
+.code .gml .kw1 {font-weight: bold; color: #000000;}
+.code .gml .kw2 {font-weight: bold; color: #000000;}
+.code .gml .kw3 {color: navy;}
+.code .gml .kw4 {color: #663300;}
+.code .gml .co1 {font-style: italic; color: green;}
+.code .gml .coMULTI {font-style: italic; color: green;}
+.code .gml .es0 {color: #000099; font-weight: bold;}
+.code .gml .br0 {color: #000000;}
+.code .gml .sy0 {color: #66cc66; font-weight: bold;}
+.code .gml .st0 {color: #ff0000;}
+.code .gml .nu0 {color: #cc66cc;}
+.code .gml .me1 {color: #202020;}
+.code .gml .ln-xtra, .code .gml li.ln-xtra, .code .gml div.ln-xtra {background-color: #ffc;}
+.code .gml span.xtra { display:block; }

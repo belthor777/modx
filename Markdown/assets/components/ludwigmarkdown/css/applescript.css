@@ -1,0 +1,23 @@
+.code .applescript .de1, .code .applescript .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .applescript  {font-family:monospace; font-size: 12px;}
+.code .applescript .imp {font-weight: bold; color: red;}
+.code .applescript li, .code .applescript .li1 {font-weight: normal; vertical-align:top;}
+.code .applescript .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .applescript .li2 {background: #f2f2f2;}
+.code .applescript .kw1 {color: #0066ff;}
+.code .applescript .kw2 {color: #ff0033;}
+.code .applescript .kw3 {color: #ff0033; font-weight: bold;}
+.code .applescript .co1 {color: #808080; font-style: italic;}
+.code .applescript .co3 {color: #ff0000;}
+.code .applescript .coMULTI {color: #808080; font-style: italic;}
+.code .applescript .es0 {color: #000000; font-weight: bold;}
+.code .applescript .br0 {color: #000000;}
+.code .applescript .sy0 {color: #000000;}
+.code .applescript .st0 {color: #009900;}
+.code .applescript .nu0 {color: #000000;}
+.code .applescript .me1 {color: #006600;}
+.code .applescript .me2 {color: #006600;}
+.code .applescript .re0 {color: #339933;}
+.code .applescript .re4 {color: #0066ff;}
+.code .applescript .ln-xtra, .code .applescript li.ln-xtra, .code .applescript div.ln-xtra {background-color: #ffc;}
+.code .applescript span.xtra { display:block; }

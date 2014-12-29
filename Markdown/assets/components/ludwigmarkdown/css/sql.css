@@ -1,0 +1,17 @@
+.code .sql .de1, .code .sql .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .sql  {font-family:monospace; font-size: 12px;}
+.code .sql .imp {font-weight: bold; color: red;}
+.code .sql li, .code .sql .li1 {font-weight: normal; vertical-align:top;}
+.code .sql .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .sql .li2 {background: #f2f2f2;}
+.code .sql .kw1 {color: #993333; font-weight: bold;}
+.code .sql .co1 {color: #808080; font-style: italic;}
+.code .sql .co2 {color: #808080; font-style: italic;}
+.code .sql .coMULTI {color: #808080; font-style: italic;}
+.code .sql .es0 {color: #000099; font-weight: bold;}
+.code .sql .br0 {color: #66cc66;}
+.code .sql .sy0 {color: #66cc66;}
+.code .sql .st0 {color: #ff0000;}
+.code .sql .nu0 {color: #cc66cc;}
+.code .sql .ln-xtra, .code .sql li.ln-xtra, .code .sql div.ln-xtra {background-color: #ffc;}
+.code .sql span.xtra { display:block; }

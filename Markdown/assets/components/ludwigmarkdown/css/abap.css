@@ -1,0 +1,29 @@
+.code .abap .de1, .code .abap .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .abap  {font-family:monospace; font-size: 12px;}
+.code .abap .imp {font-weight: bold; color: red;}
+.code .abap li, .code .abap .li1 {font-weight: normal; vertical-align:top;}
+.code .abap .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .abap .li2 {background: #f2f2f2;}
+.code .abap .kw1 {color: #000066; text-transform: uppercase; font-weight: bold;}
+.code .abap .kw2 {color: #cc4050; text-transform: uppercase; font-weight: bold;}
+.code .abap .kw3 {color: #005066; text-transform: uppercase; font-weight: bold;}
+.code .abap .kw4 {color: #500066; text-transform: uppercase; font-weight: bold;}
+.code .abap .kw5 {color: #005066; text-transform: uppercase; font-weight: bold;}
+.code .abap .kw6 {color: #000066; text-transform: uppercase; font-weight: bold;}
+.code .abap .kw7 {color: #000066; text-transform: uppercase; font-weight: bold;}
+.code .abap .kw8 {color: #005066; text-transform: uppercase; font-weight: bold;}
+.code .abap .kw9 {color: #500066; text-transform: uppercase; font-weight: bold;}
+.code .abap .co1 {color: #808080; font-style: italic;}
+.code .abap .co2 {color: #339933;}
+.code .abap .coMULTI {color: #808080; font-style: italic;}
+.code .abap .es0 {color: #000099; font-weight: bold;}
+.code .abap .br0 {color: #808080;}
+.code .abap .sy0 {color: #808080;}
+.code .abap .sy1 {color: #800080;}
+.code .abap .sy2 {color: #0000ff;}
+.code .abap .st0 {color: #4da619;}
+.code .abap .nu0 {color: #3399ff;}
+.code .abap .me1 {color: #202020;}
+.code .abap .me2 {color: #202020;}
+.code .abap .ln-xtra, .code .abap li.ln-xtra, .code .abap div.ln-xtra {background-color: #ffc;}
+.code .abap span.xtra { display:block; }

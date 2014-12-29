@@ -1,0 +1,21 @@
+.code .eiffel .de1, .code .eiffel .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .eiffel  {font-family:monospace; font-size: 12px;}
+.code .eiffel .imp {font-weight: bold; color: red;}
+.code .eiffel li, .code .eiffel .li1 {font-weight: normal; vertical-align:top;}
+.code .eiffel .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .eiffel .li2 {background: #f2f2f2;}
+.code .eiffel .kw1 {color: #0600FF; font-weight: bold;}
+.code .eiffel .kw2 {color: #0600FF; font-weight: bold;}
+.code .eiffel .kw3 {color: #800080;}
+.code .eiffel .kw4 {color: #800000}
+.code .eiffel .kw5 {color: #603000;}
+.code .eiffel .co1 {color: #008000; font-style: italic;}
+.code .eiffel .es0 {color: #005070; font-weight: bold;}
+.code .eiffel .br0 {color: #FF0000;}
+.code .eiffel .sy0 {color: #600000;}
+.code .eiffel .st0 {color: #0080A0;}
+.code .eiffel .nu0 {color: #FF0000;}
+.code .eiffel .me1 {color: #000060;}
+.code .eiffel .me2 {color: #000050;}
+.code .eiffel .ln-xtra, .code .eiffel li.ln-xtra, .code .eiffel div.ln-xtra {background-color: #ffc;}
+.code .eiffel span.xtra { display:block; }

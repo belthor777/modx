@@ -1,0 +1,25 @@
+.code .latex .de1, .code .latex .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .latex  {font-family:monospace; font-size: 12px;}
+.code .latex .imp {font-weight: bold; color: red;}
+.code .latex li, .code .latex .li1 {font-weight: normal; vertical-align:top;}
+.code .latex .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .latex .li2 {background: #f2f2f2;}
+.code .latex .kw1 {color: #800000;}
+.code .latex .co1 {color: #2C922C; font-style: italic;}
+.code .latex .es0 {color: #000000; font-weight: bold;}
+.code .latex .sy0 {color: #E02020; }
+.code .latex .st0 {color: #000000;}
+.code .latex .re1 {color: #8020E0; font-weight: normal;}
+.code .latex .re2 {color: #C08020; font-weight: normal;}
+.code .latex .re3 {color: #8020E0; font-weight: normal;}
+.code .latex .re4 {color: #800000; font-weight: normal;}
+.code .latex .re5 {color: #00008B; font-weight: bold;}
+.code .latex .re6 {color: #800000; font-weight: normal;}
+.code .latex .re7 {color: #0000D0; font-weight: normal;}
+.code .latex .re8 {color: #C00000; font-weight: normal;}
+.code .latex .re9 {color: #2020C0; font-weight: normal;}
+.code .latex .re10 {color: #800000; font-weight: normal;}
+.code .latex .re11 {color: #E00000; font-weight: normal;}
+.code .latex .re12 {color: #800000; font-weight: normal;}
+.code .latex .ln-xtra, .code .latex li.ln-xtra, .code .latex div.ln-xtra {background-color: #ffc;}
+.code .latex span.xtra { display:block; }

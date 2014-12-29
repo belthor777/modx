@@ -1,0 +1,5 @@
+LudwigMarkdown 1.0.0 (December 27, 2014)
+====================================
+- Initial project
+- Initial changelog started
+

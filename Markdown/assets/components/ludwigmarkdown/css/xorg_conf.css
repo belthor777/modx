@@ -1,0 +1,14 @@
+.code .xorg_conf .de1, .code .xorg_conf .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .xorg_conf  {font-family:monospace; font-size: 12px;}
+.code .xorg_conf .imp {font-weight: bold; color: red;}
+.code .xorg_conf li, .code .xorg_conf .li1 {font-weight: normal; vertical-align:top;}
+.code .xorg_conf .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .xorg_conf .li2 {background: #f2f2f2;}
+.code .xorg_conf .kw1 {color: #b1b100;}
+.code .xorg_conf .kw2 {color: #990000;}
+.code .xorg_conf .kw3 {color: #550000;}
+.code .xorg_conf .co1 {color: #adadad; font-style: italic;}
+.code .xorg_conf .st0 {color: #0000ff;}
+.code .xorg_conf .nu0 {color: #cc66cc;}
+.code .xorg_conf .ln-xtra, .code .xorg_conf li.ln-xtra, .code .xorg_conf div.ln-xtra {background-color: #ffc;}
+.code .xorg_conf span.xtra { display:block; }

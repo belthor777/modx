@@ -1,0 +1,21 @@
+.code .asp .de1, .code .asp .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .asp  {font-family:monospace; font-size: 12px;}
+.code .asp .imp {font-weight: bold; color: red;}
+.code .asp li, .code .asp .li1 {font-weight: normal; vertical-align:top;}
+.code .asp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .asp .li2 {background: #f2f2f2;}
+.code .asp .kw1 {color: #990099; font-weight: bold;}
+.code .asp .kw2 {color: #0000ff; font-weight: bold;}
+.code .asp .kw3 {color: #330066;}
+.code .asp .co1 {color: #008000;}
+.code .asp .co2 {color: #ff6600;}
+.code .asp .coMULTI {color: #008000;}
+.code .asp .es0 {color: #000099; font-weight: bold;}
+.code .asp .br0 {color: #006600; font-weight:bold;}
+.code .asp .sy0 {color: #006600; font-weight: bold;}
+.code .asp .sy1 {color: #000000; font-weight: bold;}
+.code .asp .st0 {color: #cc0000;}
+.code .asp .nu0 {color: #800000;}
+.code .asp .me1 {color: #9900cc;}
+.code .asp .ln-xtra, .code .asp li.ln-xtra, .code .asp div.ln-xtra {background-color: #ffc;}
+.code .asp span.xtra { display:block; }

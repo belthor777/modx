@@ -1,0 +1,20 @@
+.code .python .de1, .code .python .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .python  {font-family:monospace; font-size: 12px;}
+.code .python .imp {font-weight: bold; color: red;}
+.code .python li, .code .python .li1 {font-weight: normal; vertical-align:top;}
+.code .python .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .python .li2 {background: #f2f2f2;}
+.code .python .kw1 {color: #ff7700;font-weight:bold;}
+.code .python .kw2 {color: #008000;}
+.code .python .kw3 {color: #dc143c;}
+.code .python .kw4 {color: #0000cd;}
+.code .python .co1 {color: #808080; font-style: italic;}
+.code .python .coMULTI {color: #808080; font-style: italic;}
+.code .python .es0 {color: #000099; font-weight: bold;}
+.code .python .br0 {color: black;}
+.code .python .sy0 {color: #66cc66;}
+.code .python .st0 {color: #483d8b;}
+.code .python .nu0 {color: #ff4500;}
+.code .python .me1 {color: black;}
+.code .python .ln-xtra, .code .python li.ln-xtra, .code .python div.ln-xtra {background-color: #ffc;}
+.code .python span.xtra { display:block; }

@@ -1,0 +1,23 @@
+.code .glsl .de1, .code .glsl .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .glsl  {font-family:monospace; font-size: 12px;}
+.code .glsl .imp {font-weight: bold; color: red;}
+.code .glsl li, .code .glsl .li1 {font-weight: normal; vertical-align:top;}
+.code .glsl .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .glsl .li2 {background: #f2f2f2;}
+.code .glsl .kw1 {color: #000000; font-weight: bold;}
+.code .glsl .kw2 {color: #333399; font-weight: bold;}
+.code .glsl .kw3 {color: #000066; font-weight: bold;}
+.code .glsl .kw4 {color: #333399; font-weight: bold;}
+.code .glsl .kw5 {color: #993333; font-weight: bold;}
+.code .glsl .kw6 {color: #551111;}
+.code .glsl .co1 {color: #666666; font-style: italic;}
+.code .glsl .co2 {color: #009900;}
+.code .glsl .coMULTI {color: #666666; font-style: italic;}
+.code .glsl .es0 {color: #000099; font-weight: bold;}
+.code .glsl .br0 {color: #000066;}
+.code .glsl .sy0 {color: #000066;}
+.code .glsl .st0 {color: #ff0000;}
+.code .glsl .nu0 {color: #0000ff;}
+.code .glsl .me1 {color: #006600;}
+.code .glsl .ln-xtra, .code .glsl li.ln-xtra, .code .glsl div.ln-xtra {background-color: #ffc;}
+.code .glsl span.xtra { display:block; }

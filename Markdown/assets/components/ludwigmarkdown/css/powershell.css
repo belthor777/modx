@@ -1,0 +1,27 @@
+.code .powershell .de1, .code .powershell .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .powershell  {font-family:monospace; font-size: 12px;}
+.code .powershell .imp {font-weight: bold; color: red;}
+.code .powershell li, .code .powershell .li1 {font-weight: normal; vertical-align:top;}
+.code .powershell .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .powershell .li2 {background: #f2f2f2;}
+.code .powershell .kw1 {color: #008080; font-weight: bold;}
+.code .powershell .kw2 {color: #008080; font-weight: bold;}
+.code .powershell .kw3 {color: #0000FF;}
+.code .powershell .kw4 {color: #FF0000;}
+.code .powershell .kw5 {color: #008080; font-style: italic;}
+.code .powershell .kw6 {color: #000080;}
+.code .powershell .co1 {color: #008000;}
+.code .powershell .coMULTI {color: #008000;}
+.code .powershell .es0 {color: #008080; font-weight: bold;}
+.code .powershell .br0 {color: #000000;}
+.code .powershell .sy0 {color: pink;}
+.code .powershell .st0 {color: #800000;}
+.code .powershell .nu0 {color: #804000;}
+.code .powershell .me0 {color: pink;}
+.code .powershell .re0 {color: #800080;}
+.code .powershell .re3 {color: #008080;}
+.code .powershell .re4 {color: #008080;}
+.code .powershell .re5 {color: #800000;}
+.code .powershell .re6 {color: #000080;}
+.code .powershell .ln-xtra, .code .powershell li.ln-xtra, .code .powershell div.ln-xtra {background-color: #ffc;}
+.code .powershell span.xtra { display:block; }

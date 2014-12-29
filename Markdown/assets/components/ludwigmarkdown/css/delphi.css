@@ -1,0 +1,26 @@
+.code .delphi .de1, .code .delphi .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .delphi  {font-family:monospace; font-size: 12px;}
+.code .delphi .imp {font-weight: bold; color: red;}
+.code .delphi li, .code .delphi .li1 {font-weight: normal; vertical-align:top;}
+.code .delphi .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .delphi .li2 {background: #f2f2f2;}
+.code .delphi .kw1 {color: #000000; font-weight: bold;}
+.code .delphi .kw2 {color: #000000; font-weight: bold;}
+.code .delphi .kw3 {color: #000066;}
+.code .delphi .kw4 {color: #000066; font-weight: bold;}
+.code .delphi .co1 {color: #808080; font-style: italic;}
+.code .delphi .co2 {color: #008000; font-style: italic;}
+.code .delphi .coMULTI {color: #808080; font-style: italic;}
+.code .delphi .es0 {color: #ff0000; font-weight: bold;}
+.code .delphi .br0 {color: #000066;}
+.code .delphi .sy0 {color: #000066;}
+.code .delphi .sy1 {color: #000066;}
+.code .delphi .sy2 {color: #000066;}
+.code .delphi .sy3 {color: #000066;}
+.code .delphi .st0 {color: #ff0000;}
+.code .delphi .nu0 {color: #0000ff;}
+.code .delphi .me1 {color: #006600;}
+.code .delphi .re0 {color: #9ac;}
+.code .delphi .re1 {color: #ff0000;}
+.code .delphi .ln-xtra, .code .delphi li.ln-xtra, .code .delphi div.ln-xtra {background-color: #ffc;}
+.code .delphi span.xtra { display:block; }

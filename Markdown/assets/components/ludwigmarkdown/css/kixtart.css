@@ -1,0 +1,20 @@
+.code .kixtart .de1, .code .kixtart .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .kixtart  {font-family:monospace; font-size: 12px;}
+.code .kixtart .imp {font-weight: bold; color: red;}
+.code .kixtart li, .code .kixtart .li1 {font-weight: normal; vertical-align:top;}
+.code .kixtart .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .kixtart .li2 {background: #f2f2f2;}
+.code .kixtart .kw1 {color: #b1b100;}
+.code .kixtart .kw2 {color: #000000; font-weight: bold;}
+.code .kixtart .kw3 {color: #000066;}
+.code .kixtart .co1 {color: #808080; font-style: italic;}
+.code .kixtart .coMULTI {color: #808080; font-style: italic;}
+.code .kixtart .es0 {color: #000099; font-weight: bold;}
+.code .kixtart .br0 {color: #66cc66;}
+.code .kixtart .sy0 {color: #66cc66;}
+.code .kixtart .st0 {color: #ff0000;}
+.code .kixtart .nu0 {color: #cc66cc;}
+.code .kixtart .me1 {color: #006600;}
+.code .kixtart .me2 {color: #006600;}
+.code .kixtart .ln-xtra, .code .kixtart li.ln-xtra, .code .kixtart div.ln-xtra {background-color: #ffc;}
+.code .kixtart span.xtra { display:block; }

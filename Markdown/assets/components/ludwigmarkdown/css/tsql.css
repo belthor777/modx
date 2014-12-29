@@ -1,0 +1,21 @@
+.code .tsql .de1, .code .tsql .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .tsql  {font-family:monospace; font-size: 12px;}
+.code .tsql .imp {font-weight: bold; color: red;}
+.code .tsql li, .code .tsql .li1 {font-weight: normal; vertical-align:top;}
+.code .tsql .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .tsql .li2 {background: #f2f2f2;}
+.code .tsql .kw1 {color: #0000FF;}
+.code .tsql .kw2 {color: #FF00FF;}
+.code .tsql .kw3 {color: #AF0000;}
+.code .tsql .kw4 {color: #AF0000;}
+.code .tsql .co1 {color: #008080;}
+.code .tsql .coMULTI {color: #008080;}
+.code .tsql .es0 {color: #000099; font-weight: bold;}
+.code .tsql .br0 {color: #808080;}
+.code .tsql .sy0 {color: #808080;}
+.code .tsql .st0 {color: #FF0000;}
+.code .tsql .nu0 {color: #000;}
+.code .tsql .me1 {color: #202020;}
+.code .tsql .me2 {color: #202020;}
+.code .tsql .ln-xtra, .code .tsql li.ln-xtra, .code .tsql div.ln-xtra {background-color: #ffc;}
+.code .tsql span.xtra { display:block; }

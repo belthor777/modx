@@ -1,0 +1,21 @@
+.code .gnuplot .de1, .code .gnuplot .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .gnuplot  {font-family:monospace; font-size: 12px;}
+.code .gnuplot .imp {font-weight: bold; color: red;}
+.code .gnuplot li, .code .gnuplot .li1 {font-weight: normal; vertical-align:top;}
+.code .gnuplot .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .gnuplot .li2 {background: #f2f2f2;}
+.code .gnuplot .kw1 {color: #b1b100;}
+.code .gnuplot .kw2 {color: #990000;}
+.code .gnuplot .kw3 {color: #550000;}
+.code .gnuplot .kw4 {color: #7a0874;}
+.code .gnuplot .kw5 {color: #448888;}
+.code .gnuplot .co1 {color: #adadad; font-style: italic;}
+.code .gnuplot .es0 {color: #000099; font-weight:bold;}
+.code .gnuplot .br0 {color: #000099; font-weight:bold;}
+.code .gnuplot .sy0 {color: #000; font-weight: bold;}
+.code .gnuplot .st0 {color: #0000ff;}
+.code .gnuplot .nu0 {color: #cc66cc;}
+.code .gnuplot .re0 {color: #007800;}
+.code .gnuplot .re1 {color: #cc66cc;}
+.code .gnuplot .ln-xtra, .code .gnuplot li.ln-xtra, .code .gnuplot div.ln-xtra {background-color: #ffc;}
+.code .gnuplot span.xtra { display:block; }

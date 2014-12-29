@@ -1,0 +1,21 @@
+.code .cfdg .de1, .code .cfdg .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .cfdg  {font-family:monospace; font-size: 12px;}
+.code .cfdg .imp {font-weight: bold; color: red;}
+.code .cfdg li, .code .cfdg .li1 {font-weight: normal; vertical-align:top;}
+.code .cfdg .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .cfdg .li2 {background: #f2f2f2;}
+.code .cfdg .kw1 {color: #717100;}
+.code .cfdg .kw2 {color: #000000; font-weight: bold;}
+.code .cfdg .kw3 {color: #006666;}
+.code .cfdg .co1 {color: #808080; font-style: italic;}
+.code .cfdg .co2 {color: #808080; font-style: italic;}
+.code .cfdg .coMULTI {color: #808080; font-style: italic;}
+.code .cfdg .es0 {color: #000099; font-weight: bold;}
+.code .cfdg .br0 {color: #66cc66;}
+.code .cfdg .sy0 {color: #66cc66;}
+.code .cfdg .st0 {color: #ff0000;}
+.code .cfdg .nu0 {color: #cc66cc;}
+.code .cfdg .me1 {color: #006600;}
+.code .cfdg .me2 {color: #006600;}
+.code .cfdg .ln-xtra, .code .cfdg li.ln-xtra, .code .cfdg div.ln-xtra {background-color: #ffc;}
+.code .cfdg span.xtra { display:block; }

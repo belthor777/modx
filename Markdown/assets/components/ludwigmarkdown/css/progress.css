@@ -1,0 +1,19 @@
+.code .progress .de1, .code .progress .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .progress  {font-family:monospace; font-size: 12px;}
+.code .progress .imp {font-weight: bold; color: red;}
+.code .progress li, .code .progress .li1 {font-weight: normal; vertical-align:top;}
+.code .progress .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .progress .li2 {background: #f2f2f2;}
+.code .progress .kw1 {color: #0000ff; font-weight: bold;}
+.code .progress .kw2 {color: #1D16B2;}
+.code .progress .kw3 {color: #993333;}
+.code .progress .kw4 {color: #0000ff;}
+.code .progress .coMULTI {color: #808080; font-style: italic;}
+.code .progress .es0 {color: #000099; font-weight: bold;}
+.code .progress .br0 {color: #66cc66;}
+.code .progress .sy0 {color: #66cc66;}
+.code .progress .st0 {color: #ff0000;}
+.code .progress .nu0 {color: #cc66cc;}
+.code .progress .me0 {color: #006600;}
+.code .progress .ln-xtra, .code .progress li.ln-xtra, .code .progress div.ln-xtra {background-color: #ffc;}
+.code .progress span.xtra { display:block; }

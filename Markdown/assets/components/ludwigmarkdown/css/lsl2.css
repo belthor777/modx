@@ -1,0 +1,22 @@
+.code .lsl2 .de1, .code .lsl2 .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .lsl2  {font-family:monospace; font-size: 12px;}
+.code .lsl2 .imp {font-weight: bold; color: red;}
+.code .lsl2 li, .code .lsl2 .li1 {font-weight: normal; vertical-align:top;}
+.code .lsl2 .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .lsl2 .li2 {background: #f2f2f2;}
+.code .lsl2 .kw1 {color: #0000ff;}
+.code .lsl2 .kw2 {color: #000080;}
+.code .lsl2 .kw3 {color: #008080;}
+.code .lsl2 .kw4 {color: #228b22;}
+.code .lsl2 .kw5 {color: #b22222;}
+.code .lsl2 .kw6 {color: #8b0000; background-color: #ffff00;}
+.code .lsl2 .kw7 {color: #8b0000; background-color: #fa8072;}
+.code .lsl2 .kw8 {color: #000000; background-color: #ba55d3;}
+.code .lsl2 .co1 {color: #ff7f50; font-style: italic;}
+.code .lsl2 .es0 {color: #000099;}
+.code .lsl2 .br0 {color: #000000;}
+.code .lsl2 .sy0 {color: #000000;}
+.code .lsl2 .st0 {color: #006400;}
+.code .lsl2 .nu0 {color: #000000;}
+.code .lsl2 .ln-xtra, .code .lsl2 li.ln-xtra, .code .lsl2 div.ln-xtra {background-color: #ffc;}
+.code .lsl2 span.xtra { display:block; }

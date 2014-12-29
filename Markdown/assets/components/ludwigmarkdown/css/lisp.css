@@ -1,0 +1,18 @@
+.code .lisp .de1, .code .lisp .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .lisp  {font-family:monospace; font-size: 12px;}
+.code .lisp .imp {font-weight: bold; color: red;}
+.code .lisp li, .code .lisp .li1 {font-weight: normal; vertical-align:top;}
+.code .lisp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .lisp .li2 {background: #f2f2f2;}
+.code .lisp .kw1 {color: #b1b100;}
+.code .lisp .co1 {color: #808080; font-style: italic;}
+.code .lisp .coMULTI {color: #808080; font-style: italic;}
+.code .lisp .es0 {color: #000099; font-weight: bold;}
+.code .lisp .br0 {color: #66cc66;}
+.code .lisp .sy0 {color: #66cc66;}
+.code .lisp .st0 {color: #ff0000;}
+.code .lisp .nu0 {color: #cc66cc;}
+.code .lisp .me0 {color: #555;}
+.code .lisp .me1 {color: #555;}
+.code .lisp .ln-xtra, .code .lisp li.ln-xtra, .code .lisp div.ln-xtra {background-color: #ffc;}
+.code .lisp span.xtra { display:block; }

@@ -1,0 +1,34 @@
+.code .c_mac .de1, .code .c_mac .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .c_mac  {font-family:monospace; font-size: 12px;}
+.code .c_mac .imp {font-weight: bold; color: red;}
+.code .c_mac li, .code .c_mac .li1 {font-weight: normal; vertical-align:top;}
+.code .c_mac .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .c_mac .li2 {background: #f2f2f2;}
+.code .c_mac .kw1 {color: #0000ff;}
+.code .c_mac .kw2 {color: #0000ff;}
+.code .c_mac .kw3 {color: #0000dd;}
+.code .c_mac .kw4 {color: #0000ff;}
+.code .c_mac .co1 {color: #ff0000;}
+.code .c_mac .co2 {color: #339900;}
+.code .c_mac .coMULTI {color: #ff0000; font-style: italic;}
+.code .c_mac .es0 {color: #000099; font-weight: bold;}
+.code .c_mac .es1 {color: #000099; font-weight: bold;}
+.code .c_mac .es2 {color: #660099; font-weight: bold;}
+.code .c_mac .es3 {color: #660099; font-weight: bold;}
+.code .c_mac .es4 {color: #660099; font-weight: bold;}
+.code .c_mac .es5 {color: #006699; font-weight: bold;}
+.code .c_mac .br0 {color: #000000;}
+.code .c_mac .sy0 {color: #000000;}
+.code .c_mac .st0 {color: #666666;}
+.code .c_mac .nu0 {color: #0000dd;}
+.code .c_mac .nu6 {color: #208080;}
+.code .c_mac .nu8 {color: #208080;}
+.code .c_mac .nu12 {color: #208080;}
+.code .c_mac .nu16 {color:#800080;}
+.code .c_mac .nu17 {color:#800080;}
+.code .c_mac .nu18 {color:#800080;}
+.code .c_mac .nu19 {color:#800080;}
+.code .c_mac .me1 {color: #00eeff;}
+.code .c_mac .me2 {color: #00eeff;}
+.code .c_mac .ln-xtra, .code .c_mac li.ln-xtra, .code .c_mac div.ln-xtra {background-color: #ffc;}
+.code .c_mac span.xtra { display:block; }

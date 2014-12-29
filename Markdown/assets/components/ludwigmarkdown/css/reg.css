@@ -1,0 +1,18 @@
+.code .reg .de1, .code .reg .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .reg  {font-family:monospace; font-size: 12px;}
+.code .reg .imp {font-weight: bold; color: red;}
+.code .reg li, .code .reg .li1 {font-weight: normal; vertical-align:top;}
+.code .reg .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .reg .li2 {background: #f2f2f2;}
+.code .reg .kw3 {color: #800000;}
+.code .reg .co1 {color: #009900;}
+.code .reg .br0 {color: #000000;}
+.code .reg .sy0 {color: #000000;}
+.code .reg .st0 {color: #009900;}
+.code .reg .re0 {color: #00CCFF;}
+.code .reg .code_registry_header {color: #0000FF;}
+.code .reg .re3 {color: #0000FF;}
+.code .reg .code_variable {color: #0000FF;}
+.code .reg .code_guid {color: #FF6600;}
+.code .reg .ln-xtra, .code .reg li.ln-xtra, .code .reg div.ln-xtra {background-color: #ffc;}
+.code .reg span.xtra { display:block; }

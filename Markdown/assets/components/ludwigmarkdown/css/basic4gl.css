@@ -1,0 +1,16 @@
+.code .basic4gl .de1, .code .basic4gl .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .basic4gl  {font-family:monospace; font-size: 12px;}
+.code .basic4gl .imp {font-weight: bold; color: red;}
+.code .basic4gl li, .code .basic4gl .li1 {font-weight: normal; vertical-align:top;}
+.code .basic4gl .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .basic4gl .li2 {background: #f2f2f2;}
+.code .basic4gl .kw1 {color: #000080; font-weight: bold;}
+.code .basic4gl .kw2 {color: #FF0000;}
+.code .basic4gl .kw3 {color: #0000FF;}
+.code .basic4gl .co1 {color: #657CC4; font-style: italic;}
+.code .basic4gl .br0 {color: #000080;}
+.code .basic4gl .sy0 {color: #0000FF;}
+.code .basic4gl .st0 {color: #008000;}
+.code .basic4gl .nu0 {color: #000080; font-weight: bold;}
+.code .basic4gl .ln-xtra, .code .basic4gl li.ln-xtra, .code .basic4gl div.ln-xtra {background-color: #ffc;}
+.code .basic4gl span.xtra { display:block; }

@@ -1,0 +1,17 @@
+.code .apache .de1, .code .apache .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .apache  {font-family:monospace; font-size: 12px;}
+.code .apache .imp {font-weight: bold; color: red;}
+.code .apache li, .code .apache .li1 {font-weight: normal; vertical-align:top;}
+.code .apache .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .apache .li2 {background: #f2f2f2;}
+.code .apache .kw1 {color: #00007f;}
+.code .apache .kw2 {color: #0000ff;}
+.code .apache .kw3 {color: #000000; font-weight:bold;}
+.code .apache .co1 {color: #adadad; font-style: italic;}
+.code .apache .es0 {color: #000099; font-weight: bold;}
+.code .apache .br0 {color: #339933;}
+.code .apache .sy0 {color: #008000;}
+.code .apache .st0 {color: #7f007f;}
+.code .apache .nu0 {color: #ff0000;}
+.code .apache .ln-xtra, .code .apache li.ln-xtra, .code .apache div.ln-xtra {background-color: #ffc;}
+.code .apache span.xtra { display:block; }

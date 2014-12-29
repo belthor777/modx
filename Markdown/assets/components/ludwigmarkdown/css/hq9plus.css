@@ -1,0 +1,11 @@
+.code .hq9plus .de1, .code .hq9plus .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .hq9plus  {font-family:monospace; font-size: 12px;}
+.code .hq9plus .imp {font-weight: bold; color: red;}
+.code .hq9plus li, .code .hq9plus .li1 {font-weight: normal; vertical-align:top;}
+.code .hq9plus .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .hq9plus .li2 {background: #f2f2f2;}
+.code .hq9plus .br0 {color: #66cc66;}
+.code .hq9plus .sy0 {color: #a16000;}
+.code .hq9plus .st0 {color: #ff0000;}
+.code .hq9plus .ln-xtra, .code .hq9plus li.ln-xtra, .code .hq9plus div.ln-xtra {background-color: #ffc;}
+.code .hq9plus span.xtra { display:block; }

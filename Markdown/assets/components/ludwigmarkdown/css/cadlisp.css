@@ -1,0 +1,16 @@
+.code .cadlisp .de1, .code .cadlisp .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .cadlisp  {font-family:monospace; font-size: 12px;}
+.code .cadlisp .imp {font-weight: bold; color: red;}
+.code .cadlisp li, .code .cadlisp .li1 {font-weight: normal; vertical-align:top;}
+.code .cadlisp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .cadlisp .li2 {background: #f2f2f2;}
+.code .cadlisp .kw1 {color: #b1b100;}
+.code .cadlisp .co1 {color: #808080; font-style: italic;}
+.code .cadlisp .coMULTI {color: #808080; font-style: italic;}
+.code .cadlisp .es0 {color: #000099; font-weight: bold;}
+.code .cadlisp .br0 {color: #66cc66;}
+.code .cadlisp .sy0 {color: #66cc66;}
+.code .cadlisp .st0 {color: #ff0000;}
+.code .cadlisp .nu0 {color: #cc66cc;}
+.code .cadlisp .ln-xtra, .code .cadlisp li.ln-xtra, .code .cadlisp div.ln-xtra {background-color: #ffc;}
+.code .cadlisp span.xtra { display:block; }

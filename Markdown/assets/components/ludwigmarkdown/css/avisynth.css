@@ -1,0 +1,20 @@
+.code .avisynth .de1, .code .avisynth .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .avisynth  {font-family:monospace; font-size: 12px;}
+.code .avisynth .imp {font-weight: bold; color: red;}
+.code .avisynth li, .code .avisynth .li1 {font-weight: normal; vertical-align:top;}
+.code .avisynth .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .avisynth .li2 {background: #f2f2f2;}
+.code .avisynth .kw1 {color:#9966CC; font-weight:bold;}
+.code .avisynth .kw2 {color:#0000FF; font-weight:bold;}
+.code .avisynth .kw3 {color:#CC3300; font-weight:bold;}
+.code .avisynth .kw4 {color:#660000; font-weight:bold;}
+.code .avisynth .co1 {color:#008000; font-style:italic;}
+.code .avisynth .coMULTI {color:#000080; font-style:italic;}
+.code .avisynth .es0 {color:#000099;}
+.code .avisynth .br0 {color:#006600; font-weight:bold;}
+.code .avisynth .sy0 {color:#006600; font-weight:bold;}
+.code .avisynth .st0 {color:#996600;}
+.code .avisynth .nu0 {color:#006666;}
+.code .avisynth .me1 {color:#9900CC;}
+.code .avisynth .ln-xtra, .code .avisynth li.ln-xtra, .code .avisynth div.ln-xtra {background-color: #ffc;}
+.code .avisynth span.xtra { display:block; }

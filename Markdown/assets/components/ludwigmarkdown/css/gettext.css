@@ -1,0 +1,18 @@
+.code .gettext .de1, .code .gettext .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .gettext  {font-family:monospace; font-size: 12px;}
+.code .gettext .imp {font-weight: bold; color: red;}
+.code .gettext li, .code .gettext .li1 {font-weight: normal; vertical-align:top;}
+.code .gettext .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .gettext .li2 {background: #f2f2f2;}
+.code .gettext .kw1 {color: #000000; font-weight: bold;}
+.code .gettext .co0 {color: #000099;}
+.code .gettext .co1 {color: #000099;}
+.code .gettext .co2 {color: #000099;}
+.code .gettext .co3 {color: #006666;}
+.code .gettext .co4 {color: #666666; font-style: italic;}
+.code .gettext .es0 {color: #000099; font-weight: bold;}
+.code .gettext .br0 {color: #000099;}
+.code .gettext .st0 {color: #ff0000;}
+.code .gettext .nu0 {color: #000099;}
+.code .gettext .ln-xtra, .code .gettext li.ln-xtra, .code .gettext div.ln-xtra {background-color: #ffc;}
+.code .gettext span.xtra { display:block; }

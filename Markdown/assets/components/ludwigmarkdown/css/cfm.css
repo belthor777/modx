@@ -1,0 +1,28 @@
+.code .cfm .de1, .code .cfm .de2 {/*font: normal normal 1em/1.2em monospace;*/ margin:0; padding-top:0; background:none; vertical-align:top; line-height: 150%;}
+.code .cfm  {font-family:monospace; font-size: 12px;}
+.code .cfm .imp {font-weight: bold; color: red;}
+.code .cfm li, .code .cfm .li1 {font-weight: normal; vertical-align:top;}
+.code .cfm .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;border-right:2px solid #e0e8ef;font-weight: bold;color: #333;}
+.code .cfm .li2 {background: #f2f2f2;}
+.code .cfm .kw1 {color: #990000; font-weight: bold;}
+.code .cfm .kw2 {color: #000000; font-weight: bold;}
+.code .cfm .kw3 {color: #0000FF;}
+.code .cfm .kw4 {color: #000000; font-weight: bold;}
+.code .cfm .kw5 {color: #0000FF;}
+.code .cfm .kw6 {color: #0000FF;}
+.code .cfm .kw7 {color: #0000FF;}
+.code .cfm .co1 {color: #808080; font-style: italic;}
+.code .cfm .coMULTI {color: #808080; font-style: italic;}
+.code .cfm .es0 {color: #000099; font-weight: bold;}
+.code .cfm .br0 {color: #0000FF;}
+.code .cfm .sy0 {color: #0000FF;}
+.code .cfm .st0 {color: #009900;}
+.code .cfm .nu0 {color: #FF0000;}
+.code .cfm .sc0 {color: #808080; font-style: italic;}
+.code .cfm .sc1 {color: #00bbdd;}
+.code .cfm .sc2 {color: #0000FF;}
+.code .cfm .sc3 {color: #000099;}
+.code .cfm .sc4 {color: #333333;}
+.code .cfm .sc5 {color: #333333;}
+.code .cfm .ln-xtra, .code .cfm li.ln-xtra, .code .cfm div.ln-xtra {background-color: #ffc;}
+.code .cfm span.xtra { display:block; }
