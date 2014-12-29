@@ -1,0 +1,3 @@
+[submodule "Markdown/core/components/ludwigmarkdown/model/pandoc-php"]
+	path = Markdown/core/components/ludwigmarkdown/model/pandoc-php
+	url = https://github.com/ryakad/pandoc-php
