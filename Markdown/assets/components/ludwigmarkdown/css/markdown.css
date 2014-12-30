@@ -2,10 +2,10 @@
  * Responsible Webdesign: Table
  *
  */
-.resptable {overflow-x:auto;margin-top:10px;}
+.markdown .resptable {overflow-x:auto;margin-top:10px;}
 
 /**
- * Markdown 
+ * Markdown
  *
  */
 .markdown p {margin: 1.5em 0px 0px; }
@@ -33,10 +33,10 @@
 .markdown h1 p, .markdown h2 p, .markdown h3 p, .markdown h4 p, .markdown h5 p, .markdown h6 p { margin-top: 0; }
 
 .markdown li p.first { display: inline-block; }
-.markdown ul, .markdown ol { padding-left: 15px; }
+.markdown ul, .markdown ol { padding-left: 15px; margin:0px; }
 .markdown ul :first-child, .markdown ol :first-child { margin-top: 0; }
 .markdown ul :last-child, .markdown ol :last-child { margin-bottom: 0; }
-.markdown ul, .markdown ol, .markdown dl { line-height: 0; }
+.markdown ul, .markdown ol, .markdown dl { line-height: 0; white-space: nowrap; }
 
 .markdown dl { padding: 0; }
 .markdown dl dt { font-size: 14px; font-weight: bold; font-style: italic; margin: 15px 0 5px; padding:0 0 0.2em 0; }
