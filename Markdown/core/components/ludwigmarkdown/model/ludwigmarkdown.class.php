@@ -360,6 +360,9 @@ class LudwigMarkdown
 
 		}
 
+		// Add CSS file
+		$this->add_css( 'toc.css' );
+
 		return( $output );
 	}
 

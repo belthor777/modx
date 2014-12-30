@@ -10,7 +10,7 @@ $tvs[$i] = $modx->newObject('modTemplateVar');
 $tvs[$i]->fromArray(array(
     'name'              => 'disqus',
     'caption'           => 'Disqus',
-    'description'       => 'Disqus helps you build a community of active readers and commenters.',
+    'description'       => 'Disqus helps you to build a community of active readers and commenters.',
     'type'              => 'listbox',
     'elements'          => 'No==0||Yes==1',
     'default_text'      => '0',
