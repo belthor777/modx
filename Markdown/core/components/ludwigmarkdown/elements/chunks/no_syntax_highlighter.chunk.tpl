@@ -1,3 +1,1 @@
-<pre class="nocode">
-	<code>[[+code]]</code>
-</pre>
+<pre class="nocode"><code>[[+code]]</code></pre>
