@@ -36,7 +36,7 @@
 .markdown ul, .markdown ol { padding-left: 15px; margin:0px; }
 .markdown ul :first-child, .markdown ol :first-child { margin-top: 0; }
 .markdown ul :last-child, .markdown ol :last-child { margin-bottom: 0; }
-.markdown ul, .markdown ol, .markdown dl { line-height: 0; white-space: nowrap; }
+.markdown ul, .markdown ol, .markdown dl { line-height: 0; white-space: nowrap; margin:0px;}
 
 .markdown dl { padding: 0; }
 .markdown dl dt { font-size: 14px; font-weight: bold; font-style: italic; margin: 15px 0 5px; padding:0 0 0.2em 0; }
@@ -58,7 +58,7 @@
 .markdown tt, .markdown code, .markdown pre, .markdown div.code { font-family: Consolas,"Liberation Mono",Courier,monospace; font-size: 12px; color: rgb(51, 51, 51); }
 .markdown pre code, .markdown div.code { margin: 0; padding: 0; border: none; background: transparent; }
 .markdown .highlight pre { background-color: #f8f8f8; border: 1px solid #cccccc; font-size: 13px; line-height: 19px; overflow: auto; padding: 6px 6px; border-radius: 3px; }
-.markdown pre, .markdown div.code { background-color: #f8f8f8; border: 1px solid #cccccc; font-size: 13px; line-height: 19px; overflow: auto; padding: 6px 10px; border-radius: 6px 6px 6px 6px;}
+.markdown pre, .markdown div.code { background-color: #f8f8f8; border: 1px solid #cccccc; font-size: 13px; line-height: 19px; overflow: auto; padding: 6px 10px; border-radius: 6px 6px 6px 6px;margin:0px;}
 .markdown pre code, pre tt { background-color: transparent; border: medium none; margin: 0px; padding: 0px;}
 .markdown pre > .markdown code { margin: 0px; padding: 0px; border: medium none; background: none repeat scroll 0% 0% transparent;}
 .markdown div.code > .markdown code { margin: 0px; padding: 0px; border: medium none; background: none repeat scroll 0% 0% transparent;}
