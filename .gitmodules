@@ -4,3 +4,6 @@
 [submodule "Markdown/core/components/ludwigmarkdown/model/php-markdown"]
 	path = Markdown/core/components/ludwigmarkdown/model/php-markdown
 	url = https://github.com/michelf/php-markdown
+[submodule "Markdown/core/components/ludwigmarkdown/model/geshi-1.0"]
+	path = Markdown/core/components/ludwigmarkdown/model/geshi-1.0
+	url = https://github.com/GeSHi/geshi-1.0

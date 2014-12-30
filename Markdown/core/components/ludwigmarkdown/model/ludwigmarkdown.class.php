@@ -82,6 +82,10 @@ class LudwigMarkdown
 		{
 			$output = str_replace( $val, $pandoc->runWith($matches[1][$key], $options), $output );
 		}
+
+		// Add CSS file
+		$this->add_css( 'markdown.css' );
+
 		return( $output );
 	}
 
@@ -117,13 +121,17 @@ class LudwigMarkdown
 							return '<h'. $m[1] .' id="'. str_replace($s, $r, urlencode(strtolower(strip_tags($m[2])))) .'">'. $m[2] .'</h'. $m[1] .'>';
 						},
 						$output );
+						
+		// Add CSS file
+		$this->add_css( 'markdown.css' );
+
 		return( $output );
 	}
 
 	// Add the right CSS to MODX
-	public function geshi_css( $css_name )
+	public function add_css( $css_filename )
 	{
-		$this->modx->regClientCSS( '/assets/components/ludwigmarkdown/css/'. $css_name .'.css' );
+		$this->modx->regClientCSS( '/assets/components/ludwigmarkdown/css/'. $css_filename );
 	}
 
 	// GeSHI Syntax highlighter
@@ -135,7 +143,7 @@ class LudwigMarkdown
 
 		if ($l != '')
 		{
-			require_once( dirname(__FILE__) .'/geshi/geshi.php' );
+			require_once( dirname(__FILE__) .'/geshi-1.0/src/geshi.php' );
 			$geshi = new GeSHi( html_entity_decode(trim($src), ENT_QUOTES), $l);
 
 			// Options
@@ -146,7 +154,7 @@ class LudwigMarkdown
 			$geshi->set_tab_width(4);
 
 			// Add CSS file
-			$this->geshi_css( $l );
+			$this->add_css( 'highlighter/'. $l .'.css' );
 
 			// Return Chunk with Syntax Highlighter
 			return( $this->modx->getChunk($this->chunk_usesyntax, array( 'code' => $geshi->parse_code(), 'language' => $l ) ) );
@@ -175,7 +183,7 @@ class LudwigMarkdown
 				// If Geshi block found, add Geshi CSS file
 				if (!$geschi_found)
 				{
-					$this->geshi_css( 'geshi' );
+					$this->add_css( 'highlighter/geshi.css' );
 				}
 				$geschi_found= true;
 				
@@ -197,11 +205,11 @@ class LudwigMarkdown
 	public function generate_toc( $content, $url, $page_title, $max_level )
 	{
 		preg_match_all( '/<h([1-6])([^<]+)>(.*)<\/h[1-6]>/i', $content, $matches, PREG_SET_ORDER );
-		$anchors = array();
-		$toc 	 = '<ol id="toc" class="ym-clearfix">'."\n";
-		$i 		 = 0;
+		$anchors= array();
+		$toc= '<ol id="toc" class="ym-clearfix">'."\n";
+		$i= 0;
 
-		foreach ( $matches as $heading ) 
+		foreach ( $matches as $heading )
 		{
 
 			if ($i == 0)
@@ -216,71 +224,83 @@ class LudwigMarkdown
 			// Maximal Level
 			if ($lvl < $max_level)
 			{
-			  $ret = preg_match( '/id=[\'|"](.*)?[\'|"]/i', stripslashes($heading[2]), $anchor );
-			  if ( $ret && $anchor[1] != '' ) 
-			  {
-				  $anchor = stripslashes( $anchor[1] );
-				  $add_id = false;
-			  } else {
-				  $anchor = preg_replace( '/\s+/', '-', preg_replace('/[^a-z\s]/', '', strtolower( $heading[3] ) ) );
-				  $add_id = true;
-			  }
+			$ret = preg_match( '/id=[\'|"](.*)?[\'|"]/i', stripslashes($heading[2]), $anchor );
+			if ( $ret && $anchor[1] != '' )
+			{
 
-			  if ( !in_array( $anchor, $anchors ) ) 
-			  {
-				  $anchors[] = $anchor;
-			  } else {
-				  $orig_anchor = $anchor;
-				  $i = 2;
-				  while ( in_array( $anchor, $anchors ) ) {
-					  $anchor = $orig_anchor.'-'.$i;
-					  $i++;
-				  }
-				  $anchors[] = $anchor;
-			  }
+				$anchor = stripslashes( $anchor[1] );
+				$add_id = false;
 
-			  if ( $add_id ) {
-				  $content = substr_replace( $content, '<h'.$lvl.' id="'.$anchor.'"'.$heading[2].'>'.$heading[3].'</h'.$lvl.'>', strpos( $content, $heading[0] ), strlen( $heading[0] ) );
-			  }
+			} else {
 
-			  $ret = preg_match( '/title=[\'|"](.*)?[\'|"]/i', stripslashes( $heading[2] ), $title );
-			  if ( $ret && $title[1] != '' )
-			  {
-				  $title = stripslashes( $title[1] );
-			  } else {
-				  $title = $heading[3];
-			  }
-			  $title = trim( strip_tags( $title ) );
+				$anchor = preg_replace( '/\s+/', '-', preg_replace('/[^a-z\s]/', '', strtolower( $heading[3] ) ) );
+				$add_id = true;
 
-			  if ($i > 0) 
-			  {
-				  if ($prevlvl < $lvl) 
-				  {
-					  $toc .= "\n<ol class=\"toc". ($lvl-1) ."\">"."\n";
-				  } else if ($prevlvl > $lvl) 
-				  {
-					  $toc .= '</li>'."\n";
-					  while ($prevlvl > $lvl) 
-					  {
-						  $toc .= "</ol>"."\n".'</li>'."\n";
-						  $prevlvl--;
-					  }
-				  } else {
-					  $toc .= '</li>'."\n";
-				  }
-			  }
+			}
 
-			  $j = 0;
-			  $toc .= '<li class="toc'. ($lvl-1) .'"><a href="#'.$anchor.'" title="'. $page_title .'::'. $title .'" class="toc anchor">'.$title.'</a>&nbsp;';
-			  $prevlvl = $lvl;
+			if ( !in_array( $anchor, $anchors ) )
+			{
+				$anchors[] = $anchor;
 
-			  $i++;
+			} else {
+
+				$orig_anchor = $anchor;
+				$i = 2;
+				while ( in_array( $anchor, $anchors ) )
+				{
+					$anchor = $orig_anchor.'-'.$i;
+					$i++;
+				}
+				$anchors[] = $anchor;
+
+			}
+
+			if ( $add_id )
+			{
+				$content = substr_replace( $content, '<h'.$lvl.' id="'.$anchor.'"'.$heading[2].'>'.$heading[3].'</h'.$lvl.'>', strpos( $content, $heading[0] ), strlen( $heading[0] ) );
+			}
+
+			$ret = preg_match( '/title=[\'|"](.*)?[\'|"]/i', stripslashes( $heading[2] ), $title );
+			if ( $ret && $title[1] != '' )
+			{
+				$title = stripslashes( $title[1] );
+
+			} else {
+				$title = $heading[3];
+			}
+			$title = trim( strip_tags( $title ) );
+
+			if ($i > 0)
+			{
+				if ($prevlvl < $lvl)
+				{
+					$toc .= "\n<ol class=\"toc". ($lvl-1) ."\">"."\n";
+
+				} else if ($prevlvl > $lvl) {
+
+					$toc .= '</li>'."\n";
+					while ($prevlvl > $lvl)
+					{
+						$toc .= "</ol>"."\n".'</li>'."\n";
+						$prevlvl--;
+					}
+
+				} else {
+					$toc .= '</li>'."\n";
+				}
+			}
+
+			$j = 0;
+			$toc .= '<li class="toc'. ($lvl-1) .'"><a href="#'.$anchor.'" title="'. $page_title .'::'. $title .'" class="toc anchor">'.$title.'</a>&nbsp;';
+			$prevlvl = $lvl;
+
+			$i++;
 			}
 		}
-
 		unset( $anchors );
 
-		while ( $lvl > $startlvl ) {
+		while ( $lvl > $startlvl )
+		{
 			$toc .= "\n</ol>";
 			$lvl--;
 		}
