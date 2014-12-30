@@ -16,9 +16,9 @@ $settings['ludwigmarkdown.activated']->fromArray(array(
 ),'',true,true);
 
 // Use Geshi?
-$settings['ludwigmarkdown.syntaxhighlight_enabled']= $modx->newObject('modSystemSetting');
-$settings['ludwigmarkdown.syntaxhighlight_enabled']->fromArray(array(
-     'key' => 'ludwigmarkdown.syntaxhighlight_enabled',
+$settings['ludwigmarkdown.use_syntaxhighlight']= $modx->newObject('modSystemSetting');
+$settings['ludwigmarkdown.use_syntaxhighlight']->fromArray(array(
+     'key' => 'ludwigmarkdown.use_syntaxhighlight',
      'value' => '1',
      'xtype' => 'combo-boolean',
      'namespace' => 'ludwigmarkdown',
@@ -35,5 +35,14 @@ $settings['ludwigmarkdown.use_pandoc']->fromArray(array(
      'area' => 'general',
 ),'',true,true);
 
+// Use Table of Content
+$settings['ludwigmarkdown.use_toc']= $modx->newObject('modSystemSetting');
+$settings['ludwigmarkdown.use_toc']->fromArray(array(
+     'key' => 'ludwigmarkdown.use_toc',
+     'value' => '1',
+     'xtype' => 'combo-boolean',
+     'namespace' => 'ludwigmarkdown',
+     'area' => 'general',
+),'',true,true);
 
 return $settings;

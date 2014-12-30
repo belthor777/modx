@@ -19,7 +19,7 @@
  * @package ludwigmarkdown
  */
 /**
- * Convert Markdown to HTML5
+ * Convert Markdown to HTML5 with Syntax Highlighter and Table of Content
  *
  * @version 1.0
  * @author Thomas Ludwig <thomas@ludwig.im>
@@ -34,6 +34,9 @@ class LudwigMarkdown
 	public $modx;
 	public $chunk_usesyntax;
 	public $chunk_nosyntax;
+	public $toc_css_id;
+	public $toc_modx_tv;
+	public $toc_level_max;
 
 	public function __construct( modX &$modx )
 	{
@@ -42,6 +45,11 @@ class LudwigMarkdown
 		// Syntax Highlighter Chunks
 		$this->chunk_usesyntax= 'syntax_highlighter';
 		$this->chunk_nosyntax= 'no_syntax_highlighter';
+
+		// Table of Content
+		$this->toc_css_id= 'table_of_content';
+		$this->toc_modx_tv= 'table_of_content';
+		$this->toc_level_max= 6;
 	}
 
 
@@ -136,7 +144,7 @@ class LudwigMarkdown
 
 	// GeSHI Syntax highlighter
 	// Highlight Syntax for every code block
-	public function geshiloader($matches) 
+	public function geshi_iterate_blocks($matches)
 	{
 		$l= (count($matches) == 3) ? $matches[1] : '';
 		$src= (count($matches) == 3) ? $matches[2] : $matches[1];
@@ -178,7 +186,7 @@ class LudwigMarkdown
 			if( preg_match($item, $output) )
 			{
 				// Iterate over all blocks
-				$output= preg_replace_callback( $item, 'self::geshiloader', $output );
+				$output= preg_replace_callback( $item, 'self::geshi_iterate_blocks', $output );
 			}
 		}
 
@@ -192,7 +200,7 @@ class LudwigMarkdown
 
 
 	// Generate Table of Contents
-	public function generate_toc( $content, $url, $page_title, $max_level )
+	public function toc_create( $content, $url, $page_title, $max_level )
 	{
 		preg_match_all( '/<h([1-6])([^<]+)>(.*)<\/h[1-6]>/i', $content, $matches, PREG_SET_ORDER );
 		$anchors= array();
@@ -299,6 +307,60 @@ class LudwigMarkdown
 		$toc .= '</ol>'."\n";
 
 		return($toc);
+	}
+
+	// Generate Table of Content
+	public function generate_toc( $output= '' )
+	{
+		// Define variables
+		$toc_tag= array();
+
+		// Modx Template Variable
+		$id = $this->modx->resource->get('id'); // This page's ID
+		$tv_obj= $this->modx->getObject('modTemplateVar', $this->toc_modx_tv);
+		$tv_value= ($tv_obj) ? $tv->getValue($id) : false;
+
+		// Look in content for the table_of_content id
+		// '<div id="table_of_content" class="box info"></div>'
+		/*
+		Array
+		(
+			[0] => <div id="table_of_content" class="box info"></div>
+			[1] => div 
+			[2] =>  class="box info"
+			[3] => div
+		)
+		*/
+		preg_match("#<(p|div|aside) id=\"". $this->toc_css_id ."\"([^>]*)><\/(p|div|aside)>#i", $output, $toc_tag);
+
+		// Is Table of Content activated?
+		if ( ( $tv_value === "true" ) && (count($toc_tag) > 0) )
+		{
+
+			// Search toc id in output
+			$pos = strpos($output, $this->toc_css_id);
+			if ($pos !== false)
+			{
+				// Minimize the output string for searching
+				$output_new= substr($output, $pos);
+
+				// Generate Table of Content
+				$toc = toc_create($output_new, $this->modx->makeUrl($id), $this->modx->resource->get('pagetitle'), $this->toc_level_max);
+
+				// Insert Table of Content
+				$output= str_replace(	$toc_tag[0],
+							'<'. $toc_tag[1] .' id="'. $toc_id .'"'. $toc_tag[2] .'>'. $toc .'</'. $toc_tag[3] .'>',
+							$output);
+			}
+
+		// Found Tag but dont create a table of content
+		} else if ( ( $tv_value === "false" ) && (count($toc_tag) > 0) ) {
+
+			$output= str_replace( $toc_tag[0], '', $output);
+
+		}
+
+		return( $output );
 	}
 
 }

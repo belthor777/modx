@@ -43,7 +43,8 @@ switch ($e->name)
 
 		// Check if the Extra is enabled
 		$activated = array(	'extra' => $modx->getOption(	$PKG_NAME_LOWER .'.activated'),
-									'syntaxhighlight' => $modx->getOption( $PKG_NAME_LOWER .'.syntaxhighlight_enabled'),
+									'syntaxhighlight' => $modx->getOption( $PKG_NAME_LOWER .'.use_syntaxhighlight'),
+									'toc' => $modx->getOption( $PKG_NAME_LOWER .'.use_toc'),
 									'use_pandoc' => $modx->getOption( $PKG_NAME_LOWER .'.use_pandoc') );
 
 		// Check if package is installed and activated
@@ -57,7 +58,7 @@ switch ($e->name)
 			// Get Content
 			$output= $modx->resource->get('content');
 
-			// Select Parser
+			// Select Parser: Default PHP-Markdown
 			$lm = new LudwigMarkdown($modx);
 			if ($activated['use_pandoc'])
 			{
@@ -73,6 +74,12 @@ switch ($e->name)
 			if ($activated['syntaxhighlight'])
 			{
 				$output= $lm->generate_geshi( $output );
+			}
+
+			// Is Table of content in system settings activated?
+			if ($activated['toc'])
+			{
+				$output= $lm->generate_toc( $output );
 			}
 
 			// Write Content to MODX Resource; NOT TO DATABASE!
