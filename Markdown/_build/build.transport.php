@@ -198,7 +198,6 @@ if (!is_array($settings)) {
 unset($settings,$setting,$attributes,$vehicle);
 
 /* load content types */
-/*
 $contenttypes = include $sources['data'].'transport.content_types.php';
 if (is_array($contenttypes)) {
     $attributes= array(
@@ -212,7 +211,6 @@ if (is_array($contenttypes)) {
     $modx->log(modX::LOG_LEVEL_INFO,'Packaged in '.count($contenttype).' Content Types.');
 }
 unset($contenttypes,$contenttype,$attributes,$vehicle);
-*/
 
 /* now pack in the license file, readme and setup options */
 $builder->setPackageAttributes(array(
