@@ -30,14 +30,14 @@ $plugins[$i]->fromArray(array(
 	'category' => 0
 ),'',true,true);
 
-// Add Events for Plugin
+// 2 Events for this Plugin
 $events[0]= $modx->newObject('modPluginEvent');
-$events[0]->fromArray(array(
-	'event' => 'OnLoadWebDocument',
-	'priority' => 0,
-	'propertyset' => 0
-),'',true,true);
+$events[1]= $modx->newObject('modPluginEvent');
+$events[0]->fromArray(array( 'event' => 'OnLoadWebDocument', 'priority' => 0, 'propertyset' => 0),'',true,true);
+$events[1]->fromArray(array( 'event' => 'OnWebPagePrerender', 'priority' => 0, 'propertyset' => 0),'',true,true);
 $plugins[$i]->addMany($events);
+
+// Add Events for Plugin
 $modx->log(xPDO::LOG_LEVEL_INFO,'Packaged in '.count($events).' Plugin Events for '. PKG_NAME .'.'); flush();
 unset($events);
 
