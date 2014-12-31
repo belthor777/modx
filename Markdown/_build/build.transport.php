@@ -195,7 +195,7 @@ if (!is_array($settings)) {
     }
     $modx->log(modX::LOG_LEVEL_INFO,'Packaged in '.count($settings).' System Settings.');
 }
-unset($settings,$setting,$attributes);
+unset($settings,$setting,$attributes,$vehicle);
 
 /* load content types */
 $contenttypes = include $sources['data'].'transport.content_types.php';
@@ -210,7 +210,7 @@ if (is_array($contenttypes)) {
     }
     $modx->log(modX::LOG_LEVEL_INFO,'Packaged in '.count($contenttype).' Content Types.');
 }
-unset($contenttypes,$contenttype,$attributes);
+unset($contenttypes,$contenttype,$attributes,$vehicle);
 
 /* now pack in the license file, readme and setup options */
 $builder->setPackageAttributes(array(
