@@ -75,10 +75,10 @@ switch ($e->name)
 				$output= $modx->markdown->generate_geshi( $output );
 			}
 
-			// Add CSS for table of content
+			// Add table of content
 			if ($activated['toc'])
 		  	{
-				$modx->markdown->add_css( 'toc.css' );
+				$modx->markdown->generate_toc( $output );
 			}
 
 			// Write Content to MODX Resource; NOT TO DATABASE!
@@ -96,7 +96,7 @@ switch ($e->name)
 		// Check if package is already initialized
 		if ( class_exists('LudwigMarkdown') && ($modx->markdown) && $activated['toc'] )
 		{
-			$modx->resource->_output= $modx->markdown->generate_toc( $modx->resource->_output );
+			$modx->resource->_output= $modx->markdown->insert_toc( $modx->resource->_output );
 		}
 
 		break;

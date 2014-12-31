@@ -32,11 +32,12 @@
 class LudwigMarkdown
 {
 	public $modx;
-	public $chunk_usesyntax;
-	public $chunk_nosyntax;
-	public $toc_css_id;
-	public $toc_modx_tv;
-	public $toc_level_max;
+	public $chunk_usesyntax= '';
+	public $chunk_nosyntax= '';
+	public $toc_css_id= '';
+	public $toc_modx_tv= '';
+	public $toc_level_max= 6;
+	private $generated_toc= '';
 
 	public function __construct( modX &$modx )
 	{
@@ -57,7 +58,7 @@ class LudwigMarkdown
 	// - Insert css class for markdown
 	// - Start Markdown: <pre id="markdown">
 	// - End Markdown: </pre>
-	public function get_markdown( $content )
+	private function get_markdown( $content )
 	{
 		$output= preg_replace(	"|<pre id=\"markdown\">(.*)</pre>|Uis",
 					"<article class=\"markdown\"><pre id=\"markdown\">$1</pre></article>",
@@ -137,14 +138,14 @@ class LudwigMarkdown
 	}
 
 	// Add the right CSS to MODX
-	public function add_css( $css_filename )
+	private function add_css( $css_filename )
 	{
 		$this->modx->regClientCSS( '/assets/components/ludwigmarkdown/css/'. $css_filename );
 	}
 
 	// GeSHI Syntax highlighter
 	// Highlight Syntax for every code block
-	public function geshi_iterate_blocks($matches)
+	private function geshi_iterate_blocks($matches)
 	{
 		$l= (count($matches) == 3) ? $matches[1] : '';
 		$src= (count($matches) == 3) ? $matches[2] : $matches[1];
@@ -200,7 +201,7 @@ class LudwigMarkdown
 
 
 	// Generate Table of Contents
-	public function toc_create( $content, $url, $page_title, $max_level )
+	private function toc_create( $content, $url, $page_title, $max_level )
 	{
 		preg_match_all( '/<h([1-6])([^<]+)>(.*)<\/h[1-6]>/i', $content, $matches, PREG_SET_ORDER );
 		$anchors= array();
@@ -309,18 +310,50 @@ class LudwigMarkdown
 		return($toc);
 	}
 
-	// Generate Table of Content
-	public function generate_toc( $output= '' )
-	{
-		// Define variables
-		$toc_tag= array();
 
+	// Generate Table of Content
+	// $add:is an array: 
+	//	begin: HTML at the beginning e.g. <h1>test123</h1>
+	//	end: HTML at the end e.g. <h3>Your Comment</h3>
+	//	Example: array('begin'=>'<h1 id="test123">test123</h1>', 'end'=>'<h2 id="add-your-comment">Add Your Comment</h2>' );
+	public function generate_toc( $output= '', $add= array(), $insert_toc= 0 )
+	{
 		// Modx Template Variable
 		$id = $this->modx->resource->get('id'); // This page's ID
 
 		// Get TV status
 		$tv_obj = $this->modx->getObject('modTemplateVar', array('name'=>$this->toc_modx_tv));
 		$tv_value= ($tv_obj) ? $tv_obj->getValue($id) : false;
+
+		if ( ( $tv_value === "true" ) && (!empty($output)) )
+		{
+			// Add additional content
+			if (count($add) > 0)
+			{
+			        $output = (array_key_exists('begin', $add) ? $add['begin'] : '') .'\n'. $output;
+			        $output .= (array_key_exists('end', $add) ? $add['end'] : '');
+			}
+
+			// Generate Table of Content
+			$this->generated_toc= $this->toc_create($output, $this->modx->makeUrl($id), $this->modx->resource->get('pagetitle'), $this->toc_level_max);
+
+			// Add CSS to header
+			$this->modx->markdown->add_css( 'toc.css' );
+			
+			// Insert TOC
+			if ($insert_toc)
+			{
+				return( $this->insert_toc( $output ) );
+			}
+		}
+	}
+
+
+	// Insert table of content
+	public function insert_toc( $output= '' )
+	{
+		// Define variables
+		$toc_tag= array();
 
 		// Look in content for the table_of_content id
 		// '<div id="table_of_content" class="box info"></div>'
@@ -333,30 +366,18 @@ class LudwigMarkdown
 			[3] => div
 		)
 		*/
-		preg_match("#<(p|div|aside) id=\"". $this->toc_css_id ."\"([^>]*)><\/(p|div|aside)>#i", $output, $toc_tag);
+		preg_match("#<(p|div|aside|section) id=\"". $this->toc_css_id ."\"([^>]*)><\/(p|div|aside|section)>#i", $output, $toc_tag);
 
-		// Is Table of Content activated?
-		if ( ( $tv_value === "true" ) && (count($toc_tag) > 0) )
+		// Is Table of Content already generated?
+		if ( !empty($this->generated_toc) && (count($toc_tag) > 0) )
 		{
+			$new_toc= '<'. $toc_tag[1] .' id="'. $this->toc_css_id .'"'. $toc_tag[2] .'>'. $this->generated_toc .'</'. $toc_tag[3] .'>';
 
-			// Search toc id in output
-			$pos = strpos($output, $this->toc_css_id);
-			if ($pos !== false)
-			{
-				// Minimize the output string for searching
-				$output_new= substr($output, $pos);
+			// Insert Table of Content
+			$output= str_replace( $toc_tag[0], $new_toc, $output );
 
-				// Generate Table of Content
-				$toc = $this->toc_create($output_new, $this->modx->makeUrl($id), $this->modx->resource->get('pagetitle'), $this->toc_level_max);
-
-				// Insert Table of Content
-				$output= str_replace(	$toc_tag[0],
-							'<'. $toc_tag[1] .' id="'. $this->toc_css_id .'"'. $toc_tag[2] .'>'. $toc .'</'. $toc_tag[3] .'>',
-							$output);
-			}
-
-		// Found Tag but dont create a table of content
-		} else if ( ( $tv_value === "false" ) && (count($toc_tag) > 0) ) {
+		// Found Tag but do not create a table of content
+		} else if ( count($toc_tag) > 0 ) {
 
 			$output= str_replace( $toc_tag[0], '', $output);
 
