@@ -197,6 +197,21 @@ if (!is_array($settings)) {
 }
 unset($settings,$setting,$attributes);
 
+/* load content types */
+$contenttypes = include $sources['data'].'transport.content_types.php';
+if (is_array($contenttypes)) {
+    $attributes= array(
+        XPDO_TRANSPORT_PRESERVE_KEYS => true,
+        XPDO_TRANSPORT_UPDATE_OBJECT => false,
+    );
+    foreach ($contenttypes as $contenttype) {
+        $vehicle = $builder->createVehicle($contenttype,$attributes);
+        $builder->putVehicle($vehicle);
+    }
+    $modx->log(modX::LOG_LEVEL_INFO,'Packaged in '.count($contenttype).' Content Types.');
+}
+unset($contenttypes,$contenttype,$attributes);
+
 /* now pack in the license file, readme and setup options */
 $builder->setPackageAttributes(array(
     'license' => file_get_contents($sources['docs'] . 'license.txt'),

@@ -67,6 +67,9 @@ switch ($e->name)
 			} else {
 
 				$output= $modx->markdown->generate_phpmarkdown( $output );
+
+				// Filter changed variables e.g. <p>[[+MYIMG.0]]</p> -> [[+MYIMG.0]]
+				$output= preg_replace("#<p>\[\[([\+\!\$\?]+)([0-9a-z._-]+)\]\]</p>#i", "[[$1$2]]", $output);
 			}
 
 			// Use Syntax Highlighter Geshi?
@@ -75,7 +78,7 @@ switch ($e->name)
 				$output= $modx->markdown->generate_geshi( $output );
 			}
 
-			// Add table of content
+			// Use table of content?
 			if ($activated['toc'])
 		  	{
 				$modx->markdown->generate_toc( $output );
