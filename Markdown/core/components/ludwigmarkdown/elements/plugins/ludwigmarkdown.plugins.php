@@ -33,6 +33,11 @@
 $PKG_NAME= 'LudwigMarkdown';
 $PKG_NAME_LOWER= strtolower($PKG_NAME);
 
+// Check if the Extra is enabled
+$activated = array(	'extra' => $modx->getOption(	$PKG_NAME_LOWER .'.activated'),
+					'syntaxhighlight' => $modx->getOption( $PKG_NAME_LOWER .'.use_syntaxhighlight'),
+					'toc' => $modx->getOption( $PKG_NAME_LOWER .'.use_toc'),
+					'use_pandoc' => $modx->getOption( $PKG_NAME_LOWER .'.use_pandoc') );
 
 $e = &$modx->Event;
 switch ($e->name)
@@ -40,12 +45,6 @@ switch ($e->name)
 	// This event fires before any tags are parsed, we are going to use this to
 	// convert the markdown content
 	case 'OnLoadWebDocument':
-
-		// Check if the Extra is enabled
-		$activated = array(	'extra' => $modx->getOption(	$PKG_NAME_LOWER .'.activated'),
-									'syntaxhighlight' => $modx->getOption( $PKG_NAME_LOWER .'.use_syntaxhighlight'),
-									'toc' => $modx->getOption( $PKG_NAME_LOWER .'.use_toc'),
-									'use_pandoc' => $modx->getOption( $PKG_NAME_LOWER .'.use_pandoc') );
 
 		// Check if package is installed and activated
 		$ldpath = MODX_CORE_PATH.'components/'. $PKG_NAME_LOWER .'/model/';
@@ -59,27 +58,27 @@ switch ($e->name)
 			$output= $modx->resource->get('content');
 
 			// Select Parser: Default PHP-Markdown
-			$lm = new LudwigMarkdown($modx);
+			$modx->markdown = new LudwigMarkdown($modx);
 			if ($activated['use_pandoc'])
 			{
-				$output= $lm->generate_pandoc( $output );
+				$output= $modx->markdown->generate_pandoc( $output );
 
 			// Use PHP-Markdown
 			} else {
 
-				$output= $lm->generate_phpmarkdown( $output );
+				$output= $modx->markdown->generate_phpmarkdown( $output );
 			}
 
 			// Use Syntax Highlighter Geshi?
 			if ($activated['syntaxhighlight'])
 			{
-				$output= $lm->generate_geshi( $output );
+				$output= $modx->markdown->generate_geshi( $output );
 			}
 
-			// Is Table of content in system settings activated?
+			// Add CSS for table of content
 			if ($activated['toc'])
-			{
-				$output= $lm->generate_toc( $output );
+		  	{
+				$modx->markdown->add_css( 'toc.css' );
 			}
 
 			// Write Content to MODX Resource; NOT TO DATABASE!
@@ -91,27 +90,20 @@ switch ($e->name)
 
 
 	// This fires after all tags have been parsed (actually, right before the
-	// page is delivered to the browser). We're going to use this event to remove all
-	// that pre-formatting to make our MODX sample code copy-friendly.
+	// page is delivered to the browser).
 	case 'OnWebPagePrerender':
-/*
-		$html= &$modx->resource->_output;
-		$output= $modx->resource->get('content');
 
-		// Do something
+		// Check if package is already initialized
+		if ( class_exists('LudwigMarkdown') && ($modx->markdown) && $activated['toc'] )
+		{
+			$modx->resource->_output= $modx->markdown->generate_toc( $modx->resource->_output );
+		}
 
-		$modx->resource->set('content', $output);
-*/
 		break;
 
 
 	// This event fires right before the cache is written to.
-	// We'll use this event to set the resource content back to the original
-	// content that before all the parsing was done.
 	case 'OnBeforeSaveWebPageCache':
-/*
-		$modx->resource->set('content', $GLOBALS['code_content']);
-*/
 		break;
 
 

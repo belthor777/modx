@@ -129,7 +129,7 @@ class LudwigMarkdown
 							return '<h'. $m[1] .' id="'. str_replace($s, $r, urlencode(strtolower(strip_tags($m[2])))) .'">'. $m[2] .'</h'. $m[1] .'>';
 						},
 						$output );
-						
+
 		// Add CSS file
 		$this->add_css( 'markdown.css' );
 
@@ -317,8 +317,10 @@ class LudwigMarkdown
 
 		// Modx Template Variable
 		$id = $this->modx->resource->get('id'); // This page's ID
-		$tv_obj= $this->modx->getObject('modTemplateVar', $this->toc_modx_tv);
-		$tv_value= ($tv_obj) ? $tv->getValue($id) : false;
+
+		// Get TV status
+		$tv_obj = $this->modx->getObject('modTemplateVar', array('name'=>$this->toc_modx_tv));
+		$tv_value= ($tv_obj) ? $tv_obj->getValue($id) : false;
 
 		// Look in content for the table_of_content id
 		// '<div id="table_of_content" class="box info"></div>'
@@ -345,11 +347,11 @@ class LudwigMarkdown
 				$output_new= substr($output, $pos);
 
 				// Generate Table of Content
-				$toc = toc_create($output_new, $this->modx->makeUrl($id), $this->modx->resource->get('pagetitle'), $this->toc_level_max);
+				$toc = $this->toc_create($output_new, $this->modx->makeUrl($id), $this->modx->resource->get('pagetitle'), $this->toc_level_max);
 
 				// Insert Table of Content
 				$output= str_replace(	$toc_tag[0],
-							'<'. $toc_tag[1] .' id="'. $toc_id .'"'. $toc_tag[2] .'>'. $toc .'</'. $toc_tag[3] .'>',
+							'<'. $toc_tag[1] .' id="'. $this->toc_css_id .'"'. $toc_tag[2] .'>'. $toc .'</'. $toc_tag[3] .'>',
 							$output);
 			}
 
@@ -359,9 +361,6 @@ class LudwigMarkdown
 			$output= str_replace( $toc_tag[0], '', $output);
 
 		}
-
-		// Add CSS file
-		$this->add_css( 'toc.css' );
 
 		return( $output );
 	}
