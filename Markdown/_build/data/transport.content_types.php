@@ -12,7 +12,7 @@ $contenttype['markdown']->fromArray(array (
   'name' => 'Markdown',
   'description' => 'Markdown content',
   'mime_type' => 'text/x-markdown',
-  'file_extensions' => '.md',
+  'file_extensions' => '',
   'headers' => 'NULL',
   'binary' => 0,
 ), '', true, true);

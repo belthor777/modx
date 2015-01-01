@@ -23,8 +23,8 @@
 .markdown h6, .markdown h6 a { color: #777777; font-size: 14px; font-weight: bold; margin-top: 1.5em; overflow: auto; }
 .markdown h6 + p {margin: 0 0 0 0;}
 
-/* Acronym in a link */
-.markdown a acronym, .markdown a abbr { border-bottom-style: none; cursor: pointer; letter-spacing: 0;}
+/* Acronym/Abbreviation in a link or header */
+.markdown a acronym, .markdown a abbr, .markdown h1 abbr, .markdown h2 abbr, .markdown h3 abbr, .markdown h4 abbr, .markdown h5 abbr, .markdown h6 abbr { border-bottom-style: none; cursor: pointer; letter-spacing: 0;}
 
 .markdown .htitle { color: #777777; font-size: 16px; border-bottom: 1px solid #777777; margin: 0 0 0;}
 

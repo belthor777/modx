@@ -60,10 +60,23 @@ class LudwigMarkdown
 	// - End Markdown: </pre>
 	private function get_markdown( $content )
 	{
-		$output= preg_replace(	"|<pre id=\"markdown\">(.*)</pre>|Uis",
-					"<article class=\"markdown\"><pre id=\"markdown\">$1</pre></article>",
-					$content);
-		return( $output );
+		// Set Output Mime Type if Markdown is choosen
+		$mime_type= $this->modx->resource->ContentType->get('mime_type');
+		if ( $mime_type === 'text/x-markdown')
+		{
+			$this->modx->resource->ContentType->set('mime_type', 'text/html');
+			return( $content );
+
+		// Alternatively you can use <pre id="markdown">YOUR CONTENT</pre> in blocks
+		// to write your articles in Markdown
+		} else {
+
+			$matches= array();
+			preg_match_all( "|<pre id=\"markdown\">(.*)</pre>|Uis", $content, $matches );
+
+			return( $matches );
+
+		}
 	}
 
 
@@ -83,13 +96,25 @@ class LudwigMarkdown
 					"email-obfuscation" => "none",
 					"from" => "markdown-markdown_in_html_blocks" );
 
-		// Find all Markdown blocks
-		// and replace them with converted HTML5
-		$output= $this->get_markdown( $output );
-		preg_match_all( "|<pre id=\"markdown\">(.*)</pre>|Uis", $output, $matches );
-		foreach( $matches[0] as $key => $val )
+		// Markdown in blocks
+		if( is_array($new_output) )
 		{
-			$output = str_replace( $val, $pandoc->runWith($matches[1][$key], $options), $output );
+			// Add article tag for CSS to all Blocks
+			$output= preg_replace(	"|<pre id=\"markdown\">(.*)</pre>|Uis",
+						"<article class=\"markdown\"><pre id=\"markdown\">$1</pre></article>",
+						$output);
+
+			foreach( $new_output[0] as $key => $val )
+			{
+				$output = str_replace( $val, $pandoc->runWith($matches[1][$key], $options), $output );
+			}
+
+		// Content without Markdown blocks
+		} else {
+
+			// Convert to HTML5 and add article tag to the content for CSS
+			$output= '<article class="markdown">'. $pandoc->runWith($new_output, $options) .'</article>';
+
 		}
 
 		// Add CSS file
@@ -115,11 +140,27 @@ class LudwigMarkdown
 
 		// Find all Markdown blocks
 		// and replace them with converted HTML5
-		$output= $this->get_markdown( $output );
-		preg_match_all( "|<pre id=\"markdown\">(.*)</pre>|Uis", $output, $matches );
-		foreach( $matches[0] as $key => $val )
+		$new_output= $this->get_markdown( $output );
+
+		// Markdown in blocks
+		if( is_array($new_output) )
 		{
-			$output = str_replace( $val, $md->defaultTransform($matches[1][$key]), $output );
+			// Add article tag for CSS to all Blocks
+			$output= preg_replace(	"|<pre id=\"markdown\">(.*)</pre>|Uis",
+						"<article class=\"markdown\"><pre id=\"markdown\">$1</pre></article>",
+						$output);
+
+			foreach( $new_output[0] as $key => $val )
+			{
+				$output = str_replace( $val, $md->defaultTransform($new_output[1][$key]), $output );
+			}
+
+		// Content without Markdown blocks
+		} else {
+
+			// Convert to HTML5 and add article tag to the content for CSS
+			$output= '<article class="markdown">'. $md->defaultTransform($new_output) .'</article>';
+
 		}
 
 		// Add id to h1-h6
