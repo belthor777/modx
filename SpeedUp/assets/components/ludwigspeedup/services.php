@@ -19,7 +19,7 @@
  * @package ludwigspeedup
  */
 /**
- * Optimize Javascript and CSS
+ * Get assets
  *
  * @version 1.0
  * @author Thomas Ludwig <thomas@ludwig.im>
@@ -29,9 +29,9 @@
  * @package ludwigspeedup
  */
 
-// Defines
-define('PKG_NAME', 'LudwigSpeedUP');
-define('PKG_NAME_LOWER', strtolower(PKG_NAME));
+// Package Variables
+$PKG_NAME= 'LudwigSpeedUp';
+$PKG_NAME_LOWER= strtolower($PKG_NAME);
 
 // Include Modx Classes
 require_once dirname(dirname(dirname(dirname(__FILE__)))).'/config.core.php';
@@ -42,138 +42,89 @@ $modx = new modX();
 $modx->initialize('web');
 $modx->getService('error','error.modError', '', '');
 
-// Get External Files
-function getExternal( $url= '' )
+// MODX CSS and JS resources by using context 'setting_services'
+$css_in= filter_input(INPUT_GET, 'css');
+$js_in= filter_input(INPUT_GET, 'js');
+$extra= filter_input(INPUT_GET, 'extra');
+
+// Choose the right variable
+$mime_type= !empty($css_in) ? 'text/css' : 'text/javascript';
+$in_str= !empty($css_in) ? $css_in : $js_in;
+
+// Prepare empty output
+$output= array( "header" => $mime_type, "content" => '' );
+
+// Include Extra Class
+$ldpath = MODX_CORE_PATH.'components/'. $PKG_NAME_LOWER .'/model/';
+if(!$modx->loadClass($PKG_NAME, $ldpath, true, true))
 {
-	global $modx;
+	return('There was a problem adding the '. $PKG_NAME .' package!  Check the logs for more info!' );
 
-	/* REST API config */
-	$config = array_merge(array(
-			'format' => 'json', // json or xml, the format to request
-			'suppressSuffix' => true, // if false, will append .json or .xml to the URI requested
-			'curlOptions' => array(
-				'timeout' => 30, // cURL timeout
-				'otherCurlOption' => 1,
-			),
-			'headers' => array(),
-			'userAgent' => 'MODX RestClient/1.0.0',
-			'defaultParameters' => array(),
-	));
+} else {
 
-	/* load the ModX REST service */
-	$client= $modx->getService('rest','rest.modRest','', $config);
-	return( $client->get($url)->responseBody );
-}
-
-// Minify
-function minify( $output= '' )
-{
-	// comments
-	$output = preg_replace('!/\*.*?\*/!s','', $output);
-	$output = preg_replace('/\n\s*\n/',"\n", $output);
-
-	// space
-	$output = preg_replace('/[\n\r \t]/',' ', $output);
-	$output = preg_replace('/ +/',' ', $output);
-	$output = preg_replace('/ ?([,:;{}]) ?/','$1',$output);
-
-	// trailing;
-	$output = preg_replace('/;}/','}',$output);
-
-	return( trim( $output ) );
-}
-
-
-// System Settings
-$cache_expires= $modx->getOption( PKG_NAME_LOWER .'.cache_expires', null, 3600, true);
-
-// Parameter
-$doc_id= filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT, array('options'=>array('default' => 0, 'min_range'=>0)));
-$service_id= filter_input(INPUT_GET, 'sid', FILTER_VALIDATE_INT, array('options'=>array('default' => 0, 'min_range'=>0)));
-$service_type= filter_input(INPUT_GET, 'type', FILTER_VALIDATE_INT, array('options'=>array('default' => 5, 'min_range'=>0, 'max_range'=>100)));
-$depth= filter_input(INPUT_GET, 'depth', FILTER_VALIDATE_INT, array('options'=>array('default' => 10, 'min_range'=>0, 'max_range'=>100)));
-
-// Check if the doc_id is using a script
-$tv_content= '';
-if ($doc_id)
-{
-	$tv_content= $modx->getObject('modResource', $doc_id)->getTVValue(PKG_NAME);
-}
-
-// Using Modx Cache for 1h per URL
-$cache= array(  "opt" => array( xPDO::OPT_CACHE_KEY => PKG_NAME, xPDO::OPT_CACHE_EXPIRES => $cache_expires ),
-                "name" => PKG_NAME_LOWER .'_cache2_'. md5($service_id .'_'. $service_type) );
-$output= $modx->cacheManager->get($cache["name"], $cache["opt"]);
-
-// Load classes
-if (empty($output["content"]) || is_null($output["content"]) )
-{
-
-	// Get MIMETYPE
-	$contentType = $modx->getObject('modContentType', array('id' => (int)$service_type));
-	$mime_type= $contentType->get('mime_type');
-	$mime_type= ( $mime_type === 'text/javascript' ) ? 'application/x-javascript' : $mime_type;
-
-	// Query all childrens
-	$classname= 'modResource';
-	$c = $modx->newQuery( $classname );
-	$children = $modx->getChildIds( (int)$service_id, $depth );
-	if (count($children) > 0)
+	// Load Class
+	$lsu = new LudwigSpeedUp( $modx );
+	if ( !empty($in_str) )
 	{
-		$filter = array( 'id:IN' => $children,
-				'published' => 1,
-				'content_type' => (int)$service_type);
-		$c->where( $filter, xPDOQuery::SQL_AND );
-	}
+		// Is Plugin Cache activated?
+		$cache_plugin= $modx->getOption( $PKG_NAME_LOWER .'.plugin-cache_enabled', null, false, true );
 
-	// sort by menuindex ascending
-	$c->sortby('menuindex','ASC');
+		// Is the content already cached?
+		//if ( !$lsu->is_cached( $in_str, $cache_plugin ) )
+		if ( true )
+ 		{
 
-	// get the resources as xPDOObjects
-	$resources= $modx->getCollection($classname,$c);
+			// Get plugin or snippet assets
+			if ( !empty($extra) && intval($in_str) )
+			{
+				$lsu->get_extra_content( $in_str, $mime_type );
 
-	// Generate Cache
-	$content= '';
-	foreach ($resources as $resource)
-	{
-		// Select class key
-		// Get content of ressource
-		switch ( $resource->get('class_key') )
-		{
-			case 'modWebLink':
-				$makeurl= $resource->get('content');
-				if ( $makeurl[0] === '/' )
+			// Get MODX service resource assets
+			} else {
+
+				// Get MODX and external ressources
+				$in_ary= json_decode( gzinflate( base64_decode( urldecode( $in_str ) ) ), true );
+				if ( is_array( $in_ary )  && ( count( $in_ary ) > 0 ) )
 				{
-					$makeurl = MODX_SITE_URL . $makeurl;
+					$lsu->get_service_content( $in_ary, $mime_type );
 				}
-				$content .= getExternal( $makeurl );
-				break;
 
-			default:
-				$content .= $resource->get('content');
-				break;
+			}
+
+			// Asset is extracted, so we can minify it
+			if ( !empty($lsu->content) )
+			{
+				// Minify CSS
+				if ( $mime_type === 'text/css' )
+				{
+					$lsu->minify_css();
+
+				// Minify JS
+				} else if ( $mime_type === 'text/javascript' ) {
+
+					$lsu->minify_js();
+				}
+
+			}
+
+			// Prepare results for caching and cache it
+			$output= array( "header" => $mime_type, "content" => trim( $lsu->content ) );
+
+			// Is Plugin Cache activated?
+			if ( $cache_plugin )
+			{
+				$lsu->cache_me( $output );
+			}
+
+		// Content is cached, open it!
+		} else {
+
+			$output= $lsu>cached_content;
+
 		}
+
 	}
 
-	// Initial Minify
-	if ( $mime_type === 'application/x-javascript' )
-	{
-
-		$path = $modx->getOption( PKG_NAME_LOWER .'.core_path', null, $modx->getOption('core_path').'components/'. PKG_NAME_LOWER .'/');
-		require_once( $path ."/model/Minifier.php" );
-		if (class_exists('\JShrink\Minifier'))
-		{
-			$content = \JShrink\Minifier::minify( $content );
-		}
-
-	} else if ( $mime_type === 'text/css' ) {
-		$content = minify( $content );
-
-	}
-
-	// Cache results
-	$output= array( "header" => $mime_type, "content" => trim( $content ) );
-	$modx->cacheManager->set($cache["name"], $output, $cache_expires, $cache["opt"]);
 }
 
 // this will end the output buffer and discard silently what ever was in it
@@ -183,4 +134,5 @@ ob_end_clean();
 header("Content-type: ". $output["header"] ."; charset: UTF-8");
 
 echo $output["content"];
+
 ?>

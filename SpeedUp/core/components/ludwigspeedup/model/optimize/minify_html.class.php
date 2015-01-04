@@ -108,11 +108,15 @@ class Minify_HTML {
             ,array($this, '_removeStyleCB')
             ,$this->_html);
 
-        // remove HTML comments (not containing IE conditional comments).
-        $this->_html = preg_replace_callback(
-            '/<!--([\\s\\S]*?)-->/'
-            ,array($this, '_commentCB')
-            ,$this->_html);
+	// Remove any HTML comments, except MSIE conditional comments
+	$this->_html = preg_replace('/<!--(?!\s*(?:\[if [^\]]+]|<!|>))(?:(?!-->).)*-->/s', '', $this->_html);
+
+	// Remove any empty attributes, except:
+	// action, alt, content, src
+	 $this->_html = preg_replace('/(\s+)(\w++(?<!\baction|\balt|\bcontent|\bsrc)="")/', '$1',  $this->_html);
+	
+	// Remove any space before the end of self-closing XHTML tags
+	$this->_html= str_replace(' />', '/>',  $this->_html);
 
         // replace PREs with placeholders
         $this->_html = preg_replace_callback('/\\s*<pre(\\b[^>]*?>[\\s\\S]*?<\\/pre>)\\s*/i'
@@ -142,9 +146,10 @@ class Minify_HTML {
             ,'>$1$2$3<'
             ,$this->_html);
 
+/*
         // use newlines before 1st attribute in open tags (to limit line lengths)
         $this->_html = preg_replace('/(<[a-z\\-]+)\\s+([^>]+>)/i', "$1\n$2", $this->_html);
-
+*/
         // fill placeholders
         $this->_html = str_replace(
             array_keys($this->_placeholders)

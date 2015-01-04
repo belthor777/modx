@@ -14,13 +14,13 @@
 .markdown li {margin-bottom: 0.1em; white-space: normal; }
 
 .markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6, .markdown .htitle { margin: 20px 0 10px; padding: 0; -webkit-font-smoothing: antialiased; cursor: text; position: relative; }
-.markdown h1, .markdown h1 a { font-size: 28px; color: black; }
-.markdown h2, .markdown h2 a { font-size: 24px; border-bottom: 1px solid #cccccc; color: black; overflow:auto; }
-.markdown h3, .markdown h3 a { font-size: 18px; font-weight: bold; border-bottom: 1px solid #cccccc; overflow: auto; }
-.markdown h4, .markdown h4 a { font-size: 16px; font-weight: bold; border-bottom: 0.5px solid #cccccc; overflow: auto;}
+.markdown h1, .markdown h1 a { font-size: 28px; overflow:auto; }
+.markdown h2, .markdown h2 a { font-size: 24px; overflow:auto; }
+.markdown h3, .markdown h3 a { font-size: 18px; overflow: auto; }
+.markdown h4, .markdown h4 a { font-size: 16px; overflow: auto;}
 .markdown h4 + p {margin: 0 0 0 0;}
-.markdown h5, .markdown h5 a { font-size: 14px; font-weight: bold; overflow: auto; }
-.markdown h6, .markdown h6 a { color: #777777; font-size: 14px; font-weight: bold; margin-top: 1.5em; overflow: auto; }
+.markdown h5, .markdown h5 a { font-size: 14px; overflow: auto; }
+.markdown h6, .markdown h6 a { font-size: 14px; overflow: auto; }
 .markdown h6 + p {margin: 0 0 0 0;}
 
 /* Acronym/Abbreviation in a link or header */

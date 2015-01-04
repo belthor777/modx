@@ -20,6 +20,7 @@ if (!function_exists('getSnippetContent')) {
 }
 
 // Save Timings to Database
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 $i= 0;
 $plugins[$i]= $modx->newObject('modPlugin');
 $plugins[$i]->fromArray(array(
@@ -29,19 +30,33 @@ $plugins[$i]->fromArray(array(
 	'plugincode' => getSnippetContent($sources['plugins'] . 'logtimings.plugins.php'),
 	'category' => 0
 ),'',true,true);
-
 // Add Events for Plugin
 $events[0]= $modx->newObject('modPluginEvent');
-$events[0]->fromArray(array(
-	'event' => 'OnWebPageComplete',
-	'priority' => 0,
-	'propertyset' => 0
-),'',true,true);
+$events[0]->fromArray(array( 'event' => 'OnWebPageComplete', 'priority' => 0, 'propertyset' => 0 ),'',true,true);
 $plugins[$i]->addMany($events);
 $modx->log(xPDO::LOG_LEVEL_INFO,'Packaged in '.count($events).' Plugin Events for LogTimings.'); flush();
 unset($events);
 
 
+// Collect Assets
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+$i++;
+$plugins[$i]= $modx->newObject('modPlugin');
+$plugins[$i]->fromArray(array(
+	'id' => $i,
+	'name' => 'CollectAssets',
+	'description' => 'Get JS and CSS content, that should be published',
+	'plugincode' => getSnippetContent($sources['plugins'] . 'collectassets.plugins.php'),
+	'category' => 0
+),'',true,true);
+// Add Events for Collect Assets Plugin
+$events[0]= $modx->newObject('modPluginEvent');
+$events[1]= $modx->newObject('modPluginEvent');
+$events[0]->fromArray(array( 'event' => 'OnLoadWebDocument', 'priority' => 0, 'propertyset' => 0),'',true,true);
+$events[0]->fromArray(array( 'event' => 'OnWebPagePrerender', 'priority' => 0, 'propertyset' => 0),'',true,true);
+$plugins[$i]->addMany($events);
+$modx->log(xPDO::LOG_LEVEL_INFO,'Packaged in '.count($events).' Plugin Events for CollectAssets.'); flush();
+unset($events);
 
 return $plugins;
 ?>
