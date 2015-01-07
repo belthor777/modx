@@ -240,6 +240,16 @@ class LudwigMarkdown
 		return( $output );
 	}
 
+	// Create a link for internal content, based on header
+	private function anchor_create( $text )
+	{
+		// Filter Anchors
+		//$anchor_search = array('+', '!', '*', "'", "(", ")", ";", ":", "@", "&", "=", "+", "$", ",", "/", "?", "%", "#", "[", "]");
+		$anchor_search = array('+', '%21', '%2A', '%27', '%28', '%29', '%3B', '%3A', '%40', '%26', '%3D', '%2B', '%24', '%2C', '%2F', '%3F', '%25', '%23', '%5B', '%5D');
+		$anchor_replace= array('-', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+
+		return( str_replace( $anchor_search, $anchor_replace, urlencode( strtolower( $text ) ) ) );
+	}
 
 	// Generate Table of Contents
 	private function toc_create( $content, $url, $page_title, $max_level )
@@ -249,6 +259,7 @@ class LudwigMarkdown
 		$toc= '<ol id="toc" class="ym-clearfix">'."\n";
 		$i= 0;
 
+		// Iterate all headers
 		foreach ( $matches as $heading )
 		{
 
@@ -264,77 +275,65 @@ class LudwigMarkdown
 			// Maximal Level
 			if ($lvl < $max_level)
 			{
-			$ret = preg_match( '/id=[\'|"](.*)?[\'|"]/i', stripslashes($heading[2]), $anchor );
-			if ( $ret && $anchor[1] != '' )
-			{
 
-				$anchor = stripslashes( $anchor[1] );
-				$add_id = false;
+				// Variables
+				$anchors= array();
+				$titles= array();
 
-			} else {
+				// Search properties
+				$is_anchor= preg_match( '/id=[\'|"](.*)?[\'|"]/i', stripslashes( $heading[2] ), $anchors );
+				$is_title= preg_match( '/title=[\'|"](.*)?[\'|"]/i', stripslashes( $heading[2] ), $titles );
 
-				$anchor = preg_replace( '/\s+/', '-', preg_replace('/[^a-z\s]/', '', strtolower( $heading[3] ) ) );
-				$add_id = true;
-
-			}
-
-			if ( !in_array( $anchor, $anchors ) )
-			{
-				$anchors[] = $anchor;
-
-			} else {
-
-				$orig_anchor = $anchor;
-				$i = 2;
-				while ( in_array( $anchor, $anchors ) )
+				// Use the given id
+				if ( $is_anchor && $anchors[1] != '' )
 				{
-					$anchor = $orig_anchor.'-'.$i;
-					$i++;
+					$anchor= stripslashes( $anchors[1] );
+
+				// Set manually an id="anchor_link_text" to the header
+				// and replace header
+				} else {
+
+					$anchor= $this->anchor_create( $heading[3] );
+					$content = substr_replace( $content, '<h'.$lvl.' id="'. $anchor .'"'.$heading[2].'>'.$heading[3].'</h'.$lvl.'>', strpos( $content, $heading[0] ), strlen( $heading[0] ) );
+
 				}
-				$anchors[] = $anchor;
 
-			}
-
-			if ( $add_id )
-			{
-				$content = substr_replace( $content, '<h'.$lvl.' id="'.$anchor.'"'.$heading[2].'>'.$heading[3].'</h'.$lvl.'>', strpos( $content, $heading[0] ), strlen( $heading[0] ) );
-			}
-
-			$ret = preg_match( '/title=[\'|"](.*)?[\'|"]/i', stripslashes( $heading[2] ), $title );
-			if ( $ret && $title[1] != '' )
-			{
-				$title = stripslashes( $title[1] );
-
-			} else {
-				$title = $heading[3];
-			}
-			$title = trim( strip_tags( $title ) );
-
-			if ($i > 0)
-			{
-				if ($prevlvl < $lvl)
+				// Create title property for the link
+				if ( $is_title && $titles[1] != '' )
 				{
-					$toc .= "\n<ol class=\"toc". ($lvl-1) ."\">"."\n";
-
-				} else if ($prevlvl > $lvl) {
-
-					$toc .= '</li>'."\n";
-					while ($prevlvl > $lvl)
-					{
-						$toc .= "</ol>"."\n".'</li>'."\n";
-						$prevlvl--;
-					}
+					$title= stripslashes( $titles[1] );
 
 				} else {
-					$toc .= '</li>'."\n";
+					$title= $heading[3];
 				}
-			}
+				$title= trim( strip_tags( $title ) );
 
-			$j = 0;
-			$toc .= '<li class="toc'. ($lvl-1) .'"><a href="#'.$anchor.'" title="'. $page_title .'::'. $title .'" class="toc anchor">'.$title.'</a>&nbsp;';
-			$prevlvl = $lvl;
 
-			$i++;
+				if ($i > 0)
+				{
+					if ($prevlvl < $lvl)
+					{
+						$toc .= "\n<ol class=\"toc". ($lvl-1) ."\">"."\n";
+
+					} else if ($prevlvl > $lvl) {
+
+						$toc .= '</li>'."\n";
+						while ($prevlvl > $lvl)
+						{
+							$toc .= "</ol>"."\n".'</li>'."\n";
+							$prevlvl--;
+						}
+
+					} else {
+						$toc .= '</li>'."\n";
+					}
+				}
+
+				$j = 0;
+				$toc .= '<li class="toc'. ($lvl-1) .'"><a href="#'. $anchor .'" title="'. $page_title .' :: '. $title .'" class="toc anchor">'.$title.'</a>&nbsp;';
+				$prevlvl = $lvl;
+
+				$i++;
 			}
 		}
 		unset( $anchors );
@@ -376,7 +375,7 @@ class LudwigMarkdown
 			}
 
 			// Generate Table of Content
-			$this->generated_toc= $this->toc_create($output, $this->modx->makeUrl($id), $this->modx->resource->get('pagetitle'), $this->toc_level_max);
+			$this->generated_toc= $this->toc_create($output, $this->modx->makeUrl($id), $this->modx->resource->get('menutitle'), $this->toc_level_max);
 
 			// Add CSS to header
 			$this->modx->markdown->add_css( 'toc.css' );
