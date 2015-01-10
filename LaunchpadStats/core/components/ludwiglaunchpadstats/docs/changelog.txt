@@ -1,0 +1,6 @@
+LudwigLaunchpadStats 1.0.0 (January 10, 2015)
+=============================================
+- Initial project
+- Initial changelog started
+
+

@@ -100,9 +100,11 @@ class LudwigMarkdown
 		if( is_array($new_output) )
 		{
 			// Add article tag for CSS to all Blocks
-			$output= preg_replace(	"|<pre id=\"markdown\">(.*)</pre>|Uis",
+			/*
+			$output= preg_replace(	"|<pre class=\"markdown\">(.*)</pre>|Uis",
 						"<article class=\"markdown\"><pre id=\"markdown\">$1</pre></article>",
 						$output);
+			*/
 
 			foreach( $new_output[0] as $key => $val )
 			{
@@ -113,7 +115,7 @@ class LudwigMarkdown
 		} else {
 
 			// Convert to HTML5 and add article tag to the content for CSS
-			$output= '<article class="markdown">'. $pandoc->runWith($new_output, $options) .'</article>';
+			$output= $pandoc->runWith($new_output, $options);
 
 		}
 
@@ -145,10 +147,12 @@ class LudwigMarkdown
 		// Markdown in blocks
 		if( is_array($new_output) )
 		{
+			/*
 			// Add article tag for CSS to all Blocks
 			$output= preg_replace(	"|<pre id=\"markdown\">(.*)</pre>|Uis",
 						"<article class=\"markdown\"><pre id=\"markdown\">$1</pre></article>",
 						$output);
+			*/
 
 			foreach( $new_output[0] as $key => $val )
 			{
@@ -159,7 +163,7 @@ class LudwigMarkdown
 		} else {
 
 			// Convert to HTML5 and add article tag to the content for CSS
-			$output= '<article class="markdown">'. $md->defaultTransform($new_output) .'</article>';
+			$output= $md->defaultTransform($new_output);
 
 		}
 

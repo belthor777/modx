@@ -1,0 +1,4 @@
+There are two licenses in this package. 
+LudwigLaunchpadStats Extra is using GPL Version 2, which you can 
+find here http://www.gnu.org/licenses/gpl-2.0.html.
+
