@@ -1,6 +1,6 @@
 <figure style="width:[[+width]]px;">
 	<div id="graph[[+idx]]" style="width:[[+width]]px;height:[[+height]]px;"></div>
-	<figcaption class="center"><span class="bold">Graph [[+idx]]:</span> [[+graph_title]]</figcaption>
+	<figcaption class="center"><span class="bold">Graph [[+idx]]:</span> [[+gtitle]] ([[+total_downloads]])</figcaption>
 </figure>
 
 <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart']}]}"></script>
@@ -12,7 +12,7 @@ function drawChart() {
 
 	// Compare Caching technique
 	var data[[+idx]] = google.visualization.arrayToDataTable([
-		["Element", "[[+title_hover]]", { role: "style" } ],
+		["Element", "[[+htitle]] ", { role: "style" } ],
 		[[+data]]
 	]);
 	var view[[+idx]] = new google.visualization.DataView(data[[+idx]]);

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * LudwigLaunchpadStats
  * Copyright (c) 2015 by Thomas Ludwig
@@ -34,24 +35,24 @@ class LudwigLaunchpadStats
 	private $modx;
 	
 	// Launchpad Variables
-	public $fields= array();
-	private $ppa_user= '';
-	private $ppa_name= '';
-	public $binary_name= '';
-	public $binary_status= 'Published';
-	private $url_ppa= '';
-	public $get_dl_stats= false;
-	public $get_dl_daily_stats= false;
-	private $is_config_set= false;
+	public $fields = array();
+	private $ppa_user = '';
+	private $ppa_name = '';
+	public $binary_name = '';
+	public $binary_status = 'Published';
+	private $url_ppa = '';
+	public $get_dl_stats = false;
+	public $get_dl_daily_stats = false;
+	private $is_config_set = false;
 	
 	// Package information
 	private $PKG_NAME;
 	private $PKG_NAME_LOWER;
 	
 	// Cache Variables
-	public $cache_expires= 0;
-	public $cached_content= '';
-	private $cache_options= array();
+	public $cache_expires = 0;
+	public $cached_content = '';
+	private $cache_options = array();
 	
 	// MODX REST
 	private $client;
@@ -64,23 +65,23 @@ class LudwigLaunchpadStats
 	public function __construct( modX &$modx )
 	{
 		// Define MODX Extra name
-		$this->modx= &$modx;
-		$this->PKG_NAME= 'LudwigLaunchpadStats';
-		$this->PKG_NAME_LOWER= strtolower( $this->PKG_NAME );
+		$this->modx = &$modx;
+		$this->PKG_NAME = 'LudwigLaunchpadStats';
+		$this->PKG_NAME_LOWER = strtolower( $this->PKG_NAME );
 		
 		/* load the ModX REST service */
-		$config= array(
-					'format' => 'json',  // json or xml, the format to request
-					'suppressSuffix' => true,  // if false, will append .json or .xml to the URI requested
-					'curlOptions' => array(
-							'timeout' => 30,  // cURL timeout
-							'otherCurlOption' => 1
-					), 
-					'headers' => array(), 
-					'userAgent' => 'MODX RestClient/1.0.0', 
-					'defaultParameters' => array()
+		$config = array(
+			'format' => 'json',  // json or xml, the format to request
+			'suppressSuffix' => true,  // if false, will append .json or .xml to the URI requested
+			'curlOptions' => array(
+				'timeout' => 30,  // cURL timeout
+				'otherCurlOption' => 1
+			), 
+			'headers' => array(), 
+			'userAgent' => 'MODX RestClient/1.0.0', 
+			'defaultParameters' => array()
 		);
-		$this->client= $this->modx->getService( 'rest', 'rest.modRest', '', $config );
+		$this->client = $this->modx->getService( 'rest', 'rest.modRest', '', $config );
 	
 	}
 
@@ -89,31 +90,40 @@ class LudwigLaunchpadStats
 	 *
 	 * @param array $conf_ary        	
 	 */
-	public function config( $conf_ary= array() )
+	public function config( $conf_ary = array() )
 	{
 		// Mandatory
 		if ( isset( $conf_ary['ppa_user'] ) && isset( $conf_ary['ppa_name'] ) )
 		{
-			$this->ppa_user= $conf_ary['ppa_user'];
-			$this->ppa_name= $conf_ary['ppa_name'];
-			$this->url_ppa= "https://api.launchpad.net/1.0/~" . $this->ppa_user . "/+archive/" . $this->ppa_name;
-			$this->is_config_set= true;
+			$this->ppa_user = $conf_ary['ppa_user'];
+			$this->ppa_name = $conf_ary['ppa_name'];
+			$this->url_ppa = 'https://api.launchpad.net/1.0/~' . $this->ppa_user . '/+archive/' . $this->ppa_name;
+			$this->is_config_set = true;
 		}
 		
 		// Recommended
 		if ( isset( $conf_ary['binary_name'] ) )
-			$this->binary_name= $conf_ary['binary_name'];
+		{
+			$this->binary_name = $conf_ary['binary_name'];
+		}
 		
+		// Recommended
 		if ( isset( $conf_ary['binary_status'] ) )
-			$this->binary_status= $conf_ary['binary_status']; // Deleted, Published....
-				                                                  
+		{
+			$this->binary_status = $conf_ary['binary_status']; // Deleted, Published....
+		}
+		
 		// Get enhanced Statistics
 		if ( isset( $conf_ary['get_dl_stats'] ) )
-			$this->get_dl_stats= (bool)$conf_ary['get_dl_stats'];
-			
-			// Get enhanced Statistics
+		{
+			$this->get_dl_stats = (bool)$conf_ary['get_dl_stats'];
+		}
+		
+		// Get enhanced Statistics
 		if ( isset( $conf_ary['get_dl_daily_stats'] ) )
-			$this->get_dl_stats= (bool)$conf_ary['get_dl_daily_stats'];
+		{
+			$this->get_dl_daily_stats = (bool)$conf_ary['get_dl_daily_stats'];
+		}
 	
 	}
 
@@ -123,10 +133,10 @@ class LudwigLaunchpadStats
 	 * @param string $url        	
 	 * @return number
 	 */
-	private function get_total_downloads( $url= '' )
+	private function get_total_downloads( $url = '' )
 	{
 
-		$resp= $this->client->get( $url . '?ws.op=getDownloadCount' );
+		$resp = $this->client->get( $url . '?ws.op=getDownloadCount' );
 		return ( intval( $resp->responseBody ) );
 	
 	}
@@ -138,20 +148,20 @@ class LudwigLaunchpadStats
 	 * @param string $start_date        	
 	 * @param string $end_date        	
 	 */
-	private function get_daily_downloads( $url= '', $start_date= '', $end_date= '' )
+	private function get_daily_downloads( $url = '', $start_date = '', $end_date = '' )
 	{
 
-		$t_window= '';
+		$t_window = '';
 		
 		// Filter End Date
 		if ( $end_date == '' )
-			$t_window= '&end_date=' . date( "Y-m-d" );
+			$t_window = '&end_date=' . date( "Y-m-d" );
 			
 			// Filter Start Date
 		if ( $start_date != '' )
-			$t_window= $t_window . '&start_date=' . $start_date;
+			$t_window = $t_window . '&start_date=' . $start_date;
 		
-		$resp= $this->client->get( $url . '?ws.op=getDailyDownloadTotals' . $t_window );
+		$resp = $this->client->get( $url . '?ws.op=getDailyDownloadTotals' . $t_window );
 		return ( $resp->responseBody );
 	
 	}
@@ -162,26 +172,26 @@ class LudwigLaunchpadStats
 	 * @param string $url        	
 	 * @param string $created_since_date        	
 	 */
-	private function get_PublishedBinaries( $url= '', $created_since_date= '-1 year' )
+	private function get_PublishedBinaries( $url = '', $created_since_date = '-1 year' )
 	{
 		// Variables
-		$status= '';
-		$binary_name= '';
+		$status = '';
+		$binary_name = '';
 		
 		if ( !empty( $this->binary_status ) )
-			$status= '&status=' . $this->binary_status;
+			$status = '&status=' . $this->binary_status;
 		
 		if ( !empty( $this->binary_name ) )
-			$binary_name= "&exact_match=true&binary_name=" . $this->binary_name;
+			$binary_name = "&exact_match=true&binary_name=" . $this->binary_name;
 		
 		if ( !empty( $created_since_date ) )
 		{
-			$created_since_date= "&created_since_date=" . date( "Y-m-d", strtotime( $created_since_date, time() ) );
+			$created_since_date = "&created_since_date=" . date( "Y-m-d", strtotime( $created_since_date, time() ) );
 		}
 		
-		$url= $url . '?ws.op=getPublishedBinaries' . $status . $binary_name . $created_since_date . '&ws.size=300';
+		$url = $url . '?ws.op=getPublishedBinaries' . $status . $binary_name . $created_since_date . '&ws.size=300';
 		
-		$resp= $this->client->get( $url );
+		$resp = $this->client->get( $url );
 		return ( $resp->responseBody );
 	
 	}
@@ -193,7 +203,7 @@ class LudwigLaunchpadStats
 	 * @param string $split        	
 	 * @return array
 	 */
-	private function get_PackageVersion( $version= '', $split= "~" )
+	private function get_PackageVersion( $version = '', $split = "~" )
 	{
 
 		return ( (array)explode( $split, $version ) );
@@ -206,19 +216,19 @@ class LudwigLaunchpadStats
 	 * @param string $url        	
 	 * @return array
 	 */
-	private function get_arch_destri( $url= '' )
+	private function get_arch_destri( $url = '' )
 	{
 
-		$stats= array(
-					"arch" => '', 
-					"distri" => ''
+		$stats = array(
+			"arch" => '', 
+			"distri" => ''
 		);
 		
-		$arch= explode( "/", $url );
+		$arch = explode( "/", $url );
 		if ( count( $arch ) > 2 )
 		{
-			$stats['arch']= end( $arch );
-			$stats['distri']= prev( $arch );
+			$stats['arch'] = end( $arch );
+			$stats['distri'] = prev( $arch );
 		}
 		
 		return ( (array)$stats );
@@ -233,10 +243,10 @@ class LudwigLaunchpadStats
 	 * @param string $skey
 	 *        	Array key to sum e.g. 'total_dl'
 	 */
-	private function add_download_sum( &$fields, $skey= 'total_dl' )
+	private function add_download_sum( &$fields, $skey = 'total_dl' )
 	{
 
-		$fields[$skey]= 0;
+		$fields[$skey] = 0;
 		
 		// Get next level
 		foreach( $fields as $key => $val )
@@ -244,13 +254,14 @@ class LudwigLaunchpadStats
 			if ( array_key_exists( $skey, $val ) )
 			{
 				
-				$fields[$skey]+= $val[$skey];
+				$fields[$skey] += $val[$skey];
+			
 			} else
 			{
 				
 				$this->add_download_sum( $val, $skey );
-				$fields[$key]= $val;
-				$fields[$skey]+= $val[$skey];
+				$fields[$key] = $val;
+				$fields[$skey] += $val[$skey];
 			}
 		}
 		return;
@@ -270,38 +281,38 @@ class LudwigLaunchpadStats
 		}
 		
 		// Iterate over all binaries
-		$url= $this->url_ppa;
+		$url = $this->url_ppa;
 		do
 		{
 			// Fetch Results
-			$res_ary= $this->modx->fromJSON( $this->get_PublishedBinaries( $url, '-5 years' ) );
+			$res_ary = $this->modx->fromJSON( $this->get_PublishedBinaries( $url, '-5 years' ) );
 			
 			// Variables
-			$arch_destri= array();
-			$pversion= array();
+			$arch_destri = array();
+			$pversion = array();
 			
 			// Get external informations
-			$posts= $res_ary['entries'];
-			$url= $res_ary['next_collection_link'];
-			$cursor= ( array_key_exists( 'next_collection_link', $res_ary ) ? true : false );
+			$posts = $res_ary['entries'];
+			$url = $res_ary['next_collection_link'];
+			$cursor = ( array_key_exists( 'next_collection_link', $res_ary ) ? true : false );
 			
 			if ( is_array( $res_ary ) && is_array( $posts ) && ( count( $posts ) > 0 ) )
 			{
 				foreach( $posts as $post )
 				{
-					$pversion= $this->get_PackageVersion( $post['binary_package_version'] );
-					$arch_destri= $this->get_arch_destri( $post['distro_arch_series_link'] );
+					$pversion = $this->get_PackageVersion( $post['binary_package_version'] );
+					$arch_destri = $this->get_arch_destri( $post['distro_arch_series_link'] );
 					
-					$bin_name= $post['binary_package_name'];
-					$distri= $arch_destri['distri'];
-					$arch= $arch_destri['arch'];
-					$published= strtotime( $post['date_published'] );
+					$bin_name = $post['binary_package_name'];
+					$distri = $arch_destri['distri'];
+					$arch = $arch_destri['arch'];
+					$published = strtotime( $post['date_published'] );
 					
-					$this->fields[$bin_name][$pversion[0]][$distri][$arch]= array(
-																				'self_link' => $post['self_link'], 
-																				'total_dl' => ( $this->get_dl_stats ) ? $this->get_total_downloads( $post['self_link'] ) : 0, 
-																				'daily_dl' => ( $this->get_dl_daily_stats ) ? $this->get_daily_downloads( $post['self_link'], date( 'Y-m-d', $published ) ) : "{}", 
-																				'date_published' => $published
+					$this->fields[$bin_name][$pversion[0]][$distri][$arch] = array(
+						'self_link' => $post['self_link'], 
+						'total_dl' => ( $this->get_dl_stats ) ? $this->get_total_downloads( $post['self_link'] ) : 0, 
+						'daily_dl' => ( $this->get_dl_daily_stats ) ? $this->get_daily_downloads( $post['self_link'], date( 'Y-m-d', $published ) ) : "{}", 
+						'date_published' => $published
 					);
 				}
 			}
@@ -310,7 +321,7 @@ class LudwigLaunchpadStats
 		// Get downloads count
 		if ( $this->get_dl_stats )
 		{
-			add_download_sum( $this->fields );
+			$this->add_download_sum( $this->fields );
 		}
 	
 	}
@@ -318,17 +329,18 @@ class LudwigLaunchpadStats
 	// Have we already cached the content?
 	/**
 	 */
-	public function is_cached( $url= '', $cache_it= false )
+	public function is_cached( $url = '', $cache_it = false )
 	{
 		// Using Modx Cache for 1h per URL
-		$this->cache_options= array(
-									"opt" => array(
-												xPDO::OPT_CACHE_KEY => $this->PKG_NAME, 
-												xPDO::OPT_CACHE_EXPIRES => $this->cache_expires
-									), 
-									"name" => $this->PKG_NAME_LOWER . '_' . md5( $url )
+		$this->cache_options = array(
+			"opt" => array(
+				xPDO::OPT_CACHE_KEY => $this->PKG_NAME, 
+				xPDO::OPT_CACHE_EXPIRES => $this->cache_expires
+			), 
+			"name" => $this->PKG_NAME_LOWER . '_' . md5( $url )
 		);
-		$this->cached_content= $this->modx->cacheManager->get( $this->cache_options["name"], $this->cache_options["opt"] );
+		
+		$this->cached_content = $this->modx->cacheManager->get( $this->cache_options["name"], $this->cache_options["opt"] );
 		if ( is_null( $this->cached_content ) || !(bool)$cache_it )
 		{
 			return ( false );
