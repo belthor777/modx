@@ -207,7 +207,7 @@ class LudwigLaunchpadStats
 
 
 	// Retrieve Data from Launchpad
-	public get_ppa_data()
+	public function get_ppa_data()
 	{
 		// Is this class already configured?
 		if ( !$this->is_config_set )
