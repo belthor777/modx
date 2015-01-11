@@ -1,2 +1,3 @@
 eclipse.preferences.version=1
 include_path=0;/LaunchpadStats
+org.eclipse.php.core.phpDoc=true
