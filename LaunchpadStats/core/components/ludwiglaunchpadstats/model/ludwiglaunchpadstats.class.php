@@ -50,7 +50,7 @@ class LudwigLaunchpadStats
 	private $PKG_NAME_LOWER;
 	
 	// Cache Variables
-	public $cache_expires = 86400;	// Cache it for one day (3600s * 24)
+	public $cache_expires = 86400; // Cache it for one day (3600s * 24)
 	public $cached_content = '';
 	private $cache_options = array();
 	private $cache_filename = '';
@@ -183,10 +183,14 @@ class LudwigLaunchpadStats
 		$binary_name = '';
 		
 		if ( !empty( $this->binary_status ) )
+		{
 			$status = '&status=' . $this->binary_status;
+		}
 		
 		if ( !empty( $this->binary_name ) )
+		{
 			$binary_name = "&exact_match=true&binary_name=" . $this->binary_name;
+		}
 		
 		if ( !empty( $created_since_date ) )
 		{
