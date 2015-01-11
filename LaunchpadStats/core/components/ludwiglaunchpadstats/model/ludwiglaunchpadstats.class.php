@@ -41,8 +41,8 @@ class LudwigLaunchpadStats
 	public $binary_name = '';
 	public $binary_status = 'Published';
 	private $url_ppa = '';
-	public $get_dl_stats = false;
-	public $get_dl_daily_stats = false;
+	private $get_dl_stats = false;
+	private $get_dl_daily_stats = false;
 	private $is_config_set = false;
 	
 	// Package information
@@ -50,9 +50,10 @@ class LudwigLaunchpadStats
 	private $PKG_NAME_LOWER;
 	
 	// Cache Variables
-	public $cache_expires = 0;
+	public $cache_expires = 86400;	// Cache it for one day (3600s * 24)
 	public $cached_content = '';
 	private $cache_options = array();
+	private $cache_filename = '';
 	
 	// MODX REST
 	private $client;
@@ -124,6 +125,9 @@ class LudwigLaunchpadStats
 		{
 			$this->get_dl_daily_stats = (bool)$conf_ary['get_dl_daily_stats'];
 		}
+		
+		// Set Cache filename
+		$this->cache_filename = $this->PKG_NAME_LOWER . '-' . md5( $this->url_ppa . '_' . $this->get_dl_stats . '_' . $this->get_dl_daily_stats );
 	
 	}
 
@@ -255,7 +259,6 @@ class LudwigLaunchpadStats
 			{
 				
 				$fields[$skey] += $val[$skey];
-			
 			} else
 			{
 				
@@ -280,83 +283,103 @@ class LudwigLaunchpadStats
 			return;
 		}
 		
-		// Iterate over all binaries
-		$url = $this->url_ppa;
-		do
+		// Is this content cached? If yes, load it directly into $this->fields
+		if ( !$this->is_cached() )
 		{
-			// Fetch Results
-			$res_ary = $this->modx->fromJSON( $this->get_PublishedBinaries( $url, '-5 years' ) );
 			
-			// Variables
-			$arch_destri = array();
-			$pversion = array();
-			
-			// Get external informations
-			$posts = $res_ary['entries'];
-			$url = $res_ary['next_collection_link'];
-			$cursor = ( array_key_exists( 'next_collection_link', $res_ary ) ? true : false );
-			
-			if ( is_array( $res_ary ) && is_array( $posts ) && ( count( $posts ) > 0 ) )
+			// Iterate over all binaries
+			$url = $this->url_ppa;
+			do
 			{
-				foreach( $posts as $post )
+				// Fetch Results
+				$res_ary = $this->modx->fromJSON( $this->get_PublishedBinaries( $url, '-5 years' ) );
+				
+				// Variables
+				$arch_destri = array();
+				$pversion = array();
+				
+				// Get external informations
+				$posts = $res_ary['entries'];
+				$url = $res_ary['next_collection_link'];
+				$cursor = ( array_key_exists( 'next_collection_link', $res_ary ) ? true : false );
+				
+				if ( is_array( $res_ary ) && is_array( $posts ) && ( count( $posts ) > 0 ) )
 				{
-					$pversion = $this->get_PackageVersion( $post['binary_package_version'] );
-					$arch_destri = $this->get_arch_destri( $post['distro_arch_series_link'] );
-					
-					$bin_name = $post['binary_package_name'];
-					$distri = $arch_destri['distri'];
-					$arch = $arch_destri['arch'];
-					$published = strtotime( $post['date_published'] );
-					
-					$this->fields[$bin_name][$pversion[0]][$distri][$arch] = array(
-						'self_link' => $post['self_link'], 
-						'total_dl' => ( $this->get_dl_stats ) ? $this->get_total_downloads( $post['self_link'] ) : 0, 
-						'daily_dl' => ( $this->get_dl_daily_stats ) ? $this->get_daily_downloads( $post['self_link'], date( 'Y-m-d', $published ) ) : "{}", 
-						'date_published' => $published
-					);
+					foreach( $posts as $post )
+					{
+						$pversion = $this->get_PackageVersion( $post['binary_package_version'] );
+						$arch_destri = $this->get_arch_destri( $post['distro_arch_series_link'] );
+						
+						$bin_name = $post['binary_package_name'];
+						$distri = $arch_destri['distri'];
+						$arch = $arch_destri['arch'];
+						$published = strtotime( $post['date_published'] );
+						
+						$this->fields[$bin_name][$pversion[0]][$distri][$arch] = array(
+							'self_link' => $post['self_link'], 
+							'total_dl' => ( $this->get_dl_stats ) ? $this->get_total_downloads( $post['self_link'] ) : 0, 
+							'daily_dl' => ( $this->get_dl_daily_stats ) ? $this->get_daily_downloads( $post['self_link'], date( 'Y-m-d', $published ) ) : "{}", 
+							'date_published' => $published
+						);
+					}
 				}
+			} while( $cursor );
+			
+			// Get downloads count
+			if ( $this->get_dl_stats )
+			{
+				$this->add_download_sum( $this->fields );
 			}
-		} while( $cursor );
-		
-		// Get downloads count
-		if ( $this->get_dl_stats )
-		{
-			$this->add_download_sum( $this->fields );
+			
+			// Save to Cache
+			$this->cache_me();
 		}
 	
 	}
-	
-	// Have we already cached the content?
+
 	/**
+	 * Have we already cached the content?
+	 *
+	 * @return boolean
 	 */
-	public function is_cached( $url = '', $cache_it = false )
+	private function is_cached()
 	{
-		// Using Modx Cache for 1h per URL
-		$this->cache_options = array(
-			"opt" => array(
-				xPDO::OPT_CACHE_KEY => $this->PKG_NAME, 
-				xPDO::OPT_CACHE_EXPIRES => $this->cache_expires
-			), 
-			"name" => $this->PKG_NAME_LOWER . '_' . md5( $url )
-		);
-		
-		$this->cached_content = $this->modx->cacheManager->get( $this->cache_options["name"], $this->cache_options["opt"] );
-		if ( is_null( $this->cached_content ) || !(bool)$cache_it )
+
+		if ( $this->is_config_set && !empty( $this->cache_filename ) )
 		{
-			return ( false );
+			
+			// Using Modx Cache for 1h per URL
+			$this->cache_options = array(
+				'opt' => array(
+					xPDO::OPT_CACHE_KEY => $this->PKG_NAME, 
+					xPDO::OPT_CACHE_EXPIRES => $this->cache_expires
+				), 
+				'name' => $this->cache_filename
+			);
+			
+			$this->cached_content = $this->modx->cacheManager->get( $this->cache_options['name'], $this->cache_options['opt'] );
+			if ( !is_null( $this->cached_content ) )
+			{
+				// Load cached content
+				$this->fields = json_decode( $this->cached_content, true );
+				
+				return ( true );
+			}
 		}
 		
-		return ( true );
+		return ( false );
 	
 	}
-	
-	// Cache content
-	public function cache_me( $content )
+
+	/**
+	 * Cache content
+	 */
+	private function cache_me()
 	{
 
 		if ( count( $this->cache_options ) > 0 )
 		{
-			$this->modx->cacheManager->set( $this->cache_options["name"], $content, $this->cache_expires, $this->cache_options["opt"] );
+			$this->modx->cacheManager->set( $this->cache_options['name'], json_encode( $this->fields ), $this->cache_expires, $this->cache_options['opt'] );
 		}
 		return;
 	
