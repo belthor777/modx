@@ -94,43 +94,53 @@ if ( !$modx->loadClass( $PKG_NAME, $ldpath, true, true ) || !$activated )
 		{
 			if ( ( $key !== 'total_dl' ) && ( $key !== 'web_link' ) )
 			{
-				$data[] = '["' . $key . '",' . $value['total_dl'] . ', '. $val['gcolor'] .']';
+				$data[] = '["' . $key . '",' . $value['total_dl'] . ', ' . $val['gcolor'] . ']';
 				
 				// Get Chunk for Software Information (version etc.) e.g. 7.3
 				foreach( $value as $vkey => $vvalue )
 				{
-					
-					// Distribution informations e.g. 14.10
-					$details = '';
-					foreach( $vvalue as $dkey => $dvalue )
+					if ( $vkey !== 'total_dl' )
 					{
 						
 						// Distribution informations e.g. 14.10
-						foreach( $dvalue as $akey => $avalue )
+						$details = '';
+						foreach( $vvalue as $dkey => $dvalue )
 						{
-							// Source information
-							$details .= $modx->getChunk( $val['dchunk'], array(
-								'datePublished' => date( 'Y-m-d', $avalue['date_published'] ), 
-								'dateCreated' => date( 'Y-m-d', $avalue['date_created'] ), 
-								'display_name' => $advalue['display_name'], 
-								'os' => 'Ubuntu ' . $akey, 
-								'version' => $dkey, 
-								'downloadUrl' => ''
-							) );
+							if ( $dkey !== 'total_dl' )
+							{
+								
+								// Distribution informations e.g. 14.10
+								foreach( $dvalue as $akey => $avalue )
+								{
+									if ( $akey !== 'total_dl' )
+									{
+										
+										// Source information
+										$details .= $modx->getChunk( $val['dchunk'], array(
+											'datePublished' => date( 'Y-m-d', $avalue['date_published'] ), 
+											'dateCreated' => date( 'Y-m-d', $avalue['date_created'] ), 
+											'display_name' => $advalue['display_name'], 
+											'os' => 'Ubuntu ' . $akey, 
+											'version' => $dkey, 
+											'downloadUrl' => ''
+										) );
+									}
+								}
+							}
 						}
-					}
-					
-					$output .= $modx->getChunk( $val['schunk'], array(
-						'binary_name' => $key, 
-						'category' => $val['category'], 
-						'downloads' => $vvalue['total_dl'], 
-						'version' => $vkey, 
-						'os' => 'Ubuntu ' . implode( ', Ubuntu ', array_keys( $vvalue ) ), 
-						'webLink' => $lls->fields['web_link'], 
 						
-						// Source information
-						'package_details' => $details
-					) );
+						$output .= $modx->getChunk( $val['schunk'], array(
+							'binary_name' => $key, 
+							'category' => $val['category'], 
+							'downloads' => $vvalue['total_dl'], 
+							'version' => $vkey, 
+							'os' => 'Ubuntu ' . implode( ', Ubuntu ', array_keys( $vvalue ) ), 
+							'webLink' => $lls->fields['web_link'], 
+							
+							// Source information
+							'package_details' => $details
+						) );
+					}
 				}
 			}
 		}
