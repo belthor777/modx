@@ -1,6 +1,7 @@
 <?php
 /**
  * Default English language strings
+ * 
  * @package ludwiglaunchpadstats
  * @subpackage lexicon
  */

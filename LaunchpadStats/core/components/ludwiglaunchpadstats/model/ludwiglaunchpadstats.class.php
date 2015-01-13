@@ -41,9 +41,11 @@ class LudwigLaunchpadStats
 	public $binary_name = '';
 	public $binary_status = 'Published';
 	private $url_ppa = '';
+	private $web_link= '';
 	private $get_dl_stats = false;
 	private $get_dl_daily_stats = false;
 	private $is_config_set = false;
+	private $use_googlegraph = true;
 	
 	// Package information
 	private $PKG_NAME;
@@ -99,6 +101,7 @@ class LudwigLaunchpadStats
 			$this->ppa_user = $conf_ary['ppa_user'];
 			$this->ppa_name = $conf_ary['ppa_name'];
 			$this->url_ppa = 'https://api.launchpad.net/1.0/~' . $this->ppa_user . '/+archive/' . $this->ppa_name;
+			$this->web_link = 'https://launchpad.net/~' . $this->ppa_user . '/+archive/ubuntu/' . $this->ppa_name;
 			$this->is_config_set = true;
 		}
 		
@@ -124,6 +127,12 @@ class LudwigLaunchpadStats
 		if ( isset( $conf_ary['get_dl_daily_stats'] ) )
 		{
 			$this->get_dl_daily_stats = (bool)$conf_ary['get_dl_daily_stats'];
+		}
+		
+		// Use Google Graph to show statistics?
+		if ( isset( $conf_ary['use_googlegraph'] ) )
+		{
+			$this->use_googlegraph = (bool)$conf_ary['use_googlegraph'];
 		}
 		
 		// Set Cache filename
@@ -323,11 +332,16 @@ class LudwigLaunchpadStats
 							'self_link' => $post['self_link'], 
 							'total_dl' => ( $this->get_dl_stats ) ? $this->get_total_downloads( $post['self_link'] ) : 0, 
 							'daily_dl' => ( $this->get_dl_daily_stats ) ? $this->get_daily_downloads( $post['self_link'], date( 'Y-m-d', $published ) ) : "{}", 
-							'date_published' => $published
+							'date_published' => $published, 
+							'date_created' => strtotime( $post['date_created'] ), 
+							'display_name' => $post['display_name']
 						);
 					}
 				}
 			} while( $cursor );
+			
+			// Add other fields
+			$this->fields['web_link'] = $this->web_link;
 			
 			// Get downloads count
 			if ( $this->get_dl_stats )
@@ -335,9 +349,28 @@ class LudwigLaunchpadStats
 				$this->add_download_sum( $this->fields );
 			}
 			
+			// Load Google Graph
+			$this->add_GoogleGraph();
+			
 			// Save to Cache
 			$this->cache_me();
 		}
+	
+	}
+
+	/**
+	 * Add Google Graph
+	 */
+	private function add_GoogleGraph()
+	{
+
+		if ( $this->use_googlegraph )
+		{
+			$url = "https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart']}]}";
+			$this->modx->regClientScript( $url );
+		}
+		
+		return;
 	
 	}
 

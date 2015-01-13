@@ -67,5 +67,5 @@
 .markdown pre code, pre tt { background-color: transparent; border: medium none; margin: 0px; padding: 0px;}
 .markdown pre > .markdown code { margin: 0px; padding: 0px; border: medium none; background: none repeat scroll 0% 0% transparent;}
 .markdown div.code > .markdown code { margin: 0px; padding: 0px; border: medium none; background: none repeat scroll 0% 0% transparent;}
-.markdown pre.code, .markdown div.code {text-shadow: 0 1px 0 rgba(255,255,255,.5); text-shadow: 0px 1px 0px rgb(255, 255, 255); box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1) inset, 35px 0px 0px rgba(0, 0, 0, 0.05) inset, 0px 1px 0px rgb(255, 255, 255);}
+.markdown pre.code, .markdown div.code {margin-top:10px;text-shadow: 0 1px 0 rgba(255,255,255,.5); text-shadow: 0px 1px 0px rgb(255, 255, 255); box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1) inset, 35px 0px 0px rgba(0, 0, 0, 0.05) inset, 0px 1px 0px rgb(255, 255, 255);}
 .markdown .code li {margin-bottom: 0px;}
