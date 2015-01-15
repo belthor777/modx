@@ -119,7 +119,7 @@ if(!$modx->loadClass($PKG_NAME, $ldpath, true, true))
 		// Content is cached, open it!
 		} else {
 
-			$output= $lsu>cached_content;
+			$output= $lsu->cached_content;
 
 		}
 
