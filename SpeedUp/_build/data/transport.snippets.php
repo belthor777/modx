@@ -28,15 +28,5 @@ $snippets[$i]->fromArray(array(
     'snippet' => getSnippetContent($sources['snippets'] . 'logtiming_charts.snippet.php')
 ),'',true,true);
 
-// Optimize CSS and JS
-$i++;
-$snippets[$i]= $modx->newObject('modSnippet');
-$snippets[$i]->fromArray(array(
-    'id' => $i,
-    'name' => 'ludwigspeedup_header',
-    'description' => 'Prepare CSS and JS files',
-    'snippet' => getSnippetContent($sources['snippets'] . 'ludwigspeedup_header.snippet.php')
-),'',true,true);
-
 return $snippets;
 ?>

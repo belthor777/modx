@@ -1,7 +1,8 @@
 <figure style="width:[[+width]]px;">
 	<div id="graph[[+idx]]" style="width:[[+width]]px;height:[[+height]]px;"></div>
 	<figcaption class="center"><span class="bold">Graph [[+idx]]:</span> [[+gtitle]] ([[+total_downloads]])</figcaption>
-	
+
+	<script src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart']}]}"></script>
 	<script type="text/javascript">
 	google.load('visualization', '1', {packages: ['corechart']});
 	google.setOnLoadCallback(drawChart);

@@ -349,13 +349,13 @@ class LudwigLaunchpadStats
 				$this->add_download_sum( $this->fields );
 			}
 			
-			// Load Google Graph
-			$this->add_GoogleGraph();
-			
 			// Save to Cache
 			$this->cache_me();
 		}
-	
+
+		// Load Google Graph
+		$this->add_GoogleGraph();
+		
 	}
 
 	/**

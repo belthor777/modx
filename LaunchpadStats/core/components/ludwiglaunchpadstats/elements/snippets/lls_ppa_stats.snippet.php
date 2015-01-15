@@ -42,7 +42,6 @@ $output = '';
 $val = array(
 	'gchunk' => $modx->getOption( 'gchunk', $props, 'lls_plot_stats' ),  // Set Graph Chunk name
 	'schunk' => $modx->getOption( 'schunk', $props, 'lls_ppa_info' ),  // Set Software Chunk name
-	'dchunk' => $modx->getOption( 'dchunk', $props, 'lls_ppa_info_details' ),  // Set Software Chunk Details
 	'ppa_user' => $modx->getOption( 'user', $props, '' ),  // PPA Username
 	'ppa_name' => $modx->getOption( 'ppa', $props, '' ),  // PPA Name
 	'binary_name' => $modx->getOption( 'bname', $props, '' ),  // Binary Name Filter
@@ -53,7 +52,9 @@ $val = array(
 	'gcolor' => $modx->getOption( 'gcolor', $props, '#BC5679;' ),  // Graph color
 	'height' => $modx->getOption( 'height', $props, 400 ),  // In Pixel: Graph Height
 	'width' => $modx->getOption( 'width', $props, 600 ), 
-	'category' => $modx->getOption( 'category', $props, 'http://schema.org/CommunicationApplication' )
+	'category' => $modx->getOption( 'category', $props, 'http://schema.org/CommunicationApplication' ),
+	'subcategory' => $modx->getOption( 'subcategory', $props, '' ),
+	'show_graph' =>  $modx->getOption( 'show_graph', $props, false ),
 ); // In Pixel: Graph Width
    
 // Get System Setting Options for activation
@@ -66,7 +67,9 @@ if ( !$modx->loadClass( $PKG_NAME, $ldpath, true, true ) || !$activated )
 	return ( 'There was a problem adding the ' . $PKG_NAME . ' package!  Check the logs for more info!' );
 } else
 {
-	
+	$dl_key= 'total_dl';
+
+
 	// Load Class
 	$lls = new LudwigLaunchpadStats( $modx );
 	
@@ -77,85 +80,86 @@ if ( !$modx->loadClass( $PKG_NAME, $ldpath, true, true ) || !$activated )
 		'binary_name' => $val['binary_name'], 
 		'binary_status' => $val['binary_status'], 
 		'get_dl_stats' => true, 
-		'get_dl_daily_stats' => false
+		'get_dl_daily_stats' => false,
+		'use_googlegraph' => false	// We insert it directly into the chunk
 	);
 	$lls->config( $conf_ary );
-	
+
 	// Get Data
 	$lls->get_ppa_data();
-	
+
 	// Plot Results
 	if ( is_array( $lls->fields ) && ( count( $lls->fields ) > 0 ) )
 	{
-		
+
 		// Package information e.g. twonkyserver
 		$data = array();
 		foreach( $lls->fields as $key => $value )
 		{
-			if ( ( $key !== 'total_dl' ) && ( $key !== 'web_link' ) )
+
+			if ( ( $key !== $dl_key ) && ( $key !== 'web_link' ) )
 			{
-				$data[] = '["' . $key . '",' . $value['total_dl'] . ', ' . $val['gcolor'] . ']';
+				// Does we need graph preparations?
+				if ($val['show_graph'])
+				{
+					$data[] = '["' . $key . '",' . $value[$dl_key] . ', "' . $val['gcolor'] . '"]';
+				}
 				
 				// Get Chunk for Software Information (version etc.) e.g. 7.3
 				foreach( $value as $vkey => $vvalue )
 				{
-					if ( $vkey !== 'total_dl' )
+					if ( $vkey !== $dl_key )
 					{
-						
-						// Distribution informations e.g. 14.10
-						$details = '';
-						foreach( $vvalue as $dkey => $dvalue )
+
+						// Delete Total_DL in Array
+						$os_ary= array_keys( $vvalue );
+						array_pop($os_ary);
+
+						// Get Architectures
+						$arch_ary= array();
+						foreach( $vvalue as $akey => $avalue )
 						{
-							if ( $dkey !== 'total_dl' )
+							if ( $akey !== $dl_key )
 							{
-								
-								// Distribution informations e.g. 14.10
-								foreach( $dvalue as $akey => $avalue )
-								{
-									if ( $akey !== 'total_dl' )
-									{
-										
-										// Source information
-										$details .= $modx->getChunk( $val['dchunk'], array(
-											'datePublished' => date( 'Y-m-d', $avalue['date_published'] ), 
-											'dateCreated' => date( 'Y-m-d', $avalue['date_created'] ), 
-											'display_name' => $advalue['display_name'], 
-											'os' => 'Ubuntu ' . $akey, 
-											'version' => $dkey, 
-											'downloadUrl' => ''
-										) );
-									}
-								}
+								$arch_ary= array_merge($arch_ary, array_keys($avalue));
 							}
 						}
-						
+						$arch_ary= array_unique( $arch_ary );
+						if(($archkey = array_search($dl_key, $arch_ary)) !== false) {
+    						unset($arch_ary[$archkey]);
+						}
+
+
 						$output .= $modx->getChunk( $val['schunk'], array(
+							'title' => $val['ppa_name'],
 							'binary_name' => $key, 
 							'category' => $val['category'], 
-							'downloads' => $vvalue['total_dl'], 
+							'subcategory' => $val['subcategory'], 
+							'downloads' => $vvalue[$dl_key], 
 							'version' => $vkey, 
-							'os' => 'Ubuntu ' . implode( ', Ubuntu ', array_keys( $vvalue ) ), 
-							'webLink' => $lls->fields['web_link'], 
-							
-							// Source information
-							'package_details' => $details
+							'os' => 'Ubuntu ' . ucwords( implode( ', Ubuntu ', $os_ary ) ), 
+							'arch' => implode( ',', $arch_ary ),
+							'webLink' => $lls->fields['web_link']
 						) );
 					}
 				}
 			}
 		}
-		
-		// Post Graph Data
-		$output .= $modx->getChunk( $val['gchunk'], array(
-			'data' => implode( ",", $data ), 
-			'idx' => 1, 
-			'title' => $val['title'], 
-			'htitle' => $val['htitle'], 
-			'gtitle' => $val['gtitle'], 
-			'width' => $val['width'], 
-			'height' => $val['height'], 
-			'total_downloads' => $lls->fields['total_dl']
-		) );
+
+		if ($val['show_graph'])
+		{
+			// Post Graph Data
+			$output .= $modx->getChunk( $val['gchunk'], array(
+				'data' => implode( ",", $data ), 
+				'idx' => 1, 
+				'title' => $val['title'], 
+				'htitle' => $val['htitle'], 
+				'gtitle' => $val['gtitle'], 
+				'width' => $val['width'], 
+				'height' => $val['height'], 
+				'total_downloads' => $lls->fields[$dl_key]
+			) );
+		}
 	}
 }
 

@@ -3,10 +3,10 @@
 	<meta itemprop="SoftwareApplicationCategory" content="[[+category]]"/>
 	<meta itemprop="interactionCount" content="UserDownloads:[[+downloads]]"/>
 	<meta itemprop="fileFormat" content="application/deb"/>
-	<meta itemprop="url" content="[[+webLink]]"/>
-	<span itemprop="SoftwareApplicationSubCategory">UPnP Server</span>
-	<span itemprop="applicationSuite">[[+title]]</span>
-	<span itemprop="operatingSystem">[[+os]]</span>
-	<span itemprop="softwareVersion">[[+version]]</span>
-	[[+package_details]]
+	<meta itemprop="SoftwareApplicationSubCategory" content="[[+subcategory]]"/>
+	<meta itemprop="applicationSuite" content="[[+title]]"/>
+	<meta itemprop="operatingSystem" content="[[+os]]"/>
+	<meta itemprop="processorRequirements" content="[[+arch]]"/>
+	<meta itemprop="softwareVersion" content="[[+version]]"/>
+	<link href="[[+webLink]]" itemprop="url"/>
 </div>

@@ -168,7 +168,7 @@ class LudwigMarkdown
 		}
 
 		// Add id to h1-h6
-		$output= preg_replace_callback(	"#<h([1-6])>(.*)<\/h[1-6]>#Usi",
+		$output= preg_replace_callback(	"#<h([2-6])>(.*)<\/h[2-6]>#Usi",
 						function($m) {
 							$s= array('+', '.');
 							$r= array('-', '');
@@ -258,7 +258,7 @@ class LudwigMarkdown
 	// Generate Table of Contents
 	private function toc_create( $content, $url, $page_title, $max_level )
 	{
-		preg_match_all( '/<h([1-6])([^<]+)>(.*)<\/h[1-6]>/i', $content, $matches, PREG_SET_ORDER );
+		preg_match_all( '/<h([2-6])([^<]+)>(.*)<\/h[2-6]>/i', $content, $matches, PREG_SET_ORDER );
 		$anchors= array();
 		$toc= '<ol id="toc" class="ym-clearfix">'."\n";
 		$i= 0;
@@ -429,5 +429,5 @@ class LudwigMarkdown
 
 		return( $output );
 	}
-
+	
 }
