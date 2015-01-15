@@ -31,58 +31,51 @@
  * @package ludwigspeedup
  *         
  */
-$PKG_NAME= 'LudwigSpeedUp';
-$PKG_NAME_LOWER= strtolower( $PKG_NAME );
+$PKG_NAME = 'LudwigSpeedUp';
+$PKG_NAME_LOWER = strtolower( $PKG_NAME );
 
 // Variables
 $output = '';
 
 // Check if package is installed and activated
-$ldpath = MODX_CORE_PATH.'components/'. $PKG_NAME_LOWER .'/model/';
-if(!$modx->addPackage($pak, $ldpath, $PKG_NAME_LOWER))
+$ldpath = MODX_CORE_PATH . 'components/' . $PKG_NAME_LOWER . '/model/';
+if ( !$modx->addPackage( $PKG_NAME, $ldpath, $PKG_NAME_LOWER . '_' ) )
 {
 	return;
-
-// Package is added
-} else {
-
-	$query = "	SELECT (   SELECT AVG(total_time)
+	
+	// Package is added
+} else
+{
+	
+	$query = "	SELECT (   SELECT ROUND( AVG(total_time), 3)
 				FROM   modx.ludwigspeedup_logtimings
 				WHERE  from_modx_cache = 0
 				) average_nocache,
 				(
-					SELECT AVG(total_time)
+					SELECT ROUND( AVG(total_time), 3)
 					FROM   modx.ludwigspeedup_logtimings
-					WHERE  from_modx_cache = 1
+					WHERE  from_modx_cache = 1 AND from_plugin_cache = 0
 				) average_cache,
 				(
-					SELECT AVG(total_time)
+					SELECT ROUND( AVG(total_time), 3)
 					FROM   modx.ludwigspeedup_logtimings
 					WHERE  from_plugin_cache = 1
 				) average_plugincache
 				FROM modx.ludwigspeedup_logtimings LIMIT 1";
 	
 	$res = $modx->query( $query );
-	if (is_object($res))
+	if ( is_object( $res ) )
 	{
- 		$row = $res->fetch(PDO::FETCH_ASSOC);
-		var_dump($row,true);
-		exit();
-	}	
-	
-	$data = array();
-	for( $i = 0; $i < count( $tv_ary["memory_peak"] ); $i++  )
-	{
-		$n = $i + 1;
-		$data[] = "[ $n," . $tv_ary["total_queries_time"][$i] . ',' . $tv_ary["total_parse_time"][$i] . ',' . $tv_ary["total"][$i] . " ]";
+		$row = $res->fetch( PDO::FETCH_ASSOC );
+		$data = '["Not Cached",' . $row['average_nocache'] . ', "#C5A5CF"],["Cached with MODX",' . $row['average_cache'] . ', "#BC5679;"],["Cached static",' . $row['average_plugincache'] . ', "silver"]';
+		
+		$output = $modx->getChunk( 'logtiming_charts', array(
+			'data' => $data, 
+			'legend' => "", 
+			'vAxis.title' => "'Time [s]'", 
+			'hAxis.title' => "'Measured Values'"
+		) );
 	}
-	
-	$output = $modx->getChunk( 'logtiming_charts', array(
-		'data' => implode( ', ', $data ), 
-		'legend' => "", 
-		'vAxis.title' => "'Time [s]'", 
-		'hAxis.title' => "'Measured Values'"
-	) );
 }
 
 return ( $output );
