@@ -4,7 +4,7 @@
  * @package ludwigspeedup
  * @subpackage build
  */
-define('PKG_NAME', 'LudwigSpeedUP');
+define('PKG_NAME', 'LudwigSpeedUp');
 define('PKG_NAME_LOWER', strtolower(PKG_NAME));
 
 $snippets = array();

@@ -30,7 +30,7 @@
  * version 2 or (at your option) any later version for ludwigspeedup sourcecode
  * @package ludwigspeedup
  **/
-define('PKG_NAME', 'LudwigSpeedUP');
+define('PKG_NAME', 'LudwigSpeedUp');
 define('PKG_NAME_LOWER', strtolower(PKG_NAME));
 
 // Variables

@@ -30,7 +30,7 @@
  * version 2 or (at your option) any later version for ludwigspeedup sourcecode
  * @package ludwigspeedup
  **/
-$PKG_NAME= 'LudwigSpeedUP';
+$PKG_NAME= 'LudwigSpeedUp';
 $PKG_NAME_LOWER= strtolower($PKG_NAME);
 
 /**
