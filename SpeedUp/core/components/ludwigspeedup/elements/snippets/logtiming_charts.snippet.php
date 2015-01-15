@@ -27,35 +27,62 @@
  * @author Thomas Ludwig <thomas@ludwig.im>
  * @copyright Copyright &copy; 2014
  * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License
- * version 2 or (at your option) any later version for ludwigspeedup sourcecode
+ *          version 2 or (at your option) any later version for ludwigspeedup sourcecode
  * @package ludwigspeedup
- **/
-define('PKG_NAME', 'LudwigSpeedUp');
-define('PKG_NAME_LOWER', strtolower(PKG_NAME));
+ *         
+ */
+$PKG_NAME= 'LudwigSpeedUp';
+$PKG_NAME_LOWER= strtolower( $PKG_NAME );
 
 // Variables
-$output= '';
+$output = '';
 
-// Decompress Timings
-$tv_content= gzuncompress( base64_decode ( $modx->resource->getTVValue('logtimings') ) );
-if ( ($tv_content != '') )
+// Check if package is installed and activated
+$ldpath = MODX_CORE_PATH.'components/'. $PKG_NAME_LOWER .'/model/';
+if(!$modx->addPackage($pak, $ldpath, $PKG_NAME_LOWER))
 {
-	// Decode Json to Array
-	$tv_ary= json_decode($tv_content, true);
+	return;
 
-	$data= array();
-	for( $i= 0; $i < count($tv_ary["memory_peak"]); $i++ )
+// Package is added
+} else {
+
+	$query = "	SELECT (   SELECT AVG(total_time)
+				FROM   modx.ludwigspeedup_logtimings
+				WHERE  from_modx_cache = 0
+				) average_nocache,
+				(
+					SELECT AVG(total_time)
+					FROM   modx.ludwigspeedup_logtimings
+					WHERE  from_modx_cache = 1
+				) average_cache,
+				(
+					SELECT AVG(total_time)
+					FROM   modx.ludwigspeedup_logtimings
+					WHERE  from_plugin_cache = 1
+				) average_plugincache
+				FROM modx.ludwigspeedup_logtimings LIMIT 1";
+	
+	$res = $modx->query( $query );
+	if (is_object($res))
 	{
-		$n= $i+1;
-		$data[]=  "[ $n,". $tv_ary["total_queries_time"][$i] .','. $tv_ary["total_parse_time"][$i] .','. $tv_ary["total"][$i] ." ]";
+ 		$row = $res->fetch(PDO::FETCH_ASSOC);
+		var_dump($row,true);
+		exit();
+	}	
+	
+	$data = array();
+	for( $i = 0; $i < count( $tv_ary["memory_peak"] ); $i++  )
+	{
+		$n = $i + 1;
+		$data[] = "[ $n," . $tv_ary["total_queries_time"][$i] . ',' . $tv_ary["total_parse_time"][$i] . ',' . $tv_ary["total"][$i] . " ]";
 	}
-
-	$output= $modx->getChunk('logtiming_charts', array(
-		'data' => implode(', ', $data),
-		'legend' => "",
-		'vAxis.title' => "'Time [s]'",
+	
+	$output = $modx->getChunk( 'logtiming_charts', array(
+		'data' => implode( ', ', $data ), 
+		'legend' => "", 
+		'vAxis.title' => "'Time [s]'", 
 		'hAxis.title' => "'Measured Values'"
-	));
+	) );
 }
 
-return( $output );
+return ( $output );
