@@ -18,6 +18,6 @@ class FacebookLike extends Requests implements ServiceInterface
 
     public function extractCount($data)
     {
-        return $data[0]['like_count'];
+        return ( ( isset( $data['data'] ) && isset( $data['data'][0] ) && isset( $data['data'][0]['like_count'] ) ) ? $data['data'][0]['like_count'] : 0 );
     }
 }

@@ -48,6 +48,9 @@ if ($modx->getOption( $pkg .'.activated', null, false, true ))
   // Jquery exists?
   $needJquery= $modx->getOption('needJquery', $scriptProperties, 1);	// Does we need jquery or is it already installed?
 
+  // AweSomeFonts exists?
+  $needASF= $modx->getOption('needASF', $scriptProperties, 1);	// Does we need AweSomeFonts or is it already installed?
+  
   // Check if infobutton is needed
   if ( ($infoUrl !== '') && (strpos($srv, "info") === false) )
   {
@@ -73,7 +76,8 @@ if ($modx->getOption( $pkg .'.activated', null, false, true ))
   // Add Shariff CSS files
   if ($addcss)
   {
-		$modx->regClientCSS( $assets_path . 'css/shariff.min.css' );
+  		$css_file= ($needASF) ? 'css/shariff.complete.css' : 'css/shariff.min.css';
+		$modx->regClientCSS( $assets_path . $css_file );
   }
 
   // Add Shariff JS files

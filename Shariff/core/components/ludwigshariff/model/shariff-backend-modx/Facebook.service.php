@@ -3,21 +3,30 @@
 class Facebook extends Requests implements ServiceInterface
 {
 
-    public function getName()
-    {
-        return 'facebook';
-    }
+	public function getName()
+	{
 
-    public function getRequest($url)
-    {
-        $facebookURL = 'https://api.facebook.com/method/fql.query?';
-        $facebookURL .= http_build_query( array('format' => 'json',
-                                                'query'  => 'select share_count from link_stat where url="' . $url . '"') );
-        return $this->createRequest($facebookURL);
-    }
+		return 'facebook';
+	
+	}
 
-    public function extractCount($data)
-    {
-        return $data[0]['share_count'];
-    }
+	public function getRequest( $url )
+	{
+
+		$facebookURL = 'https://api.facebook.com/method/fql.query?';
+		$facebookURL .= http_build_query( array(
+			'format' => 'json', 
+			'query' => 'SELECT total_count FROM link_stat WHERE url="' . $url . '"'
+		) );
+		return $this->createRequest( $facebookURL );
+	
+	}
+
+	public function extractCount( $data )
+	{
+
+		return ( ( isset( $data['data'] ) && isset( $data['data'][0] ) && isset( $data['data'][0]['total_count'] ) ) ? $data['data'][0]['total_count'] : 0 );
+	
+	}
+
 }
