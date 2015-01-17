@@ -1,6 +1,6 @@
 <?php
 
-class StumbleUpon extends Request implements ServiceInterface
+class StumbleUpon extends Requests implements ServiceInterface
 {
 
     public function getName()

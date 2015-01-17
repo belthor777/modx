@@ -1,6 +1,6 @@
 <?php
 
-class Reddit extends Request implements ServiceInterface
+class Reddit extends Requests implements ServiceInterface
 {
 
     public function getName()

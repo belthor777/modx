@@ -1,20 +1,31 @@
 <?php
 
-class Xing extends Request implements ServiceInterface
+class Xing extends Requests implements ServiceInterface
 {
 
-    public function getName()
-    {
-        return 'xing';
-    }
+	public function getName()
+	{
 
-    public function getRequest($url)
-    {
-        return ( $this->createRequest('https://www.xing-share.com/spi/shares/statistics', 'POST') );
-    }
+		return 'xing';
+	
+	}
 
-    public function extractCount($data)
-    {
-        return $data['share_counter'];
-    }
+	public function getRequest( $url )
+	{
+
+		$rq_url = 'https://www.xing-share.com/spi/shares/statistics';
+		
+		return ( $this->createRequest( $rq_url, 'POST', array(
+			'url' => $url
+		) ) );
+	
+	}
+
+	public function extractCount( $data )
+	{
+
+		return $data['share_counter'];
+	
+	}
+
 }

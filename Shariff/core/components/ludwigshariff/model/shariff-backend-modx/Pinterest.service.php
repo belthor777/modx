@@ -1,6 +1,6 @@
 <?php
 
-class Pinterest extends Request implements ServiceInterface
+class Pinterest extends Requests implements ServiceInterface
 {
 
 	public function getName()

@@ -16,8 +16,8 @@ class FacebookLike extends Requests implements ServiceInterface
         return $this->createRequest($facebookURL);
     }
 
-    public function extractCount($data)
+    public function extractCount($data= array())
     {
-        return ( ( isset( $data['data'] ) && isset( $data['data'][0] ) && isset( $data['data'][0]['like_count'] ) ) ? $data['data'][0]['like_count'] : 0 );
+            return ( ( isset( $data[0] ) && isset( $data[0]['like_count'] ) ) ? $data[0]['like_count'] : 0 );
     }
 }

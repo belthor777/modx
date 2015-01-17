@@ -18,6 +18,6 @@ class LinkedIn extends Requests implements ServiceInterface
 
     public function extractCount($data)
     {
-        return $data[0]['count'];
+        return $data['count'];
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-class Flattr extends Request implements ServiceInterface
+class Flattr extends Requests implements ServiceInterface
 {
 
     public function getName()
@@ -14,8 +14,13 @@ class Flattr extends Request implements ServiceInterface
         return $this->createRequest($url);
     }
 
-    public function extractCount($data)
+    public function extractCount($data= array())
     {
+    	if ($data['message'] == "not_found")
+    	{
+    		return 0;
+    	}
+    	
         return (isset($data['flattrs'])) ? $data['flattrs'] : 0;
     }
 }

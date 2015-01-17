@@ -25,7 +25,7 @@ class Facebook extends Requests implements ServiceInterface
 	public function extractCount( $data )
 	{
 
-		return ( ( isset( $data['data'] ) && isset( $data['data'][0] ) && isset( $data['data'][0]['total_count'] ) ) ? $data['data'][0]['total_count'] : 0 );
+		return ( ( isset( $data[0] ) && isset( $data[0]['total_count'] ) ) ? $data[0]['total_count'] : 0 );
 	
 	}
 

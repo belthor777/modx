@@ -1,3 +1,8 @@
+LudwigShariff 1.0.2 (January 17, 2015)
+====================================
+- Added backends: Flattr, Pinterest, StumbleUpon, Xing and Reddit
+- Added new option needAFS to snippet 
+
 LudwigShariff 1.0.1 (December 09, 2014)
 ====================================
 - Added Chunk ShariffInfo: Show count of shares in schema.org/UserInteraction format

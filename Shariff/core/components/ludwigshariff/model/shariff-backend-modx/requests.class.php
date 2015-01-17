@@ -58,7 +58,7 @@ class Requests
 			$this->client= $this->modx->getService('rest','rest.modRest','', $this->config);
 	}
 
-	protected function createRequest($url, $method = 'GET', $json = null)
+	protected function createRequest($url, $method = 'GET', $data = null)
 	{
 		$result= array();
 
@@ -68,7 +68,7 @@ class Requests
 				$result= $this->client->get($url);
 				break;
 			 case 'POST':
-			 	$result= $this->client->post($url, $json);
+			 	$result= $this->client->post($url, $data);
 			 	break;
 		}
 
