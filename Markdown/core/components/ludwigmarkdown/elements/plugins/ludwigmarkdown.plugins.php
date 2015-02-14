@@ -78,7 +78,7 @@ switch( $e->name )
 				$output = $modx->markdown->generate_phpmarkdown( $output );
 				
 				// Filter changed variables e.g. <p>[[+MYIMG.0]]</p> -> [[+MYIMG.0]]
-				$output = preg_replace( "#<p>\[\[([\+\!\$\?]+)([0-9a-z._-]+)\]\]</p>#i", "[[$1$2]]", $output );
+				$output= preg_replace("#<p>\[\[([\+|\!|\$|\?|\%|\*|0-9a-z]{1})([^\]]+)\]\]</p>#i", "[[$1$2]]", $output);
 			}
 			
 			// Use Syntax Highlighter Geshi?
