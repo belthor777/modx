@@ -382,7 +382,7 @@ class LudwigMarkdown
 			$this->generated_toc= $this->toc_create($output, $this->modx->makeUrl($id), $this->modx->resource->get('menutitle'), $this->toc_level_max);
 
 			// Add CSS to header
-			$this->modx->markdown->add_css( 'toc.css' );
+			$this->add_css( 'toc.css' );
 			
 			// Insert TOC
 			if ($insert_toc)
