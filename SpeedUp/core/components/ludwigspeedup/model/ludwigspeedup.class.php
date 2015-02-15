@@ -93,7 +93,13 @@ class LudwigSpeedUp
 		
 		/* load the ModX REST service */
 		$client = $this->modx->getService( 'rest', 'rest.modRest', '', $config );
-		return ( $client->get( $url )->responseBody );
+		$resp = $client->get( $url );
+		if ( empty( $resp->responseError ) )
+		{
+			return ( $resp->responseBody );
+		}
+		
+		return ( '' );
 	
 	}
 	
@@ -129,7 +135,7 @@ class LudwigSpeedUp
 			'$1',  // spaces
 			'}'
 		); // trailing;
-		      
+		   
 		// Save compression stats
 		$this->content = $this->compress_stats( 'css', $this->content, trim( preg_replace( $search, $replace, $this->content ) ) );
 		
@@ -302,12 +308,14 @@ class LudwigSpeedUp
 			$this->modx->sjscripts = array();
 			$this->modx->jscripts = array();
 			
+			$asset_url= urlencode( base64_encode( gzdeflate( $this->modx->resource->get( 'id' ) . '_extra', 9 ) ) ); 
+
 			// Generate URL
 			$url_ary = array(
-				'link' => '/assets/components/ludwigspeedup/services.php?css=' . $this->modx->resource->get( 'id' ) . '&amp;extra=1', 
-				'script' => '/assets/components/ludwigspeedup/services.php?js=' . $this->modx->resource->get( 'id' ) . '&amp;extra=1'
+				'link' => $this->generate_url( 'css', $asset_url ), 
+				'script' => $this->generate_url( 'js', $asset_url )
 			);
-			
+
 			// Insert new assets in HTML
 			// CSS after </html>
 			$this->insert_asset( 'text/css', $url_ary['link'], true );
