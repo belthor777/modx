@@ -380,9 +380,6 @@ class LudwigMarkdown
 
 			// Generate Table of Content
 			$this->generated_toc= $this->toc_create($output, $this->modx->makeUrl($id), $this->modx->resource->get('menutitle'), $this->toc_level_max);
-
-			// Add CSS to header
-			$this->add_css( 'toc.css' );
 			
 			// Insert TOC
 			if ($insert_toc)
@@ -392,6 +389,27 @@ class LudwigMarkdown
 		}
 	}
 
+	/**
+	 * Insert TOC CSS to MODX scripts
+	 */
+	public function insert_toc_css()
+	{
+		
+		// Modx Template Variable
+		$id = $this->modx->resource->get('id'); // This page's ID		
+		
+		// Get TV status
+		$tv_obj = $this->modx->getObject('modTemplateVar', array('name'=>$this->toc_modx_tv));
+		$tv_value= ($tv_obj) ? $tv_obj->getValue($id) : false;		
+
+		// Add CSS to header
+		if ( $tv_value === "true" )
+		{		
+			$this->add_css( 'toc.css' );			
+		}
+		
+	}
+	
 
 	// Insert table of content
 	public function insert_toc( $output= '' )
