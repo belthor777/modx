@@ -65,8 +65,8 @@ class LudwigSpeedUp
 		
 		// Get System Setting Options
 		$this->service_depth = $this->modx->getOption( $this->PKG_NAME_LOWER . '.collectassets.depth', null, 2, true ); // Recursive search depth: default=2
-		$this->seofriendly = 0; // $modx->getOption('friendly_alias_urls', null, false, true ); // For link generation
-	
+		$this->seofriendly = $modx->getOption('friendly_alias_urls', null, false, false ); // For link generation
+
 	}
 	
 	// Get External Files
