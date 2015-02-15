@@ -27,95 +27,85 @@
  * @author Thomas Ludwig <thomas@ludwig.im>
  * @copyright Copyright &copy; 2015
  * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License
- *          version 2 or (at your option) any later version for ludwigmarkdown sourcecode
+ * version 2 or (at your option) any later version for ludwigmarkdown sourcecode
  * @package ludwigmarkdown
- *         
- */
-$PKG_NAME = 'LudwigMarkdown';
-$PKG_NAME_LOWER = strtolower( $PKG_NAME );
+ **/
+$PKG_NAME= 'LudwigMarkdown';
+$PKG_NAME_LOWER= strtolower($PKG_NAME);
 
 // Check if the Extra is enabled
-$activated = array(
-	'extra' => $modx->getOption( $PKG_NAME_LOWER . '.activated' ), 
-	'syntaxhighlight' => $modx->getOption( $PKG_NAME_LOWER . '.use_syntaxhighlight' ), 
-	'toc' => $modx->getOption( $PKG_NAME_LOWER . '.use_toc' ), 
-	'use_pandoc' => $modx->getOption( $PKG_NAME_LOWER . '.use_pandoc' )
-);
+$activated = array(	'extra' => $modx->getOption(	$PKG_NAME_LOWER .'.activated'),
+					'syntaxhighlight' => $modx->getOption( $PKG_NAME_LOWER .'.use_syntaxhighlight'),
+					'toc' => $modx->getOption( $PKG_NAME_LOWER .'.use_toc'),
+					'use_pandoc' => $modx->getOption( $PKG_NAME_LOWER .'.use_pandoc') );
 
 $e = &$modx->Event;
-switch( $e->name )
+switch ($e->name)
 {
-	// Fires just before a document is saved to the database this event is called. 
-	// The QuickEdit module also invokes this event before the document is saved.
-	case 'OnBeforeDocFormSave':
-		break;
-	
 	// This event fires before any tags are parsed, we are going to use this to
 	// convert the markdown content
 	case 'OnLoadWebDocument':
-		
+
 		// Check if package is installed and activated
-		$ldpath = MODX_CORE_PATH . 'components/' . $PKG_NAME_LOWER . '/model/';
-		if ( !$modx->loadClass( $PKG_NAME, $ldpath, true, true ) || !$activated['extra'] )
+		$ldpath = MODX_CORE_PATH.'components/'. $PKG_NAME_LOWER .'/model/';
+		if(!$modx->loadClass($PKG_NAME, $ldpath, true, true) || !$activated['extra'] )
 		{
-			return ( 'There was a problem adding the ' . $PKG_NAME . ' package!  Check the logs for more info!' );
-		} else
-		{
-			
+			return('There was a problem adding the '. $PKG_NAME .' package!  Check the logs for more info!' );
+
+		} else {
+
 			// Get Content
-			$output = $modx->resource->get( 'content' );
-			
+			$output= $modx->resource->get('content');
+
 			// Select Parser: Default PHP-Markdown
-			$modx->markdown = new LudwigMarkdown( $modx );
-			if ( $activated['use_pandoc'] )
+			$modx->markdown = new LudwigMarkdown($modx);
+			if ($activated['use_pandoc'])
 			{
-				$output = $modx->markdown->generate_pandoc( $output );
-				
-				// Use PHP-Markdown
-			} else
-			{
-				
-				$output = $modx->markdown->generate_phpmarkdown( $output );
-				
+				$output= $modx->markdown->generate_pandoc( $output );
+
+			// Use PHP-Markdown
+			} else {
+
+				$output= $modx->markdown->generate_phpmarkdown( $output );
+
 				// Filter changed variables e.g. <p>[[+MYIMG.0]]</p> -> [[+MYIMG.0]]
-				$output= preg_replace("#<p>\[\[([\+|\!|\$|\?|\%|\*|0-9a-z]{1})([^\]]+)\]\]</p>#i", "[[$1$2]]", $output);
+				//$output= preg_replace("#<p>\[\[([\+\!\$\?]+)([0-9a-z._-]+)\]\]</p>#i", "[[$1$2]]", $output);
+				$output= preg_replace("#<p>\[\[([\+|\!|\$|\?|\%|\*|0-9a-z]{1})([^\]]+)\]\]</p>#i", "[[$1$2]]", $output);				
 			}
-			
+
 			// Use Syntax Highlighter Geshi?
-			if ( $activated['syntaxhighlight'] )
+			if ($activated['syntaxhighlight'])
 			{
-				$output = $modx->markdown->generate_geshi( $output );
+				$output= $modx->markdown->generate_geshi( $output );
 			}
-			
 
 			// Write Content to MODX Resource; NOT TO DATABASE!
-			$modx->resource->set( 'content', $output );
+			$modx->resource->set('content', $output);
+
 		}
-		
+
 		break;
-	
+
+
 	// This fires after all tags have been parsed (actually, right before the
-	// page is delivered to the browser).
+	// page is delivered to the browser)
 	case 'OnWebPagePrerender':
-		
-		// Check if package is already initialized
-		if ( class_exists( 'LudwigMarkdown' ) && ( $modx->markdown ) && $activated['toc'] )
+
+		// Check if package is already initialized and if table of content is activated?
+		if ( class_exists('LudwigMarkdown') && ($modx->markdown) && $activated['toc'] )
 		{
-			// Use table of content?
-			if ( $activated['toc'] )
-			{
-				$modx->markdown->generate_toc( $output );
+				$modx->markdown->generate_toc( $modx->resource->_output );
 				$modx->resource->_output = $modx->markdown->insert_toc( $modx->resource->_output );
-			}			
-	
 		}
-		
+
 		break;
-	
+
+
 	// This event fires right before the cache is written to.
 	case 'OnBeforeSaveWebPageCache':
 		break;
-	
+
+
 	default:
 		break;
 }
