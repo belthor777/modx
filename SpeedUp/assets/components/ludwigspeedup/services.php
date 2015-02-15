@@ -73,8 +73,7 @@ if ( !$modx->loadClass( $PKG_NAME, $ldpath, true, true ) )
 		$cache_plugin = $modx->getOption( $PKG_NAME_LOWER . '.plugin-cache_enabled', null, false, true );
 		
 		// Is the content already cached?
-		// if ( !$lsu->is_cached( $in_str, $cache_plugin ) )
-		if ( true )
+		if ( !$lsu->is_cached( $in_str, $cache_plugin ) )
 		{
 			
 			// Get plugin or snippet assets
