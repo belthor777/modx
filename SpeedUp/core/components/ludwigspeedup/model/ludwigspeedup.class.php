@@ -94,7 +94,7 @@ class LudwigSpeedUp
 		/* load the ModX REST service */
 		$client = $this->modx->getService( 'rest', 'rest.modRest', '', $config );
 		$resp = $client->get( $url );
-		if ( empty( $resp->responseError ) )
+		if ( empty( $resp->responseError ) && ( $resp->responseInfo->scalar === 200 ) )
 		{
 			return ( $resp->responseBody );
 		}
@@ -308,14 +308,14 @@ class LudwigSpeedUp
 			$this->modx->sjscripts = array();
 			$this->modx->jscripts = array();
 			
-			$asset_url= urlencode( base64_encode( gzdeflate( $this->modx->resource->get( 'id' ) . '_extra', 9 ) ) ); 
-
+			$asset_url = urlencode( base64_encode( gzdeflate( $this->modx->resource->get( 'id' ) . '_extra', 9 ) ) );
+			
 			// Generate URL
 			$url_ary = array(
 				'link' => $this->generate_url( 'css', $asset_url ), 
 				'script' => $this->generate_url( 'js', $asset_url )
 			);
-
+			
 			// Insert new assets in HTML
 			// CSS after </html>
 			$this->insert_asset( 'text/css', $url_ary['link'], true );

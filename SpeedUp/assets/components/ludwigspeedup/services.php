@@ -23,7 +23,7 @@
  *
  * @version 1.0
  * @author Thomas Ludwig <thomas@ludwig.im>
- * @copyright Copyright &copy; 2014
+ * @copyright Copyright &copy; 2015
  * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License
  *          version 2 or (at your option) any later version for ludwigspeedup
  * @package ludwigspeedup
