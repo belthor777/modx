@@ -1,3 +1,8 @@
+LudwigShariff 1.0.2 (May 15, 2015)
+====================================
+- Changed to Shariff 1.13.0
+- Fixed some small bugs 
+
 LudwigShariff 1.0.2 (January 17, 2015)
 ====================================
 - Added backends: Flattr, Pinterest, StumbleUpon, Xing and Reddit
