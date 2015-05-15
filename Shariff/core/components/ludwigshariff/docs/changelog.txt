@@ -1,4 +1,4 @@
-LudwigShariff 1.0.2 (May 15, 2015)
+LudwigShariff 1.0.3 (May 15, 2015)
 ====================================
 - Changed to Shariff 1.13.0
 - Fixed some small bugs 
