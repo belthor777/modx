@@ -20,7 +20,7 @@ $name = PKG_NAME_LOWER . '.services';
 $settings[$name] = $modx->newObject( 'modSystemSetting' );
 $settings[$name]->fromArray( array(
 	'key' => $name, 
-	'value' => 'facebook,googleplus,twitter', 
+	'value' => 'twitter,facebook,googleplus,linkedin,pinterest,xing,whatsapp',		
 	'xtype' => 'textfield', 
 	'namespace' => PKG_NAME_LOWER, 
 	'area' => 'general'

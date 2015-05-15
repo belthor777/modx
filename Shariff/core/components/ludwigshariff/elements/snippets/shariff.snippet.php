@@ -2,7 +2,7 @@
 /**
  * Shariff
  *
- * Copyright 2014 by Thomas Ludwig <thomas@ludwig.im>
+ * Copyright 2015 by Thomas Ludwig <thomas@ludwig.im>
  *
  * Shariff is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free
