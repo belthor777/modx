@@ -1,8 +1,8 @@
 --------------------
 LudwigShariff
 --------------------
-Version: 1.0.0
-Since: December 1st, 2014
+Version: 1.0.3
+Since: May 15th, 2015
 Author: Thomas Ludwig <thomas@ludwig.im>
 
 LudwigShariff integrates Shariff to your Modx installation.
