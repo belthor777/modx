@@ -22,7 +22,7 @@
  * @subpackage snippet
  *
  * @author      Thomas Ludwig (thomas@ludwig.im)
- * @copyright   Copyright 2014, Thomas Ludwig
+ * @copyright   Copyright 2015, Thomas Ludwig
  * @version     1.0.0
  */
 $pkg= "ludwigshariff";
@@ -66,7 +66,7 @@ if ($modx->getOption( $pkg .'.activated', null, false, true ))
   // Prepare Shariff options
   $data= array(	 "class" => $class,
 				  "data-backend-url" => ( ($backend) ? $assets_path ."services.php" : '' ),
-				  "data-url" => ( (!$extUrl) ? $modx->makeUrl( $modx->resource->get('id'), '', '', 'full' ) : $extUrl ),
+				  "data-url" => rtrim( ( (!$extUrl) ? $modx->makeUrl( $modx->resource->get('id'), '', '', 'full' ) : $extUrl ), "/" ),
 				  "data-services" => $srv,
 				  "data-theme" => $theme,
 				  "data-orientation" => $orientation,
