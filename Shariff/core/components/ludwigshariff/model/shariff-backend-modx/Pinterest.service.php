@@ -15,8 +15,8 @@ class Pinterest extends Requests implements ServiceInterface
 
 		$pinteresturl = 'http://api.pinterest.com/v1/urls/count.json?';
 		$pinteresturl .= http_build_query( array(
-			'callback' => ' ', 
-			'url' => urlencode( $url )
+			'callback' => 'receiveCount', 
+			'url' => $url
 		) );
 		return ( $this->createRequest( $pinteresturl ) );
 	
@@ -24,6 +24,8 @@ class Pinterest extends Requests implements ServiceInterface
 
 	public function extractCount( $data )
 	{
+		$data= $this->modx->fromJSON( preg_replace("/[^(]*\((.*)\)/", "$1", $data) );
+		
 		// Answer: receiveCount({"url":"http://google.com","count":11278})
 		return $data['count'];
 	
