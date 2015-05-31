@@ -64,16 +64,19 @@ if ( $modx->getOption( $pkg . '.activated', null, false, true ) )
 	$orientation = $modx->getOption( 'orientation', $scriptProperties, '' ); // Orientation
 	$infoUrl = $modx->getOption( 'infoUrl', $scriptProperties, '' ); // Information URL
 	$extUrl = $modx->getOption( 'extUrl', $scriptProperties, false ); // External URL: Has to be defined in the whitelist
+	$emailAdr = $modx->getOption( 'email', $scriptProperties, false ); // The url target used for the mail service button
+	$track = $modx->getOption( 'track', $scriptProperties, null ); // A string that will be appended to the share url
+	$twittervia = $modx->getOption( 'twittervia', $scriptProperties, null ); // Screen name of the user to attribute the Tweet to
 	$lang = $modx->getOption( 'lang', $scriptProperties, $modx->getOption( 'cultureKey' ) ); // Language
 	
 	$cssid = $modx->getOption( 'cssid', $scriptProperties, '' ); // Individual ID to style the a special element
-	                                                          
+
 	// Jquery exists?
 	$needJquery = $modx->getOption( 'needJquery', $scriptProperties, 1 ); // Does we need jquery or is it already installed?
 	                                                                   
 	// AweSomeFonts exists?
 	$needASF = $modx->getOption( 'needASF', $scriptProperties, 1 ); // Does we need AweSomeFonts or is it already installed?
-	                                                             
+
 	// Check if infobutton is needed
 	if ( ( $infoUrl !== '' ) && ( strpos( $srv, "info" ) === false ) )
 	{
@@ -95,9 +98,14 @@ if ( $modx->getOption( $pkg . '.activated', null, false, true ) )
 		"data-theme" => $theme, 
 		"data-orientation" => $orientation, 
 		"data-lang" => $lang, 
+		"data-mail-url" => ( ($emailAdr) ? "mailto:". $emailAdr : 'mailto:myfriend@gmail.com' ),
+		"data-mail-subject" => $modx->resource->get('pagetitle'),
+		"data-mail-body" => '',
+		"data-referrer-track" => $track,
+		"data-twitter-via" => $twittervia,
 		"data-info-url" => $infoUrl
 	);
-	
+
 	// Add Shariff CSS files
 	if ( $addcss )
 	{
