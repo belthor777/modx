@@ -1,7 +1,7 @@
 --------------------
 LudwigShariff
 --------------------
-Version: 1.0.3
+Version: 1.13.0
 Since: May 15th, 2015
 Author: Thomas Ludwig <thomas@ludwig.im>
 

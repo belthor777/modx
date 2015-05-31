@@ -1,3 +1,8 @@
+LudwigShariff 1.13.0 (May 31, 2015)
+====================================
+- Added email options
+- Changed revision number to latest shariff revision
+
 LudwigShariff 1.0.3 (May 15, 2015)
 ====================================
 - Changed to Shariff 1.13.0
