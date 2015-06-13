@@ -1,7 +1,11 @@
+LudwigQRcode 1.1.0 (June 13, 2015)
+====================================
+- Added external link support by using type 'linkext'
+- Fixed some bugs
+
 LudwigQRcode 1.0.0 (October 31, 2014)
 ====================================
 - Initial project
 - Initial changelog started
 
-
-Visit https://ludwig.im/en/projects/ludwigqrcode-phpqrcode-for-modx for more information
+Visit https://ludwig.im/en/projects/ludwigqrcode-qrcode-for-modx for more information
