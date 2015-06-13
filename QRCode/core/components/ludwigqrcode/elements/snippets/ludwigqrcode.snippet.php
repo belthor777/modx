@@ -52,6 +52,7 @@ $val= array('chunk' => $modx->getOption('chunk', $props, 'qrcode'),	// Set Chunk
 				'itemprop' => $modx->getOption('itemprop', $props, 'logo'),
 				'fore_color' => $modx->getOption('fcolor', $props, '0x000000'),
 				'back_color' => 'transparent',
+				'pos_color' => $modx->getOption('pcolor', $props, $modx->getOption('fcolor', $props, '0x000000') ),
 				'size' => false,
 				'margin' => $modx->getOption('margin', $props, 4),
 				'compress' => false,
@@ -198,7 +199,8 @@ if (is_a($qr, 'QRcode'))
 						$val['margin'],
 						$val['compress'],
 						$val['back_color'],
-						$val['fore_color'] );
+						$val['fore_color'],
+						$val['pos_color'] );
 	}
 
 	$chunk = $modx->getObject( 'modChunk',array( 'name' => $val['chunk'] ) );

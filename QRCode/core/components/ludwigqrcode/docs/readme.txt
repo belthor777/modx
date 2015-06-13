@@ -1,7 +1,7 @@
 --------------------
 LudwigQRcode
 --------------------
-Version: 1.1.0
+Version: 1.1.1
 Since: June 13th, 2015
 Author: Thomas Ludwig <thomas@ludwig.im>
 
