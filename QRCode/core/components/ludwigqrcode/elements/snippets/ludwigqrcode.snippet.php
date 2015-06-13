@@ -25,7 +25,7 @@
  *
  * @version 1.0
  * @author Thomas Ludwig <thomas@ludwig.im>
- * @copyright Copyright &copy; 2014
+ * @copyright Copyright &copy; 2015
  * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License
  * version 2 or (at your option) any later version for ludwigqrcode and phpqrcode sourcecode
  * @package ludwigqrcode
@@ -67,6 +67,10 @@ switch ($val['type'])
         $val['txt'] = "MEBKM:TITLE:". $modx->resource->get('pagetitle') .";URL:". $modx->makeUrl($val['id'],'','','full') .";";
         break;
 
+    case 'linkext':
+      	$val['txt'] = "MEBKM:TITLE:". $val['alt'] .";URL:". $val['txt'] .";";
+       	break;        
+        
 	case 'bookmark':
         $val['txt'] = "MEBKM:TITLE:". $val['txt'] .";URL:". $modx->makeUrl($val['id'],'','','full') .";";
         break;
