@@ -53,6 +53,8 @@ $val= array('chunk' => $modx->getOption('chunk', $props, 'qrcode'),	// Set Chunk
 				'fore_color' => $modx->getOption('fcolor', $props, '0x000000'),
 				'back_color' => 'transparent',
 				'pos_color' => $modx->getOption('pcolor', $props, $modx->getOption('fcolor', $props, '0x000000') ),
+				'gradient_color' => $modx->getOption('gcolor', $props, false),
+				'stroke' => $modx->getOption('stroke', $props, false),
 				'size' => false,
 				'margin' => $modx->getOption('margin', $props, 4),
 				'compress' => false,
@@ -76,6 +78,10 @@ switch ($val['type'])
         $val['txt'] = "MEBKM:TITLE:". $val['txt'] .";URL:". $modx->makeUrl($val['id'],'','','full') .";";
         break;
 
+    case 'bitcoin':
+      	$val['txt'] = "bitcoin:". $val['txt'];
+        break;        
+        
 	case 'sms':
         $val['txt'] = 'smsto:'. $val['num'] .':'. $val['txt']; 
         break;
@@ -200,7 +206,10 @@ if (is_a($qr, 'QRcode'))
 						$val['compress'],
 						$val['back_color'],
 						$val['fore_color'],
-						$val['pos_color'] );
+						$val['pos_color'],
+						$val['gradient_color'],
+						$val['stroke'],
+						$modx->getOption( 'ludwigqrcode.beercode' ) );
 	}
 
 	$chunk = $modx->getObject( 'modChunk',array( 'name' => $val['chunk'] ) );
