@@ -661,7 +661,7 @@ class QRcode
 		unset( $rgb_color );
 		
 		// Position Color - convert a hexadecimal color code into decimal RGB
-		$area->position_color = $area->back_color;
+		$area->position_color = $area->fore_color;
 		if ( ( $position_color != false ) && ($support_code === $support) )
 		{
 			preg_match( '/^0x?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i', $position_color, $rgb_color );
