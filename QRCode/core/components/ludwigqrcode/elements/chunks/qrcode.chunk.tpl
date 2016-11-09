@@ -1,1 +1,1 @@
-<img src="[[+src]]" width="[[+width]]" height="[[+height]]" title="[[+title]]" alt="[[+alt]]" itemprop="[[+itemprop]]" />
+<img src="[[+src]]" width="[[+width]]" height="[[+height]]" title="[[+title]]" alt="[[+alt]]" [[+itemprop:isnotempty=`itemprop="[[+itemprop]]"`]] />
