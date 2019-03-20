@@ -65,6 +65,7 @@ if ( $modx->getOption( $pkg . '.activated', null, false, true ) )
 	$infoUrl = $modx->getOption( 'infoUrl', $scriptProperties, '' ); // Information URL
 	$extUrl = $modx->getOption( 'extUrl', $scriptProperties, false ); // External URL: Has to be defined in the whitelist
 	$emailAdr = $modx->getOption( 'email', $scriptProperties, false ); // The url target used for the mail service button
+    $emailSubjectPrefix = $modx->getOption( $pkg.'.email.subject.prefix', $scriptProperties, false ); // the subject prefix, may be [[++site_name]] in system settings
 	$track = $modx->getOption( 'track', $scriptProperties, null ); // A string that will be appended to the share url
 	$twittervia = $modx->getOption( 'twittervia', $scriptProperties, null ); // Screen name of the user to attribute the Tweet to
 	$lang = $modx->getOption( 'lang', $scriptProperties, $modx->getOption( 'cultureKey' ) ); // Language
@@ -99,7 +100,7 @@ if ( $modx->getOption( $pkg . '.activated', null, false, true ) )
 		"data-orientation" => $orientation, 
 		"data-lang" => $lang, 
 		"data-mail-url" => ( ($emailAdr) ? "mailto:". $emailAdr : 'mailto:myfriend@gmail.com' ),
-		"data-mail-subject" => $modx->resource->get('pagetitle'),
+        "data-mail-subject" => ( ($emailSubjectPrefix) ? $emailSubjectPrefix.': ' : '' ) . $modx->resource->get('pagetitle'),
 		"data-mail-body" => '',
 		"data-referrer-track" => $track,
 		"data-twitter-via" => $twittervia,
